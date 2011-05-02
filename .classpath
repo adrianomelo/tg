@@ -2,8 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="doc/owlapi"/>
-	<classpathentry kind="lib" path="jar/owlapi-bin.jar"/>
-	<classpathentry kind="lib" path="jar/owlapi-src.jar"/>
+	<classpathentry kind="lib" path="jar/owlapi-bin.jar" sourcepath="jar/owlapi-src.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

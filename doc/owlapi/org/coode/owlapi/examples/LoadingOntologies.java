@@ -79,7 +79,7 @@ public class LoadingOntologies {
             // We can also load ontologies from files.  Download the pizza ontology from
             // http://www.co-ode.org/ontologies/pizza/pizza.owl and put it somewhere on your hard drive
             // Create a file object that points to the local copy
-            File file = new File("/tmp/pizza.owl");
+            File file = new File("doc/owl/hierarquia.owl");
 
             // Now load the local copy
             OWLOntology localPizza = manager.loadOntologyFromOntologyDocument(file);
