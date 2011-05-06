@@ -32,49 +32,6 @@
     
 
 
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_1 -->
-
-    <owl:Class rdf:about="&teste;classe_1"/>
-
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_2 -->
-
-    <owl:Class rdf:about="&teste;classe_2"/>
-    
-
-
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_3 -->
-
-    <owl:Class rdf:about="&teste;classe_3"/>
-    
-
-
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_4 -->
-
-    <owl:Class rdf:about="&teste;classe_4"/>
-    
-
-
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_5 -->
-
-    <owl:Class rdf:about="&teste;classe_5">
-        <rdfs:subClassOf rdf:resource="&teste;classe_2"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_6 -->
-
-    <owl:Class rdf:about="&teste;classe_6">
-        <rdfs:subClassOf rdf:resource="&teste;classe_5"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.cin.ufpe.br/~astm/teste.owl#classe_7 -->
-
-    <owl:Class rdf:about="&teste;classe_7">
-        <rdfs:subClassOf rdf:resource="&teste;classe_6"/>
-    </owl:Class>
 </rdf:RDF>
 
 
