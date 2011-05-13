@@ -24,14 +24,10 @@ public class Main {
 			while (it1.hasNext()){
 				OWLClass c1 = it1.next();
 				
-				Iterator<OWLClass> it2 = classes.iterator();
-				while (it2.hasNext()){
-					OWLClass c2 = it2.next();
-					
-					if (!c1.equals(c2)){
-						System.out.println(c1 + " - " + c2);
-					}
-				}
+				ontology.getClassProperties(c1);
+				ontology.getSuperClasses(c1);
+				ontology.getEquivalentClasses(c1);
+				System.out.println();
 			}
 		
 		} catch (OWLOntologyCreationException e) {
