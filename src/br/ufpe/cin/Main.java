@@ -1,56 +1,42 @@
 package br.ufpe.cin;
 
-import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
-import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
 
 public class Main {
 	public static void main(String[] args) {
+		System.out.println("The Conexions Method - Matriz Transformation");
+		
+		String file = "doc/owl/pizza.owl";
+		// String file = "doc/owl/hierarquia.owl";
+		// String file = "doc/owl/blank.owl";
+
 		try {
+			Ontology ontology = new Ontology();
+			ontology.loadFromFile(file);
+		
+			Set<OWLClass> classes = ontology.getClasses();
 			
-			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-			
-			File file = new File("doc/owl/hierarquia.owl");
-			
-			OWLOntology ont = manager.loadOntologyFromOntologyDocument(file);
-			System.out.println("Loaded ontology: " + ont);
-			
-			IRI documentIRI = manager.getOntologyDocumentIRI(ont);
-			System.out.println("    from: " + documentIRI);
-			
-			Set<OWLOntology> set = Collections.singleton(ont);
-			OntologyVisitor vist = new OntologyVisitor(set);
-			
-			manager.removeOntology(ont);
-			
+			Iterator<OWLClass> it1 = classes.iterator();
+			while (it1.hasNext()){
+				OWLClass c1 = it1.next();
+				
+				Iterator<OWLClass> it2 = classes.iterator();
+				while (it2.hasNext()){
+					OWLClass c2 = it2.next();
+					
+					if (!c1.equals(c2)){
+						System.out.println(c1 + " - " + c2);
+					}
+				}
+			}
+		
 		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	private static class OntologyVisitor extends OWLClassExpressionVisitorAdapter {
-
-        public OntologyVisitor(Set<OWLOntology> onts) {
-        	for (OWLOntology o : onts){
-        		
-        	}
-        }
-        public void visit(OWLClass desc) {
-        	System.out.println(desc);
-        }
-    }
 }

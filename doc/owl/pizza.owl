@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY pizza "http://www.cin.ufpe.br/~astm/pizza.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cin.ufpe.br/~astm/pizza.owl#"
+     xml:base="http://www.cin.ufpe.br/~astm/pizza.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pizza="http://www.cin.ufpe.br/~astm/pizza.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cin.ufpe.br/~astm/pizza.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#temCobertura -->
+
+    <owl:ObjectProperty rdf:about="&pizza;temCobertura">
+        <rdfs:subPropertyOf rdf:resource="&pizza;temIngrediente"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#temIngrediente -->
+
+    <owl:ObjectProperty rdf:about="&pizza;temIngrediente">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#temMassa -->
+
+    <owl:ObjectProperty rdf:about="&pizza;temMassa">
+        <rdfs:subPropertyOf rdf:resource="&pizza;temIngrediente"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaBacon -->
+
+    <owl:Class rdf:about="&pizza;CoberturaBacon">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaCarne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaCalabresa -->
+
+    <owl:Class rdf:about="&pizza;CoberturaCalabresa">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaCarne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaCarne -->
+
+    <owl:Class rdf:about="&pizza;CoberturaCarne">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaGorgonzola -->
+
+    <owl:Class rdf:about="&pizza;CoberturaGorgonzola">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaQueijo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaMuzarela -->
+
+    <owl:Class rdf:about="&pizza;CoberturaMuzarela">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaQueijo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaParmesao -->
+
+    <owl:Class rdf:about="&pizza;CoberturaParmesao">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaQueijo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaPepperoni -->
+
+    <owl:Class rdf:about="&pizza;CoberturaPepperoni">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaCarne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaPimenta -->
+
+    <owl:Class rdf:about="&pizza;CoberturaPimenta">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaVegetal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaPimentaVerde -->
+
+    <owl:Class rdf:about="&pizza;CoberturaPimentaVerde">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaPimenta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaPimentaVermelha -->
+
+    <owl:Class rdf:about="&pizza;CoberturaPimentaVermelha">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaPimenta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaPizza -->
+
+    <owl:Class rdf:about="&pizza;CoberturaPizza">
+        <owl:disjointWith rdf:resource="&pizza;MassaPizza"/>
+        <owl:disjointWith rdf:resource="&pizza;Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaQueijo -->
+
+    <owl:Class rdf:about="&pizza;CoberturaQueijo">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaRicota -->
+
+    <owl:Class rdf:about="&pizza;CoberturaRicota">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaQueijo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaRucula -->
+
+    <owl:Class rdf:about="&pizza;CoberturaRucula">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaVegetal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaTomate -->
+
+    <owl:Class rdf:about="&pizza;CoberturaTomate">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaVegetal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#CoberturaVegetal -->
+
+    <owl:Class rdf:about="&pizza;CoberturaVegetal">
+        <rdfs:subClassOf rdf:resource="&pizza;CoberturaPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#Margherita -->
+
+    <owl:Class rdf:about="&pizza;Margherita">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                        <owl:someValuesFrom rdf:resource="&pizza;CoberturaMuzarela"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                        <owl:someValuesFrom rdf:resource="&pizza;CoberturaTomate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&pizza;CoberturaMuzarela"/>
+                            <rdf:Description rdf:about="&pizza;CoberturaTomate"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&pizza;PizzaConhecida"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#MassaFina -->
+
+    <owl:Class rdf:about="&pizza;MassaFina">
+        <rdfs:subClassOf rdf:resource="&pizza;MassaPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#MassaGrossa -->
+
+    <owl:Class rdf:about="&pizza;MassaGrossa">
+        <rdfs:subClassOf rdf:resource="&pizza;MassaPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#MassaPizza -->
+
+    <owl:Class rdf:about="&pizza;MassaPizza">
+        <owl:disjointWith rdf:resource="&pizza;Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#Pizza -->
+
+    <owl:Class rdf:about="&pizza;Pizza">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temMassa"/>
+                <owl:someValuesFrom rdf:resource="&pizza;MassaPizza"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#PizzaComMuitoQueijo -->
+
+    <owl:Class rdf:about="&pizza;PizzaComMuitoQueijo">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:someValuesFrom rdf:resource="&pizza;CoberturaParmesao"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:someValuesFrom rdf:resource="&pizza;CoberturaGorgonzola"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:someValuesFrom rdf:resource="&pizza;CoberturaRicota"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:someValuesFrom rdf:resource="&pizza;CoberturaMuzarela"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&pizza;Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#PizzaComQueijo -->
+
+    <owl:Class rdf:about="&pizza;PizzaComQueijo">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:someValuesFrom rdf:resource="&pizza;CoberturaQueijo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&pizza;Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#PizzaConhecida -->
+
+    <owl:Class rdf:about="&pizza;PizzaConhecida">
+        <rdfs:subClassOf rdf:resource="&pizza;Pizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/pizza.owl#PizzaQuatroQueijos -->
+
+    <owl:Class rdf:about="&pizza;PizzaQuatroQueijos">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&pizza;temCobertura"/>
+                <owl:onClass rdf:resource="&pizza;CoberturaQueijo"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">4</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&pizza;Pizza"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1413) http://owlapi.sourceforge.net -->
+
