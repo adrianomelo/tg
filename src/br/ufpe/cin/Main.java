@@ -8,7 +8,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("The Conexions Method - Matriz Transformation");
+		System.out.println("The Connection Method - Matrix Transformation");
 		
 		String file = "doc/owl/pizza.owl";
 		// String file = "doc/owl/hierarquia.owl";
@@ -18,17 +18,8 @@ public class Main {
 			Ontology ontology = new Ontology();
 			ontology.loadFromFile(file);
 		
-			Set<OWLClass> classes = ontology.getClasses();
-			
-			Iterator<OWLClass> it1 = classes.iterator();
-			while (it1.hasNext()){
-				OWLClass c1 = it1.next();
-				
-				ontology.getClassProperties(c1);
-				ontology.getSuperClasses(c1);
-				ontology.getEquivalentClasses(c1);
-				System.out.println();
-			}
+			Normalization n = new Normalization(ontology);
+			n.normalizeOntology();
 		
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block

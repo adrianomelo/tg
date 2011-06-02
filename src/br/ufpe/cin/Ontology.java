@@ -36,36 +36,32 @@ public class Ontology {
 		throw new OWLOntologyCreationException();
 	}
 	
-	public Set<OWLObjectProperty> getClassProperties (OWLClass classe){
+	public Set<OWLObjectProperty> getObjectProperties (OWLClass classe)
+	{
 		Set<OWLObjectProperty> properties = classe.getObjectPropertiesInSignature();
-		
-		for (OWLObjectProperty property : properties){
-			System.out.println(property);
-		}
-		
 		return properties;
 	}
 	
-	public Set getSuperClasses(OWLClass classe){
-		System.out.println("superclasses de " + classe);
-		Set<OWLClassExpression> superClasses = classe.getSuperClasses(ontology);
-		
-		for (OWLClassExpression cls : superClasses){
-			System.out.println(cls);
-		}
-		
-		return null;
+	public Set<OWLDataProperty> getDataProperties(OWLClass classe) 
+	{
+		Set<OWLDataProperty> properties = classe.getDataPropertiesInSignature();
+		return properties;
 	}
 	
-	public Set getEquivalentClasses (OWLClass classe){
-		System.out.println("classes equivalentes a " + classe);
-		
+	public Set<OWLClassExpression> getSuperClasses(OWLClass classe)
+	{
+		Set<OWLClassExpression> superClasses = classe.getSuperClasses(ontology);	
+		return superClasses;
+	}
+	
+	public Set<OWLClassExpression> getEquivalentClasses (OWLClass classe)
+	{
 		Set<OWLClassExpression> eqClasses = classe.getEquivalentClasses(ontology);
-		
-		for (OWLClassExpression cls : eqClasses){
-			System.out.println(cls);
-		}
-		
-		return null;
+		return eqClasses;
+	}
+
+	public boolean isInNormalForm()
+	{
+		return false;
 	}
 }
