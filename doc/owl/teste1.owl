@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY teste1 "http://www.cin.ufpe.br/~astm/teste1.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cin.ufpe.br/~astm/teste1.owl#"
+     xml:base="http://www.cin.ufpe.br/~astm/teste1.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:teste1="http://www.cin.ufpe.br/~astm/teste1.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#test_property -->
+
+    <owl:ObjectProperty rdf:about="#test_property">
+        <rdfs:label>test_property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#A -->
+
+    <owl:Class rdf:about="#A">
+        <rdfs:label>A</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#_Samples"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#B -->
+
+    <owl:Class rdf:about="#B">
+        <rdfs:label>B</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#_Samples"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#C -->
+
+    <owl:Class rdf:about="#C">
+        <rdfs:label>C</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#_Samples"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#Concept -->
+
+    <owl:Class rdf:about="#Concept">
+        <rdfs:label>Concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#Conjunction -->
+
+    <owl:Class rdf:about="#Conjunction">
+        <rdfs:label>Conjunction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#A"/>
+                    <rdf:Description rdf:about="#C"/>
+                    <rdf:Description rdf:about="#D"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#C"/>
+                    <rdf:Description rdf:about="#D"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#D"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#A"/>
+                            <rdf:Description rdf:about="#C"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#D -->
+
+    <owl:Class rdf:about="#D">
+        <rdfs:label>D</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#_Samples"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#Disjunction -->
+
+    <owl:Class rdf:about="#Disjunction">
+        <rdfs:label>Disjunction</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#test_property"/>
+                <owl:allValuesFrom rdf:resource="#B"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#A"/>
+                    <rdf:Description rdf:about="#D"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#test_property"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#C"/>
+                            <rdf:Description rdf:about="#D"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#_Samples -->
+
+    <owl:Class rdf:about="#_Samples">
+        <rdfs:label>_Samples</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+
