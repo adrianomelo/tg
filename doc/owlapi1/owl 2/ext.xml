@@ -1,0 +1,37 @@
+<!-- #############################################################
+
+Common build properties and targets for the OWL API. This XML fragment
+should be included in the build.xml for each individual sub module.
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: ext.xml,v $
+ * Revision           $Revision: 1.5 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2004/06/28 17:13:08 $
+ *               by   $Author: dturi $
+
+############################################################# -->
+
+    <!-- Where we find third party external dependencies -->
+    <property name="ext.dir" value="${project.root}/ext"/>
+
+    <!-- list of all 3rd-party libraries -->
+    <property name="log4j" value="${ext.dir}/log4j/1.2.7/log4j.jar"/>
+    <property name="ant" value="${ant.home}/lib/ant.jar"/>
+    <property name="junit" value="${ext.dir}/junit/3.8.1/junit.jar"/>
+    <property name="servlet" value="${ext.dir}/servlet/1.2/servlet.jar"/>
+    <property name="dig" value="${ext.dir}/dig/1.0/dig.jar"/>
+    <property name="rdfapi" value="${ext.dir}/rdfapi/0.0.2/rdfapi.jar"/>
+    <property name="getopt" value="${ext.dir}/getopt/1.0.9/getopt.jar"/>
+    <property name="getopt" value="${ext.dir}/getopt/1.0.9/getopt.jar"/>
+    <property name="antlr" value="${ext.dir}/antlr/2.7.2/antlr.jar"/>
+    <property name="dig1.1" value="${ext.dir}/dig1.1/dig1.1-xmlbeans.jar"/>
+    <property name="dig1.1-reasoners" value="${ext.dir}/dig1.1/dig1.1-reasoners.jar"/>
+    <property name="dig1.1-abstractOWL" value="${ext.dir}/dig1.1/dig1.1-abstractOWL.jar"/>
+    <property name="xbean" value="${ext.dir}/xbean/xbean.jar"/>
+    <property name="instancestore" value="${ext.dir}/instancestore/1.4.1/instance-store.jar"/>
+    <property name="iSproperties" value="${ext.dir}/instancestore/1.4.1/iSproperties-xmlbeans.jar"/>
+    <property name="hsqldb" value="${ext.dir}/instancestore/hsqldb.jar"/>

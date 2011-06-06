@@ -1,0 +1,74 @@
+<!-- #############################################################
+
+Common build properties and targets for the OWL API. This XML fragment
+should be included in the build.xml for each individual sub module.
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: modules.xml,v $
+ * Revision           $Revision: 1.3 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2003/12/01 16:50:28 $
+ *               by   $Author: dturi $
+
+############################################################# -->
+
+    <!-- list of all modules -->
+
+    <!-- Basic API -->
+    <property name="api.class" value="${build.dir}/api/${class}"/>
+    <property name="api.test.class" value="${build.dir}/api/${class.test}"/>
+    <property name="api.jar" value="${build.dir}/${owlapi}/lib/api.jar"/>
+    <property name="api.test.jar" value="${build.dir}/${owlapi}/lib/api_test.jar"/>
+
+    <!-- Default Implementation -->
+    <property name="impl.class" value="${build.dir}/impl/${class}"/>
+    <property name="impl.test.class" value="${build.dir}/impl/${class.test}"/>
+    <property name="impl.jar" value="${build.dir}/${owlapi}/lib/impl.jar"/>
+    <property name="impl.test.jar" value="${build.dir}/${owlapi}/lib/impl_test.jar"/>
+
+    <!-- RDF Parser -->
+    <property name="rdfparser.class" value="${build.dir}/rdfparser/${class}"/>
+    <property name="rdfparser.test.class" value="${build.dir}/rdfparser/${class.test}"/>
+    <property name="rdfparser.jar" value="${build.dir}/${owlapi}/lib/rdfparser.jar"/>
+    <property name="rdfparser.test.jar" value="${build.dir}/${owlapi}/lib/rdfparser_test.jar"/>
+
+    <!-- IO-->
+    <property name="io.class" value="${build.dir}/io/${class}"/>
+    <property name="io.test.class" value="${build.dir}/io/${class.test}"/>
+    <property name="io.jar" value="${build.dir}/${owlapi}/lib/io.jar"/>
+    <property name="io.test.jar" value="${build.dir}/${owlapi}/lib/io_test.jar"/>
+
+    <!-- Validation -->
+    <property name="validation.class" value="${build.dir}/validation/${class}"/>
+    <property name="validation.test.class" value="${build.dir}/validation/${class.test}"/>
+    <property name="validation.jar" value="${build.dir}/${owlapi}/lib/validation.jar"/>
+    <property name="validation.test.jar" value="${build.dir}/${owlapi}/lib/validation_test.jar"/>
+
+    <!-- Inference -->
+    <property name="inference.class" value="${build.dir}/inference/${class}"/>
+    <property name="inference.test.class" value="${build.dir}/inference/${class.test}"/>
+    <property name="inference.jar" value="${build.dir}/${owlapi}/lib/inference.jar"/>
+    <property name="inference.test.jar" value="${build.dir}/${owlapi}/lib/inference_test.jar"/>
+
+
+    <!-- Tests -->
+    <property name="owltest.class" value="${build.dir}/owltest/${class}"/>
+    <property name="owltest.test.class" value="${build.dir}/owltest/${class.test}"/>
+    <property name="owltest.jar" value="${build.dir}/${owlapi}/lib/owltest.jar"/>
+    <property name="owltest.test.jar" value="${build.dir}/${owlapi}t/lib/owltest_test.jar"/>
+
+    <!-- Abtsract Syntax Parser -->
+    <property name="abstractparser.class" value="${build.dir}/abstractparser/${class}"/>
+    <property name="abstractparser.test.class" value="${build.dir}/abstractparser/$/${class.test}"/>
+    <property name="abstractparser.jar" value="${build.dir}/${owlapi}/lib/abstractparser.jar"/>
+    <property name="abstractparser.test.jar" value="${build.dir}/${owlapi}/lib/abstractparser_test.jar"/>
+
+    <!-- Examples -->
+    <property name="examples.class" value="${build.dir}/examples/${class}"/>
+    <property name="examples.test.class" value="${build.dir}/examples/${class.test}"/>
+    <property name="examples.jar" value="${build.dir}/${owlapi}/lib/examples.jar"/>
+    <property name="examples.test.jar" value="${build.dir}/${owlapi}/lib/examples_test.jar"/>
+

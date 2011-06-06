@@ -1,11 +1,10 @@
 package br.ufpe.cin;
 
+import java.net.URISyntaxException;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.semanticweb.owlapi.io.OWLOntologyInputSourceException;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owl.model.OWLException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -21,11 +20,12 @@ public class Main {
 		
 			Normalization n = new Normalization(ontology);
 			n.normalizeOntology();
-		} catch (OWLOntologyInputSourceException e){
-			System.out.println("erro ao carregar a ontologia");
-		} catch (OWLOntologyCreationException e) {
+		} catch (OWLException e){
+			e.printStackTrace();
+			
+		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 }

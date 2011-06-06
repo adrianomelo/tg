@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+<title>An API for OWL</title>
+<style type="text/css">
+body {
+font-family: arial;
+background-color: #DDEEEE;
+margin: 40 40 40 40;
+}
+code {
+background-color: #FFFFFF;
+}
+.box {
+padding: 0px 20px 10px 20px;
+border:1px solid #888;
+background-color: #FFFFFF;
+}
+.run {
+padding: 0px 0px 0px 5px;
+border:1px solid #888;
+background-color: #EEDDEE;
+}
+.owl {
+padding: 0px 0px 0px 5px;
+border:1px solid #888;
+background-color: #EEEEDD;
+}
+.java {
+padding: 0px 0px 0px 5px;
+border:1px solid #888;
+background-color: #99FFCC;
+}
+
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Introduction</h1>
+
+<p>This repository contains interfaces for, and an implementation of,
+an API for OWL ontologies along with some sample applications of the
+API.</p>
+
+<ul>
+<li><a href="#building">Building</a>. Instructions on building the distribution.</li>
+<li><a href="#testing">Testing</a>. Instructions on running regression tests for the code.</li>
+<li><a href="#overview">Overview</a>. An overview of the philosophy
+behind the code.</li>
+<li><a href="#implementation">Concrete Implementation</a>. Choosing
+and using a particular implementation of the API.</li>
+<li><a href="#licensing">Licensing</a>. Licensing information.</li>
+</ul>
+
+<h1 id="building">Building</h1>
+
+<p>The code can be built using the supplied <a
+href="http://ant.apache.org/"><code>ant</code></a> scripts (ant 1.5
+required). You will also need to have the optional <a
+href="http://ant.apache.org/manual/OptionalTasks/junit.html">JUnit</a>
+tasks installed for ant.</p>
+
+<p>The build structure is set up so that each module is contained in
+its own directory. Modules can be built separately &mdash; if module
+<code>a</code> depends on <code>b</code> then <code>b</code> will be
+built if necessary. Directory <code>owlapi</code> contains a build
+file that relates to the entire release. Each module can be built
+independently by running <code>ant</code> tasks within the appropriate
+subdirectory, or the entire project can be built by running ant tasks
+within the <code>owlapi</code> directory. </p>
+
+<p>The following describes the default build structure. The build
+structure uses included XML fragments to share targets and properties
+between the various modules. These include:</p>
+
+<dl>
+<dt><code>names.xml</code></dt><dd>Standard directory names</dd>
+<dt><code>common.xml</code></dt><dd>Common targets</dd>
+<dt><code>modules.xml</code></dt><dd>Module definitions</dd>
+<dt><code>ext.xml</code></dt><dd>External dependencies</dd>
+</dl>
+
+<p>If required, locations of the directories and files can be changed
+by editing the included xml files.</p>
+
+<p>In the following description, we assume that the distribution is in
+directory <code>$OWL</code>.
+
+<h2 id="source">Source</h2>
+
+<p>Each module has its own directory, where source for classes and
+tests are kept. For example, for module <code>validation</code> we
+have:</p>
+<pre class="run">
+$OWL
+ |- validation
+     |- src
+     |   &lt;java source&gt;
+     |- tests
+         &lt;java source for tests&gt;
+</pre>
+
+<p>We will used module <code>validation</code> throughout this
+description when operations relating to a module are being
+discussed.</p>
+
+<h2 id="tasks">Task Summary</h2>
+
+<p>The command:</p>
+<pre class="run">
+&gt; ant -projecthelp
+</pre>
+
+<p>can be used to determine the tasks that can be run. A brief summary
+of the tasks available in module directories is as follows.</p>
+
+<dl>
+<dt><code>compile</code></dt><dd>Compile module.</dd>
+<dt><code>jar</code></dt><dd>Build a jar.</dd>
+<dt><code>compile.test</code></dt><dd>Compile tests.</dd>
+<dt><code>jar.test</code></dt><dd>Build a jar of test classes.</dd>
+<dt><code>run.test</code></dt><dd>Run tests.</dd>
+</dl>
+
+<p>Tasks available for the <code>owlapi</code> build are as
+follows.</p>
+
+<dl>
+<dt><code>compile</code></dt><dd>Compile all modules.</dd>
+<dt><code>compile.test</code></dt><dd>Compile all tests.</dd>
+<dt><code>run.test</code></dt><dd>Run all tests.</dd>
+<dt><code>distribution.bin</code></dt><dd>Build a binary distribution.</dd>
+<dt><code>distribution.src</code></dt><dd>Build a source distribution.</dd>
+<dt><code>distribution</code></dt><dd>Build distributions.</dd>
+<dt><code>clean</code></dt><dd>Remove generated code.</dd>
+<dt><code>clean.all</code></dt><dd>Remove generated code and directories.</dd>
+</dl>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>Compile time dependencies are shown in the figure below</p>
+
+<center>
+<img src="dependencies.png"/>
+</center>
+
+<p>Although applications such as the validation and servlets require
+an implementation, the particular classes to use are determined at run
+time.</p>
+
+
+
+<h2 id="classes">Classes</h2>
+
+<p>To build a module, run the <code>compile</code> task:</p>
+<pre class="run">
+&gt; cd $OWL/validation
+&gt; ant compile
+</pre>
+
+<p>When compiled, generated class files are produced in a directory
+<code>$OWL/build/validation/classes</code>. Generated class files for tests
+are produced in <code>$OWL/build/validation/test.classes</code>:</p>
+<pre class="run">
+$OWL
+ |- build
+    |- validation
+       |- classes
+       |   &lt;generated java classes&gt;
+       |- test.classes
+           &lt;generated java test classes&gt;
+</pre>
+
+
+<h2 id="jars">Jar Files</h2>
+
+<p>To build a jar, run the <code>jar</code> task:</p>
+<pre class="run">
+&gt; cd $OWL/validation
+&gt; ant jar
+</pre>
+
+<p>Generated jar files (one for each module) will be built in
+directory <code>$OWL/build/owlapi/lib</code>.
+
+<pre class="run">
+$OWL
+ |- build
+    |- owlapi
+       |- lib
+          |- validation.jar
+</pre>
+
+
+<h2>Documentation</h2>
+
+<p>Javadoc documentation for an individual module can be built using:</p>
+<pre class="run">
+&gt; cd $OWL/validation
+&gt; ant javadoc
+</pre>
+
+<p>This will produce module documention in the
+<code>$OWL/build/validation/javadoc</code></a> directory.</p>
+
+<p>Documentation for all modules can be built using:</p>
+<pre class="run">
+&gt; cd $OWL/owlapi
+&gt; ant javadoc
+</pre>
+
+<p>This will produce documention in the
+<code>$OWL/build/owlapi/javadoc</code></a> directory.</p>
+
+
+<h2>Servlet application</h2>
+
+<p>A demonstration application consisting of some simple servlets is
+included in the <a href="servlet"><code>servlet</code></a>
+directory. To build the servlet, run </p>
+<pre class="run">
+&gt; cd $OWL/servlet
+&gt; ant war
+</pre>
+
+<p>This will build an <code>OWL.war</code> in
+<code>$OWL/build/servlet/webapps</code>.  This file can then be
+deployed in any appropriate servlet engine such as Tomcat or
+Jetty. Directory <code>$OWL/servlet/src</code> contains configuration
+information relating to the servlet.</p>
+
+<h1 id="testing">Testing</h1>
+
+<p>A suite of <a href="http://www.junit.org">JUnit</a> tests are included in the distribution.</p> 
+
+<p>Some of these (for instance the build tests of the validator and
+consistency checkers) make use of the <a
+href="http://www.w3.org/TR/owl-test/">OWL Test Cases</a>. Network
+connectivity is (of course) required to run these tests. The <a
+href="resources">resources</a> directory contains a number of
+resources relating to testing (such a <a
+href="resources/manifests.txt">list</a> of test manifests). The list
+of manifests used during testing can be set using the property
+<code>tests.manifests</code> in <code>common.xml</code>. 
+
+<p>Test for each module can be run from the module directory.
+<pre class="run">
+&gt; cd $OWL/validation
+&gt; ant run.test
+</pre>
+<p>In this case, test results will appear in directory
+<code>$OWL/build/validation/test.results</code>. Alternatively, the entire test
+suite (for all modules) can be run from the <code>owlapi</code>
+directory:
+<pre class="run">
+&gt; cd $OWL/owlapi
+&gt; ant run.test
+</pre>
+<p>In this case, all results will appear in
+<code>$OWL/build/owlapi/test.results</code>. </p>
+
+<h1 id="overview">Overview</h1>
+
+<p>We provide a very brief overview here of the interfaces and class
+in the API &mdash; more detail is provided in the Javadoc
+documentation. The example classes may also help to illustrate how to
+use the API. We include some simple code fragments &mdash; note that
+these are not intended to be complete and compilable!</p>
+ 
+<h2>Model</h2>
+
+<p>The API provides a number of classes and interfaces intended to
+represent OWL ontologies, which can be found in package
+<code>org.semanticweb.owl.model</code>. Ontologies consist of Classes,
+Properties and Individuals &mdash; within an ontology there may be
+definitions of these objects, for example statements that two classes
+are equal (e.g. have the same extension) or that one class is a
+specialization of another.</p>
+
+<p>Interfaces are provided for each of the basic things that we find in
+an ontology:</p>
+<ul>
+<li><code>OWLClass</code></li>
+<li><code>OWLObjectProperty</code></li>
+<li><code>OWLDatatypeProperty</code></li>
+<li><code>OWLIndividual</code></li>
+</ul>
+<p>These interfaces share some functionality, for example they all
+have a <code>URI</code> that provides an identifier for the
+object.</p>
+
+<p>An important point to be aware of is that within the API, these
+objects can exist <em>independently</em> of an ontology &mdash; in
+fact, an object representing a class can appear in many ontologies. In
+addition, any assertions made about the class have to be made within
+the context of an ontology. Thus it does not make sense to simply ask
+<em>"what are the superclasses of class X?"</em>. Instead, we must ask
+<em>"what are the superclasses of class X in ontology O?"</em>. This
+is reflected in the accessor methods on, e.g. <code>OWLClass</code>:</p>
+
+<dl>
+ <dt>
+  <code>Set getEnumerations(OWLOntology o)</code></dt><dd>
+          Returns the enumerations that have been asserted as being
+          equivalent to this class in the given ontology.</dd>
+  
+ <dt>
+  <code>Set getEnumerations(Set
+          ontologies)</code></dt><dd>Returns the enumerations that
+          have been asserted as being equivalent to this class in any
+          of the given ontologies.
+ <dt>
+  <code>Set getEquivalentClasses(OWLOntology o)
+          </code></dt><dd>Returns equivalent classes to this class in
+          the given ontology.
+ <dt>
+  <code>Set getEquivalentClasses(Set ontologies)
+          </code></dt><dd>Returns equivalent classes to this class in
+          any of the given ontologies.
+ <dt>
+  <code>Set getSuperClasses(OWLOntology o) </code></dt><dd>
+          Returns the explicit superclasses of this class in the given
+          ontology.
+ <dt>
+  <code>Set getSuperClasses(Set ontologies)
+          </code></dt><dd>Returns the explicit superclasses of this
+          class in any of the given ontologies.
+</dl>
+
+<p>There is often more than one way of saying something in OWL. For
+example, in order to represent the fact that all <code>Persons</code>
+are <code>Animals</code>, we may represent this as part of the
+"definition" of <code>Person</code>:</p>
+
+<pre class="owl">
+Class(Animal partial)
+Class(Person partial Animal)
+</pre>
+
+<p>or as a subclass axiom:</p>
+
+<pre class="owl">
+Class(Animal partial)
+Class(Person partial)
+SubClassOf(Person Animal)
+</pre>
+
+<p>Both have the same semantic effect, but perhaps convey different
+modelling intentions. The API preserves this distinction. In the first
+case, the information can be represented through the addition of a
+superclass to the class <code>Person</code> (within the context of the
+ontology). In the second, the information is represented as an
+<code>OWLSubClassAxiom</code> (again added to the ontology in
+question).</p>
+
+<p>Many of the classes and interfaces defined in the API make use of
+collections. For example, <code>OWLNaryBooleanDescription</code> has a
+collection of expressions which are (unsurprisingly) the operands to
+the operator. The interfaces use the type <code>Set</code>. This means
+that users of the API will have to cast objects as they are extracted
+from the lists, e.g. the operands of a conjunction may have to be cast
+to <code>OWLDescription</code> before they can be used. The issue here
+is in the trade-off between type-safety (providing a number of
+different typed collection classes) and keeping the interfaces small,
+easy to understand, maintain and implement.</p>
+
+<h3>Visitors</h3>
+
+<p>The Visitor Pattern (See Design Patterns, Gamma et. al. p.331 for a
+detailed description) is used throughout the API. Use of the Visitor
+architecture allows us to add application-specific functionality
+without "tainting" the data structure. </p>
+
+<p>For example, in order to define operations over arbitrary
+<code>OWLDescriptions</code> (e.g. providing some kind of concrete
+representation), implement <code>OWLDescriptionVisitor</code>interface
+accordingly. For each concrete class <code>C</code> in the
+<code>OWLDescription</code> hierarchy, a function
+<code>visit( C )</code> must be provided. The expression can then be
+visited using the <code>accept</code> method.</p>
+
+<p>The code fragment below illustrates how we might use a visitor to
+process the super classes of a class.</p>
+
+<pre class="java">
+OWLOntology ontology;
+OWLClass clazz;
+URI uri;
+OWLDescriptionVisitor visitor;
+...
+/* Some kind of initialization */
+...
+try {
+  /* Try and get a particular class */
+  clazz = ontology.getClass( uri );
+
+  /* Find out the supers of the class in the context of the
+     given ontology. */
+  Set supers = clazz.getSuperClasses( ontology );
+
+  /* Iterate over the supers */
+  for (Iterator it = supers.iterator(); it.hasNext(); ) {
+    /* They should be instances of OWLDescription */
+    OWLDescription desc = (OWLDescription) it.next();
+
+    /* Pass to the visitor for some processing. */
+    desc.accept( visitor );
+  }
+} catch ( Exception e ) {
+  /* Take necessary action */
+  ...
+}
+</pre>
+
+
+
+<h2>Change</h2>
+
+<p>The <code>org.semanticweb.owl.model</code> package decribed above provides
+<em>read-only</em> access to the data structures representing an OWL
+Ontology. In order to change the ontological structure, e.g. add
+classes, define classes or add axioms, we have to use the change
+events provided in the <code>org.semanticweb.owl.model.change</code>
+package.</p>
+
+<p>In order to enact a change, we must first create an object that
+encapsulates that change (providing any necessary arguments), then
+pass the change to a <code>ChangeVisitor</code> that will then perform
+the necessary actions. For example, to create a new class and then add
+it to an ontology, something like the following is required:</p>
+
+<pre class="java">
+OWLDataFactory factory;
+OWLOntology ontology;
+ChangeVisitor visitor;
+...
+/* Ensure that visitor is really a visitor that 
+   enacts changes over ontology */
+...
+try {
+  /* Create a new OWLClass */
+  OWLClass clazz = factory.getOWLClass( uri );
+
+  /* Create a new change object representing the addition
+     of clazz to ontology. The third argument is null signifying
+     that there is no explicit cause for this change. */
+  AddEntity ae = new AddEntity( ontology, clazz, null );
+
+  /* Use the visitor to enact the change */
+  ae.accept( visitor );
+
+} catch ( Exception e ) {
+  /* Any necessary cleanup */
+  ...
+}
+</pre>
+
+<h1 id="implementation">Concrete Implementations</h1>
+
+<p>The OWL API as described above consists of a number of interface
+classes providing access to OWL ontologies. Particular concrete
+implementations can then implement the required functionality, but the
+applications (such as an editor or a parser) need not know about the
+particular details of an implementation. However, at some point, we
+must make a choice about the actual classes used to implement the
+interfaces. The API ships with a simple "reference" implementation
+&mdash; this section describes how to access this. Note that the
+reference implementation is a rather simple main-memory based
+implementation and is not particularly optimised.</p>
+
+<h2>Connections and Managers</h2>
+
+<p>The <code>org.semanticweb.owl.util.OWLConnection</code> class
+represents a connection to some implementation provider. An
+<code>OWLOntology</code> is unique with respect to its logical URI
+within a connection, and an instance of
+<code>OWLConnection</code> holds a single
+<code>org.semanticweb.owl.model.OWLDataFactory</code>. This data
+factory is then responsible for the creation of objects.</p>
+
+<p>The <code>org.semanticweb.owl.util.OWLManager</code> class provides
+a manager for factories of OWL Ontologies
+(e.g. <code>OWLConnections</code>). It is the central point of access
+to <code>OWLOntology</code> implementations and thereby to OWL
+Ontologies.
+
+<p>Applications that create new ontology objects (such as parsers)
+should do so within the context of a particular connection. For
+example, the <code>setConnection( OWLConnection )</code> method on
+<code>org.semanticweb.io.Parser</code> sets the particular
+connection that the parser uses to gain access to an
+implementation.</p>
+
+<p>The code sample below shows how we might gain access to an instance
+of a connection and then use it.</p>
+
+<pre class="java">
+OWLConnection connection = null;
+
+try {
+  Map parameters = new HashMap();
+  /* Set up the implementation class */
+  parameters.put(OWLManager.OWL_CONNECTION,
+                 "org.semanticweb.owl.impl.model.OWLConnectionImpl");
+  connection = OWLManager.getOWLConnection(parameters);
+
+} catch ( OWLException e ) {
+  System.err.println("Could not obtain connection:");
+  System.err.println( e.getMessage());
+  System.exit(-1);
+}
+
+/* From this point on, all code is in terms of interfaces and abstract 
+   classes */
+
+/* Get the data factory */
+OWLDataFactory fact = connection.getDataFactory();
+
+URI uri = new URI("http://example.org/ontologies/onto");
+
+/* Get a new ontology */
+OWLOntology ontology = connection.createOWLOntology( uri, uri );
+
+/* Get a change visitor which will enact change events over the 
+   ontology */
+ChangeVisitor visitor = connection.getChangeVisitor( ontology );
+
+/* Get some new classes. */
+OWLClass clazz1 = 
+  factory.getOWLClass( new URI("http://example.org/ontologies/onto#class1") );
+OWLClass clazz2 = 
+  factory.getOWLClass( new URI("http://example.org/ontologies/onto#class2") );
+	
+/* Get a change object representng the addition of clazz2 as a super
+   of clazz1 */
+OntologyChange oc = new AddSuperClass( ontology,
+				       clazz1,
+				       clazz2,
+				       null );
+/* Add it */
+oc.accept( visitor );
+</pre>
+
+
+<h3>Default implementation</h3>
+
+<p>The <code>OWLManager</code> class can supply a default
+implementation of <code>OWLConnection</code>. This is determine
+dynamically at run time using the following mechanisms:</p>
+
+<ul>
+<li>If the system property
+<code>org.semanticweb.owl.util.OWLConnection</code> is set, then the
+value of this indicates the concrete implementation class that should
+be used. </li>
+
+<li>If the above property is not set, the Manager will look for a
+resource
+<code>META-INF/services/org.semanticweb.owl.util.OWLConnection</code>.
+The contents of this resource should specify the class to use.</li>
+</ul>
+
+<h1 id="requirements">Requirements</h1>
+
+<p>The OWL API requires Java2. The parser for the abstract syntax
+requires Java 1.4.2 or later as there appears to be a bug in the 1.4.1
+JVM that causes problems with the ANTLR generated parser. As a result,
+in the current distribution, the basic tests for the abstract OWL
+parser are <strong>not</strong> run when the build tests are run.</p>
+
+<h1 id="licensing">Licensing</h2>
+
+<p>This code is being made available under the GNU Lesser General
+Public License (<a href="http://www.gnu.org/copyleft/lesser.txt">LGPL</a>).</p>
+
+<h1>Contact</h2>
+
+<p>For questions regarding the API, please contact <a
+href="mailto:seanb@cs.man.ac.uk">Sean Bechhofer</a>.</p>
+
+</div>
+</body> 
+</html>

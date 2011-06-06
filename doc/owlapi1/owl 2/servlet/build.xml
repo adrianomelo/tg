@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- #############################################################
+
+Build file for OWL API Core classes
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: build.xml,v $
+ * Revision           $Revision: 1.3 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2003/12/04 10:48:35 $
+ *               by   $Author: sean_bechhofer $
+
+############################################################# -->
+
+
+<!DOCTYPE project [
+    <!ENTITY names SYSTEM "file:../names.xml">
+    <!ENTITY common SYSTEM "file:../common.xml">
+    <!ENTITY modules SYSTEM "file:../modules.xml">
+    <!ENTITY ext SYSTEM "file:../ext.xml">
+]>
+
+<project name="servlet" default="all" basedir=".">
+
+    <!-- Provide the option of a properties file. You can use -->
+    <!-- this file to override any of the properties set later -->
+    <!-- on, to customise the build process -->
+    <property file="${user.home}/.ant/owlapi.props"/>
+    <property file="./build.props"/>    
+
+    <property name="target.precompile" value="local.dependencies"/>  
+
+    <!-- Everything gets built in a directory above the one where the
+         module sits. --> 
+    <property name="project.root" value=".."/>
+
+    <!-- Use owl-servlet.jar to avoid confusion with the servlet library -->
+    <property name="output.lib.prefix" value="owl-"/>
+
+    &ext;
+    &names;
+    &common;
+    &modules;
+   
+    <!-- This describes the things you need for the compilation. For
+    any module xxx on which you depend, add the appropriate things to
+    this build file.  -->
+
+    <target name="local.dependencies">
+      <ant inheritAll="false" dir="${project.root}/api" target="jar"/>
+      <ant inheritAll="false" dir="${project.root}/impl" target="jar"/>
+      <ant inheritAll="false" dir="${project.root}/rdfparser" target="jar"/>
+      <ant inheritAll="false" dir="${project.root}/io" target="jar"/>
+      <ant inheritAll="false" dir="${project.root}/inference" target="jar"/>
+      <ant inheritAll="false" dir="${project.root}/validation" target="jar"/>
+      <ant inheritAll="false" dir="${project.root}/validation" target="test.jar"/>
+      <ant inheritAll="false" dir="${project.root}/owltest" target="jar"/>
+    </target>
+
+    <!-- This describes the things you need for testing -->
+
+    <!-- CLASSPATH definition -->
+    <path id="classpath">
+        <pathelement path="${class.dir}"/>
+	<!-- Libraries -->
+        <path location="${api.class}"/>
+        <path location="${impl.class}"/>
+        <path location="${rdfparser.class}"/>
+        <path location="${io.class}"/>
+        <path location="${inference.class}"/>
+        <path location="${validation.class}"/>
+        <path location="${validation.test.class}"/>
+        <path location="${owltest.class}"/>
+
+	<!-- External Libraries -->
+        <pathelement location="${rdfapi}"/>
+        <pathelement location="${log4j}"/>
+        <pathelement location="${servlet}"/>
+    </path>
+
+    <path id="classpath.test">
+        <!-- Libraries for testing -->
+    </path>
+
+    <property name="webapps" value="${output.dir}/webapps/OWL"/>
+    <property name="web.inf" value="${webapps}/WEB-INF"/>
+    <property name="log4j.properties" value="log4j.properties"/>
+    
+    <target name="deploy" depends="jar" >
+     <mkdir dir="${web.inf}/lib"/>
+     <mkdir dir="${web.inf}/classes"/>
+    
+     <copy file="${rdfapi}" todir="${web.inf}/lib"/>
+     <copy file="${log4j}" todir="${web.inf}/lib"/>
+     <copy file="${api.jar}" todir="${web.inf}/lib"/>
+     <copy file="${impl.jar}" todir="${web.inf}/lib"/>
+     <copy file="${rdfparser.jar}" todir="${web.inf}/lib"/>
+     <copy file="${io.jar}" todir="${web.inf}/lib"/>
+     <copy file="${inference.jar}" todir="${web.inf}/lib"/>
+     <copy file="${validation.jar}" todir="${web.inf}/lib"/>
+     <copy file="${validation.test.jar}" todir="${web.inf}/lib"/>
+     <copy file="${owltest.jar}" todir="${web.inf}/lib"/>
+
+  
+     <copy todir="${web.inf}" file="${src}/tomcat/web.xml"/>
+     
+     <copy todir="${webapps}">
+       <fileset dir="${src}" includes="*.html"/>
+       <fileset dir="${src}" includes="*.css"/>
+     </copy>
+  
+     <copy file="${output.lib}" todir="${web.inf}/lib"/>
+
+     <copy todir="${web.inf}/classes">
+      <fileset dir="${src}/tomcat">
+       <include name="${log4j.properties}"/>
+      </fileset>
+     </copy>
+
+    </target>
+
+    <target name="war" depends="deploy"
+      description="Build a war file for deployment in a Tomcat">
+      <jar jarfile="${output.dir}/webapps/OWL.war">
+       <fileset dir="${webapps}"/>
+      </jar>
+    </target>
+
+</project>

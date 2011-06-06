@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# A sample application using the OWL API. 
+
+# Java options. 
+# See java documentation for more info.
+JAVAOPTIONS="-Xmx192m -Dorg.semanticweb.owl.util.OWLConnection=org.semanticweb.owl.impl.model.OWLConnectionImpl"
+# Check the platform and set up variables
+ARCH=`uname -s`
+SEPARATOR=":"
+case $ARCH in
+        Linux*) SEPARATOR=":"
+        ;;
+        Cygwin*) SEPARATOR=";"
+        ;;
+        CYGWIN*) SEPARATOR=";"
+        ;;
+        Darwin*) SEPARATOR=":"
+        ;;
+esac
+# Class path
+CLASSPATH=
+for x in lib/*.jar 
+do
+  CLASSPATH=$CLASSPATH$SEPARATOR$x
+done
+java $JAVAOPTIONS -cp $CLASSPATH uk.ac.man.cs.img.owl.util.Processor $*
+      

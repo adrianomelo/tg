@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- #############################################################
+
+Build file for OWL API Core classes
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: build.xml,v $
+ * Revision           $Revision: 1.2 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2003/12/04 10:48:34 $
+ *               by   $Author: sean_bechhofer $
+
+############################################################# -->
+
+
+<!DOCTYPE project [
+    <!ENTITY names SYSTEM "file:../names.xml">
+    <!ENTITY common SYSTEM "file:../common.xml">
+    <!ENTITY modules SYSTEM "file:../modules.xml">
+    <!ENTITY ext SYSTEM "file:../ext.xml">
+]>
+
+<project name="api" default="all" basedir=".">
+
+    <!-- Provide the option of a properties file. You can use -->
+    <!-- this file to override any of the properties set later -->
+    <!-- on, to customise the build process -->
+    <property file="${user.home}/.ant/owlapi.props"/>
+    <property file="./build.props"/>    
+
+    <property name="target.precompile" value="local.dependencies"/>  
+    <property name="target.precompile.test" value="local.dependencies.test"/>  
+
+    <!-- Everything gets built in a directory above the one where the
+         module sits. --> 
+    <property name="project.root" value=".."/>
+
+    &ext;
+    &names;
+    &common;
+    &modules;
+
+    <target name="local.dependencies">
+    </target>
+
+    <target name="local.dependencies.test">
+    </target>
+
+    <!-- CLASSPATH definition -->
+    <path id="classpath">
+        <pathelement path="${class.dir}"/>
+        <pathelement location="${rdfapi}"/>
+        <pathelement location="${log4j}"/>
+    </path>
+
+    <path id="classpath.test">
+    </path>
+</project>

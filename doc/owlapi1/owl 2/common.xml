@@ -1,0 +1,308 @@
+<!-- #############################################################
+
+Common build properties and targets for the OWL API. This XML fragment
+should be included in the build.xml for each individual sub module.
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: common.xml,v $
+ * Revision           $Revision: 1.13 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2006/04/12 14:52:29 $
+ *               by   $Author: matthewhorridge $
+
+############################################################# -->
+    <property name="version.number" value="1.4.3"/>
+    
+    <!-- targets for particular standard tasks -->
+    <property name="target.jar" value="_jar"/>
+    <property name="target.test.jar" value="_test.jar"/>
+    <property name="target.javadoc" value="_javadoc"/>
+    <property name="target.run.test" value="_run.test"/>
+    <property name="target.compile.test" value="_compile.test"/>
+    <property name="target.all" value="_all"/>
+
+    <!-- The default implementation for testing purposes -->
+    <property name="default.implementation" 
+              value="org.semanticweb.owl.impl.model.OWLConnectionImpl"/>
+
+    <!-- Standard directories for the module -->
+
+    <!-- Everything gets built in a directory above the one where the
+         module sits. --> 
+    <property name="project.root" value=".."/>
+
+    <property name="rdf.test" 
+            value="http://www.w3.org/2002/07/owl"/>
+
+    <property name="module.dir" value="."/>
+
+    <!-- Sources -->
+    <property name="src.dir" value="${module.dir}/${src}"/>
+
+    <!-- Test Sources -->
+    <property name="src.dir.test" value="${module.dir}/${src.test}"/>
+
+    <!-- Resources -->
+
+    <!-- Directory where useful test resources will be found. This
+         will be added to the class path when running tests. -->
+
+    <property name="tests.resources" value="${project.root}/${resources}"/> 
+
+    <!-- List of OWL WG test manifests. Should be accessible on the
+         class path when running tests. -->
+
+    <property name="tests.manifests" 
+              value="manifests.txt"/>
+
+    <!-- standard structure of output files -->
+
+    <!-- Where everything goes -->
+    <property name="build.dir" value="${project.root}/build"/>
+
+    <property name="generated.src.dir" value="${build.dir}/${ant.project.name}/generated"/>
+
+    <!-- Directory for the particular module -->
+    <property name="output.dir" value="${build.dir}/${ant.project.name}"/>
+<!--    <property name="output.dir" value="${build.dir}"/> -->
+
+    <!-- Where compiled classes go -->
+    <property name="class.dir" value="${output.dir}/${class}"/>
+
+    <!-- Where compiled tests go -->
+    <property name="class.dir.test" value="${output.dir}/${class.test}"/>
+    
+    <!-- Where test results go -->
+    <property name="results.dir.test" value="${output.dir}/${results.test}"/>
+
+    <!-- Where the javadoc goes -->
+    <property name="javadoc.dir" value="${output.dir}/${javadoc}"/>
+
+    <!-- Where generated libraries go. -->
+    <property name="lib.dir" value="${build.dir}/${owlapi}/${lib}"/>  
+
+<!--    <property name="lib.dir" value="${output.dir}/${lib}"/>   -->
+
+    <!-- Allows us to configure the library name -->
+    <property name="output.lib.prefix" value=""/>   
+
+    <!-- Name for generated library -->
+    <property name="output.lib" value="${lib.dir}/${output.lib.prefix}${ant.project.name}.jar"/>
+
+    <!-- Name for generated library -->
+    <property name="testlib" value="${lib.dir}/${ant.project.name}_test.jar"/>
+
+    <!-- Name for generated doc archive -->
+    <property name="javadoclib" value="${lib.dir}/${ant.project.name}_doc.jar"/>
+
+    <!-- Files to be excluded from compilation -->
+    <property name="javac.excludes" value=""/>
+
+    <!-- Tests to be excluded from testing -->
+    <property name="test.excludes" value=""/>
+
+    <!-- Log4j Properties file -->
+    <property name="log4j.props" value="log4j.properties"/>
+
+    <!-- Things to build documentation for -->
+    <property name="javadoc.packagenames" value="org.semanticweb.owl.*,uk.ac.man.*"/>
+    <property name="javadoc.additionalparams" value="-breakiterator"/>
+    
+    <!-- BUILD TARGETS  -->
+    <target name="null"/>
+
+    <target name="precompile" if="target.precompile">
+        <antcall target="${target.precompile}"/>
+    </target>
+
+    <target name="compile" 
+      depends="precompile" 
+      description="Compile classes">
+        <mkdir dir="${class.dir}"/>
+        <available file="${generated.src.dir}" type="dir"
+           property="module.src" value="${src.dir}:${generated.src.dir}"/>
+      <property name="module.src" value="${src.dir}"/>
+        <javac
+          source="1.4"
+          target="1.4"
+          srcdir="${module.src}" 
+          excludes="${modulesources.excludes}"
+          destdir="${class.dir}" 
+          debug="yes" 
+          deprecation="yes">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <!-- Copy any resources needed. -->
+    <target name="copyres">
+        <copy todir="${class.dir}" >
+<!--            <fileset dir="${src.dir}" excludes="**/*.java,**/*.html,**/*.css"/> -->
+            <fileset dir="${src.dir}" excludes="**/*.java,**/package.html,**/*.css"/>
+        </copy>
+    </target>
+
+    <!-- Build a jar file -->
+    <target name="jar" depends="compile,copyres" 
+            description="Build jar file">
+        <antcall target="${target.jar}"/>
+    </target>
+
+    <!-- Default mechanism for building a jar file -->
+    <target name="_jar">
+        <mkdir dir="${lib.dir}"/>
+        <jar jarfile="${output.lib}">
+            <fileset dir="${class.dir}"/>
+            <manifest>
+              <attribute name="Implementation-Version" value="${version.number}"/>
+            </manifest>  
+        </jar>
+    </target>
+
+    <!-- Build a jar of tests -->
+    <target name="test.jar" depends="compile.test,copyres.test"
+            description="Build a jar of test classes">
+        <antcall target="${target.test.jar}"/>
+    </target>
+
+    <!-- Default mechanism for building a jar file -->
+    <target name="_test.jar">
+        <mkdir dir="${lib.dir}"/>
+        <jar jarfile="${testlib}">
+            <fileset dir="${class.dir.test}"/>
+        </jar>
+    </target>
+
+    <target name="postbuild" if="target.postbuild">
+        <antcall target="${target.postbuild}"/>
+    </target>
+
+    <target name="javadoc" description="Build javadocs">
+        <antcall target="${target.javadoc}"/>
+    </target>
+
+    <target name="_javadoc">
+        <mkdir dir="${javadoc.dir}"/>
+        <javadoc packagenames="${javadoc.packagenames}"
+                 sourcepath="${src.dir}"
+                 destdir="${javadoc.dir}"
+                 author="false"
+                 version="true"
+                 use="true"
+                 bottom="&lt;i>&lt;a href='http://wonderweb.semanticweb.org'>WonderWeb&lt;/i>&lt;/i>"
+                 additionalparam="${javadoc.additionalparams}">
+            <classpath refid="classpath"/>
+        </javadoc>
+        <property name="javadoc.exists" value="yes"/>
+    </target>
+
+    <target name="jar.javadoc" depends="javadoc" if="${javadoc.exists}">
+        <mkdir dir="${lib.dir}"/>
+        <jar jarfile="${javadoclib}" basedir="${javadoc.dir}"/>
+    </target>
+
+    <!-- TEST TARGETS -->
+
+    <target name="precompile.test" if="target.precompile.test">
+        <antcall target="${target.precompile.test}"/>
+    </target>
+
+    <target name="compile.test" description="Build regression tests">
+        <antcall target="${target.compile.test}"/>
+    </target>
+
+    <target name="_compile.test" depends="compile,copyres,precompile.test">
+        <mkdir dir="${class.dir.test}"/>
+        <javac source="1.4"
+               target="1.4"
+               srcdir="${src.dir.test}" 
+               destdir="${class.dir.test}" 
+               deprecation="yes"
+               debug="yes">
+            <classpath>
+                <path refid="classpath"/>
+                <path refid="classpath.test"/>
+                <pathelement path="${class.dir}"/>
+                <pathelement path="${class.dir.test}"/>
+                <!-- <pathelement path="${ant.home}/lib/junit.jar"/> -->
+                <pathelement location="${junit}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="copyres.test">
+        <copy todir="${class.dir.test}" >
+            <fileset dir="${src.dir.test}" excludes="**/*.java,**/*.html" />
+        </copy>
+    </target>
+
+<!--     <target name="compile.test" description="Build regression tests"> -->
+<!--         <antcall target="${target.compile.test}"/> -->
+<!--     </target> -->
+
+<!--     <target name="_compile.test" depends="compile.test,copyres.test"/> -->
+
+    <target name="run.test" description="Run regression tests">
+        <antcall target="${target.run.test}"/>
+    </target>
+
+    <target name="_run.test" depends="compile.test">
+      <mkdir dir="${results.dir.test}"/>
+      <!--      <echo message="Manifests: ${tests.manifests}"/> -->
+      <junit fork="yes" printsummary="withOutAndErr" showoutput="yes">
+         <jvmarg value="-Dtests.manifests=${tests.manifests}"/>
+         <jvmarg value="-Dtests.resources=${tests.resources}"/>
+         <jvmarg value="-Drdf.test=${rdf.test}"/>
+         <jvmarg value="-Dorg.semanticweb.owl.util.OWLConnection=${default.implementation}"/> 
+        <classpath>
+          <path refid="classpath"/>
+          <path refid="classpath.test"/>
+          <!-- Include resources -->
+          <pathelement location="${tests.resources}"/>
+          <pathelement path="${class.dir.test}"/>
+              <pathelement location="${ant.home}/lib/ant.jar"/>
+          <!-- <pathelement location="${ant.home}/lib/junit.jar"/> -->
+          <pathelement location="${ant.home}/lib/optional.jar"/> 
+          <pathelement location="${junit}"/>
+        </classpath>
+        <formatter type="plain"/>
+        <batchtest todir="${results.dir.test}">
+          <fileset dir="${src.dir.test}" excludes="${test.excludes}">
+            <include name="**/*BuildTest.java"/>
+          </fileset>
+        </batchtest>               
+      </junit>
+    </target>
+
+    <target name="clean">
+        <delete dir="${output.dir}"/>
+    </target>
+
+    <target name="clean.all">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="basic" depends="jar,postbuild"/>
+
+    <!--    <target name="all" depends="basic,jar.javadoc"/> -->
+    <!--    <target name="all" depends="basic"/> -->
+
+    <!-- Build a jar file -->
+    <target name="all">
+        <antcall target="${target.all}"/>
+    </target>
+
+    <!-- Default mechanism for building a jar file -->
+    <!-- <target name="_all" depends="basic,jar.javadoc"> -->
+    <target name="_all" depends="basic">
+        <mkdir dir="${lib.dir}"/>
+        <jar jarfile="${output.lib}">
+            <fileset dir="${class.dir}"/>
+        </jar>
+    </target>
+
+
+

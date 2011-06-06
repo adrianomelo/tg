@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="doc/owlapi"/>
-	<classpathentry kind="lib" path="jar/owlapi-bin.jar" sourcepath="jar/owlapi-src.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/abstractparser.jar" sourcepath="doc/owlapi1/owl 2/abstractparser/src/org/semanticweb/owl/io/abstract_syntax"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/antlr.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/api.jar" sourcepath="doc/owlapi1/owl 2/api/src"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/dig.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/examples.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/getopt.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/impl.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/inference.jar" sourcepath="doc/owlapi1/owl 2/inference/src"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/io.jar" sourcepath="doc/owlapi1/owl 2/io/src"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/owl-servlet.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/owltest.jar" sourcepath="doc/owlapi1/owl 2/owltest/src"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/rdfapi.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/rdfparser.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/ui.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/validation_test.jar"/>
+	<classpathentry kind="lib" path="doc/owlapi1/owl/lib/validation.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

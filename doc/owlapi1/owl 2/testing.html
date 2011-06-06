@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+<title>Testing the OWL API</title>
+<style type="text/css">
+body {
+font-family: arial;
+background-color: #DDEEEE;
+margin: 40 40 40 40;
+}
+.box {
+padding: 0px 20px 10px 20px;
+border:1px solid #888;
+background-color: #FFFFFF;
+}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Testing</h1>
+
+<p>This distribution contains a number of unit tests for the OWL
+API. JUnit tests are provided to test the basic API and some of the
+applications built on top of the API. Some of the tests use the <a
+href="http://www.w3.org/TR/owl-test/">OWL Test Cases</a> as source
+material. The property <code>tests.manifests</code> controls the list
+of test sources that are used.</p>
+
+<p>Directory <a href="resources"><code>resources</code></a>
+contains a number of small OWL ontologies for testing individual
+language constructs. It also contains a list of URIs of <a
+href="resources/manifests.txt">manifests</a> for OWL Tests.</p>
+
+<h2>Running the Tests</h2>
+
+<p>Tests for each module can be compiled and run using:</p>
+<pre>
+ant run.test
+</pre>
+
+<p>Some of these (for instance the build tests of the validator and
+consistency checkers) make use of the <a
+href="http://www.w3.org/TR/owl-test/">OWL Test Cases</a>. Network
+connectivity is (of course) required to run these tests.</p>
+
+<p>Test results for each module can be viewed in the directory <code>build/<em>module</em>/test.results</code>.</p> 
+
+<h1>Current Status</h1>
+
+<p>As of 14/10/03, the following tests should succeed:</p>
+
+<dl>
+<dt><code style='font-weight:bold'>org.semanticweb.owl.model.impl.ImplBuildTest</code></dt>
+<dd>All tests <span style='color:green'>pass</span></dd>
+
+<dt><code style='font-weight:bold'>uk.ac.man.cs.img.owl.inference.ConsistencyCheckerBuildTest</code></dt>
+<dd>This will run a consistency checker against the OWL consistency
+test tests. Each test is run twice:
+<ol> 
+<li>once in <em>lax</em> mode, where we
+consider a response of <code>UNKNOWN</code> to be acceptable</li>
+<li>once in <em>strict</em>
+mode, where a response of <code>UNKNOWN</code> is considered a
+failure.</li></ol> 
+
+The current implementation of the consistency checker is a basic stub
+that simple returns <code>UNKNOWN</code> as the result of any test. As
+a result, it will <span style='color:red'>fail</span> the strict
+tests and <span style='color:green'>pass</span> the lax tests.</dd>
+
+<dt><code style='font-weight:bold'>uk.ac.man.cs.img.owl.validation.SpeciesValidatorBuildTest</code></dt>
+<dd>All of these tests are expected to <span style='color:green'>pass</span>.</dd>
+
+<dt><code style='font-weight:bold'>uk.ac.man.cs.img.owl.io.TPTPRendererBuildTest</code></dt>
+<dd>Six of these tests are expected to <span
+style='color:red'>fail</span> due to large cardinality constraints in
+the test sources.</dd>
+</dl>
+
+<h2>Contact</h2>
+
+<p>For questions regarding the API, please contact <a
+href="mailto:seanb@cs.man.ac.uk">Sean Bechhofer</a>.</p>
+
+
+</div>
+</body> 
+</html>

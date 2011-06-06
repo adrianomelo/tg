@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- #############################################################
+
+Build file for OWL API Core classes
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: build.xml,v $
+ * Revision           $Revision: 1.5 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2004/02/19 15:49:29 $
+ *               by   $Author: dturi $
+
+############################################################# -->
+
+
+<!DOCTYPE project [
+    <!ENTITY names SYSTEM "file:../names.xml">
+    <!ENTITY common SYSTEM "file:../common.xml">
+    <!ENTITY modules SYSTEM "file:../modules.xml">
+    <!ENTITY ext SYSTEM "file:../ext.xml">
+]>
+
+<project name="abstractparser" default="all" basedir=".">
+
+  <property name="grammar" value="grammar"/>
+
+    <property name="target.precompile" value="local.dependencies"/>  
+    <property name="target.precompile.test" value="local.dependencies.test"/>  
+
+    <!-- Everything gets built in a directory above the one where the
+         module sits. --> 
+    <property name="project.root" value=".."/>
+
+    &ext;
+    &names;
+    &common;
+    &modules;
+    
+   <property name="abstractparser.class" value="${build.dir}/abstractparser/${class}"/>
+    <property name="abstractparser.test.class" value="${build.dir}/abstractparser/$/${class.test}"/>
+    <property name="abstractparser.jar" value="${build.dir}/${owlapi}/lib/abstractparser.jar"/>
+    <property name="abstractparser.test.jar" value="${build.dir}/${owlapi}/lib/abstractparser_test.jar"/>
+
+  <property name="package.dir" value="org/semanticweb/owl/io/abstract_syntax"/>
+
+    <!-- This describes the things you need for the compilation. For
+    any module xxx on which you depend, add the appropriate things to
+    this build file.  -->
+
+    <target name="local.dependencies" depends="generate">
+      <ant inheritAll="false" dir="${project.root}/api" target="compile"/>
+    </target>
+
+    <!-- This describes the things you need for testing -->
+
+    <target name="local.dependencies.test">
+      <ant inheritAll="false" dir="${project.root}/api" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/impl" target="compile.test"/>
+    </target>
+
+    <target name="generate" depends="generate.lexer"
+    	description="generates parser">
+      <mkdir dir="${generated.src.dir}"/>
+      <java classname="antlr.Tool" fork="yes" dir="${grammar}">
+        <arg value="abstract-owl.g"/>
+        <classpath refid="classpath_grammar"/>
+      </java>
+      <move todir="${generated.src.dir}/${package.dir}">
+        <fileset dir="${grammar}">
+          <include name="*.java"/>
+        </fileset>
+      </move>    
+    </target>
+
+    <!-- CLASSPATH definition -->
+    <path id="classpath">
+        <pathelement path="${class.dir}"/>
+	<!-- Libraries -->
+       <path location="${api.class}"/>
+       <path location="${impl.class}"/>
+
+	<!-- External Libraries -->
+        <pathelement location="${antlr}"/>
+    </path>
+
+    <path id="classpath.test">
+        <!-- Libraries for testing -->
+        <path refid="classpath"/>
+        <pathelement location="${log4j}"/>
+    </path>
+
+  <path id="classpath_grammar">
+    <pathelement path="grammar"/>
+    <path refid="classpath"/>
+  </path>
+
+  <target name="generate.lexer" 
+    description="generates the lexer">
+    <mkdir dir="${generated.src.dir}"/>
+    <java classname="antlr.Tool" fork="yes" dir="${grammar}">
+      <arg value="lexer.g"/>
+      <classpath refid="classpath_grammar"/>
+    </java>
+    <move todir="${generated.src.dir}/${package.dir}">
+      <fileset dir="${grammar}">
+      <include name="*.java"/>
+      </fileset>
+    </move>
+  </target> 
+
+</project>
+
+

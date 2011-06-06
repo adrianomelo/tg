@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+
+An API for OWL. 
+
+<BR>
+&copy; The University of Manchester, 2002.
+
+
+<h2>Package Specification</h2>
+
+<p>This package provides a collection of interface definitions that
+provide an API to OWL ontologies. An ontology consists of a number of
+classes, properties and individuals. In addition, an ontology will
+contain a number of axioms that provide definitions of classes and
+describe the relationships that hold between classes.
+</p>
+
+<p>The interfaces defined here essentially describe the OWL objects as
+simple structs. There is little functionality offered here other than
+<CODE>get</CODE> methods. Access is read-only. If applications wish to
+make <em>changes</em> to an ontology, they should make use of change
+events (see {@link org.semanticweb.owl.model.change org.semanticweb.owl.model.change}).</p>
+
+<p>The data structures are targeted mainly at the Lite and DL
+subspecies of OWL (although OWL Full ontologies can be represeted
+using the API). This does mean that some assumptions are made about
+the ontologies. For example, the validation rules for OWL Lite and DL
+ontologies represented in OWL-RDF say that all individuals must be
+assigned a type (e.g. for all individuals <code>x</code>there must be
+a triple <code>x rdf:type y</code> where <code>y</code> is a class. In
+the API this is not necessary -- we can have individuals that are
+introduced with no type. However, when those ontologies are
+serialised, we might expect a triple of the form <code>x rdf:type
+owl:thing</code> to be added.</p>
+
+<h3>Reasoning</h3>
+<p>Note that the philosophy behind this particular collection of
+interfaces is that they simply provide access to the
+<strong>told</strong> information within an OWL model. Further
+interfaces will provide access to additional functionality relating to
+inference based on the formal semantics of the language, but this is
+not provided here. This separation of the functionality means that an
+application can provide a level of implementation relating OWL models
+(for example providing persistent store) without having to commit to
+the implementation of a reasoner.</p>
+
+<h3>Collections</h3>
+<p>
+
+Many of the classes defined here make use of collections. For example,
+{@link org.semanticweb.owl.model.OWLNaryBooleanDescription OWLNaryBooleanDescription} has a collection of expressions which are
+(unsurprisingly) the operands to the operator. The
+interfaces use the Set type {@link java.util.Set Set}. This means that users of
+the API will have to cast objects as they are extracted from the lists,
+e.g. the operands of a conjunction may have to be cast to {@link
+org.semanticweb.owl.model.OWLDescription OWLDescription} before they can be
+used. The issue here is in the trade-off between type-safety
+(providing a number of different typed collection classes) and keeping the
+interfaces small, easy to understand, maintain and implement.
+</p>
+
+<!-- <p>In some cases, the collections are theoretically unordered (for -->
+<!-- example the individuals in an enumeration). For the purposes of -->
+<!-- implementation, however, it is often useful to be able to consider -->
+<!-- them as lists whose order is fixed. In user interfaces, for example, -->
+<!-- it can be disconcerting to find that the order of presentation changes -->
+<!-- unpredictably. For this reason, the collections are based on a List -->
+<!-- model.</p> -->
+
+<h3>Locality of Information</h3>
+
+<p>For a number of objects in the API, assertions can be made about
+those objects. For example, we can say that an OWL Class A has a
+superclass which is the OWL Class B. All such assertions must be made
+within the context of a particular ontology. This allows ontologies to
+make alternative (and possibly conflicting) statements about the same
+classes. In order to support this, a number of accessors are defined
+on the objects in the API. For example, if we wish to discover whether
+an {@link org.semanticweb.owl.model.OWLObjectProperty OWLObjectProperty} has been asserted to be
+transitive we can ask if this is the case for
+
+<ol>
+<li>A particular ontology.</li>
+<li>Any one of a collection of ontologies.</li>
+</ol>
+
+Note that in the case of 1, the expected behaviour is that this will
+<strong>not</strong> include the imports closure of the ontology, but
+will simply report whether the assertion has been explicitly made
+within the ontology. In order to query about facts relating to the imports closure, the imports closure should first be obtained (via the {@link org.semanticweb.owl.model.helper.OntologyHelper#importClosure importClosure} method.</p>
+
+<h3>Exceptions</h3>
+
+<p>All methods in the interface classes have the capability of throwing
+{@link org.semanticweb.owl.model.OWLException OWLException}s. Although
+this places some burden on client applications, this provides a
+flexible mechanism that caters for many different scenarios, for
+example the case where the implementation of the model relies on
+network communication which may be disrupted at any time.
+</p>
+
+<h3>A comment on Frames</h3>
+
+<p>The interface hierarchy includes a class {@link org.semanticweb.owl.model.OWLFrame OWLFrame}.
+The intention is that a frame packages up a top-level description of a
+class, and consists of a number of superclasses and a number of
+restrictions. Although {@link org.semanticweb.owl.model.OWLFrame OWLFrame} doesn't have a direct
+counterpart in OWL (or in DAML+OIL), the notion of a frame was a
+particularly useful one in the <a
+href="http://oiled.man.ac.uk">OilEd</a> implementation as it provides
+a user-friendly view on ontology descriptions. The semantics of a
+frame is simply the conjunction of the superclass descriptions and
+restrictions. </p>
+
+<p>The class is pretty much unused at present, however it is likely to
+prove useful in supporting user interactions with OWL ontologies. In
+particular, it allows us to isolate those places where an intersection
+can actually be legally used in OWL Lite, and can thus ease the
+process of species validation. Thus some refactoring is likely to take
+place in this area.</p>
+
+
+<h3>Credits</h3>
+
+The original concept, design and coding of the interface was by Sean
+Bechhofer and Phil Lord of the University of Manchester and Angus
+Roberts, now at the University of Sheffield. Additional design by
+Raphael Volz of the University of Karlsruhe.
+
+@author Sean Bechhofer, Phil Lord, Angus Roberts
+
+</body>
+</html>

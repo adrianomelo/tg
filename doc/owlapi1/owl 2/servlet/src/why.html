@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="default.css">
+<title>Explanation of Validation</title>
+</head>
+<body>
+<div class="box">
+<h2>Why isn't my ontology OWL [Lite|DL]?</h2>
+
+<p>The OWL Abstract Syntax and Semantics <a
+href="http://www.w3.org/TR/owl-semantics/">(AS&amp;S)</a> document
+provides a characterisation of OWL ontologies in terms of an abstract
+syntax. This is a high level description of the way in which we can
+define the characteristics of classes and properties.</p>
+
+<p>In addition, AS&amp;S gives a mapping to RDF triples. This tells us
+how such an abstract description of an OWL ontology can be transformed
+to a collection of RDF triples (which can then be represented in a
+concrete fashion using, for example RDF-XML). </p>
+
+<p>In order to parse an OWL-RDF file into some structure closer to the
+abstract syntax we need to reverse this mapping, i.e. determine what
+the class definitions were that lead to those particular triples. Note
+that this reverse mapping is not necessarily unique, but for the
+purposes of validation we are simply interested in whether such a
+reverse mapping exists.</p>
+
+<p>An arbitrary RDF graph may not necessarily correspond to an OWL [Lite|DL]
+ontology. In other words, there may not be an OWL [Lite|DL] ontology
+which when transformed using the mapping produces the given
+graph. This is what the species validator attempts to determine: if
+such a graph exists. </p>
+
+<p>There are, in general, two ways in which an RDF graph may fail to
+correspond to an OWL [Lite|DL] ontology.</p>
+
+<ol>
+<li>There does not exist an ontology in abstract syntax form that
+maps to the given triples.</li>
+<li>There is an ontology in abstract syntax form that maps to the
+triples, but the ontology violates some of the restrictions for
+membership of the OWL [Lite|OWL] subspecies.</li>
+</ol>
+
+<p>We can loosely describe the first as <em>syntactic</em> errors, and
+the second as <em>semantic</em> errors. Examples of <em>syntactic</em>
+errors include:
+<ul>
+<li>Using a URI reference in an <code>owl:Class</code> context
+(e.g. as the object of an <code>owl:someValuesFrom</code> property
+whose subject is an <code>owl:Restriction</code> which has an
+<code>owl:onProperty</code> property with an
+<code>owl:ObjectProperty</code> as its object) without explicitly
+including a statement that the URI reference is an
+<code>owl:Class</code> or <code>owl:Restriction</code>. The AS&amp;S
+requires that all such usages are given an explicit typing. </li>
+
+<li>Using a malformed <code>owl:Restriction</code>, e.g. missing an
+<code>owl:onProperty</code> property.</li>
+
+<li>Using the wrong vocabulary, e.g. <code>rdf:Property</code> instead
+of the more specific <code>owl:ObjectProperty</code> and
+<code>owl:DatatypeProperty</code>.</li> 
+</ul>
+</p>
+
+<p>Once we have an ontology in abstract form, there are a number of
+conditions that must hold in order for the ontology to be a member of
+the OWL [Lite|DL] subspecies. For example, there are restrictions on
+the expressiveness that can be used in OWL Lite (no unions or
+enumerations and limited cardinality restrictions). The Lite and DL
+subspecies also have a constraint that effectively says that the
+collections of URI references of classes, individuals and properties
+must be disjoint. Thus in OWL Lite and DL we can not use metamodelling
+devices such as <em>classes as instances</em>.
+</p>
+
+<h2>Validation Results</h2>
+
+<p>The validator will report on any violations of either syntactic or
+semantic constraints. Those things which it considers are RDF related
+(malformed syntax or missing type information) will be reported as
+such. </p>
+
+</div>
+</body>
+

@@ -1,0 +1,29 @@
+<!-- #############################################################
+
+Common build properties and targets for the OWL API. This XML fragment
+should be included in the build.xml for each individual sub module.
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: names.xml,v $
+ * Revision           $Revision: 1.3 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2004/07/12 15:29:15 $
+ *               by   $Author: sean_bechhofer $
+
+############################################################# -->
+
+    <!-- Standard names for stuff like directories -->
+
+    <property name="owlapi" value="owlapi"/>
+    <property name="class" value="class"/>
+    <property name="src" value="src"/>
+    <property name="class.test" value="test.class"/>
+    <property name="src.test" value="tests"/>
+    <property name="results.test" value="test.results"/>
+    <property name="javadoc" value="javadoc"/>
+    <property name="lib" value="lib"/>
+    <property name="resources" value="resources"/>
+

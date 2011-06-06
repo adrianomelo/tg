@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- #############################################################
+
+Build file for OWL API
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: build.xml,v $
+ * Revision           $Revision: 1.13 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2005/06/10 12:20:33 $
+ *               by   $Author: sean_bechhofer $
+
+############################################################# -->
+<!DOCTYPE project [
+    <!ENTITY names SYSTEM "file:../names.xml">
+    <!ENTITY common SYSTEM "file:../common.xml">
+    <!ENTITY modules SYSTEM "file:../modules.xml">
+    <!ENTITY ext SYSTEM "file:../ext.xml">
+]>
+
+<project name="owlapi" default="compile" basedir=".">
+    <!-- Provide the option of a properties file. You can use -->
+    <!-- this file to override any of the properties set later -->
+    <!-- on, to customise the build process -->
+    <property file="${user.home}/.ant/owlapi.props"/>
+
+    <property name="project.root" value=".."/>
+    <property name="build.dir" value="${project.root}/build"/>
+ 
+    &modules;
+    &names;
+    &ext;
+
+    <property name="build.lib.dir" value="${build.dir}/${ant.project.name}/${lib}"/>
+    <property name="build.lib.webapps" value="${build.dir}/${ant.project.name}/webapps"/>
+    <property name="distribution.dir" value="../distribution"/>
+    <property name="output.dir" value="${build.dir}/${ant.project.name}"/>
+    <property name="distribution.src" value="${distribution.dir}/${ant.project.name}-src"/>
+    <property name="distribution.bin" value="${distribution.dir}/${ant.project.name}-bin"/>
+    
+    <property name="javadoc.dir" value="${output.dir}/${javadoc}"/>
+    <property name="javadoc.packagenames" value="org.semanticweb.owl.*,uk.ac.man.*"/>
+    <property name="javadoc.additionalparams" value="-breakiterator"/>
+
+    <!-- CLASSPATH definition -->
+    <path id="classpath">
+        <pathelement location="${rdfapi}"/>
+        <pathelement location="${log4j}"/>
+        <pathelement location="${dig}"/>
+        <pathelement location="${getopt}"/>
+        <pathelement location="${servlet}"/>
+        <pathelement location="${junit}"/>
+        <pathelement location="${antlr}"/>
+        <pathelement location="${xbean}"/>
+        <pathelement location="${dig1.1}"/>
+        <pathelement location="${dig1.1-reasoners}"/>
+        <pathelement location="${dig1.1-abstractOWL}"/>
+        <pathelement location="${instancestore}"/>
+        <pathelement location="${iSproperties}"/>
+    </path>
+
+    <target name="compile" description="Compile all submodules">
+      <ant inheritAll="false" dir="../api" target="all"/>
+      <ant inheritAll="false" dir="../impl" target="all"/>
+      <ant inheritAll="false" dir="../rdfparser" target="all"/>
+      <ant inheritAll="false" dir="../io" target="all"/>
+      <ant inheritAll="false" dir="../validation" target="all"/>
+      <ant inheritAll="false" dir="../inference" target="all"/>
+      <ant inheritAll="false" dir="../owltest" target="all"/>
+      <ant inheritAll="false" dir="../servlet" target="all"/>
+      <ant inheritAll="false" dir="../examples" target="all"/>
+      <ant inheritAll="false" dir="../abstractparser" target="all"/>
+      <ant inheritAll="false" dir="../ui" target="all"/>
+    </target>
+
+    <target name="clean" description="Clean up">
+      <ant inheritAll="false" dir="../api" target="clean"/>
+      <ant inheritAll="false" dir="../impl" target="clean"/>
+      <ant inheritAll="false" dir="../rdfparser" target="clean"/>
+      <ant inheritAll="false" dir="../io" target="clean"/>
+      <ant inheritAll="false" dir="../validation" target="clean"/>
+      <ant inheritAll="false" dir="../inference" target="clean"/>
+      <ant inheritAll="false" dir="../owltest" target="clean"/>
+      <ant inheritAll="false" dir="../servlet" target="clean"/>
+      <ant inheritAll="false" dir="../examples" target="clean"/>
+      <ant inheritAll="false" dir="../abstractparser" target="clean"/> 
+      <ant inheritAll="false" dir="../ui" target="clean"/>
+      <delete dir="${output.dir}"/>
+    </target>
+
+    <target name="clean.all" description="Clean up everything">
+      <delete dir="${build.dir}"/>
+      <delete dir="${distribution.dir}"/>
+    </target>
+
+    <target name="run.test" description="Run regression tests on all modules">
+      <ant inheritAll="false" dir="../api" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <ant inheritAll="false" dir="../impl" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <ant inheritAll="false" dir="../rdfparser" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <ant inheritAll="false" dir="../io" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <ant inheritAll="false" dir="../validation" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <ant inheritAll="false" dir="../inference" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <ant inheritAll="false" dir="../owltest" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant>
+      <!-- Problems with running the parser on Win with JDK1.4.1 
+      <ant inheritAll="false" dir="../abstractparser" target="run.test">
+        <property name="results.dir.test" 
+	          value="${build.dir}/${ant.project.name}/${results.test}"/>
+      </ant> -->
+    </target>
+
+    <target name="compile.test" description="Build regression tests for all modules">
+      <ant inheritAll="false" dir="../api" target="compile.test"/>
+      <ant inheritAll="false" dir="../impl" target="compile.test"/>
+      <ant inheritAll="false" dir="../rdfparser" target="compile.test"/>
+      <ant inheritAll="false" dir="../io" target="compile.test"/>
+      <ant inheritAll="false" dir="../validation" target="compile.test"/>
+      <ant inheritAll="false" dir="../inference" target="compile.test"/>
+      <ant inheritAll="false" dir="../owltest" target="compile.test"/>
+      <ant inheritAll="false" dir="../abstractparser" target="compile.test"/>
+    </target>
+
+    <target name="clean.run.test" 
+            depends="clean,run.test"
+	    description="Clean, then run regression Tests"/>
+
+    <target name="javadoc" description="Build Javadoc for all modules">
+        <mkdir dir="${javadoc.dir}"/>
+        <javadoc packagenames="${javadoc.packagenames}"
+                 sourcepath="../api/${src}:../impl/${src}:../rdfparser/${src}:../io/${src}:../validation/${src}:../inference/${src}:../owltest/${src}:../examples/${src}:../servlet/${src}:../abstractparser/${src}:../build/abstractparser/generated"
+                 destdir="${javadoc.dir}"
+                 author="false"
+                 version="true"
+                 use="true"
+                 bottom="&lt;i>&lt;a href='http://wonderweb.semanticweb.org'>WonderWeb&lt;/i>&lt;/i>"
+                 additionalparam="${javadoc.additionalparams}">
+            <classpath refid="classpath"/>
+	    <group title="API" packages="org.semanticweb.owl.model*:org.semanticweb.owl.util*:org.semanticweb.owl.io:org.semanticweb.owl.io.vocabulary*:org.semanticweb.owl.inference*:org.semanticweb.owl.validation*"/>
+	    <group title="Implementation" packages="org.semanticweb.owl.impl*:org.semanticweb.owl.io.owl_rdf*:org.semanticweb.owl.io.abstract_syntax*:org.semanticweb.owl.io.simple*"/>
+	    <group title="Applications" packages="uk*"/>
+	    <link href="http://java.sun.com/j2se/1.4/docs/api"/>
+	    <link href="http://xml.apache.org/xmlbeans/docs/reference" />
+	    <link href="http://dig.sourceforge.net/javadoc-xmlbeans/1.1" />
+	    <link href="http://instancestore.sourceforge.net/javadoc" />
+	    <link href="http://dig.sourceforge.net/javadoc-reasoners/1.1" />
+        </javadoc>
+    </target>
+
+    <target name="distribution" depends="distribution.src,distribution.bin"
+            description="Build source and binary distributions"/>
+
+    <target name="distribution.src" description="Build a source distribution">
+      <mkdir dir="${distribution.dir}"/>
+      <tstamp>
+          <format property="currentdate" pattern="yy-MM-dd"/>
+      </tstamp>
+      <zip zipfile="${distribution.src}-${currentdate}.zip">
+        <zipfileset prefix="owl/api" dir="../api"/>
+        <zipfileset prefix="owl/examples" dir="../examples"/>
+        <zipfileset prefix="owl/ext" dir="../ext"/>
+        <zipfileset prefix="owl/impl" dir="../impl"/>
+	<zipfileset prefix="owl/inference" dir="../inference"/>
+        <zipfileset prefix="owl/io" dir="../io"/>
+	<zipfileset prefix="owl/owlapi" dir="../owlapi"/>
+	<zipfileset prefix="owl/owltest" dir="../owltest"/>
+	<zipfileset prefix="owl/rdfparser" dir="../rdfparser"/>
+	<zipfileset prefix="owl/resources" dir="../resources"/>
+	<zipfileset prefix="owl/rules" dir="../resources"/>
+	<zipfileset prefix="owl/servlet" dir="../servlet"/>
+	<zipfileset prefix="owl/validation" dir="../validation"/>
+	<zipfileset prefix="owl/abstractparser" dir="../abstractparser"/>
+	<zipfileset prefix="owl" dir="..">
+	  <include name="*.xml"/>
+	  <include name="*.html"/>
+	  <include name="*.png"/>
+	  <include name="*.txt"/>
+        </zipfileset>
+      </zip>
+    </target>
+
+    <target name="distribution.bin" description="Build a binary distribution"
+            depends="compile"> 
+      <mkdir dir="${distribution.dir}"/>
+      <mkdir dir="${build.lib.dir}"/>
+
+      <copy todir="${build.dir}/${ant.project.name}" file="${project.root}/readme-bin.html"/>
+
+<!--  Removed copy as jars now end up in the build directory.
+      <copy todir="${build.lib.dir}" file="${api.jar}"/>
+      <copy todir="${build.lib.dir}" file="${impl.jar}"/>
+      <copy todir="${build.lib.dir}" file="${rdfparser.jar}"/>
+      <copy todir="${build.lib.dir}" file="${io.jar}"/>
+      <copy todir="${build.lib.dir}" file="${inference.jar}"/>
+      <copy todir="${build.lib.dir}" file="${validation.jar}"/>
+      <copy todir="${build.lib.dir}" file="${owltest.jar}"/>
+      <copy todir="${build.lib.dir}" file="${examples.jar}"/> 
+-->
+      <copy todir="${build.lib.dir}" file="${rdfapi}"/>
+      <copy todir="${build.lib.dir}" file="${log4j}"/>
+      <copy todir="${build.lib.dir}" file="${getopt}"/>
+      <copy todir="${build.lib.dir}" file="${dig}"/>
+      <copy todir="${build.lib.dir}" file="${antlr}"/>
+
+      <property name="processor" value="processor"/>
+
+      <echo file="${build.dir}/${ant.project.name}/${processor}" append="false">#!/bin/sh
+
+# A sample application using the OWL API. 
+
+# Java options. 
+# See java documentation for more info.
+JAVAOPTIONS="-Xmx192m -Dorg.semanticweb.owl.util.OWLConnection=org.semanticweb.owl.impl.model.OWLConnectionImpl"
+# Check the platform and set up variables
+ARCH=`uname -s`
+SEPARATOR=":"
+case $ARCH in
+        Linux*) SEPARATOR=":"
+        ;;
+        Cygwin*) SEPARATOR=";"
+        ;;
+        CYGWIN*) SEPARATOR=";"
+        ;;
+        Darwin*) SEPARATOR=":"
+        ;;
+esac
+# Class path
+CLASSPATH=
+for x in lib/*.jar 
+do
+  CLASSPATH=$CLASSPATH$SEPARATOR$x
+done
+java $JAVAOPTIONS -cp $CLASSPATH uk.ac.man.cs.img.owl.util.Processor $*
+      </echo>      
+      <chmod file="${build.dir}/${ant.project.name}/${processor}" perm="+x"/>   
+
+      <tstamp>
+          <format property="currentdate" pattern="yy-MM-dd"/>
+      </tstamp>
+      <zip zipfile="${distribution.bin}-${currentdate}.zip">
+        <zipfileset prefix="owl" dir="${build.dir}/${ant.project.name}"/>
+      </zip>
+    </target>
+    
+</project>

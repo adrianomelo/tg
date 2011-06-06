@@ -2,19 +2,18 @@ package br.ufpe.cin;
 
 import java.util.Iterator;
 import java.util.Set;
+import java.util.Vector;
 
-import org.semanticweb.owlapi.model.ClassExpressionType;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDataAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectUnionOf;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owl.model.OWLAnd;
+import org.semanticweb.owl.model.OWLClass;
+import org.semanticweb.owl.model.OWLDataAllRestriction;
+import org.semanticweb.owl.model.OWLDataSomeRestriction;
+import org.semanticweb.owl.model.OWLDescription;
+import org.semanticweb.owl.model.OWLException;
+import org.semanticweb.owl.model.OWLObjectAllRestriction;
+import org.semanticweb.owl.model.OWLObjectSomeRestriction;
+import org.semanticweb.owl.model.OWLOr;
+
 
 public class Normalization {
 	Ontology ontology = null;
@@ -25,18 +24,19 @@ public class Normalization {
 		this.ontology = o;
 	}
 
-	public void normalizeOntology() throws OWLOntologyCreationException
+	public void normalizeOntology() throws OWLException
 	{
 		Set<OWLClass> classes = this.ontology.getClasses();
 		for (OWLClass cls : classes){
-			this.normalizeAxiom(cls);
+			if (!this.isInNormalForm(cls))
+				System.out.println(cls);
 		}
 	}
 	
-	public void normalizeAxiom(OWLClass cls)
+	public void normalizeAxiom(OWLClass cls) throws OWLException
 	{
-		Set<OWLClassExpression> sc = ontology.getSuperClasses(cls);
-		for (OWLClassExpression super_class : sc){
+		Set<OWLDescription> sc = ontology.getSuperClasses(cls);
+		for (OWLDescription super_class : sc){
 			// left is not a pure conjuction
 			this.normalizeRHS(cls, super_class);
 		}
@@ -51,12 +51,12 @@ public class Normalization {
 		}*/
 	}
 
-	private void normalizeLHS(OWLClassExpression super_class, OWLClass cls) {
+	private void normalizeLHS(OWLDescription super_class, OWLClass cls) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void normalizeRHS(OWLClassExpression sub_class, OWLClassExpression super_class) {
+	private void normalizeRHS(OWLDescription sub_class, OWLDescription super_class) throws OWLException {
 		if (this.isDisjunction(super_class)) {
 			
 			if (isPureDisjunction(super_class))
@@ -72,70 +72,91 @@ public class Normalization {
 				System.out.println("conjunction: " + super_class);
 			
 		} else {			
-			System.out.println("?: " + super_class.getClassExpressionType());
+			System.out.println("?: " + super_class);
 		}
+	}
+	
+	private boolean isInNormalForm (OWLClass cls) throws OWLException
+	{		
+		Set<OWLDescription> inclusion_axioms = cls.getSuperClasses(ontology.ontology);
+		for (OWLDescription axiom : inclusion_axioms){
+			
+			if (!isInNormalForm(cls, axiom))
+				return false;
+		}
+		
+		Set<OWLDescription> equivalence_axioms = cls.getEquivalentClasses(ontology.ontology);
+		for (OWLDescription axiom : equivalence_axioms){
+			
+			if (!isInNormalForm(cls, axiom) || !isInNormalForm(axiom, cls))
+				return false;
+		}
+		
+		return true;
 	}
 	
 	// i)    C [ ^C
 	// ii)  vD [  C
 	// iii) ^C [ vD
-	private boolean isInPositiveNormalForm (OWLClass cls){
-		Set<OWLClassExpression> axioms = cls.getSubClasses(ontology.ontology);
-		
-		boolean is_pureconjunction = true, is_puredisjunction = true;
-		for (OWLClassExpression axiom : axioms){
-			is_pureconjunction = is_pureconjunction && isPureConjunction(axiom);
-			is_puredisjunction = is_puredisjunction && isPureDisjunction(axiom);
-		}
-		
-		// left side is a concept and right side is pure
-		if (is_pureconjunction || is_puredisjunction) 
+	private boolean isInNormalForm (OWLDescription cls_left, OWLDescription cls_right) throws OWLException
+	{
+		if (isConjunction(cls_left) && isPureConjunction(cls_right))
 			return true;
 		
+		if (isPureDisjunction(cls_left) && isConjunction(cls_right))
+			return true;
+		
+		if (isPureConjunction(cls_left) && isPureDisjunction(cls_right))
+			return true;
+			
+		return false;
 	}
 	
-	private boolean isDisjunction(OWLClassExpression cls)
+	private boolean isDisjunction(OWLDescription cls)
 	{
-		if (cls.getClassExpressionType() == ClassExpressionType.OWL_CLASS)
+		if (cls instanceof OWLClass)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_UNION_OF)
+		if (cls instanceof OWLOr)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_ALL_VALUES_FROM)
+		if (cls instanceof OWLObjectAllRestriction)
 			return true; 
-		
-		if (cls.getClassExpressionType() == ClassExpressionType.DATA_ALL_VALUES_FROM)
-			return true;
+
+		if (cls instanceof OWLDataAllRestriction)
+			return true; 
 		
 		return false;
 	}
-	private boolean isPureDisjunction(OWLClassExpression cls){
+	private boolean isPureDisjunction(OWLDescription cls) throws OWLException{
 		if (!isDisjunction(cls))
 			return false;
 		
-		Set<OWLClassExpression> sub_axioms = null;
+		Vector<OWLDescription> sub_axioms = new Vector<OWLDescription>();
 		
+		/*
+		 * loop infinito caso adicione os axiomas abaixo
+		 */
 		if (cls instanceof OWLClass){
-			OWLClass sub_class = (OWLClass) cls;
-			sub_axioms = sub_class.getEquivalentClasses(ontology.ontology);
-			sub_axioms.addAll(sub_class.getSubClasses(ontology.ontology));
+			/*OWLClass sub_class = (OWLClass) cls;
+			sub_axioms.addAll(sub_class.getEquivalentClasses(ontology.ontology));
+			sub_axioms.addAll(sub_class.getSuperClasses(ontology.ontology));*/
 		} 
-		else if (cls instanceof OWLObjectUnionOf){
-			OWLObjectUnionOf union = (OWLObjectUnionOf) cls;
-			sub_axioms = union.getOperands();
+		else if (cls instanceof OWLOr){
+			OWLOr union = (OWLOr) cls;
+			sub_axioms.addAll(union.getOperands());
 		}
-		else if (cls instanceof OWLObjectAllValuesFrom){
-			OWLObjectAllValuesFrom all_values = (OWLObjectAllValuesFrom) cls;
-			sub_axioms = all_values.getNestedClassExpressions();
+		else if (cls instanceof OWLObjectAllRestriction){
+			OWLObjectAllRestriction all_values = (OWLObjectAllRestriction) cls;
+			sub_axioms.add(all_values.getDescription());
 		}
-		else if (cls instanceof OWLDataAllValuesFrom){
-			OWLDataAllValuesFrom data_values = (OWLDataAllValuesFrom) cls;
-			sub_axioms = data_values.getNestedClassExpressions();
-		}
+		/*else if (cls instanceof OWLDataAllRestriction){
+			OWLDataAllRestriction data_values = (OWLDataAllRestriction) cls;
+			// TODO sub_axioms.add(data_values.
+		}*/
 		
-		for (OWLClassExpression axiom : sub_axioms){
-			if (!isDisjunction(axiom)){
+		for (OWLDescription axiom : sub_axioms){
+			if (!isPureDisjunction(axiom)){
 				return false;
 			}
 		}
@@ -144,49 +165,49 @@ public class Normalization {
 	}
 	
 	
-	private boolean isConjunction(OWLClassExpression cls)
+	private boolean isConjunction(OWLDescription cls)
 	{
-		if (cls.getClassExpressionType() == ClassExpressionType.OWL_CLASS)
+		if (cls instanceof OWLClass)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_INTERSECTION_OF)
+		if (cls instanceof OWLAnd)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_SOME_VALUES_FROM)
+		if (cls instanceof OWLObjectSomeRestriction)
 			return true; 
-		
-		if (cls.getClassExpressionType() == ClassExpressionType.DATA_SOME_VALUES_FROM)
-			return true;
+
+		if (cls instanceof OWLDataSomeRestriction)
+			return true; 
 		
 		return false;
 	}
 	
-	private boolean isPureConjunction(OWLClassExpression cls){
+	private boolean isPureConjunction(OWLDescription cls) throws OWLException{
 		if (!isConjunction(cls))
 			return false;
 		
-		Set<OWLClassExpression> sub_axioms = null;
+		Vector<OWLDescription> sub_axioms = new Vector<OWLDescription>();
 		
 		if (cls instanceof OWLClass){
-			OWLClass sub_class = (OWLClass) cls;
-			sub_axioms = sub_class.getEquivalentClasses(ontology.ontology);
-			sub_axioms.addAll(sub_class.getSubClasses(ontology.ontology));
+			/*OWLClass sub_class = (OWLClass) cls;
+			sub_axioms.addAll(sub_class.getEquivalentClasses(ontology.ontology));
+			sub_axioms.addAll(sub_class.getSuperClasses(ontology.ontology));*/
 		} 
-		else if (cls instanceof OWLObjectIntersectionOf){
-			OWLObjectIntersectionOf intersection = (OWLObjectIntersectionOf) cls;
-			sub_axioms = intersection.getOperands();
+		else if (cls instanceof OWLAnd){
+			OWLAnd intersection = (OWLAnd) cls;
+			sub_axioms.addAll(intersection.getOperands());
 		}
-		else if (cls instanceof OWLObjectSomeValuesFrom){
-			OWLObjectSomeValuesFrom some_values = (OWLObjectSomeValuesFrom) cls;
-			sub_axioms = some_values.getNestedClassExpressions();
+		else if (cls instanceof OWLObjectSomeRestriction){
+			OWLObjectSomeRestriction some_values = (OWLObjectSomeRestriction) cls;
+			sub_axioms.add(some_values.getDescription());
 		}
-		else if (cls instanceof OWLDataSomeValuesFrom){
-			OWLDataSomeValuesFrom data_values = (OWLDataSomeValuesFrom) cls;
-			sub_axioms = data_values.getNestedClassExpressions();
-		}
+		/*else if (cls instanceof OWLDataSomeRestriction){
+			OWLDataSomeRestriction data_values = (OWLDataSomeRestriction) cls;
+			// TODO sub_axioms.add(data_values.
+		}*/
 		
-		for (OWLClassExpression axiom : sub_axioms){
-			if (!isConjunction(axiom)){
+		for (OWLDescription axiom : sub_axioms){
+			if (!isPureConjunction(axiom)){
 				return false;
 			}
 		}

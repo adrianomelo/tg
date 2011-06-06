@@ -1,62 +1,54 @@
 package br.ufpe.cin;
 
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Set;
 
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owl.io.owl_rdf.OWLRDFParser;
+import org.semanticweb.owl.model.OWLClass;
+import org.semanticweb.owl.model.OWLDataFactory;
+import org.semanticweb.owl.model.OWLDescription;
+import org.semanticweb.owl.model.OWLException;
+import org.semanticweb.owl.model.OWLOntology;
+import org.semanticweb.owl.model.helper.OWLBuilder;
+import org.semanticweb.owl.util.OWLManager;
 
 public class Ontology {
-	OWLOntologyManager manager;
+	OWLDataFactory factory;
 	OWLOntology ontology;
+	OWLRDFParser parser;
 	
 	public Ontology()
 	{
-		manager = OWLManager.createOWLOntologyManager();
 	}
 	
-	public void loadFromFile(String filePath) throws OWLOntologyCreationException
+	public void loadFromFile(String filePath) throws OWLException, URISyntaxException
 	{
-		File file = new File(filePath);
-		ontology = manager.loadOntologyFromOntologyDocument(file);
+		parser = new OWLRDFParser();
+		parser.setConnection( OWLManager.getOWLConnection() );
+		ontology = parser.parseOntology(new URI("file:/Users/adrianomelo/git/tg/doc/owlapi1/examples/pizza/pizza.owl"));
+		factory = ontology.getOWLDataFactory();
 	}
 	
-	public Set<OWLClass> getClasses() throws OWLOntologyCreationException
+	public Set<OWLClass> getClasses() throws OWLException 
 	{
 		if (this.ontology != null){
-			return this.ontology.getClassesInSignature();
+			return this.ontology.getClasses();
 		}
 		
-		throw new OWLOntologyCreationException();
+		throw new OWLException("[getClasses] Ontology not loaded.");
 	}
 	
-	public Set<OWLObjectProperty> getObjectProperties (OWLClass classe)
+	public Set<OWLDescription> getSuperClasses(OWLClass classe) throws OWLException
 	{
-		Set<OWLObjectProperty> properties = classe.getObjectPropertiesInSignature();
-		return properties;
-	}
-	
-	public Set<OWLDataProperty> getDataProperties(OWLClass classe) 
-	{
-		Set<OWLDataProperty> properties = classe.getDataPropertiesInSignature();
-		return properties;
-	}
-	
-	public Set<OWLClassExpression> getSuperClasses(OWLClass classe)
-	{
-		Set<OWLClassExpression> superClasses = classe.getSuperClasses(ontology);	
+		Set<OWLDescription> superClasses = classe.getSuperClasses(ontology);	
 		return superClasses;
 	}
 	
-	public Set<OWLClassExpression> getEquivalentClasses (OWLClass classe)
+	public Set<OWLDescription> getEquivalentClasses (OWLClass classe) throws OWLException
 	{
-		Set<OWLClassExpression> eqClasses = classe.getEquivalentClasses(ontology);
+		Set<OWLDescription> eqClasses = classe.getEquivalentClasses(ontology);
 		return eqClasses;
 	}
 

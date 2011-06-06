@@ -95,11 +95,15 @@
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:subClassOf>
             <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#A"/>
-                    <rdf:Description rdf:about="#C"/>
-                    <rdf:Description rdf:about="#D"/>
-                </owl:intersectionOf>
+                <owl:complementOf>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#A"/>
+                            <rdf:Description rdf:about="#C"/>
+                            <rdf:Description rdf:about="#D"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:complementOf>
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>

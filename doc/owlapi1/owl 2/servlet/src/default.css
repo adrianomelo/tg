@@ -1,0 +1,22 @@
+body {
+font-family: arial;
+background-color: #EEEEEE;
+margin: 40 40 40 40;
+}
+.yes {
+font-weight: bold;
+color: green;
+}
+.no {
+font-weight: bold;
+color: red;
+}
+.faint {
+background-color: #FFFFFF;
+color: #AAAAAA;
+}
+.box {
+padding: 0px 20px 10px 20px;
+border:1px solid #888;
+background-color: #FFFFFF;
+}

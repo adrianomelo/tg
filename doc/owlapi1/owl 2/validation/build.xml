@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- #############################################################
+
+Build file for OWL API Core classes
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: build.xml,v $
+ * Revision           $Revision: 1.3 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2004/11/03 17:51:50 $
+ *               by   $Author: sean_bechhofer $
+
+############################################################# -->
+
+
+<!DOCTYPE project [
+    <!ENTITY names SYSTEM "file:../names.xml">
+    <!ENTITY common SYSTEM "file:../common.xml">
+    <!ENTITY modules SYSTEM "file:../modules.xml">
+    <!ENTITY ext SYSTEM "file:../ext.xml">
+]>
+
+<project name="validation" default="all" basedir=".">
+
+    <!-- Provide the option of a properties file. You can use -->
+    <!-- this file to override any of the properties set later -->
+    <!-- on, to customise the build process -->
+    <property file="${user.home}/.ant/owlapi.props"/>
+    <property file="./build.props"/>    
+
+    <property name="target.precompile" value="local.dependencies"/>  
+    <property name="target.precompile.test" value="local.dependencies.test"/>  
+
+    <!-- Everything gets built in a directory above the one where the
+         module sits. --> 
+    <property name="project.root" value=".."/>
+    
+    &ext;
+    &names;
+    &common;
+    &modules;
+   
+    <!-- This describes the things you need for the compilation. For
+    any module xxx on which you depend, add the appropriate things to
+    this build file.  -->
+
+    <target name="local.dependencies">
+      <ant inheritAll="false" dir="${project.root}/api" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/impl" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/io" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/rdfparser" target="compile"/>
+    </target>
+
+    <!-- This describes the things you need for testing -->
+
+    <target name="local.dependencies.test">
+      <ant inheritAll="false" dir="${project.root}/api" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/impl" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/io" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/rdfparser" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/owltest" target="compile"/>
+    </target>
+
+    <!-- CLASSPATH definition -->
+    <path id="classpath">
+        <pathelement path="${class.dir}"/>
+	<!-- Libraries -->
+        <path location="${api.class}"/>
+        <path location="${impl.class}"/>
+        <path location="${io.class}"/>
+        <path location="${rdfparser.class}"/>
+
+	<!-- External Libraries -->
+        <pathelement location="${log4j}"/>
+        <pathelement location="${rdfapi}"/>
+    </path>
+
+    <path id="classpath.test">
+        <pathelement path="${owltest.class}"/>
+        <pathelement path="${tests.resources}"/>
+    </path>
+</project>

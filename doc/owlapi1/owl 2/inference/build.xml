@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- #############################################################
+
+Build file for OWL API Core classes
+
+ * Source code information
+ * =======================
+ * Original author    Sean Bechhofer, University of Manchester
+ * Author email       seanb@cs.man.ac.uk
+ * Filename           $RCSfile: build.xml,v $
+ * Revision           $Revision: 1.6 $
+ * Release status     $State: Exp $
+ * Last modified on   $Date: 2004/06/28 17:53:22 $
+ *               by   $Author: dturi $
+
+############################################################# -->
+
+
+<!DOCTYPE project [
+    <!ENTITY names SYSTEM "file:../names.xml">
+    <!ENTITY common SYSTEM "file:../common.xml">
+    <!ENTITY modules SYSTEM "file:../modules.xml">
+    <!ENTITY ext SYSTEM "file:../ext.xml">
+]>
+
+<project name="inference" default="all" basedir=".">
+
+    <!-- Provide the option of a properties file. You can use -->
+    <!-- this file to override any of the properties set later -->
+    <!-- on, to customise the build process -->
+    <property file="${user.home}/.ant/owlapi.props"/>
+    <property file="./build.props"/>    
+
+    <property name="target.precompile" value="local.dependencies"/>  
+    <property name="target.precompile.test" value="local.dependencies.test"/>  
+
+    <!-- Everything gets built in a directory above the one where the
+         module sits. --> 
+    <property name="project.root" value=".."/>
+
+    &ext;
+    &names;
+    &common;
+    &modules;
+   
+    <!-- This describes the things you need for the compilation. For
+    any module xxx on which you depend, add the appropriate things to
+    this build file.  -->
+
+    <target name="local.dependencies">
+      <ant inheritAll="false" dir="${project.root}/api" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/impl" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/io" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/validation" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/rdfparser" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/owltest" target="compile"/>
+      <ant inheritAll="false" dir="${project.root}/abstractparser" target="compile"/>
+    </target>
+
+    <!-- This describes the things you need for testing -->
+
+    <target name="local.dependencies.test">
+      <ant inheritAll="false" dir="${project.root}/api" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/impl" target="compile.test"/>
+      <ant inheritAll="false" dir="${project.root}/io" target="compile.test"/>
+<!--       <ant inheritAll="false" dir="${project.root}/owltest" target="compile"/> -->
+<!--       <ant inheritAll="false" dir="${project.root}/rdfparser" target="compile.test"/> -->
+    </target>
+
+    <!-- CLASSPATH definition -->
+    <path id="classpath">
+        <pathelement path="${class.dir}"/>
+	<!-- Libraries -->
+        <path location="${api.class}"/>
+        <path location="${impl.class}"/>
+        <path location="${io.class}"/>
+        <path location="${validation.class}"/>
+        <path location="${rdfparser.class}"/>
+        <path location="${owltest.class}"/>
+        <path location="${abstractparser.class}"/>
+
+	<!-- External Libraries -->
+        <pathelement location="${log4j}"/>
+        <pathelement location="${rdfapi}"/>
+        <pathelement location="${dig}"/>
+        <pathelement location="${dig1.1}"/>
+        <pathelement location="${dig1.1-reasoners}"/>
+        <pathelement location="${dig1.1-abstractOWL}"/>
+        <pathelement location="${xbean}"/>
+        <pathelement location="${instancestore}"/>
+        <pathelement location="${iSproperties}"/>
+        <pathelement location="${hsqldb}"/>
+        <pathelement location="${antlr}"/>
+    </path>
+
+    <path id="classpath.test">
+        <path refid="classpath"/>
+        <pathelement path="${class.dir.test}"/>
+		<pathelement path="../resources"/>	
+    </path>
+    
+    <target name="test.iSReasoner" depends="compile.test" 
+    	description="runs test for OWLInstanceStoreReasoner">
+      <junit fork="yes" haltonfailure="no">
+      <classpath refid="classpath.test"/>
+      <formatter type="brief" usefile="no"/>
+      <test name="uk.ac.man.cs.img.owl.inference.dl.dig1_1.OWLInstanceStoreReasonerTest" 
+        todir="${test-results}"/>
+    </junit>
+  </target>
+</project>

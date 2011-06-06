@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+
+Change API for OWL Ontologies. 
+
+<BR>
+&copy; The University of Manchester, 2002.
+
+
+<h2>Package Specification</h2>
+
+<p>Package {@link org.semanticweb.owl.model org.semanticweb.owl.model}
+provides <em>read-only</em> access to OWL ontologies. This package
+contains class and interface definitions that support manipulation of
+those ontologies.
+</p>
+
+<p>The basic philosophy is that changes are encapsulated in the
+various subclasses of {@link
+org.semanticweb.owl.model.change.OntologyChange OntologyChange}, which
+are then passed to an implementation of {@link org.semanticweb.owl.model.change.ChangeVisitor ChangeVisitor} for
+execution. The visitor can choose to implement the changes as it sees
+fit, possibly producing more change events if necessary in order to
+fulfill a particular strategy (e.g. removing all subclasses of a
+removed class -- see {@link org.semanticweb.owl.model.change.EvolutionStrategy EvolutionStrategy}).</p>
+
+<h3>To Do</h3>
+
+This package is still incomplete. Change events to support a number of
+manipulations (such as removals) are still missing. In addition,
+no composite change events are currently defined.</p>
+
+<h3>Credits</h3>
+
+The change interface borrows heavily from the approach adopted in the
+<a href="http://kaon.semanticweb.org">KAON API</a> from the University
+of Karlsruhe.
+
+@author Sean Bechhofer, Phil Lord
+
+</body>
+</html>

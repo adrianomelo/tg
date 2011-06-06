@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body bgcolor="white">
+
+Inference over OWL ontologies. 
+
+<BR>
+&copy; The University of Manchester, 2002.
+
+
+<h2>Package Specification</h2>
+
+<p>This package provides a collection of interface definitions that
+support inference over OWL ontologies. The basic strategy taken in the API is that the {@link org.semanticweb.owl.model model} package provides access to the data asserted within an OWL ontology, while this package supports basic inference over the ontologies. 
+</p>
+
+<p>The separation makes it clear exactly what kind of information we
+are dealing with (assertions vs. inferences) and also allows
+implementors to build representations of OWL ontologies without
+necessarily committing to implementing inference.</p>
+
+<p>There are a number of different reasoning interfaces, each of which
+characterizes a different kind of task. To a certain extent this is an
+artificial distinction as nearly all the tasks that we wish to perform
+(e.g. subsumption reasoning and given the presence of the
+<code>one-of</code> operator, individual reasoning) can be couched
+in terms of a consistency test.</p>
+
+<p>Implementations of the interface may only be able to reason with
+subspecies of the language. If a reasoner is asked to reason with an
+ontology outside its remit, an exception may be raised. This may occur
+either through an explicit setting of the ontology, or through a
+manipulation or edit of the ontology that the reasoner has been told
+to reason about.</p>
+
+@author Sean Bechhofer
+
+</body>
+</html>
