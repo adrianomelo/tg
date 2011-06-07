@@ -96,7 +96,6 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#A"/>
                     <rdf:Description rdf:about="#C"/>
                     <rdf:Description rdf:about="#D"/>
                 </owl:intersectionOf>
@@ -105,6 +104,7 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#A"/>
                     <rdf:Description rdf:about="#C"/>
                     <rdf:Description rdf:about="#D"/>
                 </owl:intersectionOf>
@@ -143,20 +143,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#test_property"/>
-                <owl:allValuesFrom rdf:resource="#B"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#A"/>
-                    <rdf:Description rdf:about="#D"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#test_property"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -165,6 +151,53 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#test_property"/>
+                <owl:allValuesFrom rdf:resource="#B"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#A"/>
+                    <rdf:Description rdf:about="#C"/>
+                    <rdf:Description rdf:about="#D"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cin.ufpe.br/~astm/teste1.owl#PureConjunction -->
+
+    <owl:Class rdf:about="#PureConjunction">
+        <rdfs:label>PureConjunction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#test_property"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#C"/>
+                            <rdf:Description rdf:about="#D"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#test_property"/>
+                                <owl:allValuesFrom rdf:resource="#A"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#test_property"/>
+                <owl:someValuesFrom rdf:resource="#B"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>

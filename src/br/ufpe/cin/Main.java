@@ -11,7 +11,8 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("The Connection Method - Matrix Transformation");
 		
-		String file = "doc/owl/teste1.owl";
+		//String file = "doc/owl/teste1.owl";
+		String file = "doc/owl/pizza.owl";
 		// String file = "doc/owl/hierarquia.owl";
 		// String file = "doc/owl/blank.owl";
 

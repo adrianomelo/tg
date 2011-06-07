@@ -2,14 +2,18 @@ package br.ufpe.cin;
 
 import java.util.Iterator;
 import java.util.Set;
+import java.util.Vector;
 
+import org.semanticweb.owlapi.OWLCompositeOntologyChange;
 import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataAllValuesFrom;
+import org.semanticweb.owlapi.model.OWLDataComplementOf;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
+import org.semanticweb.owlapi.model.OWLObjectComplementOf;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
@@ -29,7 +33,10 @@ public class Normalization {
 	{
 		Set<OWLClass> classes = this.ontology.getClasses();
 		for (OWLClass cls : classes){
-			this.normalizeAxiom(cls);
+			if (!this.isInNormalForm(cls)){
+				System.out.println(cls + " n‹o est‡ na forma normal");
+				//this.normalizeAxiom(cls);
+			}
 		}
 	}
 	
@@ -76,36 +83,65 @@ public class Normalization {
 		}
 	}
 	
+	private boolean isInNormalForm (OWLClass cls)
+	{		
+		Set<OWLClassExpression> inclusion_axioms = cls.getSuperClasses(ontology.ontology);
+		for (OWLClassExpression axiom : inclusion_axioms){
+			
+			if (!isInNormalForm(cls, axiom))
+				return false;
+		}
+		
+		Set<OWLClassExpression> equivalence_axioms = cls.getEquivalentClasses(ontology.ontology);
+		for (OWLClassExpression axiom : equivalence_axioms){
+			
+			if (!isInNormalForm(cls, axiom) || !isInNormalForm(axiom, cls))
+				return false;
+		}
+		
+		return true;
+	}
+	
 	// i)    C [ ^C
 	// ii)  vD [  C
 	// iii) ^C [ vD
-	private boolean isInPositiveNormalForm (OWLClass cls){
-		Set<OWLClassExpression> axioms = cls.getSubClasses(ontology.ontology);
-		
-		boolean is_pureconjunction = true, is_puredisjunction = true;
-		for (OWLClassExpression axiom : axioms){
-			is_pureconjunction = is_pureconjunction && isPureConjunction(axiom);
-			is_puredisjunction = is_puredisjunction && isPureDisjunction(axiom);
-		}
-		
-		// left side is a concept and right side is pure
-		if (is_pureconjunction || is_puredisjunction) 
+	private boolean isInNormalForm (OWLClassExpression cls_left, OWLClassExpression cls_right)
+	{
+		if (isConcept(cls_left) && isPureConjunction(cls_right))
 			return true;
 		
+		if (isPureDisjunction(cls_left) && isConcept(cls_right))
+			return true;
+		
+		if (isPureConjunction(cls_left) && isPureDisjunction(cls_right))
+			return true;
+			
+		return false;
 	}
 	
+	private boolean isConcept(OWLClassExpression cls)
+	{
+		return cls instanceof OWLClass;
+	}
+
 	private boolean isDisjunction(OWLClassExpression cls)
 	{
-		if (cls.getClassExpressionType() == ClassExpressionType.OWL_CLASS)
+		if (cls instanceof OWLClass)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_UNION_OF)
+		if (cls instanceof OWLObjectUnionOf)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_ALL_VALUES_FROM)
+		if (cls instanceof OWLObjectAllValuesFrom)
 			return true; 
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.DATA_ALL_VALUES_FROM)
+		if (cls instanceof OWLDataAllValuesFrom)
+			return true;
+		
+		if (cls instanceof OWLObjectComplementOf)
+			return true;
+		
+		if (cls instanceof OWLDataComplementOf)
 			return true;
 		
 		return false;
@@ -114,25 +150,32 @@ public class Normalization {
 		if (!isDisjunction(cls))
 			return false;
 		
-		Set<OWLClassExpression> sub_axioms = null;
+		Vector<OWLClassExpression> sub_axioms = new Vector<OWLClassExpression>();
 		
 		if (cls instanceof OWLClass){
-			OWLClass sub_class = (OWLClass) cls;
-			sub_axioms = sub_class.getEquivalentClasses(ontology.ontology);
-			sub_axioms.addAll(sub_class.getSubClasses(ontology.ontology));
+			/*OWLClass sub_class = (OWLClass) cls;
+			sub_axioms.addAll(sub_class.getEquivalentClasses(ontology.ontology));
+			sub_axioms.addAll(sub_class.getSubClasses(ontology.ontology));*/
 		} 
 		else if (cls instanceof OWLObjectUnionOf){
 			OWLObjectUnionOf union = (OWLObjectUnionOf) cls;
-			sub_axioms = union.getOperands();
+			sub_axioms.addAll(union.getOperands());
 		}
 		else if (cls instanceof OWLObjectAllValuesFrom){
 			OWLObjectAllValuesFrom all_values = (OWLObjectAllValuesFrom) cls;
-			sub_axioms = all_values.getNestedClassExpressions();
+			sub_axioms.addAll(all_values.getNestedClassExpressions());
 		}
 		else if (cls instanceof OWLDataAllValuesFrom){
 			OWLDataAllValuesFrom data_values = (OWLDataAllValuesFrom) cls;
-			sub_axioms = data_values.getNestedClassExpressions();
+			sub_axioms.addAll(data_values.getNestedClassExpressions());
 		}
+		else if (cls instanceof OWLObjectComplementOf){
+			OWLObjectComplementOf compl = (OWLObjectComplementOf) cls;
+			
+			if (compl.getObjectComplementOf() instanceof OWLClass == false)
+				return false;
+		}
+		else if (cls instanceof OWLDataComplementOf){}
 		
 		for (OWLClassExpression axiom : sub_axioms){
 			if (!isDisjunction(axiom)){
@@ -146,18 +189,24 @@ public class Normalization {
 	
 	private boolean isConjunction(OWLClassExpression cls)
 	{
-		if (cls.getClassExpressionType() == ClassExpressionType.OWL_CLASS)
+		if (cls instanceof OWLClass)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_INTERSECTION_OF)
+		if (cls instanceof OWLObjectIntersectionOf)
 			return true;
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.OBJECT_SOME_VALUES_FROM)
+		if (cls instanceof OWLObjectSomeValuesFrom)
 			return true; 
 		
-		if (cls.getClassExpressionType() == ClassExpressionType.DATA_SOME_VALUES_FROM)
+		if (cls instanceof OWLDataSomeValuesFrom)
 			return true;
 		
+		if (cls instanceof OWLObjectComplementOf)
+			return true;
+			
+		if (cls instanceof OWLDataComplementOf)
+			return true;
+			
 		return false;
 	}
 	
@@ -165,25 +214,32 @@ public class Normalization {
 		if (!isConjunction(cls))
 			return false;
 		
-		Set<OWLClassExpression> sub_axioms = null;
+		Vector<OWLClassExpression> sub_axioms = new Vector<OWLClassExpression>();
 		
 		if (cls instanceof OWLClass){
-			OWLClass sub_class = (OWLClass) cls;
-			sub_axioms = sub_class.getEquivalentClasses(ontology.ontology);
-			sub_axioms.addAll(sub_class.getSubClasses(ontology.ontology));
+			/*OWLClass sub_class = (OWLClass) cls;
+			sub_axioms.addAll(sub_class.getEquivalentClasses(ontology.ontology));
+			sub_axioms.addAll(sub_class.getSubClasses(ontology.ontology));*/
 		} 
 		else if (cls instanceof OWLObjectIntersectionOf){
 			OWLObjectIntersectionOf intersection = (OWLObjectIntersectionOf) cls;
-			sub_axioms = intersection.getOperands();
+			sub_axioms.addAll(intersection.getOperands());
 		}
 		else if (cls instanceof OWLObjectSomeValuesFrom){
 			OWLObjectSomeValuesFrom some_values = (OWLObjectSomeValuesFrom) cls;
-			sub_axioms = some_values.getNestedClassExpressions();
+			sub_axioms.addAll(some_values.getNestedClassExpressions());
 		}
 		else if (cls instanceof OWLDataSomeValuesFrom){
 			OWLDataSomeValuesFrom data_values = (OWLDataSomeValuesFrom) cls;
-			sub_axioms = data_values.getNestedClassExpressions();
+			sub_axioms.addAll(data_values.getNestedClassExpressions());
 		}
+		else if (cls instanceof OWLObjectComplementOf){
+			OWLObjectComplementOf compl = (OWLObjectComplementOf) cls;
+			
+			if (compl.getObjectComplementOf() instanceof OWLClass == false)
+				return false;
+		}
+		else if (cls instanceof OWLDataComplementOf){}
 		
 		for (OWLClassExpression axiom : sub_axioms){
 			if (!isConjunction(axiom)){
