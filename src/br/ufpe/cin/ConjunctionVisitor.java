@@ -1,7 +1,6 @@
 package br.ufpe.cin;
 
 import java.util.Set;
-import java.util.Vector;
 
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
@@ -9,46 +8,29 @@ import org.semanticweb.owlapi.model.OWLObjectComplementOf;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
 
-public class ConjunctionVisitor extends OWLClassExpressionVisitorAdapter {
-	private OWLOntology ontology;
-	private Vector<OWLClassExpression> removed_axioms;
+public class ConjunctionVisitor extends AbstractNormalizationVisitor {
+	
+	public ConjunctionVisitor(Ontology o) {
+		super(o);
+	}
 
-	public ConjunctionVisitor(OWLOntology o)
-	{
-		this.ontology = o;
-		this.removed_axioms = new Vector<OWLClassExpression>();
-	}
-	
-	@SuppressWarnings("unchecked")
-	public Vector<OWLClassExpression> getRemovedAxioms()
-	{
-		return removed_axioms;
-	}
-	
 	// DISJUNCTIONS
 	public void visit(OWLObjectUnionOf union)
 	{
-		System.out.println("visitando union" + union);
-		
-		Set<OWLClassExpression> operands = union.getOperands();
-		for (OWLClassExpression exp : operands){
-			// TODO remover a uniao
-			exp.accept(this);
-		}
+		System.out.println("Extracting union: " + union);
+		extractOWLClassExpression(union);
+		removed_axioms.add(union);
 	}
 	
 	public void visit(OWLObjectAllValuesFrom all)
 	{
-		System.out.println("visitando objectall " + all);
+		System.out.println("Extracting all values from: " + all);
+		extractOWLClassExpression(all);
 		
-		OWLClassExpression exp = all.getFiller();
-		// TODO remover da superclasse
-		exp.accept(this);
+		removed_axioms.add(all);
 	}
-	
+
 	// CONJUNCTIONS
 	public void visit(OWLObjectIntersectionOf intersection)
 	{
@@ -61,9 +43,8 @@ public class ConjunctionVisitor extends OWLClassExpressionVisitorAdapter {
 	public void visit(OWLObjectSomeValuesFrom some)
 	{
 		Set<OWLClassExpression> expressions = some.getNestedClassExpressions();
-		for (OWLClassExpression exp : expressions){
+		for (OWLClassExpression exp : expressions)
 			exp.accept(this);
-		}
 	}
 	
 	public void visit(OWLObjectComplementOf complement)

@@ -3,9 +3,12 @@ package br.ufpe.cin;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntax;
+import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxEditorParser;
 import org.semanticweb.owlapi.io.OWLOntologyInputSourceException;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -22,11 +25,16 @@ public class Main {
 		
 			Normalization n = new Normalization(ontology);
 			n.normalizeOntology();
+			
+			ontology.save();
 		} catch (OWLOntologyInputSourceException e){
 			System.out.println("erro ao carregar a ontologia");
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
+		} catch (OWLOntologyStorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

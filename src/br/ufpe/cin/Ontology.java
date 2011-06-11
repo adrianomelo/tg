@@ -5,26 +5,26 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 
 public class Ontology {
 	OWLOntologyManager manager;
 	OWLOntology ontology;
-	
-	public Ontology()
-	{
-		manager = OWLManager.createOWLOntologyManager();
-	}
+	OWLDataFactory factory;
 	
 	public void loadFromFile(String filePath) throws OWLOntologyCreationException
 	{
 		File file = new File(filePath);
+		manager  = OWLManager.createOWLOntologyManager();
 		ontology = manager.loadOntologyFromOntologyDocument(file);
+		factory  = manager.getOWLDataFactory();
 	}
 	
 	public Set<OWLClass> getClasses() throws OWLOntologyCreationException
@@ -63,5 +63,9 @@ public class Ontology {
 	public boolean isInNormalForm()
 	{
 		return false;
+	}
+
+	public void save() throws OWLOntologyStorageException {
+		manager.saveOntology(ontology);
 	}
 }

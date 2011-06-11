@@ -58,6 +58,7 @@ public class Normalization {
 		// TODO LHS está levando em conta equivalencia?
 		
 		if (!this.isInNormalForm(cls)) {
+			System.out.println("Normalizing " + cls);
 			Vector<OWLClassExpression> lhs = new Vector<OWLClassExpression>();
 			Vector<OWLClassExpression> rhs = new Vector<OWLClassExpression>();
 			
@@ -114,12 +115,13 @@ public class Normalization {
 	private void normalizeLHS(OWLClassExpression left_hs, OWLClassExpression right_hs) {
 		if (isConjunction(left_hs)) 
 		{
-			ConjunctionVisitor visitor = new ConjunctionVisitor(ontology.ontology);
+			ConjunctionVisitor visitor = new ConjunctionVisitor(ontology);
 			left_hs.accept(visitor);
 		} 
 		else if (isDisjunction(left_hs))
 		{
-			
+			DisjunctionVisitor visitor = new DisjunctionVisitor(ontology);
+			left_hs.accept(visitor);
 		} 
 		else {
 			System.err.println(left_hs + " not suported by the normalization yet.");
