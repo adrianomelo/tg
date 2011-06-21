@@ -6,12 +6,15 @@ import java.util.Vector;
 
 import org.semanticweb.owlapi.OWLCompositeOntologyChange;
 import org.semanticweb.owlapi.model.ClassExpressionType;
+import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataAllValuesFrom;
 import org.semanticweb.owlapi.model.OWLDataComplementOf;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
+import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectComplementOf;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
@@ -21,30 +24,57 @@ import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
 
 public class Normalization {
-	Ontology ontology = null;
+	OWLOntology ontology = null;
 	Ontology normalized_ontology = null;
+	SubClassOfNormalization subclass_normalization = null;
 	
-	public Normalization(Ontology o)
+	public Normalization(OWLOntology o)
 	{
 		this.ontology = o;
+		subclass_normalization.setOntology(o);
 	}
 
+	/* 
+	 * For each axiom A ∈ O Normalize-Axiom (A,O);
+	 */
 	public void normalizeOntology() throws OWLOntologyCreationException
-	{
-		/* 
-		 * For each axiom A ∈ O Normalize-Axiom (A,O);
-		 * This axioms A are the NamedClasses in ontology
-		 */
-		
-		Set<OWLClass> classes = this.ontology.getClasses();
+	{		
+		Set<OWLClass> classes = this.ontology.getClassesInSignature();
 		for (OWLClass cls : classes){
-			this.normalizeAxiom(cls);
+			Set<OWLEquivalentClassesAxiom> eq = ontology.getEquivalentClassesAxioms(cls);
+			Set<OWLSubClassOfAxiom> sub       = ontology.getSubClassAxiomsForSubClass(cls);
+			
+			/*System.out.println(cls);
+			for (OWLEquivalentClassesAxiom c : eq){
+				System.out.println("__________________");
+				//for (OWLClass c2 : c.getNamedClasses())
+				//	System.out.println("	classes: " + c2);
+				
+				for (OWLClassExpression e : c.getClassExpressions())
+					System.out.println("	expressions: " + e);
+			}*/
+			
+			/*System.out.println(cls);
+			for (OWLSubClassOfAxiom s : sub){
+				System.out.println("	sub: " + s.getSubClass());
+				System.out.println("	super: " + s.getSuperClass());
+			}*/
+			
+			for (OWLEquivalentClassesAxiom axiom : eq)
+				normalizeAxiom(axiom);
+			
+			for (OWLSubClassOfAxiom axiom : sub)
+				subclass_normalization.normalizeAxiom(axiom);
+			
 		}
 	}
 	
+	
+
 	/* 
 	 * Normalize-Axiom (Axiom A, Ontology O);
 	 *  If A not in normal form then
@@ -53,109 +83,43 @@ public class Normalization {
 	 *   If RHS(A) ∉ NC U SD {not a concept or pure disjunction} 
 	 *    Normalize-RHS (A, O);
 	 */
-	public void normalizeAxiom(OWLClass cls)
-	{
-		// TODO LHS está levando em conta equivalencia?
+	private void normalizeAxiom(OWLEquivalentClassesAxiom axiom) {
+		if (isInNormalForm(axiom))
+			return;
 		
-		if (!this.isInNormalForm(cls)) {
-			System.out.println("Normalizing " + cls);
-			Vector<OWLClassExpression> lhs = new Vector<OWLClassExpression>();
-			Vector<OWLClassExpression> rhs = new Vector<OWLClassExpression>();
-			
-			lhs.addAll(cls.getEquivalentClasses(ontology.ontology));
-			rhs.addAll(cls.getSuperClasses(ontology.ontology));
-			rhs.addAll(cls.getEquivalentClasses(ontology.ontology));
-			
-			// If RHS(A) ∉ NC U SD {not a concept or pure disjunction} 
-			for (OWLClassExpression classz : rhs){
-				if (!isConcept(classz) && !isPureDisjunction(classz))
-					normalizeRHS(cls, classz);
+		Set<OWLClassExpression> expressions = axiom.getClassExpressions();
+		
+		for (OWLClassExpression left_exp : expressions){
+			for (OWLClassExpression right_exp : expressions){
+				if (left_exp == right_exp)
+					continue;
+				
+				if(!isInNormalForm(left_exp, right_exp) || !isInNormalForm(right_exp, left_exp))
+					System.out.println("E AI?");
 			}
-			
-			// If LHS(A) ∉ NC U SC {not a concept or pure conjunction} 
-			for (OWLClassExpression classz : lhs){
-				if (!isConcept(classz) && !isPureConjunction(classz))
-					normalizeLHS(classz, cls);
+		}
+	}
+
+	private boolean isInNormalForm(OWLEquivalentClassesAxiom axiom) {
+		Set<OWLClassExpression> expressions = axiom.getClassExpressions();
+		Set<OWLClass> classz = axiom.getNamedClasses();
+		
+		for (OWLClass cls : classz){
+			for (OWLClassExpression exp : expressions){
+				if(!isInNormalForm(cls, exp) || !isInNormalForm(exp, cls))
+					return false;
 			}
-			
-		}
-	}
-
-	/*
-	 * Normalize-LHS (Axiom A, ontology O);
-	 *  If LHS(A) ∈ SC U SnpC (a conjunction) then 
-	 *  	For each D ⊆ LHS(A) │ D ∈ SD U SnpD (disjunction) 
-	 *   		LHS(A) ← (LHS(A) – D) ⊓ N, N ∈ O 
-	 *   
-	 *   		If D ∈ SnpD (non-pure) then
-	 *   			O ← O U Normalize-LHS({D ⊑ N}, O);
-	 *   		Else 
-	 *   			O ← O U {D ⊑ N};
-	 *   
-	 *   	For each nC ⊆ LHS(A) │ nC ∈ SnpC (non-pure conjunction) 
-	 *   		Find the first impurity I ⊆ nC │ I ∈ SI
-	 *   		nc∘ ← nC{I/N}, N ∈ O
-	 *   		LHS(A) ← (LHS(A) – nC) ⊓ nc∘
-	 *   		O ← O U Normalize-LHS({I ⊑ N}, O} 
-	 *   
-	 *   Else {LHS(A) ∈ SD U SnpD (disjunction)}
-	 *   	O ← O – A; 
-	 *   	For each X ⊆ LHS(A) | X ∈ NC U SC (atomic concept or pure conjunction)
-	 *   		If RHS(A) ∈ NC U SC (not a concept or pure conjunction) then
-	 *   			O ← O U Normalize-RHS({X ⊑ RHS(A)}, O}; 
-	 * 			Else
-	 * 				O ← O U {X ⊑ RHS(A)};
-	 * 
-	 * 		For each expression E ⊆ LHS(A) | E ∉ SC (not a pure conjunction)
-	 * 			If E ⊑ RHS(A) is not in normal form then 
-	 * 				O ← O U Normalize-Axiom({E ⊑ RHS(A)}, O};
-	 * 			Else
-	 * 				O ← O U E ⊑ RHS(A);
-	 */
-	private void normalizeLHS(OWLClassExpression left_hs, OWLClassExpression right_hs) {
-		if (isConjunction(left_hs)) 
-		{
-			ConjunctionVisitor visitor = new ConjunctionVisitor(ontology);
-			left_hs.accept(visitor);
-		} 
-		else if (isDisjunction(left_hs))
-		{
-			DisjunctionVisitor visitor = new DisjunctionVisitor(ontology);
-			left_hs.accept(visitor);
-		} 
-		else {
-			System.err.println(left_hs + " not suported by the normalization yet.");
-		}
-	}
-
-	private void normalizeRHS(OWLClassExpression classz, OWLClassExpression classz2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private boolean isInNormalForm (OWLClass cls)
-	{		
-		Set<OWLClassExpression> inclusion_axioms = cls.getSuperClasses(ontology.ontology);
-		for (OWLClassExpression axiom : inclusion_axioms){
-			
-			if (!isInNormalForm(cls, axiom))
-				return false;
-		}
-		
-		Set<OWLClassExpression> equivalence_axioms = cls.getEquivalentClasses(ontology.ontology);
-		for (OWLClassExpression axiom : equivalence_axioms){
-			
-			if (!isInNormalForm(cls, axiom) || !isInNormalForm(axiom, cls))
-				return false;
 		}
 		
 		return true;
 	}
 	
+
+	
 	// i)    C [ ^C
 	// ii)  vD [  C
 	// iii) ^C [ vD
-	private boolean isInNormalForm (OWLClassExpression cls_left, OWLClassExpression cls_right)
+	public static boolean isInNormalForm (OWLClassExpression cls_left, OWLClassExpression cls_right)
 	{
 		if (isConcept(cls_left) && isPureConjunction(cls_right))
 			return true;
@@ -169,12 +133,12 @@ public class Normalization {
 		return false;
 	}
 	
-	private boolean isConcept(OWLClassExpression cls)
+	public static boolean isConcept(OWLClassExpression cls)
 	{
 		return cls instanceof OWLClass;
 	}
 
-	private boolean isDisjunction(OWLClassExpression cls)
+	public static boolean isDisjunction(OWLClassExpression cls)
 	{
 		if (cls instanceof OWLClass)
 			return true;
@@ -196,7 +160,7 @@ public class Normalization {
 		
 		return false;
 	}
-	private boolean isPureDisjunction(OWLClassExpression cls){
+	public static boolean isPureDisjunction(OWLClassExpression cls){
 		if (!isDisjunction(cls))
 			return false;
 		
@@ -238,7 +202,7 @@ public class Normalization {
 	}
 	
 	
-	private boolean isConjunction(OWLClassExpression cls)
+	public static boolean isConjunction(OWLClassExpression cls)
 	{
 		if (cls instanceof OWLClass)
 			return true;
@@ -261,7 +225,7 @@ public class Normalization {
 		return false;
 	}
 	
-	private boolean isPureConjunction(OWLClassExpression cls){
+	public static boolean isPureConjunction(OWLClassExpression cls){
 		if (!isConjunction(cls))
 			return false;
 		

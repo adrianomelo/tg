@@ -1,6 +1,7 @@
 package br.ufpe.cin;
 
 import java.util.Set;
+import java.util.Vector;
 
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
@@ -8,11 +9,18 @@ import org.semanticweb.owlapi.model.OWLObjectComplementOf;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 
 public class DisjunctionVisitor extends AbstractNormalizationVisitor {
 
-	public DisjunctionVisitor(Ontology o) {
+	public DisjunctionVisitor(OWLOntology o) {
 		super(o);
+	}
+
+	public DisjunctionVisitor(OWLOntology ontology, OWLClassExpression left,
+			OWLClassExpression right) {
+		// TODO Auto-generated constructor stub
 	}
 
 	// disjunctions
@@ -50,6 +58,11 @@ public class DisjunctionVisitor extends AbstractNormalizationVisitor {
 	public void visit(OWLObjectComplementOf complement) {
 		OWLClassExpression cls = complement.getObjectComplementOf();
 		cls.accept(this);
+	}
+
+	public Vector<OWLSubClassOfAxiom> getConjunctions() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,0 +1,10 @@
+<product>
+	<class>notebook</class>
+	<vendor>Itautec</vendor>
+	<model>W7440</model>
+	<attributes>
+		<attr name="processor">Intel Core i3 370M 2.4GHz</attr>
+		<attr name="barramento">2.5 GT/s</attr>
+		<attr name="cache">3 MB</attr>
+	</attributes>
+</product>

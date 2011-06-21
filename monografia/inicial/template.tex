@@ -1,6 +1,15 @@
 % !TEX encoding = ISO-8859-1
 \documentclass[bsc]{ufpethesis}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=red,
+    filecolor=red,
+    linkcolor=red,
+    urlcolor=red
+}
+
 %\university{<NOME DA UNIVERSIDADE>}
 %\address{<CIDADE DA IES>}
 \institute{Centro de Informática}
@@ -27,8 +36,7 @@ Eu dedico esse trabalho a minha mãe, namorada, familiares e amigos.
 \end{dedicatory}
 % Agradecimentos
 \acknowledgements
-\input{agradecimentos/agradecimentos}
-%Gostaria de agradecer primeiro a minha mãe que me deu condições de sair de minha cidade natal para fazer uma graduação, mãe, amo-te!
+\input{../agradecimentos/agradecimentos}
 
 \begin{epigraph}[<NOTA>]{<AUTOR>}
 <DIGITE AQUI A CITAÇÂO>
@@ -53,7 +61,11 @@ método de conexões, lógica de descrição, normalização
 \mainmatter
 
 \include{introducao/introducao}
-% \include{capitulo2}
+%\include{capitulo-1/capitulo-1}
+\include{capitulo-2/capitulo-2}
+\include{capitulo-3/capitulo-3}
+\include{capitulo-4/capitulo-4}
+\include{conclusao/conclusao}
 
 %% Parte pós-textual
 \backmatter
@@ -65,9 +77,9 @@ método de conexões, lógica de descrição, normalização
 % É aconselhável utilizar o BibTeX a partir de um arquivo, digamos "biblio.bib".
 % Para ajuda na criaç?o do arquivo .bib e utilizaç?o do BibTeX, recorra ao
 % BibTeXpress em www.cin.ufpe.br/~paguso/bibtexpress
-%\nocite{*}
+\nocite{*}
 \bibliographystyle{alpha}
-\bibliography{referencias}
+\bibliography{../referencias/referencias}
 
 % Inclui uma pequena nota com referência à UFPEThesis
 % \colophon

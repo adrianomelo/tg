@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  12 JUN 2011 00:55
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  19 JUN 2011 23:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -360,83 +360,160 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \c@Prop=\count110
 \c@Cor=\count111
 )
-(./template.aux (./introducao/introducao.aux))
+(/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2011/04/17 v6.82g Hypertext links for LaTeX
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
+Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
+Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
+Package atveryend Info: \enddocument detected (standard).
+Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
+Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2010/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+)
+\@linkdim=\dimen117
+\Hy@linkcounter=\count112
+\Hy@pagecounter=\count113
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2011/04/17 v6.82g Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count114
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4026.
+Package hyperref Info: Link nesting OFF on input line 4031.
+Package hyperref Info: Hyper index ON on input line 4034.
+Package hyperref Info: Plain pages OFF on input line 4041.
+Package hyperref Info: Backreferencing OFF on input line 4046.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4264.
+\c@Hy@tempcnt=\count115
+LaTeX Info: Redefining \url on input line 4617.
+\Fld@menulength=\count116
+\Field@Width=\dimen118
+\Fld@charsize=\dimen119
+Package hyperref Info: Hyper figures OFF on input line 5701.
+Package hyperref Info: Link nesting OFF on input line 5706.
+Package hyperref Info: Hyper index ON on input line 5709.
+Package hyperref Info: backreferencing OFF on input line 5716.
+Package hyperref Info: Link coloring OFF on input line 5721.
+Package hyperref Info: Link coloring with OCG OFF on input line 5726.
+Package hyperref Info: PDF/A mode OFF on input line 5731.
+LaTeX Info: Redefining \ref on input line 5771.
+LaTeX Info: Redefining \pageref on input line 5775.
+\Hy@abspage=\count117
+\c@Item=\count118
+\c@Hfootnote=\count119
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2011/04/17 v6.82g Hyperref driver for pdfTeX
+\Fld@listcount=\count120
+\c@bookmark@seq@number=\count121
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip52
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 11.
+
+(./template.aux (./introducao/introducao.aux) (./capitulo-2/capitulo-2.aux)
+(./capitulo-3/capitulo-3.aux) (./capitulo-4/capitulo-4.aux)
+(./conclusao/conclusao.aux))
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 25.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 16.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 25.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/local/texlive/2010/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen117
+\scratchcounter=\count122
+\scratchdimen=\dimen120
 \scratchbox=\box28
-\nofMPsegments=\count113
-\nofMParguments=\count114
+\nofMPsegments=\count123
+\nofMParguments=\count124
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen118
-\MPnumerator=\count116
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen121
+\MPnumerator=\count126
 \everyMPtoPDFconversion=\toks29
-) (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
-
-(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+) (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
-
-(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
-))
-(/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
-
-(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
-
-(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+)
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
@@ -446,7 +523,35 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-(./ufpelogo.tex
+\AtBeginShipoutBox=\box29
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+Package hyperref Info: Link coloring ON on input line 25.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+(/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count127
+)
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
+
+(./template.out) (./template.out)
+\@outlinefile=\write3
+\openout3 = `template.out'.
+
+ (./ufpelogo.tex
 Package epstopdf Info: Source file: <ufpelogo.eps>
 (epstopdf)                    date: 2005-05-23 15:36:08
 (epstopdf)                    size: 165641 bytes
@@ -457,7 +562,8 @@ Package epstopdf Info: Source file: <ufpelogo.eps>
 pdf ufpelogo.eps>
 (epstopdf)             \includegraphics on input line 1.
 Package epstopdf Info: Output file is already uptodate.
- <ufpelogo-eps-converted-to.pdf, id=1, 57.21375pt x 86.3225pt>
+
+<ufpelogo-eps-converted-to.pdf, id=84, 57.21375pt x 86.3225pt>
 File: ufpelogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ufpelogo-eps-converted-to.pdf>
@@ -465,42 +571,42 @@ Package pdftex.def Info: ufpelogo-eps-converted-to.pdf used on input line 1.
 (pdftex.def)             Requested size: 57.2136pt x 86.32227pt.
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 21.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 21
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 30
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 21
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 30
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 21
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 30
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 21
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 30
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 21.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
  [1
 
 
@@ -510,15 +616,15 @@ ogo-eps-converted-to.pdf>] [2
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
  [3] [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 25--25
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
 
  []
 
@@ -526,11 +632,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--25
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 29.
- (./agradecimentos/agradecimentos.tex) [7] [8
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 38.
+ (../agradecimentos/agradecimentos.tex) [7] [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 33--33
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
 
  []
 
@@ -538,27 +644,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 39.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 47.
  [11] [12
 
 ] [13] [14
 
 ] (./template.toc)
-\tf@toc=\write3
-\openout3 = `template.toc'.
+\tf@toc=\write4
+\openout4 = `template.toc'.
 
  [15] [16
 
 ] (./template.lof)
-\tf@lof=\write4
-\openout4 = `template.lof'.
+\tf@lof=\write5
+\openout5 = `template.lof'.
 
 
 [17] [18
 
 ] (./template.lot)
-\tf@lot=\write5
-\openout5 = `template.lot'.
+\tf@lot=\write6
+\openout6 = `template.lot'.
 
  [19] [20
 
@@ -567,44 +673,102 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
  (./introducao/introducao.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 17.
+ [1
 
 
-LaTeX Warning: Citation `BernersLee:1989' on page 1 undefined on input line 7.
+]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 34.
 
-) [1
+(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [2]
+<../imagens/americanas.png, id=227, 643.40375pt x 289.08pt>
+File: ../imagens/americanas.png Graphic file (type png)
+
+<use ../imagens/americanas.png>
+Package pdftex.def Info: ../imagens/americanas.png used on input line 65.
+(pdftex.def)             Requested size: 386.04523pt x 173.44933pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 66.
+ [3 <../imagens/americanas.png>]
+<../imagens/americanas-xml.png, id=234, 455.7025pt x 158.5925pt>
+File: ../imagens/americanas-xml.png Graphic file (type png)
+
+<use ../imagens/americanas-xml.png>
+Package pdftex.def Info: ../imagens/americanas-xml.png used on input line 77.
+(pdftex.def)             Requested size: 273.4236pt x 95.15622pt.
+ [4 <../imagens/americanas-xml.png>])
+[5]
+\openout2 = `capitulo-2/capitulo-2.aux'.
+
+ (./capitulo-2/capitulo-2.tex [6
 
 
-] [2
+
+]) [7]
+\openout2 = `capitulo-3/capitulo-3.aux'.
+
+ (./capitulo-3/capitulo-3.tex [8
 
 
-] (./template.bbl
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
+])
+[9]
+\openout2 = `capitulo-4/capitulo-4.aux'.
 
-) [3
+ (./capitulo-4/capitulo-4.tex [10
 
-] (./template.aux (./introducao/introducao.aux))
 
-LaTeX Warning: There were undefined references.
 
+]) [11]
+\openout2 = `conclusao/conclusao.aux'.
+
+ (./conclusao/conclusao.tex [12
+
+
+
+])
+[13] [14
+
+
+] (./template.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
+ [15
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
+ (./template.aux (./introducao/introducao.aux)
+(./capitulo-2/capitulo-2.aux) (./capitulo-3/capitulo-3.aux)
+(./capitulo-4/capitulo-4.aux) (./conclusao/conclusao.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
+Package rerunfilecheck Info: File `template.out' has not changed.
+(rerunfilecheck)             Checksum: D76208288778CA334FB975CDC95A2DA0;1635.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 4051 strings out of 493763
- 53570 string characters out of 3144954
- 105089 words of memory out of 3000000
- 7211 multiletter control sequences out of 15000+200000
- 53130 words of font info for 83 fonts, out of 3000000 for 9000
+ 7574 strings out of 493763
+ 107771 string characters out of 3144954
+ 187399 words of memory out of 3000000
+ 10590 multiletter control sequences out of 15000+200000
+ 66239 words of font info for 98 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 37i,9n,26p,499b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,9n,32p,804b,367s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2010/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/201
-0/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2010/texmf-di
-st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (23 pages, 87875 bytes).
+exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2010/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/te
+xmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2010/texmf-dist/
+fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type
+1/urw/times/utmri8a.pfb>
+Output written on template.pdf (35 pages, 181604 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 

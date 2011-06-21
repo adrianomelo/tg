@@ -25,14 +25,13 @@ public abstract class AbstractNormalizationVisitor extends
 	
 	protected OWLOntology ontology;
 	protected OWLOntologyManager manager;
-	private OWLDataFactory factory;
+	//private OWLDataFactory factory;
 	protected Vector<OWLClassExpression> removed_axioms;
 
-	public AbstractNormalizationVisitor(Ontology o)
+	public AbstractNormalizationVisitor(OWLOntology o)
 	{
-		this.ontology = o.ontology;
-		this.manager  = o.manager;
-		this.factory  = o.factory;
+		this.ontology = o;
+		this.manager  = o.getOWLOntologyManager();
 		this.removed_axioms = new Vector<OWLClassExpression>();
 	}
 	

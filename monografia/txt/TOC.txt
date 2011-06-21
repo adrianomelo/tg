@@ -1,0 +1,32 @@
+
+ - Introdução
+  - A Web de hoje
+  - A Web de amanhã
+   - Ontologias, Lógica e Agentes
+ - Web Ontology Language: OWL
+   - Requirements for Ontology Languages
+   - Três tipos de OWL
+    - OWL Full
+    - OWL DL
+    - OWL Lite
+ - First-Order Logic Preliminaries
+  - Definition 1 (First-order logic syntax)
+  - Definition 2 (Atom, literal, disjunctive normal form, clause, matrix)
+  - Definition 3 (Skolemization)
+ - The Description Logic ALC
+  - DL ALC Syntax
+  - Semantics
+ - Translation of ALC Ontologies into a First Order, Disjunctive Normal Form using Matrices
+  - A more complex and efficient normalization
+   - Definition 5 (ALC disjunction, ALC conjunction)
+   - Definition 6 (ALC pure disjunction)
+   - Definition 7 (ALC pure conjunction)
+   - Definition 8 (Impurity on a non-pure expression)
+   - Definition 9 (Positive normal form)
+   - Normalization Algorithm
+   - Translation Rules for the more efficient normalization
+  - ABox representation
+ - O Método da Conexão
+ - Conclusão
+ - Trabalhos Futuros
+ - Referências

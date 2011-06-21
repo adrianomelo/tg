@@ -1,4 +1,0 @@
-\select@language {brazil}
-\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{1}
-\contentsline {section}{\numberline {1.1}Contextualiza\c c\~ao}{1}
-\contentsline {section}{\numberline {1.2}Organiza\c c\~ao da Disserta\c c\~ao}{1}

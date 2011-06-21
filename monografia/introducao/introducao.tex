@@ -1,13 +1,121 @@
+% !TEX encoding = ISO-8859-1
 \chapter{Introdução}
 \label{ch:introducao}
 
-\section{Contextualização}
-A Web é uma das invenções mais revolucionárias que o homem já concebeu. As estimativas de penetração mundial, quantidade de informações geradas e transações financeiras efetuadas sobre essa plataforma são números que vão muito além das espectativas de seu criador, Tim Berners-Lee.
+%\section{Contextualização}
+A World Wide Web é uma das tecnologias mais revolucionárias que o homem já inventou. Ela mudou em escala global a forma com que pessoas e empresas trocam informações, contribuindo para que o conhecimento se tornasse mais universal e que limites físicos e lingüísticos fossem cada vez mais minimizados.
 
-Berners-Lee propós como seria a Web em março de 1989 ~\cite{BernersLee:1989}, tendo como principais atores documentos interligados através de hyperlinks. 
+%Tim Berners-Lee, o inventor da Web, tinha pretenções bem definidas ao elaborar essa infra-estrutura, seu principal objetivo era melhorar a forma com que o conhecimento era mantido dentro de uma empresa, e nessa concepção, o que importaria era a visualização dos dados por humanos, e não pelas máquinas. Hoje, a preocupação é outra, como estruturar melhor as informações que são abundantes na Web para que sejam compreendias pelas máquinas?
 
- 
-I have a dream for the Web [in which computers] become capable of analyzing all the data on the Web ? the content, links, and transactions between people and computers. A ?Semantic Web?, which should make this possible, has yet to emerge, but when it does, the day-to-day mechanisms of trade, bureaucracy and our daily lives will be handled by machines talking to machines. The ?intelligent agents? people have touted for ages will finally materialize.
+A web como conhecemos hoje nasceu de uma proposta feita por Tim Berners-Lee à empresa CERN em 1989 \cite{BernersLee:1989}. O problema enfrentado pela empresa na época era a perca de informações internas por falta de documentação ou pela saída de algum funcionário. A solução proposta por Berners-Lee foi fazer uma rede de documentos interligados por hyperlinks em que cada setor da empresa poderia adicionar novos documentos. 
+
+A estrutura básica que Berners-Lee mountou a 22 anos evoluiu a passos largos em relação à escalabilidade e padronização de protocolos e linguagens, tendo hoje cerca de 2 bilhões de usuários, mais de 30\% da população do planeta. Mas apesar do avanço das infras-estruturas e serviços para a Web, ainda há muito o que evoluir. Uma das propostas de mudanças é prover uma maior expressividade da linguagem que descreve os documentos na Web. Hoje, esses documentos não possuem um significado que possa ser extraído de forma concisa, apresentam ambigüídade, misturam os dados com elementos visuais e muitas vezes não podem ser indexados por motores de busca.
+
+\section{Web Semântica}
+
+\begin{quote}
+\textit{"I have a dream for the Web [in which computers] become capable of analyzing all the data on the Web, the content, links, and transactions between people and computers. A \textbf{Semantic Web} which should make this possible has yet to emerge, but when it does, the day-to-day mechanisms of trade, bureaucracy and our daily lives will be handled by machines talking to machines. The \textbf{intelligent agents} people have touted for ages will finally materialize."}
+\end{quote}
+
+\begin{quote}
+Tradução literal: \textit{"Eu tenho um sonho para a Web [em que os computadores] tornam-se capazes de analisar todos os dados na Web, o conteúdo, links, e as transações entre pessoas e computadores. A \textbf{Web Semântica} que deve tornar isso possível ainda está para surgir, mas quando isso acontecer, os mecanismos dia-a-dia da burocracia do comércio e nossas vidas diárias serão tratados por máquinas falando com máquinas. Os \textbf{agentes inteligentes} que as pessoas têm falado por anos vão finalmente se concretizar."}
+\end{quote}
+
+A Web Semântica citada no texto de Berners-Lee acima é uma iniciativa de pesquisadores da área de inteligencia artificial e lingüística computacional que estudam como adequar a Web de hoje a uma infra-estrutura que a tornará mais acessível às máquinas. Essa nova roupagem que os pesquisadores querem dar à Web permitirá que serviços mais sofisticados possam ser contruídos, por exemplo:
+
+\subsection{Aplicações}
+
+\subsubsection{Gerenciamento de Conhecimento}
+%\textbf{Gerenciamento de Conhecimento}
+
+Gerenciamento de conhecimento está relacionado à aquisição, acesso e manutenção de conhecimento dentro de uma empresa ou organização. Essa atividade se tornou e está se estabelecendo como uma necessidade básica em grandes empresas visto que o conhecimento que é gerado internamente agrega valor, pode se tornar um diferencial competitivo e também pode aumentar a produtividade de seus colaboradores. Com o uso de tecnlogias criadas para a Web Semântica, soluções para G.C. podem melhorar em vários aspectos, entre eles:
+
+\begin{itemize}
+\item Organização do conhecimento existente a partir de seu significado;
+\item Geração de novas informações de forma automática;
+\item Checagem de inconsitências semânticas em documentos;
+\item Substituição de consultas baseadas em palavras-chave por perguntas em linguagem natural; 
+\end{itemize}
+
+\subsubsection{Comércio eletrônico Business to Consumer (B2C)}
+%\textbf{Comércio eletrônico Business to Consumer (B2C)}
+
+O comércio eletrônico entre vendedores e consumidores é um dos modelos de negócio na Internet que melhor se estabeleceu, sites como amazon \cite{amazon.com}, americanas \cite{americanas.com} e mercado livre \cite{mercadolivre.com.br} possuem público fiel e que os visitam por vários objetivos. É muito comum para a geração que cresceu imersa na Web entrar em sites de compra como esses a procura do melhor preço antes de decidir fazer uma compra. Muitas vezes o produto não é adquirido em uma loja virtual, mas a pesquisa inicial de preços é que muitas vezes determina a escolha do produto. Observando esse comportamento, sites como o buscapé \cite{buscape.com.br} fazem o trabalho de indicar qual é a loja que está com o melhor preço. 
+
+A Web Semântica pode ajudar nesse cenário provendo interfaces de consulta mais completas aos sites que fazem comparação de preços, porém, com muito mais detalhes técnicos sobre o produto. Supondo que cada produto tem, por exemplo, uma ontologia que o descreve em detalhes (provida pelo fabricante ou por sites de review de produtos), o consumidor poderá fazer comparações muito mais detalhadas, ajudando-o a encontrar o produto que vai suprir a sua necessidade.
+
+\subsubsection{Comércio eletrônico Business to Business (B2B) e agentes pessoais}
+%\textbf{Comércio eletrônico Business to Business (B2B) e agentes pessoais}
+
+A maioria das pessoas que compram serviços ou produtos na Web só conhecem o comércio eletrônico do tipo B2C, mas existem tecnologias para comércio do tipo B2B, Business to Business, agentes computacinais de empresas que se comunicam para fechar acordos e otimizar o ciclo de negócios que muitas vezes já podem ser previstos e modelados.
+
+Com a popularização da Web Semântica e a introdução de agentes pessoais e que representam negócios podem se comunicar de forma mais natural e aplicações para otimizar tarefas manuais que são recorrentes podem ser produzidos. Por exemplo, um médico que possua um agente pessoal que negocie a sua agenda com os agentes pessoais de seus clientes pode ser utilizado para remarcar seus atendimentos em caso de uma viagem ou imprevisto, agindo como uma secretária virtual.
+
+\subsection {Tecnologias}
+
+Aplicações como as citadas acima já existem, mas o trabalho de engenharia para conseguir bons resultados é alto devido às tecnologias que são adotadas hoje. Vamos usar o case do site de comparação de preços BuscaPé como exemplo para essa subseção da monografia. 
+
+\subsubsection{Metadados Explícitos}
+
+A primeira tarefa de engenharia é faze-lo visitar vários sites de compras todo dia à procura de modificações nas listas de produtos para saber quais estão disponíveis naquela loja. É feito então o \textit{parsing} do HTML de cada site de compras à procura das informações de preço, descrição, avaliação e detalhes de cada produto. A limitação dessa abordagem é que sempre que um dos sites de compra mudar o layout (estrutura do HTML), um novo script de parsing deverá ser escrito. A grande demanda técnica de uma aplicação como essa é a escrita de agentes muito especializados para atingir bons resultados.
+
+Na figura 1.1 está parte do código em HTML de uma página de produtos da americanas.com. As informações do produto estão cercados apenas de código para a renderização dessa página pelo browser. Ou seja, a única preocupação dos engenheiros da americanas.com foi a leitura por humanos da informação do produto. Uma aplicação que deseje usar as informações dos produtos da loja vai ter que fazer um agente especializado no parsing desse código.
+
+\begin{figure}
+\includegraphics[scale=0.60]{../imagens/americanas.png}
+\caption{Código HTML de uma página da americanas.com}
+\label{fig:americanas}
+\end{figure}
+
+Motores de busca que também se baseam em parsing de páginas para extrair informações da Web dificilmente saberão, por exemplo, qual é o preço de um produto nesse site da americanas.com, já que há várias informações de preço na página e o parsing que é feito não é otimizado para sites específicos.
+
+A conseqüência para o usário final é que ele terá que usar um site específico como o buscapé ou terá que fazer buscas a um engenho de busca por palavras-chave para achar os sites de compra que possuam um produto e em uma segunda etapa, fazer a análise de preços manualmente.
+
+A abordagem da Web Semântica para resolver problemas como esse não é fazer agentes especializados (como os do buscapé), e sim, anotar metadados semânticos dos documentos disponíveis na Web. O exemplo dado anteriormente seria escrito na figura 1.2.
+
+\begin{figure}
+\includegraphics[scale=0.60]{../imagens/americanas-xml.png}
+\caption{Exemplo de código com semântica para um produto}
+\label{fig:americanasxml}
+\end{figure}
+
+\subsubsection{Ontologias}
+
+O termo ontologia vem da filosofia, nesse contexto, é um ramo da filosofia que se dedica a estudar a natureza da existência, concentra-se em identificar e descrever o qu existe no universo. Em computação, uma ontologia é um artefado para descrever um domínio. Consiste em uma lista finita de termos e relações entre eles. Os termos denotam conceitos importântes de um domínio \cite{Antoniou:2008}.
+
+Grande parte dos trabalhos referentes à Web Semantica estão ligados a ontologias, inclusive este. As linguagem de descrição de ontologias mais importântes para a Web são:
+
+\begin{itemize}
+\item XML: usado para dirigir a sintaxe de documentos estruturados. Não impôe restrições semânticas no conteúdo do docmento;
+\item XML Schema: linguagem para impor restrições na estrutura dos documentos XML;
+\item RDF: modelo de dados para recursos (objetos) e relações entre eles. As restrições semânticas são fixas e podem ser representados a partir da sintaxe do XML;
+\item RDF Schema: descreve as propriedades e classes dos objetos RDF;
+\item OWL: linguagem rica para modelagem de classes, propriedades, relações entre classes (e.g. disjunção), restrições de cardinalidade, características de propriedades (e.g. simetria). Mais detalhes sobre a OWL serão dados no capítulo 2 dessa monografia.
+\end{itemize}
+
+\subsubsection{Lógica}
+
+Lógica é a disciplina que estuda os princípios do raciocínio. Ela provê linguagens formais para expressar conhecimento, a semântica formal para a interpretação de sentenças sem precisar realizar operações sobre a base de conhecimento e a transformação de conhecimento implicito em conhecimento explícito, através de deduções a partir da base de conhecimento \cite{Antoniou:2008}.
+
+Lógica é mais geral que ontologias, ela pode ser usada por agentes inteligentes para tomada de decisões e escolha de ações. Por exemplo, um agente de B2C pode dar um desconto a um cliente baseado na seguinte regra:
+
+\[
+\forall x y, cliente(x) \land produto(y) \land clienteFiel(x) \rightarrow desconto(x, y, 5\%)
+\]
+
+Onde \textit{cliente(x)} indica que x é um cliente/consumidor, \textit{produto(y)} indica que y é um produto de uma loja, \textit{clienteFiel(x)} indica que x é um cliente fiel da loja e \textit{desconto(x, y, 5\%)} indica que o cliente x terá um desconto de 5\% no produto y.
+
+\subsubsection{Agentes}
+
+Um agente é tudo o que pode ser considerado capaz de perceber seu ambiente por meio de sensores e de agir sobre esse ambiente por meio de atuadores \cite{AIMA}. Agentes lógicos são aqueles que executam ações através de uma base de conhecimento e possuem um requisito fundamental, quando ele formula uma pergunta para a base de conhecimento, a resposta deve seguir o que já foi informado anteriormente.
+
+Agentes para a Web Semântica utilizam as três tecnologias que já foram descritas:
+
+\begin{itemize}
+\item Metadados serão usados para identificar e extrair informações da Web;
+\item Ontologias serão usadas para dar assistência às consultas realizadas à Web, interpretar informações recuperadas e para comunicação com outros agentes;
+\item Lógica será usada para processar informações recuperadas, chegar a conclusões e tomar decisões;
+\end{itemize}
 
 \section{Organização da Dissertação}
 

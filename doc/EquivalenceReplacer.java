@@ -48,6 +48,7 @@ public class EquivalenceReplacer {
 		    OWLAxiom axiom;
 			for(OWLClass cl : localont.getClassesInSignature()){
 				for(OWLEquivalentClassesAxiom eqcl : localont.getEquivalentClassesAxioms(cl)){
+					eqcl.get
 					for(OWLClass cl2 : eqcl.getNamedClasses()){
 						if(cl != cl2){
 						axiom = df.getOWLSubClassOfAxiom(cl, cl2); 

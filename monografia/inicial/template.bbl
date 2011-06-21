@@ -1,0 +1,35 @@
+\begin{thebibliography}{RBML99}
+
+\bibitem[AH08]{Antoniou:2008}
+Grigoris Antoniou and Frank~van Harmelen.
+\newblock {\em A Semantic Web Primer, 2nd Edition (Cooperative Information
+  Systems)}.
+\newblock The MIT Press, 2 edition, 2008.
+
+\bibitem[Bez95]{amazon.com}
+Jeff Bezos.
+\newblock amazon.com, 1995.
+
+\bibitem[BL89]{BernersLee:1989}
+Tim Berners-Lee.
+\newblock Information management: A proposal, 1989.
+
+\bibitem[Gal99]{mercadolivre.com.br}
+Marcos Galperin.
+\newblock mercadolivre.com.br, 1999.
+
+\bibitem[RBML99]{buscape.com.br}
+Romero Rodrigues, Rodrigo Borges, Ronaldo Morita, and Mario Letelier.
+\newblock buscape.com.br, 06 1999.
+
+\bibitem[RN02]{AIMA}
+Stuart Russell and Peter Norvig.
+\newblock {\em {Artificial Intelligence: A Modern Approach (2nd Edition)}}.
+\newblock Prentice Hall series in artificial intelligence. Prentice Hall, 2
+  edition, December 2002.
+
+\bibitem[Sic]{americanas.com}
+Carlos~Alberto Sicupira.
+\newblock americanas.com.
+
+\end{thebibliography}

@@ -23,17 +23,15 @@ public class Main {
 			Ontology ontology = new Ontology();
 			ontology.loadFromFile(file);
 		
-			Normalization n = new Normalization(ontology);
+			Normalization n = new Normalization(ontology.ontology);
 			n.normalizeOntology();
 			
 			ontology.save();
 		} catch (OWLOntologyInputSourceException e){
 			System.out.println("erro ao carregar a ontologia");
 		} catch (OWLOntologyCreationException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 		} catch (OWLOntologyStorageException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
