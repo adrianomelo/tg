@@ -17,22 +17,23 @@ import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
 import org.semanticweb.owlapi.util.OWLEntityRemover;
 
-public abstract class AbstractNormalizationVisitor extends
-		OWLClassExpressionVisitorAdapter {
+public abstract class AbstractNormalizationVisitor {
 	
 	protected OWLOntology ontology;
 	protected OWLOntologyManager manager;
-	//private OWLDataFactory factory;
-	protected Vector<OWLClassExpression> removed_axioms;
+	protected OWLDataFactory factory;
+	protected Vector<OWLSubClassOfAxiom> extrated_expressions;
 
 	public AbstractNormalizationVisitor(OWLOntology o)
 	{
 		this.ontology = o;
 		this.manager  = o.getOWLOntologyManager();
-		this.removed_axioms = new Vector<OWLClassExpression>();
+		this.factory  = manager.getOWLDataFactory();
+		this.extrated_expressions = new Vector<OWLSubClassOfAxiom>();
 	}
 	
 	protected void extractOWLClassExpression(OWLClassExpression axiom) {
@@ -52,14 +53,14 @@ public abstract class AbstractNormalizationVisitor extends
 		manager.applyChange(addAxiom);*/
 	}
 	
-	abstract public void visit(OWLObjectUnionOf union);
-	abstract public void visit(OWLObjectAllValuesFrom all);
-	abstract public void visit(OWLObjectIntersectionOf intersection);
-	abstract public void visit(OWLObjectSomeValuesFrom some);
-	abstract public void visit(OWLObjectComplementOf complement);
+	abstract public OWLClassExpression visit(OWLObjectUnionOf union);
+	abstract public OWLClassExpression visit(OWLObjectAllValuesFrom all);
+	abstract public OWLClassExpression visit(OWLObjectIntersectionOf intersection);
+	abstract public OWLClassExpression visit(OWLObjectSomeValuesFrom some);
+	abstract public OWLClassExpression visit(OWLObjectComplementOf complement);
 	
 	public Vector<OWLClassExpression> getRemovedAxioms ()
 	{
-		return this.removed_axioms;
+		return extrated_expressions;
 	}
 }
