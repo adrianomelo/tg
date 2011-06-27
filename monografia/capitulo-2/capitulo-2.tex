@@ -17,7 +17,7 @@ Nessa seção será mostrada a sintaxe básica da lógica de descrição. A tabela 2.1 
 \multicolumn{2}{|c|}{alfabeto} \\ \hline
 a, b 	& indivíduos \\ \hline
 A, B 	& conceitos atômicos \\ \hline
-C, D 	& descrição de conteitos \\ \hline
+C, D 	& descrição de conceitos \\ \hline
 R, S 	& papeis (propriedades) \\ \hline
 f, g 	& símbolos de funções\\ \hline
 \multicolumn{2}{|c|}{conectivos} \\ \hline
@@ -32,7 +32,7 @@ $\equiv$ & equivalência \\ \hline
 \end{center}
 \end{table}
 
-Os elementos mais básicos são os conceitos atômicos e propriedades atômicas. Descrições de conceitos podem ser contruídas indutivamente a partir dos contrutores com conceitos e propriedades.
+Os elementos mais básicos são os conceitos atômicos e propriedades atômicas. Descrições de conceitos podem ser construídas indutivamente a partir dos construtores com conceitos e propriedades.
 
 \begin{center}
 \begin{tabular}{ l l l }
@@ -46,7 +46,7 @@ $ C, D \rightarrow$ 	& $A$ | 			& (conceito atômico) \\
 \end{tabular}
 \end{center}
 
-Uma intepretação $\iota$ consiste em um conjunto não vazio $\Delta^\iota$ (domínio da interpretação) e uma função de interpretação, que para conceito atômico $A$ é o conjunto $A^\iota \subseteq \Delta^\iota$ e para cada propriedade atômica $R$ é a relação binária $R^\iota \subseteq \Delta^\iota \times \Delta^\iota$. As funções de interpretação se extendem a descrição de conceitos a partir das definições indutivas \cite{dlhandbook:2003} como as que estão abaixo:
+Uma interpretação $\iota$ consiste em um conjunto não vazio $\Delta^\iota$ (domínio da interpretação) e uma função de interpretação, que para conceito atômico $A$ é o conjunto $A^\iota \subseteq \Delta^\iota$ e para cada propriedade atômica $R$ é a relação binária $R^\iota \subseteq \Delta^\iota \times \Delta^\iota$. As funções de interpretação se estendem a descrição de conceitos a partir das definições indutivas \cite{dlhandbook:2003} como as que estão abaixo:
 
 \begin{center}
 \begin{tabular}{ r c l }
@@ -59,11 +59,11 @@ $(\exists R.\top)^\iota$ 	&	$=$	&	$\{ a \in \Delta^\iota | \exists b.  (a, b) \i
 \end{tabular}
 \end{center}
 
-Esse trabalho é restrito à famila ALC, que compreende os conceitos e propriedades atômicas, negação de conceitos, interseção, união, restrições de valor e existencial, \textit{top} (verdade) e \textit{bottom} (absurdo). A tabela 2.2 mostra além de ALC, outras famílias de DL existentes \cite{dlhandbook:2003}.
+Esse trabalho é restrito à família ALC, que compreende os conceitos e propriedades atômicas, negação de conceitos, interseção, união, restrições de valor e existencial, \textit{top} (verdade) e \textit{bottom} (absurdo). A tabela 2.2 mostra além de ALC, outras famílias de DL existentes \cite{dlhandbook:2003}.
 
 Uma ontologia ou base de conhecimento em ALC é composta pela tripla $(N_C, N_R, N_O)$, onde $N_C$ é o conjunto de conceitos, $N_R$ é o conjunto de predicados, e $N_O$ é o conjunto de indivíduos, que são as instâncias de $N_C$ e $N_R$. A base de conhecimento ou ontologia também pode ser descrita como o par $(\tau, \alpha)$, onde $\tau$ é a terminologia do domínio (TBox), equivalente a $N_C \cup N_C$ e $\alpha$ é a instanciação da base, que corresponde a $N_O$, também conhecida como \textit{assertional box} (ABox).
 
-Os axiomas são compostos por elementos de $N_O$ e um conjunto finito de GCIs (\textit{general concept inclusions}). Podem assumir a forma $C \sqsubseteq D$ ou $C \equiv D$ (uma equivalencia ($\equiv$) é o mesmo que $(C \sqsubseteq D) \land (D \sqsubseteq C)$ ), onde $C, D$ são conceitos e $\sqsubseteq$ é uma inclusão.
+Os axiomas são compostos por elementos de $N_O$ e um conjunto finito de GCIs (\textit{general concept inclusions}). Podem assumir a forma $C \sqsubseteq D$ ou $C \equiv D$ (uma equivalência ($\equiv$) é o mesmo que $(C \sqsubseteq D) \land (D \sqsubseteq C)$ ), onde $C, D$ são conceitos e $\sqsubseteq$ é uma inclusão.
 
 \begin{table}
 \begin{center}
@@ -94,9 +94,9 @@ qualificada & $= n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, 
 
 \section{OWL: Web Ontology Language}
 
-A \textit{Web Ontology Language}, OWL, foi escolhida pela w3c \footnote{sitio oficial: http://w3.org}, grupo que regula os padrões na Web, como a linguagem de descrição de ontologias para a Web Semântica \cite{Heflin:2004}. Alguns do requisitos que ela atendeu foram \cite{Antoniou:2008}: i) sintaxe bem definida; Como o objetivo da Web Semântica é tornar os documendos da Web mais fáceis de serem processados por máquinas, este é um requisito básico. ii) semântica formal; Descrever a base de conhecimento de forma lógicamente precisa é fundamental para fazer inferências como dedução de conceitos, checagem de consistência na base de conhecimento e instanciação de indivíduos a uma classe. iii) suporte a raciocínio; Uma vez que a linguagem possui uma semântica formal, atividades de raciocínio podem ser realizadas. iv) expressividade; alguns domínios precisam de construtos mais elaborados para que possam ser descritos. Quanto maior a expressividade da linguagem, naturalmente fica mais fácil de descrever um domínio, apesar de aumentar a complexidade e tempo de processamento.
+A \textit{Web Ontology Language}, OWL, foi escolhida pela w3c \footnote{sitio oficial: http://w3.org}, grupo que regula os padrões na Web, como a linguagem de descrição de ontologias para a Web Semântica \cite{Heflin:2004}. Alguns do requisitos que ela atendeu foram \cite{Antoniou:2008}: i) sintaxe bem definida; Como o objetivo da Web Semântica é tornar os documentos da Web mais fáceis de serem processados por máquinas, este é um requisito básico. ii) semântica formal; Descrever a base de conhecimento de forma logicamente precisa é fundamental para fazer inferências como dedução de conceitos, checagem de consistência na base de conhecimento e instanciação de indivíduos a uma classe. iii) suporte a raciocínio; Uma vez que a linguagem possui uma semântica formal, atividades de raciocínio podem ser realizadas. iv) expressividade; alguns domínios precisam de construtos mais elaborados para que possam ser descritos. Quanto maior a expressividade da linguagem, naturalmente fica mais fácil de descrever um domínio, apesar de aumentar a complexidade e tempo de processamento.
 
-Entre os requisitos citados no paragrafo anterior estão expressividade e suporte a raciocínio. Apesar de ambos poderem estar na linguagem, são antagônicos, quanto maior for a expressividade da linguagem, mais complexas e demoradas serão as atividades de raciocínio sobre a linguagem. Para criar fronteiras nesse conflito entre expressividade e complexidade de raciocínio, a w3c criou três versões de OWL: OWL Full, OWL DL e OWL Lite.
+Entre os requisitos citados no parágrafo anterior estão expressividade e suporte a raciocínio. Apesar de ambos poderem estar na linguagem, são antagônicos, quanto maior for a expressividade da linguagem, mais complexas e demoradas serão as atividades de raciocínio sobre a linguagem. Para criar fronteiras nesse conflito entre expressividade e complexidade de raciocínio, a w3c criou três versões de OWL: OWL Full, OWL DL e OWL Lite.
 
 \subsection{OWL Full}
 
@@ -115,4 +115,4 @@ OWL Lite é uma família de OWL que é mais limitada do que OWL Full e OWL DL. Ela 
 \vspace{2 cm}
 
 \noindent
-sdfsdf
+

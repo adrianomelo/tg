@@ -2,19 +2,19 @@
 \chapter{Normalização para o método das conexões}
 \label{ch:normalizacaoparaometododeconexoes}
 
-O método das conexões proposto por W. Bibel \cite{bibel:1982} é um método para prova automática de teoremas descritos em lógica d primeira ordem ou em lógica proposicional \cite{bibel:1993}. Um dos trabalhos recentes de Freitas et al \cite{Freitas:2010} foi a extenção desse método para lógica de descrição ALC.
+O método das conexões proposto por W. Bibel \cite{bibel:1982} é um método para prova automática de teoremas descritos em lógica d primeira ordem ou em lógica proposicional \cite{bibel:1993}. Um dos trabalhos recentes de Freitas et al \cite{Freitas:2010} foi a estenção desse método para lógica de descrição ALC.
 
-O artigo entitulado \textit{A Connection Method for Reasoning with the Description Logic ALC} \cite{Freitas:2010} propôe algoritmos tanto para o método, quanto para a normalização que precisa ser feita na base de conhecimento para que seja possível a representação necessária para o método das conexões usando apenas uma matriz. 
+O artigo intitulado \textit{A Connection Method for Reasoning with the Description Logic ALC} \cite{Freitas:2010} propõe algoritmos tanto para o método, quanto para a normalização que precisa ser feita na base de conhecimento para que seja possível a representação necessária para o método das conexões usando apenas uma matriz. 
 
-O objetivo deste trabalho é implementar algum algoritmo de normalização para o método das conexões como os citados no texto de Freitas et al. Dois algoritmos foram propostos com esse objetivo \cite{Freitas:2010}; o primeiro utiliza-se de uma tabela com nove regras que devem ser aplicadas à base de conhecimento a fim de obter a forma normal positiva. O segundo, entitulado "\textit{A more complex and efficient normalization}" não cria novos símbolos durante a sua execução, fazendo-o mais eficente que o primero em relação ao uso de memória.
+O objetivo deste trabalho é implementar algum algoritmo de normalização para o método das conexões como os citados no texto de Freitas et al. Dois algoritmos foram propostos com esse objetivo \cite{Freitas:2010}; o primeiro utiliza-se de uma tabela com nove regras que devem ser aplicadas à base de conhecimento a fim de obter a forma normal positiva. O segundo, intitulado "\textit{A more complex and efficient normalization}" não cria novos símbolos durante a sua execução, fazendo-o mais eficiente que o primeiro em relação ao uso de memória.
 
-No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, o orientando propós um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, mas com o efeito colateral de precisar adicionar um símbolo a mais na base de conhecimento no pior caso. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
+No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, o orientando propôs um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, mas com o efeito colateral de precisar adicionar um símbolo a mais na base de conhecimento no pior caso. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
 
 \section{Tradução de ontologias ALC para forma normal disjuntiva}
 
-Para que o leitor consigua entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
+Para que o leitor consiga entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
 
-Métodos diretos com o metodo das conexões são formulados para provar que uma fórmula ou um conjunto de fórmulas é um teorema, sse cada interpretação gerada é uma tautologia. Tautologias normalmente tomam a forma $L \lor \neg L$, nesse caso, a fórmula precisa estar na Forma Normal Disjuntiva (DNF).
+Métodos diretos com o método das conexões são formulados para provar que uma fórmula ou um conjunto de fórmulas é um teorema, sse cada interpretação gerada é uma tautologia. Tautologias normalmente tomam a forma $L \lor \neg L$, nesse caso, a fórmula precisa estar na Forma Normal Disjuntiva (DNF).
 
 \begin{definicao}[Forma Normal Disjuntiva, cláusula]
  Uma fórmula em DNF é uma conjunção de disjunções. Ou seja, tomam a forma:
@@ -43,7 +43,7 @@ $\{\{ (L_{1, 1}, ..., L_{1, m}\}, ..., \{L_{n, 1}, ..., L_{n, m} \}\}$
 
 \end{definicao}
 
-A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser extendido.
+A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser estendido.
 
 \begin{definicao}[Conjunção ALC]
 Uma conjunção ALC é um literal $L$, uma conjunção $(E_0 \land , ..., \land E_n)$, ou uma restrição existencial $\exists x.E$, onde $E$ é uma expressão qualquer em lógica de descrição.
@@ -61,8 +61,8 @@ Uma conjunção ALC pura é uma conjunção ALC que na forma normal negada não contém
 Uma disjunção ALC pura é uma disjunção ALC que na forma normal negada não contém restrições existenciais ($\exists x.E$) e também não contém conjunções $(E \land , ..., \land E)$. O conjunto de disjunções ALC puras é representado por $\check{D}$. Uma disjunção ALC não pura é uma disjunção ALC que não é pura.
 \end{definicao}
 
-\begin{definicao}[Impuresa em uma expressão não pura]
-Impuresa em expressões ALC não puras são conjunções em disjunções não puras ou disjunções em conjunções não puras. O conjunto de impuresas é chamado de \text{conjunto de impuresas ALC} e é representado por $I$.
+\begin{definicao}[Impureza em uma expressão não pura]
+Impureza em expressões ALC não puras são conjunções em disjunções não puras ou disjunções em conjunções não puras. O conjunto de impurezas é chamado de \text{conjunto de impurezas ALC} e é representado por $I$.
 \end{definicao}
 
 \begin{definicao}[Forma Normal Positiva]

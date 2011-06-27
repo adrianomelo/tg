@@ -140,7 +140,7 @@
 \gdef\@presentationtext{%
 Trabalho apresentado ao Programa de
 \@program\ do \if\@showdepartment1\@department\ \else\@institute\ \fi
-da \@university\ como requisito parcial para obtencao do
+da \@university\ como requisito parcial para obtenção do
 grau de \@degree\ em \@majorfield.}
 \gdef\resumoname{Resumo}
 \gdef\abstrname{Abstract}
