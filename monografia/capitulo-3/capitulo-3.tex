@@ -1,8 +1,81 @@
 % !TEX encoding = ISO-8859-1
-\chapter{The Description Logic ALC}
-\label{ch:thedescriptionlogicalc}
+\chapter{Normalização para o método das conexões}
+\label{ch:normalizacaoparaometododeconexoes}
 
-In order to describe the connection method as a formal inference system (in section 4), and the positive matricial normal form used in it, we will briefly describe the notation we use for first order logic, before examining the method. We are presuming readers to be acquainted to first order logic.
+O método das conexões proposto por W. Bibel \cite{bibel:1982} é um método para prova automática de teoremas descritos em lógica d primeira ordem ou em lógica proposicional \cite{bibel:1993}. Um dos trabalhos recentes de Freitas et al \cite{Freitas:2010} foi a extenção desse método para lógica de descrição ALC.
 
-\section{Definition 1 (First-order logic syntax).}
-The alphabets given by table 1 compose the FOL syntax notation.	? Table 1. First order logic syntax notation.
+O artigo entitulado \textit{A Connection Method for Reasoning with the Description Logic ALC} \cite{Freitas:2010} propôe algoritmos tanto para o método, quanto para a normalização que precisa ser feita na base de conhecimento para que seja possível a representação necessária para o método das conexões usando apenas uma matriz. 
+
+O objetivo deste trabalho é implementar algum algoritmo de normalização para o método das conexões como os citados no texto de Freitas et al. Dois algoritmos foram propostos com esse objetivo \cite{Freitas:2010}; o primeiro utiliza-se de uma tabela com nove regras que devem ser aplicadas à base de conhecimento a fim de obter a forma normal positiva. O segundo, entitulado "\textit{A more complex and efficient normalization}" não cria novos símbolos durante a sua execução, fazendo-o mais eficente que o primero em relação ao uso de memória.
+
+No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, o orientando propós um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, mas com o efeito colateral de precisar adicionar um símbolo a mais na base de conhecimento no pior caso. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
+
+\section{Tradução de ontologias ALC para forma normal disjuntiva}
+
+Para que o leitor consigua entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
+
+Métodos diretos com o metodo das conexões são formulados para provar que uma fórmula ou um conjunto de fórmulas é um teorema, sse cada interpretação gerada é uma tautologia. Tautologias normalmente tomam a forma $L \lor \neg L$, nesse caso, a fórmula precisa estar na Forma Normal Disjuntiva (DNF).
+
+\begin{definicao}[Forma Normal Disjuntiva, cláusula]
+ Uma fórmula em DNF é uma conjunção de disjunções. Ou seja, tomam a forma:
+
+\begin{center}
+$\bigcup \limits_{i=1}^{n} C_i$ , ou, $C_1 \lor ... \lor C_n$.
+\end{center}
+
+onde cada $C_i$ é uma \textit{cláusula}. Uma cláusula é uma conjunção de literais. Ou seja, tomam a forma:
+
+\begin{center}
+$\bigcap \limits_{j=1}^m L_{i, j}$ , ou, $L_{i, 1} \land ... \land L_{i, m}$ , também representado por $\{ L_{i, 1}, ..., L_{i, m} \}$
+\end{center}
+
+onde cada $L_{i, j}$ é um literal, resultando na fórmula:
+
+\begin{center}
+$\bigcap \limits_{i=1}^n \bigcup \limits_{j=1}^m L_{i, j}$ , ou, $(L_{1,1} \land ... \land L_{1,m}) \lor (L_{n, 1} \land ... \land L_{n, m})$
+\end{center}
+
+podendo ser chamada também de forma causal disjuntiva, representada por: 
+
+\begin{center}
+$\{\{ (L_{1, 1}, ..., L_{1, m}\}, ..., \{L_{n, 1}, ..., L_{n, m} \}\}$
+\end{center}
+
+\end{definicao}
+
+A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser extendido.
+
+\begin{definicao}[Conjunção ALC]
+Uma conjunção ALC é um literal $L$, uma conjunção $(E_0 \land , ..., \land E_n)$, ou uma restrição existencial $\exists x.E$, onde $E$ é uma expressão qualquer em lógica de descrição.
+\end{definicao}
+
+\begin{definicao}[Disjunção ALC]
+Uma disjunção ALC é um literal $L$, uma disjunção $(E_0 \lor , ..., \lor E_n)$, ou uma restrição de valor $\forall x.E$, onde $E$ é uma expressão qualquer em lógica de descrição.
+\end{definicao}
+
+\begin{definicao}[Conjunção ALC pura, Conjunção ALC não pura]
+Uma conjunção ALC pura é uma conjunção ALC que na forma normal negada não contém restrições de valor ($\forall x.E$) e também não contém disjunções $(E \lor , ..., \lor E)$. O conjunto de conjunções ALC puras é representado por $\hat{C}$. Uma conjunção ALC não pura é uma conjunção ALC que não é pura.
+\end{definicao}
+
+\begin{definicao}[Disjunção ALC pura, Disjunção ALC não pura]
+Uma disjunção ALC pura é uma disjunção ALC que na forma normal negada não contém restrições existenciais ($\exists x.E$) e também não contém conjunções $(E \land , ..., \land E)$. O conjunto de disjunções ALC puras é representado por $\check{D}$. Uma disjunção ALC não pura é uma disjunção ALC que não é pura.
+\end{definicao}
+
+\begin{definicao}[Impuresa em uma expressão não pura]
+Impuresa em expressões ALC não puras são conjunções em disjunções não puras ou disjunções em conjunções não puras. O conjunto de impuresas é chamado de \text{conjunto de impuresas ALC} e é representado por $I$.
+\end{definicao}
+
+\begin{definicao}[Forma Normal Positiva]
+Um axioma ALC está na Forma Normal Positiva sse ele está em uma das seguintes formas: 
+
+\begin{center}
+i) $A \sqsubseteq \hat{C}$ \\
+ii) $\check{D} \sqsubseteq A$ \\
+iii) $\hat{C} \sqsubseteq \check{D}$ \\ 
+\end{center}
+
+onde A é um conceito atômico,  $\hat{C}$ é uma conjunção ALC pura, $\check{D}$ é uma disjunção ALC pura.
+
+\end{definicao}
+
+

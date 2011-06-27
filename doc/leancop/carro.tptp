@@ -1,0 +1,177 @@
+%-- Everything is in the Abstract or Data domain
+input_formula(axiom_0,axiom,(
+ ![X]: (abstractDomain(X) | dataDomain(X))
+)).
+%-- The abstract domain must be non-empty.
+input_formula(axiom_1,axiom,(
+ ?[X]: (abstractDomain(X))
+)).
+%-- The data domain must be non-empty (we know that 1 exists)
+input_formula(axiom_2,axiom,(
+ ?[X]: (dataDomain(X))
+)).
+%-- The Abstract and Data domains are distinct
+input_formula(axiom_3,axiom,(
+ ![X]: (~(abstractDomain(X) & dataDomain(X)))
+)).
+%-- Everything in Thing is Abstract
+input_formula(axiom_4,axiom,(
+ ![X]: (iowlThing(X) => abstractDomain(X))
+)).
+%-- Anything in Nothing is abstract
+input_formula(axiom_5,axiom,(
+ ![X]: (iowlNothing(X) => abstractDomain(X))
+)).
+%-- All Abstract things are in Thing
+input_formula(axiom_6,axiom,(
+ ![X]: (abstractDomain(X) => iowlThing(X))
+)).
+%-- Nothing is empty
+input_formula(axiom_7,axiom,(
+ ![X]: (~iowlNothing(X))
+)).
+%-- Strings are Data objects 
+input_formula(axiom_8,axiom,(
+ ![X]: (xsd_string(X) => dataDomain(X))
+)).
+%-- Integers are Data objects 
+input_formula(axiom_9,axiom,(
+ ![X]: (xsd_integer(X) => dataDomain(X))
+)).
+%-- String and Integer are disjoint 
+input_formula(axiom_10,axiom,(
+ ![X]: (dataDomain(X) => ~(xsd_string(X) & xsd_integer(X)))
+)).
+%-- Class iCarro is subset of Abstract domain
+input_formula(axiom_11,axiom,(
+ ![X]: (iCarro(X) => abstractDomain(X))
+)).
+%-- Class iPessoa is subset of Abstract domain
+input_formula(axiom_12,axiom,(
+ ![X]: (iPessoa(X) => abstractDomain(X))
+)).
+%-- ObjectProperty: ipossuiCarro
+input_formula(axiom_13,axiom,(
+ ![X,Y]: (ipossuiCarro(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Domain: ipossuiCarro
+input_formula(axiom_14,axiom,(
+ ![X,Y]: (ipossuiCarro(X,Y) => iPessoa(X))
+)).
+%-- Range: ipossuiCarro
+input_formula(axiom_15,axiom,(
+ ![X,Y]: (ipossuiCarro(X,Y) => iCarro(Y))
+)).
+%-- DataProperty: imodelo
+input_formula(axiom_16,axiom,(
+ ![X,Y]: (imodelo(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- Functional: imodelo
+input_formula(axiom_17,axiom,(
+ ![X,Y,Z]: (imodelo(X,Y) & imodelo(X,Z) => equal(Y,Z))
+)).
+%-- Domain: imodelo
+input_formula(axiom_18,axiom,(
+ ![X,Y]: (imodelo(X,Y) => iCarro(X))
+)).
+%-- Range: imodelo
+input_formula(axiom_19,axiom,(
+ ![X,Y]: (imodelo(X,Y) => xsd_string(Y))
+)).
+%-- DataProperty: inome
+input_formula(axiom_20,axiom,(
+ ![X,Y]: (inome(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- Functional: inome
+input_formula(axiom_21,axiom,(
+ ![X,Y,Z]: (inome(X,Y) & inome(X,Z) => equal(Y,Z))
+)).
+%-- Domain: inome
+input_formula(axiom_22,axiom,(
+ ![X,Y]: (inome(X,Y) => iPessoa(X))
+)).
+%-- Range: inome
+input_formula(axiom_23,axiom,(
+ ![X,Y]: (inome(X,Y) => xsd_string(Y))
+)).
+%-- iDavison
+input_formula(axiom_24,axiom,(
+ iPessoa(iDavison)
+)).
+%-- iDavison:ipossuiCarro:iVolkswagem
+input_formula(axiom_25,axiom,(
+ ipossuiCarro(iDavison,iVolkswagem)
+)).
+%-- Data value
+input_formula(axiom_26,axiom,(
+ xsd_string(xsd_string_0)
+)).
+%-- iDavison:inome:xsd_string_0
+input_formula(axiom_27,axiom,(
+ inome(iDavison,xsd_string_0)
+)).
+%-- iFiat
+input_formula(axiom_28,axiom,(
+ iCarro(iFiat)
+)).
+%-- Data value
+input_formula(axiom_29,axiom,(
+ xsd_string(xsd_string_1)
+)).
+%-- iFiat:imodelo:xsd_string_1
+input_formula(axiom_30,axiom,(
+ imodelo(iFiat,xsd_string_1)
+)).
+%-- iRenato
+input_formula(axiom_31,axiom,(
+ iPessoa(iRenato)
+)).
+%-- iRenato:ipossuiCarro:iFiat
+input_formula(axiom_32,axiom,(
+ ipossuiCarro(iRenato,iFiat)
+)).
+%-- Data value
+input_formula(axiom_33,axiom,(
+ xsd_string(xsd_string_2)
+)).
+%-- iRenato:inome:xsd_string_2
+input_formula(axiom_34,axiom,(
+ inome(iRenato,xsd_string_2)
+)).
+%-- iVolkswagem
+input_formula(axiom_35,axiom,(
+ iCarro(iVolkswagem)
+)).
+%-- Data value
+input_formula(axiom_36,axiom,(
+ xsd_string(xsd_string_3)
+)).
+%-- iVolkswagem:imodelo:xsd_string_3
+input_formula(axiom_37,axiom,(
+ imodelo(iVolkswagem,xsd_string_3)
+)).
+%-- String value disjoint
+input_formula(axiom_38,axiom,(
+ ~equal(xsd_string_0,xsd_string_1)
+)).
+%-- String value disjoint
+input_formula(axiom_39,axiom,(
+ ~equal(xsd_string_0,xsd_string_2)
+)).
+%-- String value disjoint
+input_formula(axiom_40,axiom,(
+ ~equal(xsd_string_0,xsd_string_3)
+)).
+%-- String value disjoint
+input_formula(axiom_41,axiom,(
+ ~equal(xsd_string_1,xsd_string_2)
+)).
+%-- String value disjoint
+input_formula(axiom_42,axiom,(
+ ~equal(xsd_string_1,xsd_string_3)
+)).
+%-- String value disjoint
+input_formula(axiom_43,axiom,(
+ ~equal(xsd_string_2,xsd_string_3)
+)).
+

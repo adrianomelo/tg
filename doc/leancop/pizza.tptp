@@ -1,0 +1,3348 @@
+%-- Everything is in the Abstract or Data domain
+input_formula(axiom_0,axiom,(
+ ![X]: (abstractDomain(X) | dataDomain(X))
+)).
+%-- The abstract domain must be non-empty.
+input_formula(axiom_1,axiom,(
+ ?[X]: (abstractDomain(X))
+)).
+%-- The data domain must be non-empty (we know that 1 exists)
+input_formula(axiom_2,axiom,(
+ ?[X]: (dataDomain(X))
+)).
+%-- The Abstract and Data domains are distinct
+input_formula(axiom_3,axiom,(
+ ![X]: (~(abstractDomain(X) & dataDomain(X)))
+)).
+%-- Everything in Thing is Abstract
+input_formula(axiom_4,axiom,(
+ ![X]: (iowlThing(X) => abstractDomain(X))
+)).
+%-- Anything in Nothing is abstract
+input_formula(axiom_5,axiom,(
+ ![X]: (iowlNothing(X) => abstractDomain(X))
+)).
+%-- All Abstract things are in Thing
+input_formula(axiom_6,axiom,(
+ ![X]: (abstractDomain(X) => iowlThing(X))
+)).
+%-- Nothing is empty
+input_formula(axiom_7,axiom,(
+ ![X]: (~iowlNothing(X))
+)).
+%-- Strings are Data objects 
+input_formula(axiom_8,axiom,(
+ ![X]: (xsd_string(X) => dataDomain(X))
+)).
+%-- Integers are Data objects 
+input_formula(axiom_9,axiom,(
+ ![X]: (xsd_integer(X) => dataDomain(X))
+)).
+%-- String and Integer are disjoint 
+input_formula(axiom_10,axiom,(
+ ![X]: (dataDomain(X) => ~(xsd_string(X) & xsd_integer(X)))
+)).
+%-- Class iDIRECTED_BINARY_RELATION is subset of Abstract domain
+input_formula(axiom_11,axiom,(
+ ![X]: (iDIRECTED_BINARY_RELATION(X) => abstractDomain(X))
+)).
+%-- Class iPAL_CONSTRAINT is subset of Abstract domain
+input_formula(axiom_12,axiom,(
+ ![X]: (iPAL_CONSTRAINT(X) => abstractDomain(X))
+)).
+%-- ObjectProperty: iFROM
+input_formula(axiom_13,axiom,(
+ ![X,Y]: (iFROM(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Domain: iFROM
+input_formula(axiom_14,axiom,(
+ ![X,Y]: (iFROM(X,Y) => iDIRECTED_BINARY_RELATION(X))
+)).
+%-- ObjectProperty: iTO
+input_formula(axiom_15,axiom,(
+ ![X,Y]: (iTO(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Domain: iTO
+input_formula(axiom_16,axiom,(
+ ![X,Y]: (iTO(X,Y) => iDIRECTED_BINARY_RELATION(X))
+)).
+%-- DataProperty: iPAL_DESCRIPTION
+input_formula(axiom_17,axiom,(
+ ![X,Y]: (iPAL_DESCRIPTION(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- Domain: iPAL_DESCRIPTION
+input_formula(axiom_18,axiom,(
+ ![X,Y]: (iPAL_DESCRIPTION(X,Y) => iPAL_CONSTRAINT(X))
+)).
+%-- Range: iPAL_DESCRIPTION
+input_formula(axiom_19,axiom,(
+ ![X,Y]: (iPAL_DESCRIPTION(X,Y) => xsd_string(Y))
+)).
+%-- DataProperty: iPAL_NAME
+input_formula(axiom_20,axiom,(
+ ![X,Y]: (iPAL_NAME(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- Domain: iPAL_NAME
+input_formula(axiom_21,axiom,(
+ ![X,Y]: (iPAL_NAME(X,Y) => iPAL_CONSTRAINT(X))
+)).
+%-- Range: iPAL_NAME
+input_formula(axiom_22,axiom,(
+ ![X,Y]: (iPAL_NAME(X,Y) => xsd_string(Y))
+)).
+%-- DataProperty: iPAL_RANGE
+input_formula(axiom_23,axiom,(
+ ![X,Y]: (iPAL_RANGE(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- Domain: iPAL_RANGE
+input_formula(axiom_24,axiom,(
+ ![X,Y]: (iPAL_RANGE(X,Y) => iPAL_CONSTRAINT(X))
+)).
+%-- Range: iPAL_RANGE
+input_formula(axiom_25,axiom,(
+ ![X,Y]: (iPAL_RANGE(X,Y) => xsd_string(Y))
+)).
+%-- DataProperty: iPAL_STATEMENT
+input_formula(axiom_26,axiom,(
+ ![X,Y]: (iPAL_STATEMENT(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- Domain: iPAL_STATEMENT
+input_formula(axiom_27,axiom,(
+ ![X,Y]: (iPAL_STATEMENT(X,Y) => iPAL_CONSTRAINT(X))
+)).
+%-- Range: iPAL_STATEMENT
+input_formula(axiom_28,axiom,(
+ ![X,Y]: (iPAL_STATEMENT(X,Y) => xsd_string(Y))
+)).
+%-- Class iDIRECTED_BINARY_RELATION is subset of Abstract domain
+input_formula(axiom_29,axiom,(
+ ![X]: (iDIRECTED_BINARY_RELATION(X) => abstractDomain(X))
+)).
+%-- Class iPAL_CONSTRAINT is subset of Abstract domain
+input_formula(axiom_30,axiom,(
+ ![X]: (iPAL_CONSTRAINT(X) => abstractDomain(X))
+)).
+%-- Class ia_American is subset of Abstract domain
+input_formula(axiom_31,axiom,(
+ ![X]: (ia_American(X) => abstractDomain(X))
+)).
+%-- Super ia_American
+input_formula(axiom_32,axiom,(
+ ![X]: (ia_American(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_American
+input_formula(axiom_33,axiom,(
+ ![X]: (ia_American(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PeperoniSausageTopping(Y))))
+)).
+%-- Super ia_American
+input_formula(axiom_34,axiom,(
+ ![X]: (ia_American(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_American
+input_formula(axiom_35,axiom,(
+ ![X]: (ia_American(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_American
+input_formula(axiom_36,axiom,(
+ ![X]: (ia_American(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_PeperoniSausageTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Class ia_AmericanHot is subset of Abstract domain
+input_formula(axiom_37,axiom,(
+ ![X]: (ia_AmericanHot(X) => abstractDomain(X))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_38,axiom,(
+ ![X]: (ia_AmericanHot(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_39,axiom,(
+ ![X]: (ia_AmericanHot(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PeperoniSausageTopping(Y))))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_40,axiom,(
+ ![X]: (ia_AmericanHot(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_41,axiom,(
+ ![X]: (ia_AmericanHot(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_42,axiom,(
+ ![X]: (ia_AmericanHot(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_JalapenoPepperTopping(Y))))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_43,axiom,(
+ ![X]: (ia_AmericanHot(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_HotGreenPepperTopping(Y) | ia_MozzarellaTopping(Y) | ia_PeperoniSausageTopping(Y) | ia_JalapenoPepperTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_AmericanHot
+input_formula(axiom_44,axiom,(
+ ![X]: (ia_AmericanHot(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_HotGreenPepperTopping(Y))))
+)).
+%-- Class ia_AnchoviesTopping is subset of Abstract domain
+input_formula(axiom_45,axiom,(
+ ![X]: (ia_AnchoviesTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_AnchoviesTopping
+input_formula(axiom_46,axiom,(
+ ![X]: (ia_AnchoviesTopping(X) => ia_FishTopping(X))
+)).
+%-- Class ia_ArtichokeTopping is subset of Abstract domain
+input_formula(axiom_47,axiom,(
+ ![X]: (ia_ArtichokeTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_ArtichokeTopping
+input_formula(axiom_48,axiom,(
+ ![X]: (ia_ArtichokeTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_ArtichokeTopping
+input_formula(axiom_49,axiom,(
+ ![X]: (ia_ArtichokeTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_AsparagusTopping is subset of Abstract domain
+input_formula(axiom_50,axiom,(
+ ![X]: (ia_AsparagusTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_AsparagusTopping
+input_formula(axiom_51,axiom,(
+ ![X]: (ia_AsparagusTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_AsparagusTopping
+input_formula(axiom_52,axiom,(
+ ![X]: (ia_AsparagusTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_Cajun is subset of Abstract domain
+input_formula(axiom_53,axiom,(
+ ![X]: (ia_Cajun(X) => abstractDomain(X))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_54,axiom,(
+ ![X]: (ia_Cajun(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_TobascoPepperSauce(Y) | ia_OnionTopping(Y) | ia_PeperonataTopping(Y) | ia_PrawnsTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_55,axiom,(
+ ![X]: (ia_Cajun(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PeperonataTopping(Y))))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_56,axiom,(
+ ![X]: (ia_Cajun(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_57,axiom,(
+ ![X]: (ia_Cajun(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PrawnsTopping(Y))))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_58,axiom,(
+ ![X]: (ia_Cajun(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_59,axiom,(
+ ![X]: (ia_Cajun(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_60,axiom,(
+ ![X]: (ia_Cajun(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TobascoPepperSauce(Y))))
+)).
+%-- Super ia_Cajun
+input_formula(axiom_61,axiom,(
+ ![X]: (ia_Cajun(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OnionTopping(Y))))
+)).
+%-- Class ia_CajunSpiceTopping is subset of Abstract domain
+input_formula(axiom_62,axiom,(
+ ![X]: (ia_CajunSpiceTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_CajunSpiceTopping
+input_formula(axiom_63,axiom,(
+ ![X]: (ia_CajunSpiceTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Hot(Y))))
+)).
+%-- Super ia_CajunSpiceTopping
+input_formula(axiom_64,axiom,(
+ ![X]: (ia_CajunSpiceTopping(X) => ia_HerbSpiceTopping(X))
+)).
+%-- Class ia_CaperTopping is subset of Abstract domain
+input_formula(axiom_65,axiom,(
+ ![X]: (ia_CaperTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_CaperTopping
+input_formula(axiom_66,axiom,(
+ ![X]: (ia_CaperTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_CaperTopping
+input_formula(axiom_67,axiom,(
+ ![X]: (ia_CaperTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_Capricciosa is subset of Abstract domain
+input_formula(axiom_68,axiom,(
+ ![X]: (ia_Capricciosa(X) => abstractDomain(X))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_69,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PeperonataTopping(Y))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_70,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_AnchoviesTopping(Y))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_71,axiom,(
+ ![X]: (ia_Capricciosa(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_72,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_73,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_74,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_75,axiom,(
+ ![X]: (ia_Capricciosa(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_AnchoviesTopping(Y) | ia_PeperonataTopping(Y) | ia_CaperTopping(Y) | ia_OliveTopping(Y) | ia_TomatoTopping(Y) | ia_HamTopping(Y))))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_76,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_HamTopping(Y))))
+)).
+%-- Super ia_Capricciosa
+input_formula(axiom_77,axiom,(
+ ![X]: (ia_Capricciosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_CaperTopping(Y))))
+)).
+%-- Class ia_Caprina is subset of Abstract domain
+input_formula(axiom_78,axiom,(
+ ![X]: (ia_Caprina(X) => abstractDomain(X))
+)).
+%-- Super ia_Caprina
+input_formula(axiom_79,axiom,(
+ ![X]: (ia_Caprina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_SundriedTomatoTopping(Y))))
+)).
+%-- Super ia_Caprina
+input_formula(axiom_80,axiom,(
+ ![X]: (ia_Caprina(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Caprina
+input_formula(axiom_81,axiom,(
+ ![X]: (ia_Caprina(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_SundriedTomatoTopping(Y) | ia_GoatsCheeseTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Caprina
+input_formula(axiom_82,axiom,(
+ ![X]: (ia_Caprina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Caprina
+input_formula(axiom_83,axiom,(
+ ![X]: (ia_Caprina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Caprina
+input_formula(axiom_84,axiom,(
+ ![X]: (ia_Caprina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GoatsCheeseTopping(Y))))
+)).
+%-- Class ia_CheeseTopping is subset of Abstract domain
+input_formula(axiom_85,axiom,(
+ ![X]: (ia_CheeseTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_CheeseTopping
+input_formula(axiom_86,axiom,(
+ ![X]: (ia_CheeseTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_CheeseyPizza is subset of Abstract domain
+input_formula(axiom_87,axiom,(
+ ![X]: (ia_CheeseyPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_CheeseyPizza
+input_formula(axiom_88,axiom,(
+ ![X]: (ia_CheeseyPizza(X) <=> (ia_Pizza(X) & (?[Y]: (ia_hasTopping(X,Y) & ia_CheeseTopping(Y)))))
+)).
+%-- Class ia_CheeseyVegetableTopping is subset of Abstract domain
+input_formula(axiom_89,axiom,(
+ ![X]: (ia_CheeseyVegetableTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_CheeseyVegetableTopping
+input_formula(axiom_90,axiom,(
+ ![X]: (ia_CheeseyVegetableTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_CheeseyVegetableTopping
+input_formula(axiom_91,axiom,(
+ ![X]: (ia_CheeseyVegetableTopping(X) => ia_CheeseTopping(X))
+)).
+%-- Class ia_ChickenTopping is subset of Abstract domain
+input_formula(axiom_92,axiom,(
+ ![X]: (ia_ChickenTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_ChickenTopping
+input_formula(axiom_93,axiom,(
+ ![X]: (ia_ChickenTopping(X) => ia_MeatTopping(X))
+)).
+%-- Super ia_ChickenTopping
+input_formula(axiom_94,axiom,(
+ ![X]: (ia_ChickenTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_Country is subset of Abstract domain
+input_formula(axiom_95,axiom,(
+ ![X]: (ia_Country(X) => abstractDomain(X))
+)).
+%-- Equality ia_Country
+input_formula(axiom_96,axiom,(
+ ![X]: (ia_Country(X) <=> ((equal(X,ia_Italy) | equal(X,ia_France) | equal(X,ia_England) | equal(X,ia_Germany) | equal(X,ia_America)) & ia_DomainConcept(X)))
+)).
+%-- Class ia_DeepPanBase is subset of Abstract domain
+input_formula(axiom_97,axiom,(
+ ![X]: (ia_DeepPanBase(X) => abstractDomain(X))
+)).
+%-- Super ia_DeepPanBase
+input_formula(axiom_98,axiom,(
+ ![X]: (ia_DeepPanBase(X) => ia_PizzaBase(X))
+)).
+%-- Class ia_DomainConcept is subset of Abstract domain
+input_formula(axiom_99,axiom,(
+ ![X]: (ia_DomainConcept(X) => abstractDomain(X))
+)).
+%-- Class ia_Fiorentina is subset of Abstract domain
+input_formula(axiom_100,axiom,(
+ ![X]: (ia_Fiorentina(X) => abstractDomain(X))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_101,axiom,(
+ ![X]: (ia_Fiorentina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_ParmesanTopping(Y))))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_102,axiom,(
+ ![X]: (ia_Fiorentina(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_OliveTopping(Y) | ia_ParmesanTopping(Y) | ia_SpinachTopping(Y) | ia_TomatoTopping(Y) | ia_GarlicTopping(Y))))))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_103,axiom,(
+ ![X]: (ia_Fiorentina(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_104,axiom,(
+ ![X]: (ia_Fiorentina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GarlicTopping(Y))))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_105,axiom,(
+ ![X]: (ia_Fiorentina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_106,axiom,(
+ ![X]: (ia_Fiorentina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_107,axiom,(
+ ![X]: (ia_Fiorentina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_SpinachTopping(Y))))
+)).
+%-- Super ia_Fiorentina
+input_formula(axiom_108,axiom,(
+ ![X]: (ia_Fiorentina(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Class ia_FishTopping is subset of Abstract domain
+input_formula(axiom_109,axiom,(
+ ![X]: (ia_FishTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_FishTopping
+input_formula(axiom_110,axiom,(
+ ![X]: (ia_FishTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Super ia_FishTopping
+input_formula(axiom_111,axiom,(
+ ![X]: (ia_FishTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_FourCheesesTopping is subset of Abstract domain
+input_formula(axiom_112,axiom,(
+ ![X]: (ia_FourCheesesTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_FourCheesesTopping
+input_formula(axiom_113,axiom,(
+ ![X]: (ia_FourCheesesTopping(X) => ia_CheeseTopping(X))
+)).
+%-- Super ia_FourCheesesTopping
+input_formula(axiom_114,axiom,(
+ ![X]: (ia_FourCheesesTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_FourSeasons is subset of Abstract domain
+input_formula(axiom_115,axiom,(
+ ![X]: (ia_FourSeasons(X) => abstractDomain(X))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_116,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PeperoniSausageTopping(Y))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_117,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_AnchoviesTopping(Y))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_118,axiom,(
+ ![X]: (ia_FourSeasons(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_119,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_120,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_121,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_122,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MushroomTopping(Y))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_123,axiom,(
+ ![X]: (ia_FourSeasons(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_AnchoviesTopping(Y) | ia_MozzarellaTopping(Y) | ia_PeperoniSausageTopping(Y) | ia_CaperTopping(Y) | ia_MushroomTopping(Y) | ia_OliveTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_FourSeasons
+input_formula(axiom_124,axiom,(
+ ![X]: (ia_FourSeasons(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_CaperTopping(Y))))
+)).
+%-- Class ia_FruitTopping is subset of Abstract domain
+input_formula(axiom_125,axiom,(
+ ![X]: (ia_FruitTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_FruitTopping
+input_formula(axiom_126,axiom,(
+ ![X]: (ia_FruitTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_FruttiDiMare is subset of Abstract domain
+input_formula(axiom_127,axiom,(
+ ![X]: (ia_FruttiDiMare(X) => abstractDomain(X))
+)).
+%-- Super ia_FruttiDiMare
+input_formula(axiom_128,axiom,(
+ ![X]: (ia_FruttiDiMare(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_FruttiDiMare
+input_formula(axiom_129,axiom,(
+ ![X]: (ia_FruttiDiMare(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GarlicTopping(Y))))
+)).
+%-- Super ia_FruttiDiMare
+input_formula(axiom_130,axiom,(
+ ![X]: (ia_FruttiDiMare(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MixedSeafoodTopping(Y) | ia_TomatoTopping(Y) | ia_GarlicTopping(Y))))))
+)).
+%-- Super ia_FruttiDiMare
+input_formula(axiom_131,axiom,(
+ ![X]: (ia_FruttiDiMare(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_FruttiDiMare
+input_formula(axiom_132,axiom,(
+ ![X]: (ia_FruttiDiMare(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MixedSeafoodTopping(Y))))
+)).
+%-- Class ia_GarlicTopping is subset of Abstract domain
+input_formula(axiom_133,axiom,(
+ ![X]: (ia_GarlicTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_GarlicTopping
+input_formula(axiom_134,axiom,(
+ ![X]: (ia_GarlicTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_GarlicTopping
+input_formula(axiom_135,axiom,(
+ ![X]: (ia_GarlicTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Medium(Y))))
+)).
+%-- Class ia_Giardiniera is subset of Abstract domain
+input_formula(axiom_136,axiom,(
+ ![X]: (ia_Giardiniera(X) => abstractDomain(X))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_137,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PeperonataTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_138,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_LeekTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_139,axiom,(
+ ![X]: (ia_Giardiniera(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_PeperonataTopping(Y) | ia_PetitPoisTopping(Y) | ia_LeekTopping(Y) | ia_MushroomTopping(Y) | ia_OliveTopping(Y) | ia_SlicedTomatoTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_140,axiom,(
+ ![X]: (ia_Giardiniera(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_141,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_142,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_143,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PetitPoisTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_144,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_145,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MushroomTopping(Y))))
+)).
+%-- Super ia_Giardiniera
+input_formula(axiom_146,axiom,(
+ ![X]: (ia_Giardiniera(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_SlicedTomatoTopping(Y))))
+)).
+%-- Class ia_GoatsCheeseTopping is subset of Abstract domain
+input_formula(axiom_147,axiom,(
+ ![X]: (ia_GoatsCheeseTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_GoatsCheeseTopping
+input_formula(axiom_148,axiom,(
+ ![X]: (ia_GoatsCheeseTopping(X) => ia_CheeseTopping(X))
+)).
+%-- Super ia_GoatsCheeseTopping
+input_formula(axiom_149,axiom,(
+ ![X]: (ia_GoatsCheeseTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_GorgonzolaTopping is subset of Abstract domain
+input_formula(axiom_150,axiom,(
+ ![X]: (ia_GorgonzolaTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_GorgonzolaTopping
+input_formula(axiom_151,axiom,(
+ ![X]: (ia_GorgonzolaTopping(X) => ia_CheeseTopping(X))
+)).
+%-- Super ia_GorgonzolaTopping
+input_formula(axiom_152,axiom,(
+ ![X]: (ia_GorgonzolaTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_GreenPepperTopping is subset of Abstract domain
+input_formula(axiom_153,axiom,(
+ ![X]: (ia_GreenPepperTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_GreenPepperTopping
+input_formula(axiom_154,axiom,(
+ ![X]: (ia_GreenPepperTopping(X) => ia_PepperTopping(X))
+)).
+%-- Class ia_HamTopping is subset of Abstract domain
+input_formula(axiom_155,axiom,(
+ ![X]: (ia_HamTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_HamTopping
+input_formula(axiom_156,axiom,(
+ ![X]: (ia_HamTopping(X) => ia_MeatTopping(X))
+)).
+%-- Class ia_HerbSpiceTopping is subset of Abstract domain
+input_formula(axiom_157,axiom,(
+ ![X]: (ia_HerbSpiceTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_HerbSpiceTopping
+input_formula(axiom_158,axiom,(
+ ![X]: (ia_HerbSpiceTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_Hot is subset of Abstract domain
+input_formula(axiom_159,axiom,(
+ ![X]: (ia_Hot(X) => abstractDomain(X))
+)).
+%-- Super ia_Hot
+input_formula(axiom_160,axiom,(
+ ![X]: (ia_Hot(X) => ia_Spiciness(X))
+)).
+%-- Class ia_HotGreenPepperTopping is subset of Abstract domain
+input_formula(axiom_161,axiom,(
+ ![X]: (ia_HotGreenPepperTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_HotGreenPepperTopping
+input_formula(axiom_162,axiom,(
+ ![X]: (ia_HotGreenPepperTopping(X) => ia_GreenPepperTopping(X))
+)).
+%-- Super ia_HotGreenPepperTopping
+input_formula(axiom_163,axiom,(
+ ![X]: (ia_HotGreenPepperTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Hot(Y))))
+)).
+%-- Class ia_HotSpicedBeefTopping is subset of Abstract domain
+input_formula(axiom_164,axiom,(
+ ![X]: (ia_HotSpicedBeefTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_HotSpicedBeefTopping
+input_formula(axiom_165,axiom,(
+ ![X]: (ia_HotSpicedBeefTopping(X) => ia_MeatTopping(X))
+)).
+%-- Super ia_HotSpicedBeefTopping
+input_formula(axiom_166,axiom,(
+ ![X]: (ia_HotSpicedBeefTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Hot(Y))))
+)).
+%-- Class ia_IceCream is subset of Abstract domain
+input_formula(axiom_167,axiom,(
+ ![X]: (ia_IceCream(X) => abstractDomain(X))
+)).
+%-- Super ia_IceCream
+input_formula(axiom_168,axiom,(
+ ![X]: (ia_IceCream(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_FruitTopping(Y))))
+)).
+%-- Super ia_IceCream
+input_formula(axiom_169,axiom,(
+ ![X]: (ia_IceCream(X) => ia_DomainConcept(X))
+)).
+%-- Class ia_InterestingPizza is subset of Abstract domain
+input_formula(axiom_170,axiom,(
+ ![X]: (ia_InterestingPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_InterestingPizza
+input_formula(axiom_171,axiom,(
+ ![X]: (ia_InterestingPizza(X) <=> (ia_Pizza(X) & ((?[Y0,Y1,Y2]:(ia_hasTopping(X,Y0) & ia_hasTopping(X,Y1) & ia_hasTopping(X,Y2) & ~equal(Y0,Y1) & ~equal(Y0,Y2) & ~equal(Y1,Y2))))))
+)).
+%-- Class ia_JalapenoPepperTopping is subset of Abstract domain
+input_formula(axiom_172,axiom,(
+ ![X]: (ia_JalapenoPepperTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_JalapenoPepperTopping
+input_formula(axiom_173,axiom,(
+ ![X]: (ia_JalapenoPepperTopping(X) => ia_PepperTopping(X))
+)).
+%-- Super ia_JalapenoPepperTopping
+input_formula(axiom_174,axiom,(
+ ![X]: (ia_JalapenoPepperTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Hot(Y))))
+)).
+%-- Class ia_LaReine is subset of Abstract domain
+input_formula(axiom_175,axiom,(
+ ![X]: (ia_LaReine(X) => abstractDomain(X))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_176,axiom,(
+ ![X]: (ia_LaReine(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_MushroomTopping(Y) | ia_OliveTopping(Y) | ia_TomatoTopping(Y) | ia_HamTopping(Y))))))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_177,axiom,(
+ ![X]: (ia_LaReine(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_178,axiom,(
+ ![X]: (ia_LaReine(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_179,axiom,(
+ ![X]: (ia_LaReine(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_180,axiom,(
+ ![X]: (ia_LaReine(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_181,axiom,(
+ ![X]: (ia_LaReine(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MushroomTopping(Y))))
+)).
+%-- Super ia_LaReine
+input_formula(axiom_182,axiom,(
+ ![X]: (ia_LaReine(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_HamTopping(Y))))
+)).
+%-- Class ia_LeekTopping is subset of Abstract domain
+input_formula(axiom_183,axiom,(
+ ![X]: (ia_LeekTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_LeekTopping
+input_formula(axiom_184,axiom,(
+ ![X]: (ia_LeekTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_LeekTopping
+input_formula(axiom_185,axiom,(
+ ![X]: (ia_LeekTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_Margherita is subset of Abstract domain
+input_formula(axiom_186,axiom,(
+ ![X]: (ia_Margherita(X) => abstractDomain(X))
+)).
+%-- Super ia_Margherita
+input_formula(axiom_187,axiom,(
+ ![X]: (ia_Margherita(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Margherita
+input_formula(axiom_188,axiom,(
+ ![X]: (ia_Margherita(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Margherita
+input_formula(axiom_189,axiom,(
+ ![X]: (ia_Margherita(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Margherita
+input_formula(axiom_190,axiom,(
+ ![X]: (ia_Margherita(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Class ia_MeatTopping is subset of Abstract domain
+input_formula(axiom_191,axiom,(
+ ![X]: (ia_MeatTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_MeatTopping
+input_formula(axiom_192,axiom,(
+ ![X]: (ia_MeatTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_MeatyPizza is subset of Abstract domain
+input_formula(axiom_193,axiom,(
+ ![X]: (ia_MeatyPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_MeatyPizza
+input_formula(axiom_194,axiom,(
+ ![X]: (ia_MeatyPizza(X) <=> ((?[Y]: (ia_hasTopping(X,Y) & ia_MeatTopping(Y))) & ia_Pizza(X)))
+)).
+%-- Class ia_Medium is subset of Abstract domain
+input_formula(axiom_195,axiom,(
+ ![X]: (ia_Medium(X) => abstractDomain(X))
+)).
+%-- Super ia_Medium
+input_formula(axiom_196,axiom,(
+ ![X]: (ia_Medium(X) => ia_Spiciness(X))
+)).
+%-- Class ia_Mild is subset of Abstract domain
+input_formula(axiom_197,axiom,(
+ ![X]: (ia_Mild(X) => abstractDomain(X))
+)).
+%-- Super ia_Mild
+input_formula(axiom_198,axiom,(
+ ![X]: (ia_Mild(X) => ia_Spiciness(X))
+)).
+%-- Class ia_MixedSeafoodTopping is subset of Abstract domain
+input_formula(axiom_199,axiom,(
+ ![X]: (ia_MixedSeafoodTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_MixedSeafoodTopping
+input_formula(axiom_200,axiom,(
+ ![X]: (ia_MixedSeafoodTopping(X) => ia_FishTopping(X))
+)).
+%-- Class ia_MozzarellaTopping is subset of Abstract domain
+input_formula(axiom_201,axiom,(
+ ![X]: (ia_MozzarellaTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_MozzarellaTopping
+input_formula(axiom_202,axiom,(
+ ![X]: (ia_MozzarellaTopping(X) => (ia_hasCountryOfOrigin(X,ia_Italy)))
+)).
+%-- Super ia_MozzarellaTopping
+input_formula(axiom_203,axiom,(
+ ![X]: (ia_MozzarellaTopping(X) => ia_CheeseTopping(X))
+)).
+%-- Super ia_MozzarellaTopping
+input_formula(axiom_204,axiom,(
+ ![X]: (ia_MozzarellaTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_Mushroom is subset of Abstract domain
+input_formula(axiom_205,axiom,(
+ ![X]: (ia_Mushroom(X) => abstractDomain(X))
+)).
+%-- Super ia_Mushroom
+input_formula(axiom_206,axiom,(
+ ![X]: (ia_Mushroom(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Mushroom
+input_formula(axiom_207,axiom,(
+ ![X]: (ia_Mushroom(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_MushroomTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Mushroom
+input_formula(axiom_208,axiom,(
+ ![X]: (ia_Mushroom(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Mushroom
+input_formula(axiom_209,axiom,(
+ ![X]: (ia_Mushroom(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Mushroom
+input_formula(axiom_210,axiom,(
+ ![X]: (ia_Mushroom(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MushroomTopping(Y))))
+)).
+%-- Class ia_MushroomTopping is subset of Abstract domain
+input_formula(axiom_211,axiom,(
+ ![X]: (ia_MushroomTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_MushroomTopping
+input_formula(axiom_212,axiom,(
+ ![X]: (ia_MushroomTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_MushroomTopping
+input_formula(axiom_213,axiom,(
+ ![X]: (ia_MushroomTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_NamedPizza is subset of Abstract domain
+input_formula(axiom_214,axiom,(
+ ![X]: (ia_NamedPizza(X) => abstractDomain(X))
+)).
+%-- Super ia_NamedPizza
+input_formula(axiom_215,axiom,(
+ ![X]: (ia_NamedPizza(X) => ia_Pizza(X))
+)).
+%-- Class ia_Napoletana is subset of Abstract domain
+input_formula(axiom_216,axiom,(
+ ![X]: (ia_Napoletana(X) => abstractDomain(X))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_217,axiom,(
+ ![X]: (ia_Napoletana(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_AnchoviesTopping(Y) | ia_MozzarellaTopping(Y) | ia_CaperTopping(Y) | ia_OliveTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_218,axiom,(
+ ![X]: (ia_Napoletana(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_219,axiom,(
+ ![X]: (ia_Napoletana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_AnchoviesTopping(Y))))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_220,axiom,(
+ ![X]: (ia_Napoletana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_221,axiom,(
+ ![X]: (ia_Napoletana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_222,axiom,(
+ ![X]: (ia_Napoletana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_Napoletana
+input_formula(axiom_223,axiom,(
+ ![X]: (ia_Napoletana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_CaperTopping(Y))))
+)).
+%-- Class ia_NonVegetarianPizza is subset of Abstract domain
+input_formula(axiom_224,axiom,(
+ ![X]: (ia_NonVegetarianPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_NonVegetarianPizza
+input_formula(axiom_225,axiom,(
+ ![X]: (ia_NonVegetarianPizza(X) <=> ((abstractDomain(X) & (~(ia_VegetarianPizza(X)))) & ia_Pizza(X)))
+)).
+%-- Class ia_NutTopping is subset of Abstract domain
+input_formula(axiom_226,axiom,(
+ ![X]: (ia_NutTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_NutTopping
+input_formula(axiom_227,axiom,(
+ ![X]: (ia_NutTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Super ia_NutTopping
+input_formula(axiom_228,axiom,(
+ ![X]: (ia_NutTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_OliveTopping is subset of Abstract domain
+input_formula(axiom_229,axiom,(
+ ![X]: (ia_OliveTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_OliveTopping
+input_formula(axiom_230,axiom,(
+ ![X]: (ia_OliveTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_OliveTopping
+input_formula(axiom_231,axiom,(
+ ![X]: (ia_OliveTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_OnionTopping is subset of Abstract domain
+input_formula(axiom_232,axiom,(
+ ![X]: (ia_OnionTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_OnionTopping
+input_formula(axiom_233,axiom,(
+ ![X]: (ia_OnionTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_OnionTopping
+input_formula(axiom_234,axiom,(
+ ![X]: (ia_OnionTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Medium(Y))))
+)).
+%-- Class ia_ParmaHamTopping is subset of Abstract domain
+input_formula(axiom_235,axiom,(
+ ![X]: (ia_ParmaHamTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_ParmaHamTopping
+input_formula(axiom_236,axiom,(
+ ![X]: (ia_ParmaHamTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Super ia_ParmaHamTopping
+input_formula(axiom_237,axiom,(
+ ![X]: (ia_ParmaHamTopping(X) => ia_HamTopping(X))
+)).
+%-- Class ia_Parmense is subset of Abstract domain
+input_formula(axiom_238,axiom,(
+ ![X]: (ia_Parmense(X) => abstractDomain(X))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_239,axiom,(
+ ![X]: (ia_Parmense(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_ParmesanTopping(Y))))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_240,axiom,(
+ ![X]: (ia_Parmense(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_AsparagusTopping(Y) | ia_MozzarellaTopping(Y) | ia_ParmesanTopping(Y) | ia_TomatoTopping(Y) | ia_HamTopping(Y))))))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_241,axiom,(
+ ![X]: (ia_Parmense(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_242,axiom,(
+ ![X]: (ia_Parmense(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_AsparagusTopping(Y))))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_243,axiom,(
+ ![X]: (ia_Parmense(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_244,axiom,(
+ ![X]: (ia_Parmense(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Parmense
+input_formula(axiom_245,axiom,(
+ ![X]: (ia_Parmense(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_HamTopping(Y))))
+)).
+%-- Class ia_ParmesanTopping is subset of Abstract domain
+input_formula(axiom_246,axiom,(
+ ![X]: (ia_ParmesanTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_ParmesanTopping
+input_formula(axiom_247,axiom,(
+ ![X]: (ia_ParmesanTopping(X) => ia_CheeseTopping(X))
+)).
+%-- Super ia_ParmesanTopping
+input_formula(axiom_248,axiom,(
+ ![X]: (ia_ParmesanTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_PeperonataTopping is subset of Abstract domain
+input_formula(axiom_249,axiom,(
+ ![X]: (ia_PeperonataTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_PeperonataTopping
+input_formula(axiom_250,axiom,(
+ ![X]: (ia_PeperonataTopping(X) => ia_PepperTopping(X))
+)).
+%-- Super ia_PeperonataTopping
+input_formula(axiom_251,axiom,(
+ ![X]: (ia_PeperonataTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Medium(Y))))
+)).
+%-- Class ia_PeperoniSausageTopping is subset of Abstract domain
+input_formula(axiom_252,axiom,(
+ ![X]: (ia_PeperoniSausageTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_PeperoniSausageTopping
+input_formula(axiom_253,axiom,(
+ ![X]: (ia_PeperoniSausageTopping(X) => ia_MeatTopping(X))
+)).
+%-- Super ia_PeperoniSausageTopping
+input_formula(axiom_254,axiom,(
+ ![X]: (ia_PeperoniSausageTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Medium(Y))))
+)).
+%-- Class ia_PepperTopping is subset of Abstract domain
+input_formula(axiom_255,axiom,(
+ ![X]: (ia_PepperTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_PepperTopping
+input_formula(axiom_256,axiom,(
+ ![X]: (ia_PepperTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Class ia_PetitPoisTopping is subset of Abstract domain
+input_formula(axiom_257,axiom,(
+ ![X]: (ia_PetitPoisTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_PetitPoisTopping
+input_formula(axiom_258,axiom,(
+ ![X]: (ia_PetitPoisTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_PetitPoisTopping
+input_formula(axiom_259,axiom,(
+ ![X]: (ia_PetitPoisTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_PineKernels is subset of Abstract domain
+input_formula(axiom_260,axiom,(
+ ![X]: (ia_PineKernels(X) => abstractDomain(X))
+)).
+%-- Super ia_PineKernels
+input_formula(axiom_261,axiom,(
+ ![X]: (ia_PineKernels(X) => ia_NutTopping(X))
+)).
+%-- Class ia_Pizza is subset of Abstract domain
+input_formula(axiom_262,axiom,(
+ ![X]: (ia_Pizza(X) => abstractDomain(X))
+)).
+%-- Super ia_Pizza
+input_formula(axiom_263,axiom,(
+ ![X]: (ia_Pizza(X) => ia_DomainConcept(X))
+)).
+%-- Super ia_Pizza
+input_formula(axiom_264,axiom,(
+ ![X]: (ia_Pizza(X) => (?[Y]: (ia_hasBase(X,Y) & ia_PizzaBase(Y))))
+)).
+%-- Class ia_PizzaBase is subset of Abstract domain
+input_formula(axiom_265,axiom,(
+ ![X]: (ia_PizzaBase(X) => abstractDomain(X))
+)).
+%-- Super ia_PizzaBase
+input_formula(axiom_266,axiom,(
+ ![X]: (ia_PizzaBase(X) => ia_DomainConcept(X))
+)).
+%-- Class ia_PizzaTopping is subset of Abstract domain
+input_formula(axiom_267,axiom,(
+ ![X]: (ia_PizzaTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_PizzaTopping
+input_formula(axiom_268,axiom,(
+ ![X]: (ia_PizzaTopping(X) => ia_DomainConcept(X))
+)).
+%-- Class ia_PolloAdAstra is subset of Abstract domain
+input_formula(axiom_269,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => abstractDomain(X))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_270,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GarlicTopping(Y))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_271,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_272,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_273,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_274,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_RedOnionTopping(Y))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_275,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_ChickenTopping(Y))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_276,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_CajunSpiceTopping(Y) | ia_SweetPepperTopping(Y) | ia_TomatoTopping(Y) | ia_ChickenTopping(Y) | ia_RedOnionTopping(Y) | ia_GarlicTopping(Y))))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_277,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_CajunSpiceTopping(Y))))
+)).
+%-- Super ia_PolloAdAstra
+input_formula(axiom_278,axiom,(
+ ![X]: (ia_PolloAdAstra(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_SweetPepperTopping(Y))))
+)).
+%-- Class ia_PrawnsTopping is subset of Abstract domain
+input_formula(axiom_279,axiom,(
+ ![X]: (ia_PrawnsTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_PrawnsTopping
+input_formula(axiom_280,axiom,(
+ ![X]: (ia_PrawnsTopping(X) => ia_FishTopping(X))
+)).
+%-- Class ia_PrinceCarlo is subset of Abstract domain
+input_formula(axiom_281,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => abstractDomain(X))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_282,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_ParmesanTopping(Y))))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_283,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_LeekTopping(Y))))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_284,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_285,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_RosemaryTopping(Y) | ia_LeekTopping(Y) | ia_ParmesanTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_286,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_287,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_PrinceCarlo
+input_formula(axiom_288,axiom,(
+ ![X]: (ia_PrinceCarlo(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_RosemaryTopping(Y))))
+)).
+%-- Class ia_QuattroFormaggi is subset of Abstract domain
+input_formula(axiom_289,axiom,(
+ ![X]: (ia_QuattroFormaggi(X) => abstractDomain(X))
+)).
+%-- Super ia_QuattroFormaggi
+input_formula(axiom_290,axiom,(
+ ![X]: (ia_QuattroFormaggi(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_QuattroFormaggi
+input_formula(axiom_291,axiom,(
+ ![X]: (ia_QuattroFormaggi(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_QuattroFormaggi
+input_formula(axiom_292,axiom,(
+ ![X]: (ia_QuattroFormaggi(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_FourCheesesTopping(Y))))
+)).
+%-- Super ia_QuattroFormaggi
+input_formula(axiom_293,axiom,(
+ ![X]: (ia_QuattroFormaggi(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_FourCheesesTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Class ia_RealItalianPizza is subset of Abstract domain
+input_formula(axiom_294,axiom,(
+ ![X]: (ia_RealItalianPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_RealItalianPizza
+input_formula(axiom_295,axiom,(
+ ![X]: (ia_RealItalianPizza(X) <=> (ia_Pizza(X) & (ia_hasCountryOfOrigin(X,ia_Italy))))
+)).
+%-- Super ia_RealItalianPizza
+input_formula(axiom_296,axiom,(
+ ![X]: (ia_RealItalianPizza(X) => (abstractDomain(X) & (![Y]: (ia_hasBase(X,Y) => ia_ThinAndCrispyBase(Y)))))
+)).
+%-- Class ia_RedOnionTopping is subset of Abstract domain
+input_formula(axiom_297,axiom,(
+ ![X]: (ia_RedOnionTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_RedOnionTopping
+input_formula(axiom_298,axiom,(
+ ![X]: (ia_RedOnionTopping(X) => ia_OnionTopping(X))
+)).
+%-- Class ia_RocketTopping is subset of Abstract domain
+input_formula(axiom_299,axiom,(
+ ![X]: (ia_RocketTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_RocketTopping
+input_formula(axiom_300,axiom,(
+ ![X]: (ia_RocketTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_RocketTopping
+input_formula(axiom_301,axiom,(
+ ![X]: (ia_RocketTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Medium(Y))))
+)).
+%-- Class ia_Rosa is subset of Abstract domain
+input_formula(axiom_302,axiom,(
+ ![X]: (ia_Rosa(X) => abstractDomain(X))
+)).
+%-- Super ia_Rosa
+input_formula(axiom_303,axiom,(
+ ![X]: (ia_Rosa(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_GorgonzolaTopping(Y) | ia_MozzarellaTopping(Y) | ia_TomatoTopping(Y))))))
+)).
+%-- Super ia_Rosa
+input_formula(axiom_304,axiom,(
+ ![X]: (ia_Rosa(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Rosa
+input_formula(axiom_305,axiom,(
+ ![X]: (ia_Rosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Rosa
+input_formula(axiom_306,axiom,(
+ ![X]: (ia_Rosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Rosa
+input_formula(axiom_307,axiom,(
+ ![X]: (ia_Rosa(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GorgonzolaTopping(Y))))
+)).
+%-- Class ia_RosemaryTopping is subset of Abstract domain
+input_formula(axiom_308,axiom,(
+ ![X]: (ia_RosemaryTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_RosemaryTopping
+input_formula(axiom_309,axiom,(
+ ![X]: (ia_RosemaryTopping(X) => ia_HerbSpiceTopping(X))
+)).
+%-- Super ia_RosemaryTopping
+input_formula(axiom_310,axiom,(
+ ![X]: (ia_RosemaryTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_SauceTopping is subset of Abstract domain
+input_formula(axiom_311,axiom,(
+ ![X]: (ia_SauceTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_SauceTopping
+input_formula(axiom_312,axiom,(
+ ![X]: (ia_SauceTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_Siciliana is subset of Abstract domain
+input_formula(axiom_313,axiom,(
+ ![X]: (ia_Siciliana(X) => abstractDomain(X))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_314,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GarlicTopping(Y))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_315,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_AnchoviesTopping(Y))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_316,axiom,(
+ ![X]: (ia_Siciliana(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_317,axiom,(
+ ![X]: (ia_Siciliana(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_AnchoviesTopping(Y) | ia_MozzarellaTopping(Y) | ia_ArtichokeTopping(Y) | ia_OliveTopping(Y) | ia_TomatoTopping(Y) | ia_HamTopping(Y) | ia_GarlicTopping(Y))))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_318,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_319,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_320,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_321,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_ArtichokeTopping(Y))))
+)).
+%-- Super ia_Siciliana
+input_formula(axiom_322,axiom,(
+ ![X]: (ia_Siciliana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_HamTopping(Y))))
+)).
+%-- Class ia_SlicedTomatoTopping is subset of Abstract domain
+input_formula(axiom_323,axiom,(
+ ![X]: (ia_SlicedTomatoTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_SlicedTomatoTopping
+input_formula(axiom_324,axiom,(
+ ![X]: (ia_SlicedTomatoTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Super ia_SlicedTomatoTopping
+input_formula(axiom_325,axiom,(
+ ![X]: (ia_SlicedTomatoTopping(X) => ia_TomatoTopping(X))
+)).
+%-- Class ia_SloppyGiuseppe is subset of Abstract domain
+input_formula(axiom_326,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => abstractDomain(X))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_327,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_328,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_329,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_330,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GreenPepperTopping(Y))))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_331,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OnionTopping(Y))))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_332,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_HotSpicedBeefTopping(Y))))
+)).
+%-- Super ia_SloppyGiuseppe
+input_formula(axiom_333,axiom,(
+ ![X]: (ia_SloppyGiuseppe(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_GreenPepperTopping(Y) | ia_OnionTopping(Y) | ia_TomatoTopping(Y) | ia_HotSpicedBeefTopping(Y))))))
+)).
+%-- Class ia_Soho is subset of Abstract domain
+input_formula(axiom_334,axiom,(
+ ![X]: (ia_Soho(X) => abstractDomain(X))
+)).
+%-- Super ia_Soho
+input_formula(axiom_335,axiom,(
+ ![X]: (ia_Soho(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_OliveTopping(Y) | ia_ParmesanTopping(Y) | ia_RocketTopping(Y) | ia_TomatoTopping(Y) | ia_GarlicTopping(Y))))))
+)).
+%-- Super ia_Soho
+input_formula(axiom_336,axiom,(
+ ![X]: (ia_Soho(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_ParmesanTopping(Y))))
+)).
+%-- Super ia_Soho
+input_formula(axiom_337,axiom,(
+ ![X]: (ia_Soho(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Soho
+input_formula(axiom_338,axiom,(
+ ![X]: (ia_Soho(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_GarlicTopping(Y))))
+)).
+%-- Super ia_Soho
+input_formula(axiom_339,axiom,(
+ ![X]: (ia_Soho(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Soho
+input_formula(axiom_340,axiom,(
+ ![X]: (ia_Soho(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Soho
+input_formula(axiom_341,axiom,(
+ ![X]: (ia_Soho(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_Soho
+input_formula(axiom_342,axiom,(
+ ![X]: (ia_Soho(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_RocketTopping(Y))))
+)).
+%-- Class ia_Spiciness is subset of Abstract domain
+input_formula(axiom_343,axiom,(
+ ![X]: (ia_Spiciness(X) => abstractDomain(X))
+)).
+%-- Equality ia_Spiciness
+input_formula(axiom_344,axiom,(
+ ![X]: (ia_Spiciness(X) <=> (ia_Mild(X) | ia_Hot(X) | ia_Medium(X)))
+)).
+%-- Super ia_Spiciness
+input_formula(axiom_345,axiom,(
+ ![X]: (ia_Spiciness(X) => ia_ValuePartition(X))
+)).
+%-- Class ia_SpicyPizza is subset of Abstract domain
+input_formula(axiom_346,axiom,(
+ ![X]: (ia_SpicyPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_SpicyPizza
+input_formula(axiom_347,axiom,(
+ ![X]: (ia_SpicyPizza(X) <=> ((?[Y]: (ia_hasTopping(X,Y) & ia_SpicyTopping(Y))) & ia_Pizza(X)))
+)).
+%-- Class ia_SpicyPizzaEquivalent is subset of Abstract domain
+input_formula(axiom_348,axiom,(
+ ![X]: (ia_SpicyPizzaEquivalent(X) => abstractDomain(X))
+)).
+%-- Equality ia_SpicyPizzaEquivalent
+input_formula(axiom_349,axiom,(
+ ![X]: (ia_SpicyPizzaEquivalent(X) <=> ((?[Y]: (ia_hasTopping(X,Y) & ((?[Z]: (ia_hasSpiciness(Y,Z) & ia_Hot(Z))) & ia_PizzaTopping(Y)))) & ia_Pizza(X)))
+)).
+%-- Class ia_SpicyTopping is subset of Abstract domain
+input_formula(axiom_350,axiom,(
+ ![X]: (ia_SpicyTopping(X) => abstractDomain(X))
+)).
+%-- Equality ia_SpicyTopping
+input_formula(axiom_351,axiom,(
+ ![X]: (ia_SpicyTopping(X) <=> ((?[Y]: (ia_hasSpiciness(X,Y) & ia_Hot(Y))) & ia_PizzaTopping(X)))
+)).
+%-- Class ia_SpinachTopping is subset of Abstract domain
+input_formula(axiom_352,axiom,(
+ ![X]: (ia_SpinachTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_SpinachTopping
+input_formula(axiom_353,axiom,(
+ ![X]: (ia_SpinachTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_SpinachTopping
+input_formula(axiom_354,axiom,(
+ ![X]: (ia_SpinachTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_SultanaTopping is subset of Abstract domain
+input_formula(axiom_355,axiom,(
+ ![X]: (ia_SultanaTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_SultanaTopping
+input_formula(axiom_356,axiom,(
+ ![X]: (ia_SultanaTopping(X) => ia_FruitTopping(X))
+)).
+%-- Super ia_SultanaTopping
+input_formula(axiom_357,axiom,(
+ ![X]: (ia_SultanaTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Medium(Y))))
+)).
+%-- Class ia_SundriedTomatoTopping is subset of Abstract domain
+input_formula(axiom_358,axiom,(
+ ![X]: (ia_SundriedTomatoTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_SundriedTomatoTopping
+input_formula(axiom_359,axiom,(
+ ![X]: (ia_SundriedTomatoTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Super ia_SundriedTomatoTopping
+input_formula(axiom_360,axiom,(
+ ![X]: (ia_SundriedTomatoTopping(X) => ia_TomatoTopping(X))
+)).
+%-- Class ia_SweetPepperTopping is subset of Abstract domain
+input_formula(axiom_361,axiom,(
+ ![X]: (ia_SweetPepperTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_SweetPepperTopping
+input_formula(axiom_362,axiom,(
+ ![X]: (ia_SweetPepperTopping(X) => ia_PepperTopping(X))
+)).
+%-- Super ia_SweetPepperTopping
+input_formula(axiom_363,axiom,(
+ ![X]: (ia_SweetPepperTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_ThinAndCrispyBase is subset of Abstract domain
+input_formula(axiom_364,axiom,(
+ ![X]: (ia_ThinAndCrispyBase(X) => abstractDomain(X))
+)).
+%-- Super ia_ThinAndCrispyBase
+input_formula(axiom_365,axiom,(
+ ![X]: (ia_ThinAndCrispyBase(X) => ia_PizzaBase(X))
+)).
+%-- Class ia_TobascoPepperSauce is subset of Abstract domain
+input_formula(axiom_366,axiom,(
+ ![X]: (ia_TobascoPepperSauce(X) => abstractDomain(X))
+)).
+%-- Super ia_TobascoPepperSauce
+input_formula(axiom_367,axiom,(
+ ![X]: (ia_TobascoPepperSauce(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Hot(Y))))
+)).
+%-- Super ia_TobascoPepperSauce
+input_formula(axiom_368,axiom,(
+ ![X]: (ia_TobascoPepperSauce(X) => ia_SauceTopping(X))
+)).
+%-- Class ia_TomatoTopping is subset of Abstract domain
+input_formula(axiom_369,axiom,(
+ ![X]: (ia_TomatoTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_TomatoTopping
+input_formula(axiom_370,axiom,(
+ ![X]: (ia_TomatoTopping(X) => ia_VegetableTopping(X))
+)).
+%-- Super ia_TomatoTopping
+input_formula(axiom_371,axiom,(
+ ![X]: (ia_TomatoTopping(X) => (?[Y]: (ia_hasSpiciness(X,Y) & ia_Mild(Y))))
+)).
+%-- Class ia_UnclosedPizza is subset of Abstract domain
+input_formula(axiom_372,axiom,(
+ ![X]: (ia_UnclosedPizza(X) => abstractDomain(X))
+)).
+%-- Super ia_UnclosedPizza
+input_formula(axiom_373,axiom,(
+ ![X]: (ia_UnclosedPizza(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_UnclosedPizza
+input_formula(axiom_374,axiom,(
+ ![X]: (ia_UnclosedPizza(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Class ia_ValuePartition is subset of Abstract domain
+input_formula(axiom_375,axiom,(
+ ![X]: (ia_ValuePartition(X) => abstractDomain(X))
+)).
+%-- Class ia_VegetableTopping is subset of Abstract domain
+input_formula(axiom_376,axiom,(
+ ![X]: (ia_VegetableTopping(X) => abstractDomain(X))
+)).
+%-- Super ia_VegetableTopping
+input_formula(axiom_377,axiom,(
+ ![X]: (ia_VegetableTopping(X) => ia_PizzaTopping(X))
+)).
+%-- Class ia_VegetarianPizza is subset of Abstract domain
+input_formula(axiom_378,axiom,(
+ ![X]: (ia_VegetarianPizza(X) => abstractDomain(X))
+)).
+%-- Equality ia_VegetarianPizza
+input_formula(axiom_379,axiom,(
+ ![X]: (ia_VegetarianPizza(X) <=> ((abstractDomain(X) & (~((?[Y]: (ia_hasTopping(X,Y) & ia_MeatTopping(Y)))))) & ia_Pizza(X) & (abstractDomain(X) & (~((?[Y]: (ia_hasTopping(X,Y) & ia_FishTopping(Y))))))))
+)).
+%-- Class ia_VegetarianPizzaEquivalent1 is subset of Abstract domain
+input_formula(axiom_380,axiom,(
+ ![X]: (ia_VegetarianPizzaEquivalent1(X) => abstractDomain(X))
+)).
+%-- Equality ia_VegetarianPizzaEquivalent1
+input_formula(axiom_381,axiom,(
+ ![X]: (ia_VegetarianPizzaEquivalent1(X) <=> ((abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => ia_VegetarianTopping(Y)))) & ia_Pizza(X)))
+)).
+%-- Class ia_VegetarianPizzaEquivalent2 is subset of Abstract domain
+input_formula(axiom_382,axiom,(
+ ![X]: (ia_VegetarianPizzaEquivalent2(X) => abstractDomain(X))
+)).
+%-- Equality ia_VegetarianPizzaEquivalent2
+input_formula(axiom_383,axiom,(
+ ![X]: (ia_VegetarianPizzaEquivalent2(X) <=> (ia_Pizza(X) & (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_NutTopping(Y) | ia_VegetableTopping(Y) | ia_HerbSpiceTopping(Y) | ia_CheeseTopping(Y) | ia_FruitTopping(Y) | ia_SauceTopping(Y)))))))
+)).
+%-- Class ia_VegetarianTopping is subset of Abstract domain
+input_formula(axiom_384,axiom,(
+ ![X]: (ia_VegetarianTopping(X) => abstractDomain(X))
+)).
+%-- Equality ia_VegetarianTopping
+input_formula(axiom_385,axiom,(
+ ![X]: (ia_VegetarianTopping(X) <=> ((ia_VegetableTopping(X) | ia_NutTopping(X) | ia_HerbSpiceTopping(X) | ia_CheeseTopping(X) | ia_FruitTopping(X) | ia_SauceTopping(X)) & ia_PizzaTopping(X)))
+)).
+%-- Class ia_Veneziana is subset of Abstract domain
+input_formula(axiom_386,axiom,(
+ ![X]: (ia_Veneziana(X) => abstractDomain(X))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_387,axiom,(
+ ![X]: (ia_Veneziana(X) => (abstractDomain(X) & (![Y]: (ia_hasTopping(X,Y) => (ia_MozzarellaTopping(Y) | ia_OnionTopping(Y) | ia_CaperTopping(Y) | ia_OliveTopping(Y) | ia_TomatoTopping(Y) | ia_PineKernels(Y) | ia_SultanaTopping(Y))))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_388,axiom,(
+ ![X]: (ia_Veneziana(X) => ia_NamedPizza(X))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_389,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_TomatoTopping(Y))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_390,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_MozzarellaTopping(Y))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_391,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_SultanaTopping(Y))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_392,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OliveTopping(Y))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_393,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_OnionTopping(Y))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_394,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_PineKernels(Y))))
+)).
+%-- Super ia_Veneziana
+input_formula(axiom_395,axiom,(
+ ![X]: (ia_Veneziana(X) => (?[Y]: (ia_hasTopping(X,Y) & ia_CaperTopping(Y))))
+)).
+%-- ObjectProperty: iFROM
+input_formula(axiom_396,axiom,(
+ ![X,Y]: (iFROM(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- ObjectProperty: iTO
+input_formula(axiom_397,axiom,(
+ ![X,Y]: (iTO(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- ObjectProperty: ia_hasBase
+input_formula(axiom_398,axiom,(
+ ![X,Y]: (ia_hasBase(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Functional: ia_hasBase
+input_formula(axiom_399,axiom,(
+ ![X,Y,Z]: (ia_hasBase(X,Y) & ia_hasBase(X,Z) => equal(Y,Z))
+)).
+%-- InverseFunctional: ia_hasBase
+input_formula(axiom_400,axiom,(
+ ![X,Y,Z]: (ia_hasBase(Y,X) & ia_hasBase(Z,X) => equal(Y,Z))
+)).
+%-- Domain: ia_hasBase
+input_formula(axiom_401,axiom,(
+ ![X,Y]: (ia_hasBase(X,Y) => ia_Pizza(X))
+)).
+%-- Range: ia_hasBase
+input_formula(axiom_402,axiom,(
+ ![X,Y]: (ia_hasBase(X,Y) => ia_PizzaBase(Y))
+)).
+%-- Inverse: ia_hasBase
+input_formula(axiom_403,axiom,(
+ ![X,Y]: (ia_hasBase(X,Y) <=> ia_isBaseOf(Y,X))
+)).
+%-- ObjectProperty: ia_hasCountryOfOrigin
+input_formula(axiom_404,axiom,(
+ ![X,Y]: (ia_hasCountryOfOrigin(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- ObjectProperty: ia_hasIngredient
+input_formula(axiom_405,axiom,(
+ ![X,Y]: (ia_hasIngredient(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Transitive: ia_hasIngredient
+input_formula(axiom_406,axiom,(
+ ![X,Y,Z]: (ia_hasIngredient(X,Y) & ia_hasIngredient(Y,Z) => ia_hasIngredient(X,Z))
+)).
+%-- Inverse: ia_hasIngredient
+input_formula(axiom_407,axiom,(
+ ![X,Y]: (ia_hasIngredient(X,Y) <=> ia_isIngredientOf(Y,X))
+)).
+%-- ObjectProperty: ia_hasSpiciness
+input_formula(axiom_408,axiom,(
+ ![X,Y]: (ia_hasSpiciness(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Functional: ia_hasSpiciness
+input_formula(axiom_409,axiom,(
+ ![X,Y,Z]: (ia_hasSpiciness(X,Y) & ia_hasSpiciness(X,Z) => equal(Y,Z))
+)).
+%-- Range: ia_hasSpiciness
+input_formula(axiom_410,axiom,(
+ ![X,Y]: (ia_hasSpiciness(X,Y) => ia_Spiciness(Y))
+)).
+%-- ObjectProperty: ia_hasTopping
+input_formula(axiom_411,axiom,(
+ ![X,Y]: (ia_hasTopping(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Domain: ia_hasTopping
+input_formula(axiom_412,axiom,(
+ ![X,Y]: (ia_hasTopping(X,Y) => ia_Pizza(X))
+)).
+%-- Range: ia_hasTopping
+input_formula(axiom_413,axiom,(
+ ![X,Y]: (ia_hasTopping(X,Y) => ia_PizzaTopping(Y))
+)).
+%-- Inverse: ia_hasTopping
+input_formula(axiom_414,axiom,(
+ ![X,Y]: (ia_hasTopping(X,Y) <=> ia_isToppingOf(Y,X))
+)).
+%-- ObjectProperty: ia_isBaseOf
+input_formula(axiom_415,axiom,(
+ ![X,Y]: (ia_isBaseOf(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Functional: ia_isBaseOf
+input_formula(axiom_416,axiom,(
+ ![X,Y,Z]: (ia_isBaseOf(X,Y) & ia_isBaseOf(X,Z) => equal(Y,Z))
+)).
+%-- InverseFunctional: ia_isBaseOf
+input_formula(axiom_417,axiom,(
+ ![X,Y,Z]: (ia_isBaseOf(Y,X) & ia_isBaseOf(Z,X) => equal(Y,Z))
+)).
+%-- Domain: ia_isBaseOf
+input_formula(axiom_418,axiom,(
+ ![X,Y]: (ia_isBaseOf(X,Y) => ia_PizzaBase(X))
+)).
+%-- Range: ia_isBaseOf
+input_formula(axiom_419,axiom,(
+ ![X,Y]: (ia_isBaseOf(X,Y) => ia_Pizza(Y))
+)).
+%-- Inverse: ia_isBaseOf
+input_formula(axiom_420,axiom,(
+ ![X,Y]: (ia_isBaseOf(X,Y) <=> ia_hasBase(Y,X))
+)).
+%-- ObjectProperty: ia_isIngredientOf
+input_formula(axiom_421,axiom,(
+ ![X,Y]: (ia_isIngredientOf(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Transitive: ia_isIngredientOf
+input_formula(axiom_422,axiom,(
+ ![X,Y,Z]: (ia_isIngredientOf(X,Y) & ia_isIngredientOf(Y,Z) => ia_isIngredientOf(X,Z))
+)).
+%-- Inverse: ia_isIngredientOf
+input_formula(axiom_423,axiom,(
+ ![X,Y]: (ia_isIngredientOf(X,Y) <=> ia_hasIngredient(Y,X))
+)).
+%-- ObjectProperty: ia_isToppingOf
+input_formula(axiom_424,axiom,(
+ ![X,Y]: (ia_isToppingOf(X,Y) => (abstractDomain(X) & abstractDomain(Y)))
+)).
+%-- Domain: ia_isToppingOf
+input_formula(axiom_425,axiom,(
+ ![X,Y]: (ia_isToppingOf(X,Y) => ia_PizzaTopping(X))
+)).
+%-- Range: ia_isToppingOf
+input_formula(axiom_426,axiom,(
+ ![X,Y]: (ia_isToppingOf(X,Y) => ia_Pizza(Y))
+)).
+%-- Inverse: ia_isToppingOf
+input_formula(axiom_427,axiom,(
+ ![X,Y]: (ia_isToppingOf(X,Y) <=> ia_hasTopping(Y,X))
+)).
+%-- DataProperty: iPAL_DESCRIPTION
+input_formula(axiom_428,axiom,(
+ ![X,Y]: (iPAL_DESCRIPTION(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- DataProperty: iPAL_NAME
+input_formula(axiom_429,axiom,(
+ ![X,Y]: (iPAL_NAME(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- DataProperty: iPAL_RANGE
+input_formula(axiom_430,axiom,(
+ ![X,Y]: (iPAL_RANGE(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- DataProperty: iPAL_STATEMENT
+input_formula(axiom_431,axiom,(
+ ![X,Y]: (iPAL_STATEMENT(X,Y) => (abstractDomain(X) & dataDomain(Y)))
+)).
+%-- ia_America
+input_formula(axiom_432,axiom,(
+ ia_Country(ia_America)
+)).
+%-- ia_England
+input_formula(axiom_433,axiom,(
+ ia_Country(ia_England)
+)).
+%-- ia_France
+input_formula(axiom_434,axiom,(
+ ia_Country(ia_France)
+)).
+%-- ia_Germany
+input_formula(axiom_435,axiom,(
+ ia_Country(ia_Germany)
+)).
+%-- ia_Italy
+input_formula(axiom_436,axiom,(
+ ia_Country(ia_Italy)
+)).
+input_formula(axiom_437,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_438,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_439,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_440,axiom,(
+ ![X]: (~(ia_DeepPanBase(X) & ia_ThinAndCrispyBase(X)))
+
+)).
+input_formula(axiom_441,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_442,axiom,(
+ ![X]: (~(ia_PizzaBase(X) & ia_IceCream(X)))
+
+)).
+input_formula(axiom_443,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_444,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_445,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_446,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_LeekTopping(X)))
+
+)).
+input_formula(axiom_447,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_448,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_449,axiom,(
+ ![X]: (~(ia_MozzarellaTopping(X) & ia_ParmesanTopping(X)))
+
+)).
+input_formula(axiom_450,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_451,axiom,(
+ ![X]: (~(ia_PeperoniSausageTopping(X) & ia_ChickenTopping(X)))
+
+)).
+input_formula(axiom_452,axiom,(
+ ![X]: (~(ia_SweetPepperTopping(X) & ia_JalapenoPepperTopping(X)))
+
+)).
+input_formula(axiom_453,axiom,(
+ ![X]: (~(ia_Mushroom(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_454,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_PrinceCarlo(X)))
+
+)).
+input_formula(axiom_455,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Veneziana(X)))
+
+)).
+input_formula(axiom_456,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_457,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_458,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Soho(X)))
+
+)).
+input_formula(axiom_459,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_460,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_461,axiom,(
+ ![X]: (~(ia_RocketTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_462,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_463,axiom,(
+ ![X]: (~(ia_Napoletana(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_464,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_American(X)))
+
+)).
+input_formula(axiom_465,axiom,(
+ ![X]: (~(ia_UnclosedPizza(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_466,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_467,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_468,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_CheeseTopping(X)))
+
+)).
+input_formula(axiom_469,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_470,axiom,(
+ ![X]: (~(ia_American(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_471,axiom,(
+ ![X]: (~(ia_FishTopping(X) & ia_FruitTopping(X)))
+
+)).
+input_formula(axiom_472,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_473,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_474,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_FourSeasons(X)))
+
+)).
+input_formula(axiom_475,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_OnionTopping(X)))
+
+)).
+input_formula(axiom_476,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_477,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_478,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_479,axiom,(
+ ![X]: (~(ia_VegetableTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_480,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_481,axiom,(
+ ![X]: (~(ia_OliveTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_482,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_483,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_484,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_American(X)))
+
+)).
+input_formula(axiom_485,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_486,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_487,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_488,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_489,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_490,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_491,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_PetitPoisTopping(X)))
+
+)).
+input_formula(axiom_492,axiom,(
+ ![X]: (~(ia_American(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_493,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_494,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_495,axiom,(
+ ![X]: (~(ia_American(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_496,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_FourSeasons(X)))
+
+)).
+input_formula(axiom_497,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_498,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_OnionTopping(X)))
+
+)).
+input_formula(axiom_499,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_500,axiom,(
+ ![X]: (~(ia_Pizza(X) & ia_PizzaTopping(X)))
+
+)).
+input_formula(axiom_501,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_502,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_503,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_504,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_505,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_506,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_507,axiom,(
+ ![X]: (~(ia_MushroomTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_508,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_HerbSpiceTopping(X)))
+
+)).
+input_formula(axiom_509,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_510,axiom,(
+ ![X]: (~(ia_American(X) & ia_FourSeasons(X)))
+
+)).
+input_formula(axiom_511,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_512,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_513,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_514,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_515,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_516,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_517,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_518,axiom,(
+ ![X]: (~(ia_AmericanHot(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_519,axiom,(
+ ![X]: (~(ia_GreenPepperTopping(X) & ia_PeperonataTopping(X)))
+
+)).
+input_formula(axiom_520,axiom,(
+ ![X]: (~(ia_American(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_521,axiom,(
+ ![X]: (~(ia_American(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_522,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_523,axiom,(
+ ![X]: (~(ia_GorgonzolaTopping(X) & ia_GoatsCheeseTopping(X)))
+
+)).
+input_formula(axiom_524,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_525,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_526,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_527,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_528,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_529,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_530,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_531,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_532,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_OnionTopping(X)))
+
+)).
+input_formula(axiom_533,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_MeatTopping(X)))
+
+)).
+input_formula(axiom_534,axiom,(
+ ![X]: (~(ia_CheeseTopping(X) & ia_FruitTopping(X)))
+
+)).
+input_formula(axiom_535,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_PetitPoisTopping(X)))
+
+)).
+input_formula(axiom_536,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_537,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_538,axiom,(
+ ![X]: (~(ia_AmericanHot(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_539,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_540,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_PepperTopping(X)))
+
+)).
+input_formula(axiom_541,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_542,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_543,axiom,(
+ ![X]: (~(ia_FourCheesesTopping(X) & ia_ParmesanTopping(X)))
+
+)).
+input_formula(axiom_544,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_545,axiom,(
+ ![X]: (~(ia_American(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_546,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_547,axiom,(
+ ![X]: (~(ia_MozzarellaTopping(X) & ia_FourCheesesTopping(X)))
+
+)).
+input_formula(axiom_548,axiom,(
+ ![X]: (~(ia_MushroomTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_549,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_FishTopping(X)))
+
+)).
+input_formula(axiom_550,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_551,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_552,axiom,(
+ ![X]: (~(ia_VegetableTopping(X) & ia_FishTopping(X)))
+
+)).
+input_formula(axiom_553,axiom,(
+ ![X]: (~(ia_MozzarellaTopping(X) & ia_GorgonzolaTopping(X)))
+
+)).
+input_formula(axiom_554,axiom,(
+ ![X]: (~(ia_AmericanHot(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_555,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_556,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_557,axiom,(
+ ![X]: (~(ia_MushroomTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_558,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_PetitPoisTopping(X)))
+
+)).
+input_formula(axiom_559,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_560,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_561,axiom,(
+ ![X]: (~(ia_ChickenTopping(X) & ia_HamTopping(X)))
+
+)).
+input_formula(axiom_562,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_563,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_564,axiom,(
+ ![X]: (~(ia_RosemaryTopping(X) & ia_CajunSpiceTopping(X)))
+
+)).
+input_formula(axiom_565,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_566,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_567,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_568,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_569,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_570,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_571,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_572,axiom,(
+ ![X]: (~(ia_PizzaBase(X) & ia_Pizza(X)))
+
+)).
+input_formula(axiom_573,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_574,axiom,(
+ ![X]: (~(ia_HerbSpiceTopping(X) & ia_FruitTopping(X)))
+
+)).
+input_formula(axiom_575,axiom,(
+ ![X]: (~(ia_Mushroom(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_576,axiom,(
+ ![X]: (~(ia_FishTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_577,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_578,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_PepperTopping(X)))
+
+)).
+input_formula(axiom_579,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_580,axiom,(
+ ![X]: (~(ia_LeekTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_581,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Veneziana(X)))
+
+)).
+input_formula(axiom_582,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_583,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_584,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_585,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_586,axiom,(
+ ![X]: (~(ia_PeperonataTopping(X) & ia_JalapenoPepperTopping(X)))
+
+)).
+input_formula(axiom_587,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_PetitPoisTopping(X)))
+
+)).
+input_formula(axiom_588,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_589,axiom,(
+ ![X]: (~(ia_UnclosedPizza(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_590,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_591,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_592,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_593,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_ArtichokeTopping(X)))
+
+)).
+input_formula(axiom_594,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_595,axiom,(
+ ![X]: (~(ia_MeatTopping(X) & ia_FruitTopping(X)))
+
+)).
+input_formula(axiom_596,axiom,(
+ ![X]: (~(ia_American(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_597,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_598,axiom,(
+ ![X]: (~(ia_SpinachTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_599,axiom,(
+ ![X]: (~(ia_PeperoniSausageTopping(X) & ia_HamTopping(X)))
+
+)).
+input_formula(axiom_600,axiom,(
+ ![X]: (~(ia_MixedSeafoodTopping(X) & ia_PrawnsTopping(X)))
+
+)).
+input_formula(axiom_601,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_602,axiom,(
+ ![X]: (~(ia_MushroomTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_603,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_604,axiom,(
+ ![X]: (~(ia_GoatsCheeseTopping(X) & ia_ParmesanTopping(X)))
+
+)).
+input_formula(axiom_605,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_606,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_607,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_608,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_609,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Soho(X)))
+
+)).
+input_formula(axiom_610,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_611,axiom,(
+ ![X]: (~(ia_VegetableTopping(X) & ia_CheeseTopping(X)))
+
+)).
+input_formula(axiom_612,axiom,(
+ ![X]: (~(ia_MeatTopping(X) & ia_HerbSpiceTopping(X)))
+
+)).
+input_formula(axiom_613,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_614,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_615,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_616,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_617,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_618,axiom,(
+ ![X]: (~(ia_LeekTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_619,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_620,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_621,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_622,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_623,axiom,(
+ ![X]: (~(ia_LeekTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_624,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Soho(X)))
+
+)).
+input_formula(axiom_625,axiom,(
+ ![X]: (~(ia_Cajun(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_626,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_627,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_628,axiom,(
+ ![X]: (~(ia_MushroomTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_629,axiom,(
+ ![X]: (~(ia_CheeseTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_630,axiom,(
+ ![X]: (~(ia_NonVegetarianPizza(X) & ia_VegetarianPizza(X)))
+
+)).
+input_formula(axiom_631,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_632,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_633,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_634,axiom,(
+ ![X]: (~(ia_AmericanHot(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_635,axiom,(
+ ![X]: (~(ia_American(X) & ia_Soho(X)))
+
+)).
+input_formula(axiom_636,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_637,axiom,(
+ ![X]: (~(ia_Napoletana(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_638,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_639,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_640,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_641,axiom,(
+ ![X]: (~(ia_PizzaBase(X) & ia_PizzaTopping(X)))
+
+)).
+input_formula(axiom_642,axiom,(
+ ![X]: (~(ia_GorgonzolaTopping(X) & ia_FourCheesesTopping(X)))
+
+)).
+input_formula(axiom_643,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_644,axiom,(
+ ![X]: (~(ia_VegetableTopping(X) & ia_HerbSpiceTopping(X)))
+
+)).
+input_formula(axiom_645,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_646,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_647,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_CaperTopping(X)))
+
+)).
+input_formula(axiom_648,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_FourSeasons(X)))
+
+)).
+input_formula(axiom_649,axiom,(
+ ![X]: (~(ia_Mild(X) & ia_Hot(X)))
+
+)).
+input_formula(axiom_650,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_651,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_652,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_653,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_654,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_655,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_656,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_657,axiom,(
+ ![X]: (~(ia_ChickenTopping(X) & ia_HotSpicedBeefTopping(X)))
+
+)).
+input_formula(axiom_658,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_659,axiom,(
+ ![X]: (~(ia_Napoletana(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_660,axiom,(
+ ![X]: (~(ia_HerbSpiceTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_661,axiom,(
+ ![X]: (~(ia_VegetableTopping(X) & ia_MeatTopping(X)))
+
+)).
+input_formula(axiom_662,axiom,(
+ ![X]: (~(ia_LeekTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_663,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_LeekTopping(X)))
+
+)).
+input_formula(axiom_664,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_665,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_666,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_667,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_668,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_669,axiom,(
+ ![X]: (~(ia_GorgonzolaTopping(X) & ia_ParmesanTopping(X)))
+
+)).
+input_formula(axiom_670,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_671,axiom,(
+ ![X]: (~(ia_American(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_672,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_673,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_FruitTopping(X)))
+
+)).
+input_formula(axiom_674,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_675,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_CaperTopping(X)))
+
+)).
+input_formula(axiom_676,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_677,axiom,(
+ ![X]: (~(ia_MeatTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_678,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_679,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_680,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_681,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_682,axiom,(
+ ![X]: (~(ia_SweetPepperTopping(X) & ia_PeperonataTopping(X)))
+
+)).
+input_formula(axiom_683,axiom,(
+ ![X]: (~(ia_LeekTopping(X) & ia_SpinachTopping(X)))
+
+)).
+input_formula(axiom_684,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_685,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_686,axiom,(
+ ![X]: (~(ia_CheeseTopping(X) & ia_FishTopping(X)))
+
+)).
+input_formula(axiom_687,axiom,(
+ ![X]: (~(ia_PeperoniSausageTopping(X) & ia_HotSpicedBeefTopping(X)))
+
+)).
+input_formula(axiom_688,axiom,(
+ ![X]: (~(ia_GreenPepperTopping(X) & ia_JalapenoPepperTopping(X)))
+
+)).
+input_formula(axiom_689,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_690,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_PetitPoisTopping(X)))
+
+)).
+input_formula(axiom_691,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_692,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_CaperTopping(X)))
+
+)).
+input_formula(axiom_693,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_694,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_LeekTopping(X)))
+
+)).
+input_formula(axiom_695,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_696,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_697,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_698,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_699,axiom,(
+ ![X]: (~(ia_American(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_700,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_701,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Veneziana(X)))
+
+)).
+input_formula(axiom_702,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_703,axiom,(
+ ![X]: (~(ia_OliveTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_704,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_705,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_706,axiom,(
+ ![X]: (~(ia_MozzarellaTopping(X) & ia_GoatsCheeseTopping(X)))
+
+)).
+input_formula(axiom_707,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Parmense(X)))
+
+)).
+input_formula(axiom_708,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Giardiniera(X)))
+
+)).
+input_formula(axiom_709,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_LeekTopping(X)))
+
+)).
+input_formula(axiom_710,axiom,(
+ ![X]: (~(ia_SundriedTomatoTopping(X) & ia_SlicedTomatoTopping(X)))
+
+)).
+input_formula(axiom_711,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_712,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_LeekTopping(X)))
+
+)).
+input_formula(axiom_713,axiom,(
+ ![X]: (~(ia_Pizza(X) & ia_IceCream(X)))
+
+)).
+input_formula(axiom_714,axiom,(
+ ![X]: (~(ia_American(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_715,axiom,(
+ ![X]: (~(ia_TomatoTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_716,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_717,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_718,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_719,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_720,axiom,(
+ ![X]: (~(ia_HerbSpiceTopping(X) & ia_FishTopping(X)))
+
+)).
+input_formula(axiom_721,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_722,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_723,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_724,axiom,(
+ ![X]: (~(ia_American(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_725,axiom,(
+ ![X]: (~(ia_AnchoviesTopping(X) & ia_MixedSeafoodTopping(X)))
+
+)).
+input_formula(axiom_726,axiom,(
+ ![X]: (~(ia_AnchoviesTopping(X) & ia_PrawnsTopping(X)))
+
+)).
+input_formula(axiom_727,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Veneziana(X)))
+
+)).
+input_formula(axiom_728,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_PolloAdAstra(X)))
+
+)).
+input_formula(axiom_729,axiom,(
+ ![X]: (~(ia_Cajun(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_730,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_CaperTopping(X)))
+
+)).
+input_formula(axiom_731,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_PrinceCarlo(X)))
+
+)).
+input_formula(axiom_732,axiom,(
+ ![X]: (~(ia_Cajun(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_733,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_SloppyGiuseppe(X)))
+
+)).
+input_formula(axiom_734,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_735,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_736,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_737,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_738,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_739,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_740,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_741,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_742,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_743,axiom,(
+ ![X]: (~(ia_American(X) & ia_Veneziana(X)))
+
+)).
+input_formula(axiom_744,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_745,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_746,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_American(X)))
+
+)).
+input_formula(axiom_747,axiom,(
+ ![X]: (~(ia_MeatTopping(X) & ia_FishTopping(X)))
+
+)).
+input_formula(axiom_748,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_749,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_750,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_VegetableTopping(X)))
+
+)).
+input_formula(axiom_751,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_752,axiom,(
+ ![X]: (~(ia_ValuePartition(X) & ia_DomainConcept(X)))
+
+)).
+input_formula(axiom_753,axiom,(
+ ![X]: (~(ia_Cajun(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_754,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_755,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_FourSeasons(X)))
+
+)).
+input_formula(axiom_756,axiom,(
+ ![X]: (~(ia_AsparagusTopping(X) & ia_LeekTopping(X)))
+
+)).
+input_formula(axiom_757,axiom,(
+ ![X]: (~(ia_Capricciosa(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_758,axiom,(
+ ![X]: (~(ia_American(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_759,axiom,(
+ ![X]: (~(ia_OliveTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_760,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_FourSeasons(X)))
+
+)).
+input_formula(axiom_761,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_762,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_763,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_764,axiom,(
+ ![X]: (~(ia_QuattroFormaggi(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_765,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_766,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_767,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_768,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_769,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_770,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_771,axiom,(
+ ![X]: (~(ia_NutTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_772,axiom,(
+ ![X]: (~(ia_RocketTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_773,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_774,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_775,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_776,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_777,axiom,(
+ ![X]: (~(ia_Napoletana(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_778,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_779,axiom,(
+ ![X]: (~(ia_American(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_780,axiom,(
+ ![X]: (~(ia_UnclosedPizza(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_781,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_782,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_Cajun(X)))
+
+)).
+input_formula(axiom_783,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_784,axiom,(
+ ![X]: (~(ia_Parmense(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_785,axiom,(
+ ![X]: (~(ia_American(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_786,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_787,axiom,(
+ ![X]: (~(ia_HerbSpiceTopping(X) & ia_CheeseTopping(X)))
+
+)).
+input_formula(axiom_788,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_LaReine(X)))
+
+)).
+input_formula(axiom_789,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Rosa(X)))
+
+)).
+input_formula(axiom_790,axiom,(
+ ![X]: (~(ia_Veneziana(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_791,axiom,(
+ ![X]: (~(ia_Siciliana(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_792,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_793,axiom,(
+ ![X]: (~(ia_Napoletana(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_794,axiom,(
+ ![X]: (~(ia_Caprina(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_795,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_796,axiom,(
+ ![X]: (~(ia_PrinceCarlo(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_797,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_Fiorentina(X)))
+
+)).
+input_formula(axiom_798,axiom,(
+ ![X]: (~(ia_IceCream(X) & ia_PizzaTopping(X)))
+
+)).
+input_formula(axiom_799,axiom,(
+ ![X]: (~(ia_American(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_800,axiom,(
+ ![X]: (~(ia_Cajun(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_801,axiom,(
+ ![X]: (~(ia_SpinachTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_802,axiom,(
+ ![X]: (~(ia_HamTopping(X) & ia_HotSpicedBeefTopping(X)))
+
+)).
+input_formula(axiom_803,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_804,axiom,(
+ ![X]: (~(ia_CaperTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_805,axiom,(
+ ![X]: (~(ia_Giardiniera(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_806,axiom,(
+ ![X]: (~(ia_GreenPepperTopping(X) & ia_SweetPepperTopping(X)))
+
+)).
+input_formula(axiom_807,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_808,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_UnclosedPizza(X)))
+
+)).
+input_formula(axiom_809,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Caprina(X)))
+
+)).
+input_formula(axiom_810,axiom,(
+ ![X]: (~(ia_Soho(X) & ia_QuattroFormaggi(X)))
+
+)).
+input_formula(axiom_811,axiom,(
+ ![X]: (~(ia_OliveTopping(X) & ia_RocketTopping(X)))
+
+)).
+input_formula(axiom_812,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_OliveTopping(X)))
+
+)).
+input_formula(axiom_813,axiom,(
+ ![X]: (~(ia_MeatTopping(X) & ia_CheeseTopping(X)))
+
+)).
+input_formula(axiom_814,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_815,axiom,(
+ ![X]: (~(ia_FourCheesesTopping(X) & ia_GoatsCheeseTopping(X)))
+
+)).
+input_formula(axiom_816,axiom,(
+ ![X]: (~(ia_VegetableTopping(X) & ia_FruitTopping(X)))
+
+)).
+input_formula(axiom_817,axiom,(
+ ![X]: (~(ia_American(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_818,axiom,(
+ ![X]: (~(ia_PepperTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_819,axiom,(
+ ![X]: (~(ia_RocketTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_820,axiom,(
+ ![X]: (~(ia_OnionTopping(X) & ia_TomatoTopping(X)))
+
+)).
+input_formula(axiom_821,axiom,(
+ ![X]: (~(ia_PolloAdAstra(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_822,axiom,(
+ ![X]: (~(ia_Margherita(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_823,axiom,(
+ ![X]: (~(ia_Rosa(X) & ia_AmericanHot(X)))
+
+)).
+input_formula(axiom_824,axiom,(
+ ![X]: (~(ia_Fiorentina(X) & ia_Napoletana(X)))
+
+)).
+input_formula(axiom_825,axiom,(
+ ![X]: (~(ia_FourSeasons(X) & ia_FruttiDiMare(X)))
+
+)).
+input_formula(axiom_826,axiom,(
+ ![X]: (~(ia_LeekTopping(X) & ia_MushroomTopping(X)))
+
+)).
+input_formula(axiom_827,axiom,(
+ ![X]: (~(ia_AmericanHot(X) & ia_Capricciosa(X)))
+
+)).
+input_formula(axiom_828,axiom,(
+ ![X]: (~(ia_SloppyGiuseppe(X) & ia_Mushroom(X)))
+
+)).
+input_formula(axiom_829,axiom,(
+ ![X]: (~(ia_PetitPoisTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_830,axiom,(
+ ![X]: (~(ia_FruttiDiMare(X) & ia_Margherita(X)))
+
+)).
+input_formula(axiom_831,axiom,(
+ ![X]: (~(ia_ArtichokeTopping(X) & ia_GarlicTopping(X)))
+
+)).
+input_formula(axiom_832,axiom,(
+ ![X]: (~(ia_FruitTopping(X) & ia_SauceTopping(X)))
+
+)).
+input_formula(axiom_833,axiom,(
+ ![X,Y]: (ia_isBaseOf(X,Y) => ia_isIngredientOf(X,Y))
+)).
+input_formula(axiom_834,axiom,(
+ ![X,Y]: (ia_hasBase(X,Y) => ia_hasIngredient(X,Y))
+)).
+input_formula(axiom_835,axiom,(
+ ![X,Y]: (ia_hasTopping(X,Y) => ia_hasIngredient(X,Y))
+)).
+input_formula(axiom_836,axiom,(
+ ![X,Y]: (ia_isToppingOf(X,Y) => ia_isIngredientOf(X,Y))
+)).
+input_formula(axiom_837,axiom,(
+ (~(equal(ia_Italy,ia_France)) & ~(equal(ia_Italy,ia_England)) & ~(equal(ia_Italy,ia_Germany)) & ~(equal(ia_Italy,ia_America)) & ~(equal(ia_France,ia_England)) & ~(equal(ia_France,ia_Germany)) & ~(equal(ia_France,ia_America)) & ~(equal(ia_England,ia_Germany)) & ~(equal(ia_England,ia_America)) & ~(equal(ia_Germany,ia_America)))
+)).
+

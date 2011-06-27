@@ -1,0 +1,312 @@
+%------------------------------------------------------------------------------
+
+f((
+
+~ (
+% reflexivity, axiom.
+(( all X : equal(X , X) ))
+
+  ,
+
+% symmetry, axiom.
+(( all X : ( all Y : ( equal(X , Y) => equal(Y , X) ) ) ))
+
+  ,
+
+% transitivity, axiom.
+(( all X : ( all Y : ( all Z : ( ( equal(X , Y) , equal(Y , Z) ) => equal(X , Z) ) ) ) ))
+
+  ,
+
+% abstractDomain_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , abstractDomain(A) ) => abstractDomain(B) ) ) ))
+
+  ,
+
+% dataDomain_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , dataDomain(A) ) => dataDomain(B) ) ) ))
+
+  ,
+
+% iCarro_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iCarro(A) ) => iCarro(B) ) ) ))
+
+  ,
+
+% iPessoa_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iPessoa(A) ) => iPessoa(B) ) ) ))
+
+  ,
+
+% imodelo_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , imodelo(A, C) ) => imodelo(B, C) ) ) ) ))
+
+  ,
+
+% imodelo_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , imodelo(C, A) ) => imodelo(C, B) ) ) ) ))
+
+  ,
+
+% inome_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , inome(A, C) ) => inome(B, C) ) ) ) ))
+
+  ,
+
+% inome_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , inome(C, A) ) => inome(C, B) ) ) ) ))
+
+  ,
+
+% iowlNothing_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iowlNothing(A) ) => iowlNothing(B) ) ) ))
+
+  ,
+
+% iowlThing_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iowlThing(A) ) => iowlThing(B) ) ) ))
+
+  ,
+
+% ipossuiCarro_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ipossuiCarro(A, C) ) => ipossuiCarro(B, C) ) ) ) ))
+
+  ,
+
+% ipossuiCarro_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ipossuiCarro(C, A) ) => ipossuiCarro(C, B) ) ) ) ))
+
+  ,
+
+% xsd_integer_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , xsd_integer(A) ) => xsd_integer(B) ) ) ))
+
+  ,
+
+% xsd_string_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , xsd_string(A) ) => xsd_string(B) ) ) ))
+
+  ,
+
+% axiom_0, axiom.
+(( all X : ( abstractDomain(X) ; dataDomain(X) ) ))
+
+  ,
+
+% axiom_1, axiom.
+(( ex X : abstractDomain(X) ))
+
+  ,
+
+% axiom_2, axiom.
+(( ex X : dataDomain(X) ))
+
+  ,
+
+% axiom_3, axiom.
+(( all X : ( ~ ( abstractDomain(X) , dataDomain(X) ) ) ))
+
+  ,
+
+% axiom_4, axiom.
+(( all X : ( iowlThing(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_5, axiom.
+(( all X : ( iowlNothing(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_6, axiom.
+(( all X : ( abstractDomain(X) => iowlThing(X) ) ))
+
+  ,
+
+% axiom_7, axiom.
+(( all X : ( ~ iowlNothing(X) ) ))
+
+  ,
+
+% axiom_8, axiom.
+(( all X : ( xsd_string(X) => dataDomain(X) ) ))
+
+  ,
+
+% axiom_9, axiom.
+(( all X : ( xsd_integer(X) => dataDomain(X) ) ))
+
+  ,
+
+% axiom_10, axiom.
+(( all X : ( dataDomain(X) => ( ~ ( xsd_string(X) , xsd_integer(X) ) ) ) ))
+
+  ,
+
+% axiom_11, axiom.
+(( all X : ( iCarro(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_12, axiom.
+(( all X : ( iPessoa(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_13, axiom.
+(( all X : ( all Y : ( ipossuiCarro(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_14, axiom.
+(( all X : ( all Y : ( ipossuiCarro(X, Y) => iPessoa(X) ) ) ))
+
+  ,
+
+% axiom_15, axiom.
+(( all X : ( all Y : ( ipossuiCarro(X, Y) => iCarro(Y) ) ) ))
+
+  ,
+
+% axiom_16, axiom.
+(( all X : ( all Y : ( imodelo(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_17, axiom.
+(( all X : ( all Y : ( all Z : ( ( imodelo(X, Y) , imodelo(X, Z) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_18, axiom.
+(( all X : ( all Y : ( imodelo(X, Y) => iCarro(X) ) ) ))
+
+  ,
+
+% axiom_19, axiom.
+(( all X : ( all Y : ( imodelo(X, Y) => xsd_string(Y) ) ) ))
+
+  ,
+
+% axiom_20, axiom.
+(( all X : ( all Y : ( inome(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_21, axiom.
+(( all X : ( all Y : ( all Z : ( ( inome(X, Y) , inome(X, Z) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_22, axiom.
+(( all X : ( all Y : ( inome(X, Y) => iPessoa(X) ) ) ))
+
+  ,
+
+% axiom_23, axiom.
+(( all X : ( all Y : ( inome(X, Y) => xsd_string(Y) ) ) ))
+
+  ,
+
+% axiom_24, axiom.
+(iPessoa(iDavison))
+
+  ,
+
+% axiom_25, axiom.
+(ipossuiCarro(iDavison, iVolkswagem))
+
+  ,
+
+% axiom_26, axiom.
+(xsd_string(xsd_string_0))
+
+  ,
+
+% axiom_27, axiom.
+(inome(iDavison, xsd_string_0))
+
+  ,
+
+% axiom_28, axiom.
+(iCarro(iFiat))
+
+  ,
+
+% axiom_29, axiom.
+(xsd_string(xsd_string_1))
+
+  ,
+
+% axiom_30, axiom.
+(imodelo(iFiat, xsd_string_1))
+
+  ,
+
+% axiom_31, axiom.
+(iPessoa(iRenato))
+
+  ,
+
+% axiom_32, axiom.
+(ipossuiCarro(iRenato, iFiat))
+
+  ,
+
+% axiom_33, axiom.
+(xsd_string(xsd_string_2))
+
+  ,
+
+% axiom_34, axiom.
+(inome(iRenato, xsd_string_2))
+
+  ,
+
+% axiom_35, axiom.
+(iCarro(iVolkswagem))
+
+  ,
+
+% axiom_36, axiom.
+(xsd_string(xsd_string_3))
+
+  ,
+
+% axiom_37, axiom.
+(imodelo(iVolkswagem, xsd_string_3))
+
+  ,
+
+% axiom_38, axiom.
+(( ~ equal(xsd_string_0 , xsd_string_1) ))
+
+  ,
+
+% axiom_39, axiom.
+(( ~ equal(xsd_string_0 , xsd_string_2) ))
+
+  ,
+
+% axiom_40, axiom.
+(( ~ equal(xsd_string_0 , xsd_string_3) ))
+
+  ,
+
+% axiom_41, axiom.
+(( ~ equal(xsd_string_1 , xsd_string_2) ))
+
+  ,
+
+% axiom_42, axiom.
+(( ~ equal(xsd_string_1 , xsd_string_3) ))
+
+  ,
+
+% axiom_43, axiom.
+(( ~ equal(xsd_string_2 , xsd_string_3) ))
+
+)
+)).
+
+%------------------------------------------------------------------------------

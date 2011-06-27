@@ -1,0 +1,4922 @@
+%------------------------------------------------------------------------------
+
+f((
+
+~ (
+% reflexivity, axiom.
+(( all X : equal(X , X) ))
+
+  ,
+
+% symmetry, axiom.
+(( all X : ( all Y : ( equal(X , Y) => equal(Y , X) ) ) ))
+
+  ,
+
+% transitivity, axiom.
+(( all X : ( all Y : ( all Z : ( ( equal(X , Y) , equal(Y , Z) ) => equal(X , Z) ) ) ) ))
+
+  ,
+
+% abstractDomain_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , abstractDomain(A) ) => abstractDomain(B) ) ) ))
+
+  ,
+
+% dataDomain_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , dataDomain(A) ) => dataDomain(B) ) ) ))
+
+  ,
+
+% iDIRECTED_BINARY_RELATION_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iDIRECTED_BINARY_RELATION(A) ) => iDIRECTED_BINARY_RELATION(B) ) ) ))
+
+  ,
+
+% iFROM_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iFROM(A, C) ) => iFROM(B, C) ) ) ) ))
+
+  ,
+
+% iFROM_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iFROM(C, A) ) => iFROM(C, B) ) ) ) ))
+
+  ,
+
+% iPAL_CONSTRAINT_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iPAL_CONSTRAINT(A) ) => iPAL_CONSTRAINT(B) ) ) ))
+
+  ,
+
+% iPAL_DESCRIPTION_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_DESCRIPTION(A, C) ) => iPAL_DESCRIPTION(B, C) ) ) ) ))
+
+  ,
+
+% iPAL_DESCRIPTION_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_DESCRIPTION(C, A) ) => iPAL_DESCRIPTION(C, B) ) ) ) ))
+
+  ,
+
+% iPAL_NAME_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_NAME(A, C) ) => iPAL_NAME(B, C) ) ) ) ))
+
+  ,
+
+% iPAL_NAME_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_NAME(C, A) ) => iPAL_NAME(C, B) ) ) ) ))
+
+  ,
+
+% iPAL_RANGE_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_RANGE(A, C) ) => iPAL_RANGE(B, C) ) ) ) ))
+
+  ,
+
+% iPAL_RANGE_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_RANGE(C, A) ) => iPAL_RANGE(C, B) ) ) ) ))
+
+  ,
+
+% iPAL_STATEMENT_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_STATEMENT(A, C) ) => iPAL_STATEMENT(B, C) ) ) ) ))
+
+  ,
+
+% iPAL_STATEMENT_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iPAL_STATEMENT(C, A) ) => iPAL_STATEMENT(C, B) ) ) ) ))
+
+  ,
+
+% iTO_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iTO(A, C) ) => iTO(B, C) ) ) ) ))
+
+  ,
+
+% iTO_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , iTO(C, A) ) => iTO(C, B) ) ) ) ))
+
+  ,
+
+% ia_American_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_American(A) ) => ia_American(B) ) ) ))
+
+  ,
+
+% ia_AmericanHot_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_AmericanHot(A) ) => ia_AmericanHot(B) ) ) ))
+
+  ,
+
+% ia_AnchoviesTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_AnchoviesTopping(A) ) => ia_AnchoviesTopping(B) ) ) ))
+
+  ,
+
+% ia_ArtichokeTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_ArtichokeTopping(A) ) => ia_ArtichokeTopping(B) ) ) ))
+
+  ,
+
+% ia_AsparagusTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_AsparagusTopping(A) ) => ia_AsparagusTopping(B) ) ) ))
+
+  ,
+
+% ia_Cajun_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Cajun(A) ) => ia_Cajun(B) ) ) ))
+
+  ,
+
+% ia_CajunSpiceTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_CajunSpiceTopping(A) ) => ia_CajunSpiceTopping(B) ) ) ))
+
+  ,
+
+% ia_CaperTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_CaperTopping(A) ) => ia_CaperTopping(B) ) ) ))
+
+  ,
+
+% ia_Capricciosa_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Capricciosa(A) ) => ia_Capricciosa(B) ) ) ))
+
+  ,
+
+% ia_Caprina_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Caprina(A) ) => ia_Caprina(B) ) ) ))
+
+  ,
+
+% ia_CheeseTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_CheeseTopping(A) ) => ia_CheeseTopping(B) ) ) ))
+
+  ,
+
+% ia_CheeseyPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_CheeseyPizza(A) ) => ia_CheeseyPizza(B) ) ) ))
+
+  ,
+
+% ia_CheeseyVegetableTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_CheeseyVegetableTopping(A) ) => ia_CheeseyVegetableTopping(B) ) ) ))
+
+  ,
+
+% ia_ChickenTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_ChickenTopping(A) ) => ia_ChickenTopping(B) ) ) ))
+
+  ,
+
+% ia_Country_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Country(A) ) => ia_Country(B) ) ) ))
+
+  ,
+
+% ia_DeepPanBase_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_DeepPanBase(A) ) => ia_DeepPanBase(B) ) ) ))
+
+  ,
+
+% ia_DomainConcept_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_DomainConcept(A) ) => ia_DomainConcept(B) ) ) ))
+
+  ,
+
+% ia_Fiorentina_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Fiorentina(A) ) => ia_Fiorentina(B) ) ) ))
+
+  ,
+
+% ia_FishTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_FishTopping(A) ) => ia_FishTopping(B) ) ) ))
+
+  ,
+
+% ia_FourCheesesTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_FourCheesesTopping(A) ) => ia_FourCheesesTopping(B) ) ) ))
+
+  ,
+
+% ia_FourSeasons_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_FourSeasons(A) ) => ia_FourSeasons(B) ) ) ))
+
+  ,
+
+% ia_FruitTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_FruitTopping(A) ) => ia_FruitTopping(B) ) ) ))
+
+  ,
+
+% ia_FruttiDiMare_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_FruttiDiMare(A) ) => ia_FruttiDiMare(B) ) ) ))
+
+  ,
+
+% ia_GarlicTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_GarlicTopping(A) ) => ia_GarlicTopping(B) ) ) ))
+
+  ,
+
+% ia_Giardiniera_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Giardiniera(A) ) => ia_Giardiniera(B) ) ) ))
+
+  ,
+
+% ia_GoatsCheeseTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_GoatsCheeseTopping(A) ) => ia_GoatsCheeseTopping(B) ) ) ))
+
+  ,
+
+% ia_GorgonzolaTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_GorgonzolaTopping(A) ) => ia_GorgonzolaTopping(B) ) ) ))
+
+  ,
+
+% ia_GreenPepperTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_GreenPepperTopping(A) ) => ia_GreenPepperTopping(B) ) ) ))
+
+  ,
+
+% ia_HamTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_HamTopping(A) ) => ia_HamTopping(B) ) ) ))
+
+  ,
+
+% ia_HerbSpiceTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_HerbSpiceTopping(A) ) => ia_HerbSpiceTopping(B) ) ) ))
+
+  ,
+
+% ia_Hot_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Hot(A) ) => ia_Hot(B) ) ) ))
+
+  ,
+
+% ia_HotGreenPepperTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_HotGreenPepperTopping(A) ) => ia_HotGreenPepperTopping(B) ) ) ))
+
+  ,
+
+% ia_HotSpicedBeefTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_HotSpicedBeefTopping(A) ) => ia_HotSpicedBeefTopping(B) ) ) ))
+
+  ,
+
+% ia_IceCream_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_IceCream(A) ) => ia_IceCream(B) ) ) ))
+
+  ,
+
+% ia_InterestingPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_InterestingPizza(A) ) => ia_InterestingPizza(B) ) ) ))
+
+  ,
+
+% ia_JalapenoPepperTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_JalapenoPepperTopping(A) ) => ia_JalapenoPepperTopping(B) ) ) ))
+
+  ,
+
+% ia_LaReine_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_LaReine(A) ) => ia_LaReine(B) ) ) ))
+
+  ,
+
+% ia_LeekTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_LeekTopping(A) ) => ia_LeekTopping(B) ) ) ))
+
+  ,
+
+% ia_Margherita_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Margherita(A) ) => ia_Margherita(B) ) ) ))
+
+  ,
+
+% ia_MeatTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_MeatTopping(A) ) => ia_MeatTopping(B) ) ) ))
+
+  ,
+
+% ia_MeatyPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_MeatyPizza(A) ) => ia_MeatyPizza(B) ) ) ))
+
+  ,
+
+% ia_Medium_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Medium(A) ) => ia_Medium(B) ) ) ))
+
+  ,
+
+% ia_Mild_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Mild(A) ) => ia_Mild(B) ) ) ))
+
+  ,
+
+% ia_MixedSeafoodTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_MixedSeafoodTopping(A) ) => ia_MixedSeafoodTopping(B) ) ) ))
+
+  ,
+
+% ia_MozzarellaTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_MozzarellaTopping(A) ) => ia_MozzarellaTopping(B) ) ) ))
+
+  ,
+
+% ia_Mushroom_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Mushroom(A) ) => ia_Mushroom(B) ) ) ))
+
+  ,
+
+% ia_MushroomTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_MushroomTopping(A) ) => ia_MushroomTopping(B) ) ) ))
+
+  ,
+
+% ia_NamedPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_NamedPizza(A) ) => ia_NamedPizza(B) ) ) ))
+
+  ,
+
+% ia_Napoletana_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Napoletana(A) ) => ia_Napoletana(B) ) ) ))
+
+  ,
+
+% ia_NonVegetarianPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_NonVegetarianPizza(A) ) => ia_NonVegetarianPizza(B) ) ) ))
+
+  ,
+
+% ia_NutTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_NutTopping(A) ) => ia_NutTopping(B) ) ) ))
+
+  ,
+
+% ia_OliveTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_OliveTopping(A) ) => ia_OliveTopping(B) ) ) ))
+
+  ,
+
+% ia_OnionTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_OnionTopping(A) ) => ia_OnionTopping(B) ) ) ))
+
+  ,
+
+% ia_ParmaHamTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_ParmaHamTopping(A) ) => ia_ParmaHamTopping(B) ) ) ))
+
+  ,
+
+% ia_Parmense_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Parmense(A) ) => ia_Parmense(B) ) ) ))
+
+  ,
+
+% ia_ParmesanTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_ParmesanTopping(A) ) => ia_ParmesanTopping(B) ) ) ))
+
+  ,
+
+% ia_PeperonataTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PeperonataTopping(A) ) => ia_PeperonataTopping(B) ) ) ))
+
+  ,
+
+% ia_PeperoniSausageTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PeperoniSausageTopping(A) ) => ia_PeperoniSausageTopping(B) ) ) ))
+
+  ,
+
+% ia_PepperTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PepperTopping(A) ) => ia_PepperTopping(B) ) ) ))
+
+  ,
+
+% ia_PetitPoisTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PetitPoisTopping(A) ) => ia_PetitPoisTopping(B) ) ) ))
+
+  ,
+
+% ia_PineKernels_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PineKernels(A) ) => ia_PineKernels(B) ) ) ))
+
+  ,
+
+% ia_Pizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Pizza(A) ) => ia_Pizza(B) ) ) ))
+
+  ,
+
+% ia_PizzaBase_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PizzaBase(A) ) => ia_PizzaBase(B) ) ) ))
+
+  ,
+
+% ia_PizzaTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PizzaTopping(A) ) => ia_PizzaTopping(B) ) ) ))
+
+  ,
+
+% ia_PolloAdAstra_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PolloAdAstra(A) ) => ia_PolloAdAstra(B) ) ) ))
+
+  ,
+
+% ia_PrawnsTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PrawnsTopping(A) ) => ia_PrawnsTopping(B) ) ) ))
+
+  ,
+
+% ia_PrinceCarlo_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_PrinceCarlo(A) ) => ia_PrinceCarlo(B) ) ) ))
+
+  ,
+
+% ia_QuattroFormaggi_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_QuattroFormaggi(A) ) => ia_QuattroFormaggi(B) ) ) ))
+
+  ,
+
+% ia_RealItalianPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_RealItalianPizza(A) ) => ia_RealItalianPizza(B) ) ) ))
+
+  ,
+
+% ia_RedOnionTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_RedOnionTopping(A) ) => ia_RedOnionTopping(B) ) ) ))
+
+  ,
+
+% ia_RocketTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_RocketTopping(A) ) => ia_RocketTopping(B) ) ) ))
+
+  ,
+
+% ia_Rosa_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Rosa(A) ) => ia_Rosa(B) ) ) ))
+
+  ,
+
+% ia_RosemaryTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_RosemaryTopping(A) ) => ia_RosemaryTopping(B) ) ) ))
+
+  ,
+
+% ia_SauceTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SauceTopping(A) ) => ia_SauceTopping(B) ) ) ))
+
+  ,
+
+% ia_Siciliana_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Siciliana(A) ) => ia_Siciliana(B) ) ) ))
+
+  ,
+
+% ia_SlicedTomatoTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SlicedTomatoTopping(A) ) => ia_SlicedTomatoTopping(B) ) ) ))
+
+  ,
+
+% ia_SloppyGiuseppe_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SloppyGiuseppe(A) ) => ia_SloppyGiuseppe(B) ) ) ))
+
+  ,
+
+% ia_Soho_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Soho(A) ) => ia_Soho(B) ) ) ))
+
+  ,
+
+% ia_Spiciness_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Spiciness(A) ) => ia_Spiciness(B) ) ) ))
+
+  ,
+
+% ia_SpicyPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SpicyPizza(A) ) => ia_SpicyPizza(B) ) ) ))
+
+  ,
+
+% ia_SpicyPizzaEquivalent_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SpicyPizzaEquivalent(A) ) => ia_SpicyPizzaEquivalent(B) ) ) ))
+
+  ,
+
+% ia_SpicyTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SpicyTopping(A) ) => ia_SpicyTopping(B) ) ) ))
+
+  ,
+
+% ia_SpinachTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SpinachTopping(A) ) => ia_SpinachTopping(B) ) ) ))
+
+  ,
+
+% ia_SultanaTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SultanaTopping(A) ) => ia_SultanaTopping(B) ) ) ))
+
+  ,
+
+% ia_SundriedTomatoTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SundriedTomatoTopping(A) ) => ia_SundriedTomatoTopping(B) ) ) ))
+
+  ,
+
+% ia_SweetPepperTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_SweetPepperTopping(A) ) => ia_SweetPepperTopping(B) ) ) ))
+
+  ,
+
+% ia_ThinAndCrispyBase_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_ThinAndCrispyBase(A) ) => ia_ThinAndCrispyBase(B) ) ) ))
+
+  ,
+
+% ia_TobascoPepperSauce_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_TobascoPepperSauce(A) ) => ia_TobascoPepperSauce(B) ) ) ))
+
+  ,
+
+% ia_TomatoTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_TomatoTopping(A) ) => ia_TomatoTopping(B) ) ) ))
+
+  ,
+
+% ia_UnclosedPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_UnclosedPizza(A) ) => ia_UnclosedPizza(B) ) ) ))
+
+  ,
+
+% ia_ValuePartition_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_ValuePartition(A) ) => ia_ValuePartition(B) ) ) ))
+
+  ,
+
+% ia_VegetableTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_VegetableTopping(A) ) => ia_VegetableTopping(B) ) ) ))
+
+  ,
+
+% ia_VegetarianPizza_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_VegetarianPizza(A) ) => ia_VegetarianPizza(B) ) ) ))
+
+  ,
+
+% ia_VegetarianPizzaEquivalent1_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_VegetarianPizzaEquivalent1(A) ) => ia_VegetarianPizzaEquivalent1(B) ) ) ))
+
+  ,
+
+% ia_VegetarianPizzaEquivalent2_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_VegetarianPizzaEquivalent2(A) ) => ia_VegetarianPizzaEquivalent2(B) ) ) ))
+
+  ,
+
+% ia_VegetarianTopping_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_VegetarianTopping(A) ) => ia_VegetarianTopping(B) ) ) ))
+
+  ,
+
+% ia_Veneziana_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , ia_Veneziana(A) ) => ia_Veneziana(B) ) ) ))
+
+  ,
+
+% ia_hasBase_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasBase(A, C) ) => ia_hasBase(B, C) ) ) ) ))
+
+  ,
+
+% ia_hasBase_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasBase(C, A) ) => ia_hasBase(C, B) ) ) ) ))
+
+  ,
+
+% ia_hasCountryOfOrigin_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasCountryOfOrigin(A, C) ) => ia_hasCountryOfOrigin(B, C) ) ) ) ))
+
+  ,
+
+% ia_hasCountryOfOrigin_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasCountryOfOrigin(C, A) ) => ia_hasCountryOfOrigin(C, B) ) ) ) ))
+
+  ,
+
+% ia_hasIngredient_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasIngredient(A, C) ) => ia_hasIngredient(B, C) ) ) ) ))
+
+  ,
+
+% ia_hasIngredient_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasIngredient(C, A) ) => ia_hasIngredient(C, B) ) ) ) ))
+
+  ,
+
+% ia_hasSpiciness_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasSpiciness(A, C) ) => ia_hasSpiciness(B, C) ) ) ) ))
+
+  ,
+
+% ia_hasSpiciness_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasSpiciness(C, A) ) => ia_hasSpiciness(C, B) ) ) ) ))
+
+  ,
+
+% ia_hasTopping_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasTopping(A, C) ) => ia_hasTopping(B, C) ) ) ) ))
+
+  ,
+
+% ia_hasTopping_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_hasTopping(C, A) ) => ia_hasTopping(C, B) ) ) ) ))
+
+  ,
+
+% ia_isBaseOf_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_isBaseOf(A, C) ) => ia_isBaseOf(B, C) ) ) ) ))
+
+  ,
+
+% ia_isBaseOf_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_isBaseOf(C, A) ) => ia_isBaseOf(C, B) ) ) ) ))
+
+  ,
+
+% ia_isIngredientOf_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_isIngredientOf(A, C) ) => ia_isIngredientOf(B, C) ) ) ) ))
+
+  ,
+
+% ia_isIngredientOf_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_isIngredientOf(C, A) ) => ia_isIngredientOf(C, B) ) ) ) ))
+
+  ,
+
+% ia_isToppingOf_substitution_1, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_isToppingOf(A, C) ) => ia_isToppingOf(B, C) ) ) ) ))
+
+  ,
+
+% ia_isToppingOf_substitution_2, axiom.
+(( all A : ( all B : ( all C : ( ( equal($VAR(0) , $VAR(1)) , ia_isToppingOf(C, A) ) => ia_isToppingOf(C, B) ) ) ) ))
+
+  ,
+
+% iowlNothing_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iowlNothing(A) ) => iowlNothing(B) ) ) ))
+
+  ,
+
+% iowlThing_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , iowlThing(A) ) => iowlThing(B) ) ) ))
+
+  ,
+
+% xsd_integer_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , xsd_integer(A) ) => xsd_integer(B) ) ) ))
+
+  ,
+
+% xsd_string_substitution_1, axiom.
+(( all A : ( all B : ( ( equal($VAR(0) , $VAR(1)) , xsd_string(A) ) => xsd_string(B) ) ) ))
+
+  ,
+
+% axiom_0, axiom.
+(( all X : ( abstractDomain(X) ; dataDomain(X) ) ))
+
+  ,
+
+% axiom_1, axiom.
+(( ex X : abstractDomain(X) ))
+
+  ,
+
+% axiom_2, axiom.
+(( ex X : dataDomain(X) ))
+
+  ,
+
+% axiom_3, axiom.
+(( all X : ( ~ ( abstractDomain(X) , dataDomain(X) ) ) ))
+
+  ,
+
+% axiom_4, axiom.
+(( all X : ( iowlThing(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_5, axiom.
+(( all X : ( iowlNothing(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_6, axiom.
+(( all X : ( abstractDomain(X) => iowlThing(X) ) ))
+
+  ,
+
+% axiom_7, axiom.
+(( all X : ( ~ iowlNothing(X) ) ))
+
+  ,
+
+% axiom_8, axiom.
+(( all X : ( xsd_string(X) => dataDomain(X) ) ))
+
+  ,
+
+% axiom_9, axiom.
+(( all X : ( xsd_integer(X) => dataDomain(X) ) ))
+
+  ,
+
+% axiom_10, axiom.
+(( all X : ( dataDomain(X) => ( ~ ( xsd_string(X) , xsd_integer(X) ) ) ) ))
+
+  ,
+
+% axiom_11, axiom.
+(( all X : ( iDIRECTED_BINARY_RELATION(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_12, axiom.
+(( all X : ( iPAL_CONSTRAINT(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_13, axiom.
+(( all X : ( all Y : ( iFROM(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_14, axiom.
+(( all X : ( all Y : ( iFROM(X, Y) => iDIRECTED_BINARY_RELATION(X) ) ) ))
+
+  ,
+
+% axiom_15, axiom.
+(( all X : ( all Y : ( iTO(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_16, axiom.
+(( all X : ( all Y : ( iTO(X, Y) => iDIRECTED_BINARY_RELATION(X) ) ) ))
+
+  ,
+
+% axiom_17, axiom.
+(( all X : ( all Y : ( iPAL_DESCRIPTION(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_18, axiom.
+(( all X : ( all Y : ( iPAL_DESCRIPTION(X, Y) => iPAL_CONSTRAINT(X) ) ) ))
+
+  ,
+
+% axiom_19, axiom.
+(( all X : ( all Y : ( iPAL_DESCRIPTION(X, Y) => xsd_string(Y) ) ) ))
+
+  ,
+
+% axiom_20, axiom.
+(( all X : ( all Y : ( iPAL_NAME(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_21, axiom.
+(( all X : ( all Y : ( iPAL_NAME(X, Y) => iPAL_CONSTRAINT(X) ) ) ))
+
+  ,
+
+% axiom_22, axiom.
+(( all X : ( all Y : ( iPAL_NAME(X, Y) => xsd_string(Y) ) ) ))
+
+  ,
+
+% axiom_23, axiom.
+(( all X : ( all Y : ( iPAL_RANGE(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_24, axiom.
+(( all X : ( all Y : ( iPAL_RANGE(X, Y) => iPAL_CONSTRAINT(X) ) ) ))
+
+  ,
+
+% axiom_25, axiom.
+(( all X : ( all Y : ( iPAL_RANGE(X, Y) => xsd_string(Y) ) ) ))
+
+  ,
+
+% axiom_26, axiom.
+(( all X : ( all Y : ( iPAL_STATEMENT(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_27, axiom.
+(( all X : ( all Y : ( iPAL_STATEMENT(X, Y) => iPAL_CONSTRAINT(X) ) ) ))
+
+  ,
+
+% axiom_28, axiom.
+(( all X : ( all Y : ( iPAL_STATEMENT(X, Y) => xsd_string(Y) ) ) ))
+
+  ,
+
+% axiom_29, axiom.
+(( all X : ( iDIRECTED_BINARY_RELATION(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_30, axiom.
+(( all X : ( iPAL_CONSTRAINT(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_31, axiom.
+(( all X : ( ia_American(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_32, axiom.
+(( all X : ( ia_American(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_33, axiom.
+(( all X : ( ia_American(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PeperoniSausageTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_34, axiom.
+(( all X : ( ia_American(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_35, axiom.
+(( all X : ( ia_American(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_36, axiom.
+(( all X : ( ia_American(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_PeperoniSausageTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_37, axiom.
+(( all X : ( ia_AmericanHot(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_38, axiom.
+(( all X : ( ia_AmericanHot(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_39, axiom.
+(( all X : ( ia_AmericanHot(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PeperoniSausageTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_40, axiom.
+(( all X : ( ia_AmericanHot(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_41, axiom.
+(( all X : ( ia_AmericanHot(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_42, axiom.
+(( all X : ( ia_AmericanHot(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_JalapenoPepperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_43, axiom.
+(( all X : ( ia_AmericanHot(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_HotGreenPepperTopping(Y) ; ( ia_MozzarellaTopping(Y) ; ( ia_PeperoniSausageTopping(Y) ; ( ia_JalapenoPepperTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_44, axiom.
+(( all X : ( ia_AmericanHot(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_HotGreenPepperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_45, axiom.
+(( all X : ( ia_AnchoviesTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_46, axiom.
+(( all X : ( ia_AnchoviesTopping(X) => ia_FishTopping(X) ) ))
+
+  ,
+
+% axiom_47, axiom.
+(( all X : ( ia_ArtichokeTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_48, axiom.
+(( all X : ( ia_ArtichokeTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_49, axiom.
+(( all X : ( ia_ArtichokeTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_50, axiom.
+(( all X : ( ia_AsparagusTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_51, axiom.
+(( all X : ( ia_AsparagusTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_52, axiom.
+(( all X : ( ia_AsparagusTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_53, axiom.
+(( all X : ( ia_Cajun(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_54, axiom.
+(( all X : ( ia_Cajun(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_TobascoPepperSauce(Y) ; ( ia_OnionTopping(Y) ; ( ia_PeperonataTopping(Y) ; ( ia_PrawnsTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_55, axiom.
+(( all X : ( ia_Cajun(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PeperonataTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_56, axiom.
+(( all X : ( ia_Cajun(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_57, axiom.
+(( all X : ( ia_Cajun(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PrawnsTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_58, axiom.
+(( all X : ( ia_Cajun(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_59, axiom.
+(( all X : ( ia_Cajun(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_60, axiom.
+(( all X : ( ia_Cajun(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TobascoPepperSauce(Y) ) ) ) ))
+
+  ,
+
+% axiom_61, axiom.
+(( all X : ( ia_Cajun(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OnionTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_62, axiom.
+(( all X : ( ia_CajunSpiceTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_63, axiom.
+(( all X : ( ia_CajunSpiceTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Hot(Y) ) ) ) ))
+
+  ,
+
+% axiom_64, axiom.
+(( all X : ( ia_CajunSpiceTopping(X) => ia_HerbSpiceTopping(X) ) ))
+
+  ,
+
+% axiom_65, axiom.
+(( all X : ( ia_CaperTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_66, axiom.
+(( all X : ( ia_CaperTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_67, axiom.
+(( all X : ( ia_CaperTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_68, axiom.
+(( all X : ( ia_Capricciosa(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_69, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PeperonataTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_70, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_AnchoviesTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_71, axiom.
+(( all X : ( ia_Capricciosa(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_72, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_73, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_74, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_75, axiom.
+(( all X : ( ia_Capricciosa(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_AnchoviesTopping(Y) ; ( ia_PeperonataTopping(Y) ; ( ia_CaperTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_HamTopping(Y) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_76, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_HamTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_77, axiom.
+(( all X : ( ia_Capricciosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_CaperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_78, axiom.
+(( all X : ( ia_Caprina(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_79, axiom.
+(( all X : ( ia_Caprina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_SundriedTomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_80, axiom.
+(( all X : ( ia_Caprina(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_81, axiom.
+(( all X : ( ia_Caprina(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_SundriedTomatoTopping(Y) ; ( ia_GoatsCheeseTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_82, axiom.
+(( all X : ( ia_Caprina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_83, axiom.
+(( all X : ( ia_Caprina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_84, axiom.
+(( all X : ( ia_Caprina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GoatsCheeseTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_85, axiom.
+(( all X : ( ia_CheeseTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_86, axiom.
+(( all X : ( ia_CheeseTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_87, axiom.
+(( all X : ( ia_CheeseyPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_88, axiom.
+(( all X : ( ia_CheeseyPizza(X) <=> ( ia_Pizza(X) , ( ex Y : ( ia_hasTopping(X, Y) , ia_CheeseTopping(Y) ) ) ) ) ))
+
+  ,
+
+% axiom_89, axiom.
+(( all X : ( ia_CheeseyVegetableTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_90, axiom.
+(( all X : ( ia_CheeseyVegetableTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_91, axiom.
+(( all X : ( ia_CheeseyVegetableTopping(X) => ia_CheeseTopping(X) ) ))
+
+  ,
+
+% axiom_92, axiom.
+(( all X : ( ia_ChickenTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_93, axiom.
+(( all X : ( ia_ChickenTopping(X) => ia_MeatTopping(X) ) ))
+
+  ,
+
+% axiom_94, axiom.
+(( all X : ( ia_ChickenTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_95, axiom.
+(( all X : ( ia_Country(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_96, axiom.
+(( all X : ( ia_Country(X) <=> ( ( equal(X , ia_Italy) ; ( equal(X , ia_France) ; ( equal(X , ia_England) ; ( equal(X , ia_Germany) ; equal(X , ia_America) ) ) ) ) , ia_DomainConcept(X) ) ) ))
+
+  ,
+
+% axiom_97, axiom.
+(( all X : ( ia_DeepPanBase(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_98, axiom.
+(( all X : ( ia_DeepPanBase(X) => ia_PizzaBase(X) ) ))
+
+  ,
+
+% axiom_99, axiom.
+(( all X : ( ia_DomainConcept(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_100, axiom.
+(( all X : ( ia_Fiorentina(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_101, axiom.
+(( all X : ( ia_Fiorentina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_ParmesanTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_102, axiom.
+(( all X : ( ia_Fiorentina(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_ParmesanTopping(Y) ; ( ia_SpinachTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_GarlicTopping(Y) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_103, axiom.
+(( all X : ( ia_Fiorentina(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_104, axiom.
+(( all X : ( ia_Fiorentina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GarlicTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_105, axiom.
+(( all X : ( ia_Fiorentina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_106, axiom.
+(( all X : ( ia_Fiorentina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_107, axiom.
+(( all X : ( ia_Fiorentina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_SpinachTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_108, axiom.
+(( all X : ( ia_Fiorentina(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_109, axiom.
+(( all X : ( ia_FishTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_110, axiom.
+(( all X : ( ia_FishTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_111, axiom.
+(( all X : ( ia_FishTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_112, axiom.
+(( all X : ( ia_FourCheesesTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_113, axiom.
+(( all X : ( ia_FourCheesesTopping(X) => ia_CheeseTopping(X) ) ))
+
+  ,
+
+% axiom_114, axiom.
+(( all X : ( ia_FourCheesesTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_115, axiom.
+(( all X : ( ia_FourSeasons(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_116, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PeperoniSausageTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_117, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_AnchoviesTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_118, axiom.
+(( all X : ( ia_FourSeasons(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_119, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_120, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_121, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_122, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MushroomTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_123, axiom.
+(( all X : ( ia_FourSeasons(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_AnchoviesTopping(Y) ; ( ia_MozzarellaTopping(Y) ; ( ia_PeperoniSausageTopping(Y) ; ( ia_CaperTopping(Y) ; ( ia_MushroomTopping(Y) ; ( ia_OliveTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_124, axiom.
+(( all X : ( ia_FourSeasons(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_CaperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_125, axiom.
+(( all X : ( ia_FruitTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_126, axiom.
+(( all X : ( ia_FruitTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_127, axiom.
+(( all X : ( ia_FruttiDiMare(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_128, axiom.
+(( all X : ( ia_FruttiDiMare(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_129, axiom.
+(( all X : ( ia_FruttiDiMare(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GarlicTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_130, axiom.
+(( all X : ( ia_FruttiDiMare(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MixedSeafoodTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_GarlicTopping(Y) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_131, axiom.
+(( all X : ( ia_FruttiDiMare(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_132, axiom.
+(( all X : ( ia_FruttiDiMare(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MixedSeafoodTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_133, axiom.
+(( all X : ( ia_GarlicTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_134, axiom.
+(( all X : ( ia_GarlicTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_135, axiom.
+(( all X : ( ia_GarlicTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Medium(Y) ) ) ) ))
+
+  ,
+
+% axiom_136, axiom.
+(( all X : ( ia_Giardiniera(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_137, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PeperonataTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_138, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_LeekTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_139, axiom.
+(( all X : ( ia_Giardiniera(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_PeperonataTopping(Y) ; ( ia_PetitPoisTopping(Y) ; ( ia_LeekTopping(Y) ; ( ia_MushroomTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_SlicedTomatoTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_140, axiom.
+(( all X : ( ia_Giardiniera(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_141, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_142, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_143, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PetitPoisTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_144, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_145, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MushroomTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_146, axiom.
+(( all X : ( ia_Giardiniera(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_SlicedTomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_147, axiom.
+(( all X : ( ia_GoatsCheeseTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_148, axiom.
+(( all X : ( ia_GoatsCheeseTopping(X) => ia_CheeseTopping(X) ) ))
+
+  ,
+
+% axiom_149, axiom.
+(( all X : ( ia_GoatsCheeseTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_150, axiom.
+(( all X : ( ia_GorgonzolaTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_151, axiom.
+(( all X : ( ia_GorgonzolaTopping(X) => ia_CheeseTopping(X) ) ))
+
+  ,
+
+% axiom_152, axiom.
+(( all X : ( ia_GorgonzolaTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_153, axiom.
+(( all X : ( ia_GreenPepperTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_154, axiom.
+(( all X : ( ia_GreenPepperTopping(X) => ia_PepperTopping(X) ) ))
+
+  ,
+
+% axiom_155, axiom.
+(( all X : ( ia_HamTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_156, axiom.
+(( all X : ( ia_HamTopping(X) => ia_MeatTopping(X) ) ))
+
+  ,
+
+% axiom_157, axiom.
+(( all X : ( ia_HerbSpiceTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_158, axiom.
+(( all X : ( ia_HerbSpiceTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_159, axiom.
+(( all X : ( ia_Hot(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_160, axiom.
+(( all X : ( ia_Hot(X) => ia_Spiciness(X) ) ))
+
+  ,
+
+% axiom_161, axiom.
+(( all X : ( ia_HotGreenPepperTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_162, axiom.
+(( all X : ( ia_HotGreenPepperTopping(X) => ia_GreenPepperTopping(X) ) ))
+
+  ,
+
+% axiom_163, axiom.
+(( all X : ( ia_HotGreenPepperTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Hot(Y) ) ) ) ))
+
+  ,
+
+% axiom_164, axiom.
+(( all X : ( ia_HotSpicedBeefTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_165, axiom.
+(( all X : ( ia_HotSpicedBeefTopping(X) => ia_MeatTopping(X) ) ))
+
+  ,
+
+% axiom_166, axiom.
+(( all X : ( ia_HotSpicedBeefTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Hot(Y) ) ) ) ))
+
+  ,
+
+% axiom_167, axiom.
+(( all X : ( ia_IceCream(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_168, axiom.
+(( all X : ( ia_IceCream(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_FruitTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_169, axiom.
+(( all X : ( ia_IceCream(X) => ia_DomainConcept(X) ) ))
+
+  ,
+
+% axiom_170, axiom.
+(( all X : ( ia_InterestingPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_171, axiom.
+(( all X : ( ia_InterestingPizza(X) <=> ( ia_Pizza(X) , ( ex Y0 : ( ex Y1 : ( ex Y2 : ( ia_hasTopping(X, Y0) , ( ia_hasTopping(X, Y1) , ( ia_hasTopping(X, Y2) , ( ( ~ equal(Y0 , Y1) ) , ( ( ~ equal(Y0 , Y2) ) , ( ~ equal(Y1 , Y2) ) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_172, axiom.
+(( all X : ( ia_JalapenoPepperTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_173, axiom.
+(( all X : ( ia_JalapenoPepperTopping(X) => ia_PepperTopping(X) ) ))
+
+  ,
+
+% axiom_174, axiom.
+(( all X : ( ia_JalapenoPepperTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Hot(Y) ) ) ) ))
+
+  ,
+
+% axiom_175, axiom.
+(( all X : ( ia_LaReine(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_176, axiom.
+(( all X : ( ia_LaReine(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_MushroomTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_HamTopping(Y) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_177, axiom.
+(( all X : ( ia_LaReine(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_178, axiom.
+(( all X : ( ia_LaReine(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_179, axiom.
+(( all X : ( ia_LaReine(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_180, axiom.
+(( all X : ( ia_LaReine(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_181, axiom.
+(( all X : ( ia_LaReine(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MushroomTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_182, axiom.
+(( all X : ( ia_LaReine(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_HamTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_183, axiom.
+(( all X : ( ia_LeekTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_184, axiom.
+(( all X : ( ia_LeekTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_185, axiom.
+(( all X : ( ia_LeekTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_186, axiom.
+(( all X : ( ia_Margherita(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_187, axiom.
+(( all X : ( ia_Margherita(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ))
+
+  ,
+
+% axiom_188, axiom.
+(( all X : ( ia_Margherita(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_189, axiom.
+(( all X : ( ia_Margherita(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_190, axiom.
+(( all X : ( ia_Margherita(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_191, axiom.
+(( all X : ( ia_MeatTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_192, axiom.
+(( all X : ( ia_MeatTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_193, axiom.
+(( all X : ( ia_MeatyPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_194, axiom.
+(( all X : ( ia_MeatyPizza(X) <=> ( ( ex Y : ( ia_hasTopping(X, Y) , ia_MeatTopping(Y) ) ) , ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_195, axiom.
+(( all X : ( ia_Medium(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_196, axiom.
+(( all X : ( ia_Medium(X) => ia_Spiciness(X) ) ))
+
+  ,
+
+% axiom_197, axiom.
+(( all X : ( ia_Mild(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_198, axiom.
+(( all X : ( ia_Mild(X) => ia_Spiciness(X) ) ))
+
+  ,
+
+% axiom_199, axiom.
+(( all X : ( ia_MixedSeafoodTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_200, axiom.
+(( all X : ( ia_MixedSeafoodTopping(X) => ia_FishTopping(X) ) ))
+
+  ,
+
+% axiom_201, axiom.
+(( all X : ( ia_MozzarellaTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_202, axiom.
+(( all X : ( ia_MozzarellaTopping(X) => ia_hasCountryOfOrigin(X, ia_Italy) ) ))
+
+  ,
+
+% axiom_203, axiom.
+(( all X : ( ia_MozzarellaTopping(X) => ia_CheeseTopping(X) ) ))
+
+  ,
+
+% axiom_204, axiom.
+(( all X : ( ia_MozzarellaTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_205, axiom.
+(( all X : ( ia_Mushroom(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_206, axiom.
+(( all X : ( ia_Mushroom(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_207, axiom.
+(( all X : ( ia_Mushroom(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_MushroomTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_208, axiom.
+(( all X : ( ia_Mushroom(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_209, axiom.
+(( all X : ( ia_Mushroom(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_210, axiom.
+(( all X : ( ia_Mushroom(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MushroomTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_211, axiom.
+(( all X : ( ia_MushroomTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_212, axiom.
+(( all X : ( ia_MushroomTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_213, axiom.
+(( all X : ( ia_MushroomTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_214, axiom.
+(( all X : ( ia_NamedPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_215, axiom.
+(( all X : ( ia_NamedPizza(X) => ia_Pizza(X) ) ))
+
+  ,
+
+% axiom_216, axiom.
+(( all X : ( ia_Napoletana(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_217, axiom.
+(( all X : ( ia_Napoletana(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_AnchoviesTopping(Y) ; ( ia_MozzarellaTopping(Y) ; ( ia_CaperTopping(Y) ; ( ia_OliveTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_218, axiom.
+(( all X : ( ia_Napoletana(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_219, axiom.
+(( all X : ( ia_Napoletana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_AnchoviesTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_220, axiom.
+(( all X : ( ia_Napoletana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_221, axiom.
+(( all X : ( ia_Napoletana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_222, axiom.
+(( all X : ( ia_Napoletana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_223, axiom.
+(( all X : ( ia_Napoletana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_CaperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_224, axiom.
+(( all X : ( ia_NonVegetarianPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_225, axiom.
+(( all X : ( ia_NonVegetarianPizza(X) <=> ( ( abstractDomain(X) , ( ~ ia_VegetarianPizza(X) ) ) , ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_226, axiom.
+(( all X : ( ia_NutTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_227, axiom.
+(( all X : ( ia_NutTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_228, axiom.
+(( all X : ( ia_NutTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_229, axiom.
+(( all X : ( ia_OliveTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_230, axiom.
+(( all X : ( ia_OliveTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_231, axiom.
+(( all X : ( ia_OliveTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_232, axiom.
+(( all X : ( ia_OnionTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_233, axiom.
+(( all X : ( ia_OnionTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_234, axiom.
+(( all X : ( ia_OnionTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Medium(Y) ) ) ) ))
+
+  ,
+
+% axiom_235, axiom.
+(( all X : ( ia_ParmaHamTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_236, axiom.
+(( all X : ( ia_ParmaHamTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_237, axiom.
+(( all X : ( ia_ParmaHamTopping(X) => ia_HamTopping(X) ) ))
+
+  ,
+
+% axiom_238, axiom.
+(( all X : ( ia_Parmense(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_239, axiom.
+(( all X : ( ia_Parmense(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_ParmesanTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_240, axiom.
+(( all X : ( ia_Parmense(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_AsparagusTopping(Y) ; ( ia_MozzarellaTopping(Y) ; ( ia_ParmesanTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_HamTopping(Y) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_241, axiom.
+(( all X : ( ia_Parmense(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_242, axiom.
+(( all X : ( ia_Parmense(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_AsparagusTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_243, axiom.
+(( all X : ( ia_Parmense(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_244, axiom.
+(( all X : ( ia_Parmense(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_245, axiom.
+(( all X : ( ia_Parmense(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_HamTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_246, axiom.
+(( all X : ( ia_ParmesanTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_247, axiom.
+(( all X : ( ia_ParmesanTopping(X) => ia_CheeseTopping(X) ) ))
+
+  ,
+
+% axiom_248, axiom.
+(( all X : ( ia_ParmesanTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_249, axiom.
+(( all X : ( ia_PeperonataTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_250, axiom.
+(( all X : ( ia_PeperonataTopping(X) => ia_PepperTopping(X) ) ))
+
+  ,
+
+% axiom_251, axiom.
+(( all X : ( ia_PeperonataTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Medium(Y) ) ) ) ))
+
+  ,
+
+% axiom_252, axiom.
+(( all X : ( ia_PeperoniSausageTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_253, axiom.
+(( all X : ( ia_PeperoniSausageTopping(X) => ia_MeatTopping(X) ) ))
+
+  ,
+
+% axiom_254, axiom.
+(( all X : ( ia_PeperoniSausageTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Medium(Y) ) ) ) ))
+
+  ,
+
+% axiom_255, axiom.
+(( all X : ( ia_PepperTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_256, axiom.
+(( all X : ( ia_PepperTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_257, axiom.
+(( all X : ( ia_PetitPoisTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_258, axiom.
+(( all X : ( ia_PetitPoisTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_259, axiom.
+(( all X : ( ia_PetitPoisTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_260, axiom.
+(( all X : ( ia_PineKernels(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_261, axiom.
+(( all X : ( ia_PineKernels(X) => ia_NutTopping(X) ) ))
+
+  ,
+
+% axiom_262, axiom.
+(( all X : ( ia_Pizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_263, axiom.
+(( all X : ( ia_Pizza(X) => ia_DomainConcept(X) ) ))
+
+  ,
+
+% axiom_264, axiom.
+(( all X : ( ia_Pizza(X) => ( ex Y : ( ia_hasBase(X, Y) , ia_PizzaBase(Y) ) ) ) ))
+
+  ,
+
+% axiom_265, axiom.
+(( all X : ( ia_PizzaBase(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_266, axiom.
+(( all X : ( ia_PizzaBase(X) => ia_DomainConcept(X) ) ))
+
+  ,
+
+% axiom_267, axiom.
+(( all X : ( ia_PizzaTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_268, axiom.
+(( all X : ( ia_PizzaTopping(X) => ia_DomainConcept(X) ) ))
+
+  ,
+
+% axiom_269, axiom.
+(( all X : ( ia_PolloAdAstra(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_270, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GarlicTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_271, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_272, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_273, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_274, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_RedOnionTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_275, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_ChickenTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_276, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_CajunSpiceTopping(Y) ; ( ia_SweetPepperTopping(Y) ; ( ia_TomatoTopping(Y) ; ( ia_ChickenTopping(Y) ; ( ia_RedOnionTopping(Y) ; ia_GarlicTopping(Y) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_277, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_CajunSpiceTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_278, axiom.
+(( all X : ( ia_PolloAdAstra(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_SweetPepperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_279, axiom.
+(( all X : ( ia_PrawnsTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_280, axiom.
+(( all X : ( ia_PrawnsTopping(X) => ia_FishTopping(X) ) ))
+
+  ,
+
+% axiom_281, axiom.
+(( all X : ( ia_PrinceCarlo(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_282, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_ParmesanTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_283, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_LeekTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_284, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_285, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_RosemaryTopping(Y) ; ( ia_LeekTopping(Y) ; ( ia_ParmesanTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_286, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_287, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_288, axiom.
+(( all X : ( ia_PrinceCarlo(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_RosemaryTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_289, axiom.
+(( all X : ( ia_QuattroFormaggi(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_290, axiom.
+(( all X : ( ia_QuattroFormaggi(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_291, axiom.
+(( all X : ( ia_QuattroFormaggi(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_292, axiom.
+(( all X : ( ia_QuattroFormaggi(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_FourCheesesTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_293, axiom.
+(( all X : ( ia_QuattroFormaggi(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_FourCheesesTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ))
+
+  ,
+
+% axiom_294, axiom.
+(( all X : ( ia_RealItalianPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_295, axiom.
+(( all X : ( ia_RealItalianPizza(X) <=> ( ia_Pizza(X) , ia_hasCountryOfOrigin(X, ia_Italy) ) ) ))
+
+  ,
+
+% axiom_296, axiom.
+(( all X : ( ia_RealItalianPizza(X) => ( abstractDomain(X) , ( all Y : ( ia_hasBase(X, Y) => ia_ThinAndCrispyBase(Y) ) ) ) ) ))
+
+  ,
+
+% axiom_297, axiom.
+(( all X : ( ia_RedOnionTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_298, axiom.
+(( all X : ( ia_RedOnionTopping(X) => ia_OnionTopping(X) ) ))
+
+  ,
+
+% axiom_299, axiom.
+(( all X : ( ia_RocketTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_300, axiom.
+(( all X : ( ia_RocketTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_301, axiom.
+(( all X : ( ia_RocketTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Medium(Y) ) ) ) ))
+
+  ,
+
+% axiom_302, axiom.
+(( all X : ( ia_Rosa(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_303, axiom.
+(( all X : ( ia_Rosa(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_GorgonzolaTopping(Y) ; ( ia_MozzarellaTopping(Y) ; ia_TomatoTopping(Y) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_304, axiom.
+(( all X : ( ia_Rosa(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_305, axiom.
+(( all X : ( ia_Rosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_306, axiom.
+(( all X : ( ia_Rosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_307, axiom.
+(( all X : ( ia_Rosa(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GorgonzolaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_308, axiom.
+(( all X : ( ia_RosemaryTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_309, axiom.
+(( all X : ( ia_RosemaryTopping(X) => ia_HerbSpiceTopping(X) ) ))
+
+  ,
+
+% axiom_310, axiom.
+(( all X : ( ia_RosemaryTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_311, axiom.
+(( all X : ( ia_SauceTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_312, axiom.
+(( all X : ( ia_SauceTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_313, axiom.
+(( all X : ( ia_Siciliana(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_314, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GarlicTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_315, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_AnchoviesTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_316, axiom.
+(( all X : ( ia_Siciliana(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_317, axiom.
+(( all X : ( ia_Siciliana(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_AnchoviesTopping(Y) ; ( ia_MozzarellaTopping(Y) ; ( ia_ArtichokeTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_TomatoTopping(Y) ; ( ia_HamTopping(Y) ; ia_GarlicTopping(Y) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_318, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_319, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_320, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_321, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_ArtichokeTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_322, axiom.
+(( all X : ( ia_Siciliana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_HamTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_323, axiom.
+(( all X : ( ia_SlicedTomatoTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_324, axiom.
+(( all X : ( ia_SlicedTomatoTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_325, axiom.
+(( all X : ( ia_SlicedTomatoTopping(X) => ia_TomatoTopping(X) ) ))
+
+  ,
+
+% axiom_326, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_327, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_328, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_329, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_330, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GreenPepperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_331, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OnionTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_332, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_HotSpicedBeefTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_333, axiom.
+(( all X : ( ia_SloppyGiuseppe(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_GreenPepperTopping(Y) ; ( ia_OnionTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_HotSpicedBeefTopping(Y) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_334, axiom.
+(( all X : ( ia_Soho(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_335, axiom.
+(( all X : ( ia_Soho(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_ParmesanTopping(Y) ; ( ia_RocketTopping(Y) ; ( ia_TomatoTopping(Y) ; ia_GarlicTopping(Y) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_336, axiom.
+(( all X : ( ia_Soho(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_ParmesanTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_337, axiom.
+(( all X : ( ia_Soho(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_338, axiom.
+(( all X : ( ia_Soho(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_GarlicTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_339, axiom.
+(( all X : ( ia_Soho(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_340, axiom.
+(( all X : ( ia_Soho(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_341, axiom.
+(( all X : ( ia_Soho(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_342, axiom.
+(( all X : ( ia_Soho(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_RocketTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_343, axiom.
+(( all X : ( ia_Spiciness(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_344, axiom.
+(( all X : ( ia_Spiciness(X) <=> ( ia_Mild(X) ; ( ia_Hot(X) ; ia_Medium(X) ) ) ) ))
+
+  ,
+
+% axiom_345, axiom.
+(( all X : ( ia_Spiciness(X) => ia_ValuePartition(X) ) ))
+
+  ,
+
+% axiom_346, axiom.
+(( all X : ( ia_SpicyPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_347, axiom.
+(( all X : ( ia_SpicyPizza(X) <=> ( ( ex Y : ( ia_hasTopping(X, Y) , ia_SpicyTopping(Y) ) ) , ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_348, axiom.
+(( all X : ( ia_SpicyPizzaEquivalent(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_349, axiom.
+(( all X : ( ia_SpicyPizzaEquivalent(X) <=> ( ( ex Y : ( ia_hasTopping(X, Y) , ( ( ex Z : ( ia_hasSpiciness(Y, Z) , ia_Hot(Z) ) ) , ia_PizzaTopping(Y) ) ) ) , ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_350, axiom.
+(( all X : ( ia_SpicyTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_351, axiom.
+(( all X : ( ia_SpicyTopping(X) <=> ( ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Hot(Y) ) ) , ia_PizzaTopping(X) ) ) ))
+
+  ,
+
+% axiom_352, axiom.
+(( all X : ( ia_SpinachTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_353, axiom.
+(( all X : ( ia_SpinachTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_354, axiom.
+(( all X : ( ia_SpinachTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_355, axiom.
+(( all X : ( ia_SultanaTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_356, axiom.
+(( all X : ( ia_SultanaTopping(X) => ia_FruitTopping(X) ) ))
+
+  ,
+
+% axiom_357, axiom.
+(( all X : ( ia_SultanaTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Medium(Y) ) ) ) ))
+
+  ,
+
+% axiom_358, axiom.
+(( all X : ( ia_SundriedTomatoTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_359, axiom.
+(( all X : ( ia_SundriedTomatoTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_360, axiom.
+(( all X : ( ia_SundriedTomatoTopping(X) => ia_TomatoTopping(X) ) ))
+
+  ,
+
+% axiom_361, axiom.
+(( all X : ( ia_SweetPepperTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_362, axiom.
+(( all X : ( ia_SweetPepperTopping(X) => ia_PepperTopping(X) ) ))
+
+  ,
+
+% axiom_363, axiom.
+(( all X : ( ia_SweetPepperTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_364, axiom.
+(( all X : ( ia_ThinAndCrispyBase(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_365, axiom.
+(( all X : ( ia_ThinAndCrispyBase(X) => ia_PizzaBase(X) ) ))
+
+  ,
+
+% axiom_366, axiom.
+(( all X : ( ia_TobascoPepperSauce(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_367, axiom.
+(( all X : ( ia_TobascoPepperSauce(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Hot(Y) ) ) ) ))
+
+  ,
+
+% axiom_368, axiom.
+(( all X : ( ia_TobascoPepperSauce(X) => ia_SauceTopping(X) ) ))
+
+  ,
+
+% axiom_369, axiom.
+(( all X : ( ia_TomatoTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_370, axiom.
+(( all X : ( ia_TomatoTopping(X) => ia_VegetableTopping(X) ) ))
+
+  ,
+
+% axiom_371, axiom.
+(( all X : ( ia_TomatoTopping(X) => ( ex Y : ( ia_hasSpiciness(X, Y) , ia_Mild(Y) ) ) ) ))
+
+  ,
+
+% axiom_372, axiom.
+(( all X : ( ia_UnclosedPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_373, axiom.
+(( all X : ( ia_UnclosedPizza(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_374, axiom.
+(( all X : ( ia_UnclosedPizza(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_375, axiom.
+(( all X : ( ia_ValuePartition(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_376, axiom.
+(( all X : ( ia_VegetableTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_377, axiom.
+(( all X : ( ia_VegetableTopping(X) => ia_PizzaTopping(X) ) ))
+
+  ,
+
+% axiom_378, axiom.
+(( all X : ( ia_VegetarianPizza(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_379, axiom.
+(( all X : ( ia_VegetarianPizza(X) <=> ( ( abstractDomain(X) , ( ~ ( ex Y : ( ia_hasTopping(X, Y) , ia_MeatTopping(Y) ) ) ) ) , ( ia_Pizza(X) , ( abstractDomain(X) , ( ~ ( ex Y : ( ia_hasTopping(X, Y) , ia_FishTopping(Y) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_380, axiom.
+(( all X : ( ia_VegetarianPizzaEquivalent1(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_381, axiom.
+(( all X : ( ia_VegetarianPizzaEquivalent1(X) <=> ( ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ia_VegetarianTopping(Y) ) ) ) , ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_382, axiom.
+(( all X : ( ia_VegetarianPizzaEquivalent2(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_383, axiom.
+(( all X : ( ia_VegetarianPizzaEquivalent2(X) <=> ( ia_Pizza(X) , ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_NutTopping(Y) ; ( ia_VegetableTopping(Y) ; ( ia_HerbSpiceTopping(Y) ; ( ia_CheeseTopping(Y) ; ( ia_FruitTopping(Y) ; ia_SauceTopping(Y) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_384, axiom.
+(( all X : ( ia_VegetarianTopping(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_385, axiom.
+(( all X : ( ia_VegetarianTopping(X) <=> ( ( ia_VegetableTopping(X) ; ( ia_NutTopping(X) ; ( ia_HerbSpiceTopping(X) ; ( ia_CheeseTopping(X) ; ( ia_FruitTopping(X) ; ia_SauceTopping(X) ) ) ) ) ) , ia_PizzaTopping(X) ) ) ))
+
+  ,
+
+% axiom_386, axiom.
+(( all X : ( ia_Veneziana(X) => abstractDomain(X) ) ))
+
+  ,
+
+% axiom_387, axiom.
+(( all X : ( ia_Veneziana(X) => ( abstractDomain(X) , ( all Y : ( ia_hasTopping(X, Y) => ( ia_MozzarellaTopping(Y) ; ( ia_OnionTopping(Y) ; ( ia_CaperTopping(Y) ; ( ia_OliveTopping(Y) ; ( ia_TomatoTopping(Y) ; ( ia_PineKernels(Y) ; ia_SultanaTopping(Y) ) ) ) ) ) ) ) ) ) ) ))
+
+  ,
+
+% axiom_388, axiom.
+(( all X : ( ia_Veneziana(X) => ia_NamedPizza(X) ) ))
+
+  ,
+
+% axiom_389, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_TomatoTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_390, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_MozzarellaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_391, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_SultanaTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_392, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OliveTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_393, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_OnionTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_394, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_PineKernels(Y) ) ) ) ))
+
+  ,
+
+% axiom_395, axiom.
+(( all X : ( ia_Veneziana(X) => ( ex Y : ( ia_hasTopping(X, Y) , ia_CaperTopping(Y) ) ) ) ))
+
+  ,
+
+% axiom_396, axiom.
+(( all X : ( all Y : ( iFROM(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_397, axiom.
+(( all X : ( all Y : ( iTO(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_398, axiom.
+(( all X : ( all Y : ( ia_hasBase(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_399, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_hasBase(X, Y) , ia_hasBase(X, Z) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_400, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_hasBase(Y, X) , ia_hasBase(Z, X) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_401, axiom.
+(( all X : ( all Y : ( ia_hasBase(X, Y) => ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_402, axiom.
+(( all X : ( all Y : ( ia_hasBase(X, Y) => ia_PizzaBase(Y) ) ) ))
+
+  ,
+
+% axiom_403, axiom.
+(( all X : ( all Y : ( ia_hasBase(X, Y) <=> ia_isBaseOf(Y, X) ) ) ))
+
+  ,
+
+% axiom_404, axiom.
+(( all X : ( all Y : ( ia_hasCountryOfOrigin(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_405, axiom.
+(( all X : ( all Y : ( ia_hasIngredient(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_406, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_hasIngredient(X, Y) , ia_hasIngredient(Y, Z) ) => ia_hasIngredient(X, Z) ) ) ) ))
+
+  ,
+
+% axiom_407, axiom.
+(( all X : ( all Y : ( ia_hasIngredient(X, Y) <=> ia_isIngredientOf(Y, X) ) ) ))
+
+  ,
+
+% axiom_408, axiom.
+(( all X : ( all Y : ( ia_hasSpiciness(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_409, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_hasSpiciness(X, Y) , ia_hasSpiciness(X, Z) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_410, axiom.
+(( all X : ( all Y : ( ia_hasSpiciness(X, Y) => ia_Spiciness(Y) ) ) ))
+
+  ,
+
+% axiom_411, axiom.
+(( all X : ( all Y : ( ia_hasTopping(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_412, axiom.
+(( all X : ( all Y : ( ia_hasTopping(X, Y) => ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_413, axiom.
+(( all X : ( all Y : ( ia_hasTopping(X, Y) => ia_PizzaTopping(Y) ) ) ))
+
+  ,
+
+% axiom_414, axiom.
+(( all X : ( all Y : ( ia_hasTopping(X, Y) <=> ia_isToppingOf(Y, X) ) ) ))
+
+  ,
+
+% axiom_415, axiom.
+(( all X : ( all Y : ( ia_isBaseOf(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_416, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_isBaseOf(X, Y) , ia_isBaseOf(X, Z) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_417, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_isBaseOf(Y, X) , ia_isBaseOf(Z, X) ) => equal(Y , Z) ) ) ) ))
+
+  ,
+
+% axiom_418, axiom.
+(( all X : ( all Y : ( ia_isBaseOf(X, Y) => ia_PizzaBase(X) ) ) ))
+
+  ,
+
+% axiom_419, axiom.
+(( all X : ( all Y : ( ia_isBaseOf(X, Y) => ia_Pizza(Y) ) ) ))
+
+  ,
+
+% axiom_420, axiom.
+(( all X : ( all Y : ( ia_isBaseOf(X, Y) <=> ia_hasBase(Y, X) ) ) ))
+
+  ,
+
+% axiom_421, axiom.
+(( all X : ( all Y : ( ia_isIngredientOf(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_422, axiom.
+(( all X : ( all Y : ( all Z : ( ( ia_isIngredientOf(X, Y) , ia_isIngredientOf(Y, Z) ) => ia_isIngredientOf(X, Z) ) ) ) ))
+
+  ,
+
+% axiom_423, axiom.
+(( all X : ( all Y : ( ia_isIngredientOf(X, Y) <=> ia_hasIngredient(Y, X) ) ) ))
+
+  ,
+
+% axiom_424, axiom.
+(( all X : ( all Y : ( ia_isToppingOf(X, Y) => ( abstractDomain(X) , abstractDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_425, axiom.
+(( all X : ( all Y : ( ia_isToppingOf(X, Y) => ia_PizzaTopping(X) ) ) ))
+
+  ,
+
+% axiom_426, axiom.
+(( all X : ( all Y : ( ia_isToppingOf(X, Y) => ia_Pizza(Y) ) ) ))
+
+  ,
+
+% axiom_427, axiom.
+(( all X : ( all Y : ( ia_isToppingOf(X, Y) <=> ia_hasTopping(Y, X) ) ) ))
+
+  ,
+
+% axiom_428, axiom.
+(( all X : ( all Y : ( iPAL_DESCRIPTION(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_429, axiom.
+(( all X : ( all Y : ( iPAL_NAME(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_430, axiom.
+(( all X : ( all Y : ( iPAL_RANGE(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_431, axiom.
+(( all X : ( all Y : ( iPAL_STATEMENT(X, Y) => ( abstractDomain(X) , dataDomain(Y) ) ) ) ))
+
+  ,
+
+% axiom_432, axiom.
+(ia_Country(ia_America))
+
+  ,
+
+% axiom_433, axiom.
+(ia_Country(ia_England))
+
+  ,
+
+% axiom_434, axiom.
+(ia_Country(ia_France))
+
+  ,
+
+% axiom_435, axiom.
+(ia_Country(ia_Germany))
+
+  ,
+
+% axiom_436, axiom.
+(ia_Country(ia_Italy))
+
+  ,
+
+% axiom_437, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_438, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_439, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_440, axiom.
+(( all X : ( ~ ( ia_DeepPanBase(X) , ia_ThinAndCrispyBase(X) ) ) ))
+
+  ,
+
+% axiom_441, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_442, axiom.
+(( all X : ( ~ ( ia_PizzaBase(X) , ia_IceCream(X) ) ) ))
+
+  ,
+
+% axiom_443, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_444, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_445, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_446, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_LeekTopping(X) ) ) ))
+
+  ,
+
+% axiom_447, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_448, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_449, axiom.
+(( all X : ( ~ ( ia_MozzarellaTopping(X) , ia_ParmesanTopping(X) ) ) ))
+
+  ,
+
+% axiom_450, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_451, axiom.
+(( all X : ( ~ ( ia_PeperoniSausageTopping(X) , ia_ChickenTopping(X) ) ) ))
+
+  ,
+
+% axiom_452, axiom.
+(( all X : ( ~ ( ia_SweetPepperTopping(X) , ia_JalapenoPepperTopping(X) ) ) ))
+
+  ,
+
+% axiom_453, axiom.
+(( all X : ( ~ ( ia_Mushroom(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_454, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_PrinceCarlo(X) ) ) ))
+
+  ,
+
+% axiom_455, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Veneziana(X) ) ) ))
+
+  ,
+
+% axiom_456, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_457, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_458, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Soho(X) ) ) ))
+
+  ,
+
+% axiom_459, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_460, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_461, axiom.
+(( all X : ( ~ ( ia_RocketTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_462, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_463, axiom.
+(( all X : ( ~ ( ia_Napoletana(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_464, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_American(X) ) ) ))
+
+  ,
+
+% axiom_465, axiom.
+(( all X : ( ~ ( ia_UnclosedPizza(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_466, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_467, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_468, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_CheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_469, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_470, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_471, axiom.
+(( all X : ( ~ ( ia_FishTopping(X) , ia_FruitTopping(X) ) ) ))
+
+  ,
+
+% axiom_472, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_473, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_474, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_FourSeasons(X) ) ) ))
+
+  ,
+
+% axiom_475, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_OnionTopping(X) ) ) ))
+
+  ,
+
+% axiom_476, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_477, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_478, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_479, axiom.
+(( all X : ( ~ ( ia_VegetableTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_480, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_481, axiom.
+(( all X : ( ~ ( ia_OliveTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_482, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_483, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_484, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_American(X) ) ) ))
+
+  ,
+
+% axiom_485, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_486, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_487, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_488, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_489, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_490, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_491, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_PetitPoisTopping(X) ) ) ))
+
+  ,
+
+% axiom_492, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_493, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_494, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_495, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_496, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_FourSeasons(X) ) ) ))
+
+  ,
+
+% axiom_497, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_498, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_OnionTopping(X) ) ) ))
+
+  ,
+
+% axiom_499, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_500, axiom.
+(( all X : ( ~ ( ia_Pizza(X) , ia_PizzaTopping(X) ) ) ))
+
+  ,
+
+% axiom_501, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_502, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_503, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_504, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_505, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_506, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_507, axiom.
+(( all X : ( ~ ( ia_MushroomTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_508, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_HerbSpiceTopping(X) ) ) ))
+
+  ,
+
+% axiom_509, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_510, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_FourSeasons(X) ) ) ))
+
+  ,
+
+% axiom_511, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_512, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_513, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_514, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_515, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_516, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_517, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_518, axiom.
+(( all X : ( ~ ( ia_AmericanHot(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_519, axiom.
+(( all X : ( ~ ( ia_GreenPepperTopping(X) , ia_PeperonataTopping(X) ) ) ))
+
+  ,
+
+% axiom_520, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_521, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_522, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_523, axiom.
+(( all X : ( ~ ( ia_GorgonzolaTopping(X) , ia_GoatsCheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_524, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_525, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_526, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_527, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_528, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_529, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_530, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_531, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_532, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_OnionTopping(X) ) ) ))
+
+  ,
+
+% axiom_533, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_MeatTopping(X) ) ) ))
+
+  ,
+
+% axiom_534, axiom.
+(( all X : ( ~ ( ia_CheeseTopping(X) , ia_FruitTopping(X) ) ) ))
+
+  ,
+
+% axiom_535, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_PetitPoisTopping(X) ) ) ))
+
+  ,
+
+% axiom_536, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_537, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_538, axiom.
+(( all X : ( ~ ( ia_AmericanHot(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_539, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_540, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_PepperTopping(X) ) ) ))
+
+  ,
+
+% axiom_541, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_542, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_543, axiom.
+(( all X : ( ~ ( ia_FourCheesesTopping(X) , ia_ParmesanTopping(X) ) ) ))
+
+  ,
+
+% axiom_544, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_545, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_546, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_547, axiom.
+(( all X : ( ~ ( ia_MozzarellaTopping(X) , ia_FourCheesesTopping(X) ) ) ))
+
+  ,
+
+% axiom_548, axiom.
+(( all X : ( ~ ( ia_MushroomTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_549, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_FishTopping(X) ) ) ))
+
+  ,
+
+% axiom_550, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_551, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_552, axiom.
+(( all X : ( ~ ( ia_VegetableTopping(X) , ia_FishTopping(X) ) ) ))
+
+  ,
+
+% axiom_553, axiom.
+(( all X : ( ~ ( ia_MozzarellaTopping(X) , ia_GorgonzolaTopping(X) ) ) ))
+
+  ,
+
+% axiom_554, axiom.
+(( all X : ( ~ ( ia_AmericanHot(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_555, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_556, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_557, axiom.
+(( all X : ( ~ ( ia_MushroomTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_558, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_PetitPoisTopping(X) ) ) ))
+
+  ,
+
+% axiom_559, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_560, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_561, axiom.
+(( all X : ( ~ ( ia_ChickenTopping(X) , ia_HamTopping(X) ) ) ))
+
+  ,
+
+% axiom_562, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_563, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_564, axiom.
+(( all X : ( ~ ( ia_RosemaryTopping(X) , ia_CajunSpiceTopping(X) ) ) ))
+
+  ,
+
+% axiom_565, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_566, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_567, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_568, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_569, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_570, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_571, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_572, axiom.
+(( all X : ( ~ ( ia_PizzaBase(X) , ia_Pizza(X) ) ) ))
+
+  ,
+
+% axiom_573, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_574, axiom.
+(( all X : ( ~ ( ia_HerbSpiceTopping(X) , ia_FruitTopping(X) ) ) ))
+
+  ,
+
+% axiom_575, axiom.
+(( all X : ( ~ ( ia_Mushroom(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_576, axiom.
+(( all X : ( ~ ( ia_FishTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_577, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_578, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_PepperTopping(X) ) ) ))
+
+  ,
+
+% axiom_579, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_580, axiom.
+(( all X : ( ~ ( ia_LeekTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_581, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Veneziana(X) ) ) ))
+
+  ,
+
+% axiom_582, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_583, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_584, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_585, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_586, axiom.
+(( all X : ( ~ ( ia_PeperonataTopping(X) , ia_JalapenoPepperTopping(X) ) ) ))
+
+  ,
+
+% axiom_587, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_PetitPoisTopping(X) ) ) ))
+
+  ,
+
+% axiom_588, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_589, axiom.
+(( all X : ( ~ ( ia_UnclosedPizza(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_590, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_591, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_592, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_593, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_ArtichokeTopping(X) ) ) ))
+
+  ,
+
+% axiom_594, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_595, axiom.
+(( all X : ( ~ ( ia_MeatTopping(X) , ia_FruitTopping(X) ) ) ))
+
+  ,
+
+% axiom_596, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_597, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_598, axiom.
+(( all X : ( ~ ( ia_SpinachTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_599, axiom.
+(( all X : ( ~ ( ia_PeperoniSausageTopping(X) , ia_HamTopping(X) ) ) ))
+
+  ,
+
+% axiom_600, axiom.
+(( all X : ( ~ ( ia_MixedSeafoodTopping(X) , ia_PrawnsTopping(X) ) ) ))
+
+  ,
+
+% axiom_601, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_602, axiom.
+(( all X : ( ~ ( ia_MushroomTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_603, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_604, axiom.
+(( all X : ( ~ ( ia_GoatsCheeseTopping(X) , ia_ParmesanTopping(X) ) ) ))
+
+  ,
+
+% axiom_605, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_606, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_607, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_608, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_609, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Soho(X) ) ) ))
+
+  ,
+
+% axiom_610, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_611, axiom.
+(( all X : ( ~ ( ia_VegetableTopping(X) , ia_CheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_612, axiom.
+(( all X : ( ~ ( ia_MeatTopping(X) , ia_HerbSpiceTopping(X) ) ) ))
+
+  ,
+
+% axiom_613, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_614, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_615, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_616, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_617, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_618, axiom.
+(( all X : ( ~ ( ia_LeekTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_619, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_620, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_621, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_622, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_623, axiom.
+(( all X : ( ~ ( ia_LeekTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_624, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Soho(X) ) ) ))
+
+  ,
+
+% axiom_625, axiom.
+(( all X : ( ~ ( ia_Cajun(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_626, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_627, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_628, axiom.
+(( all X : ( ~ ( ia_MushroomTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_629, axiom.
+(( all X : ( ~ ( ia_CheeseTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_630, axiom.
+(( all X : ( ~ ( ia_NonVegetarianPizza(X) , ia_VegetarianPizza(X) ) ) ))
+
+  ,
+
+% axiom_631, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_632, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_633, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_634, axiom.
+(( all X : ( ~ ( ia_AmericanHot(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_635, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Soho(X) ) ) ))
+
+  ,
+
+% axiom_636, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_637, axiom.
+(( all X : ( ~ ( ia_Napoletana(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_638, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_639, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_640, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_641, axiom.
+(( all X : ( ~ ( ia_PizzaBase(X) , ia_PizzaTopping(X) ) ) ))
+
+  ,
+
+% axiom_642, axiom.
+(( all X : ( ~ ( ia_GorgonzolaTopping(X) , ia_FourCheesesTopping(X) ) ) ))
+
+  ,
+
+% axiom_643, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_644, axiom.
+(( all X : ( ~ ( ia_VegetableTopping(X) , ia_HerbSpiceTopping(X) ) ) ))
+
+  ,
+
+% axiom_645, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_646, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_647, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_CaperTopping(X) ) ) ))
+
+  ,
+
+% axiom_648, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_FourSeasons(X) ) ) ))
+
+  ,
+
+% axiom_649, axiom.
+(( all X : ( ~ ( ia_Mild(X) , ia_Hot(X) ) ) ))
+
+  ,
+
+% axiom_650, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_651, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_652, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_653, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_654, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_655, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_656, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_657, axiom.
+(( all X : ( ~ ( ia_ChickenTopping(X) , ia_HotSpicedBeefTopping(X) ) ) ))
+
+  ,
+
+% axiom_658, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_659, axiom.
+(( all X : ( ~ ( ia_Napoletana(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_660, axiom.
+(( all X : ( ~ ( ia_HerbSpiceTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_661, axiom.
+(( all X : ( ~ ( ia_VegetableTopping(X) , ia_MeatTopping(X) ) ) ))
+
+  ,
+
+% axiom_662, axiom.
+(( all X : ( ~ ( ia_LeekTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_663, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_LeekTopping(X) ) ) ))
+
+  ,
+
+% axiom_664, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_665, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_666, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_667, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_668, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_669, axiom.
+(( all X : ( ~ ( ia_GorgonzolaTopping(X) , ia_ParmesanTopping(X) ) ) ))
+
+  ,
+
+% axiom_670, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_671, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_672, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_673, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_FruitTopping(X) ) ) ))
+
+  ,
+
+% axiom_674, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_675, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_CaperTopping(X) ) ) ))
+
+  ,
+
+% axiom_676, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_677, axiom.
+(( all X : ( ~ ( ia_MeatTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_678, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_679, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_680, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_681, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_682, axiom.
+(( all X : ( ~ ( ia_SweetPepperTopping(X) , ia_PeperonataTopping(X) ) ) ))
+
+  ,
+
+% axiom_683, axiom.
+(( all X : ( ~ ( ia_LeekTopping(X) , ia_SpinachTopping(X) ) ) ))
+
+  ,
+
+% axiom_684, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_685, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_686, axiom.
+(( all X : ( ~ ( ia_CheeseTopping(X) , ia_FishTopping(X) ) ) ))
+
+  ,
+
+% axiom_687, axiom.
+(( all X : ( ~ ( ia_PeperoniSausageTopping(X) , ia_HotSpicedBeefTopping(X) ) ) ))
+
+  ,
+
+% axiom_688, axiom.
+(( all X : ( ~ ( ia_GreenPepperTopping(X) , ia_JalapenoPepperTopping(X) ) ) ))
+
+  ,
+
+% axiom_689, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_690, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_PetitPoisTopping(X) ) ) ))
+
+  ,
+
+% axiom_691, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_692, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_CaperTopping(X) ) ) ))
+
+  ,
+
+% axiom_693, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_694, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_LeekTopping(X) ) ) ))
+
+  ,
+
+% axiom_695, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_696, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_697, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_698, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_699, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_700, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_701, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Veneziana(X) ) ) ))
+
+  ,
+
+% axiom_702, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_703, axiom.
+(( all X : ( ~ ( ia_OliveTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_704, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_705, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_706, axiom.
+(( all X : ( ~ ( ia_MozzarellaTopping(X) , ia_GoatsCheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_707, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Parmense(X) ) ) ))
+
+  ,
+
+% axiom_708, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Giardiniera(X) ) ) ))
+
+  ,
+
+% axiom_709, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_LeekTopping(X) ) ) ))
+
+  ,
+
+% axiom_710, axiom.
+(( all X : ( ~ ( ia_SundriedTomatoTopping(X) , ia_SlicedTomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_711, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_712, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_LeekTopping(X) ) ) ))
+
+  ,
+
+% axiom_713, axiom.
+(( all X : ( ~ ( ia_Pizza(X) , ia_IceCream(X) ) ) ))
+
+  ,
+
+% axiom_714, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_715, axiom.
+(( all X : ( ~ ( ia_TomatoTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_716, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_717, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_718, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_719, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_720, axiom.
+(( all X : ( ~ ( ia_HerbSpiceTopping(X) , ia_FishTopping(X) ) ) ))
+
+  ,
+
+% axiom_721, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_722, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_723, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_724, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_725, axiom.
+(( all X : ( ~ ( ia_AnchoviesTopping(X) , ia_MixedSeafoodTopping(X) ) ) ))
+
+  ,
+
+% axiom_726, axiom.
+(( all X : ( ~ ( ia_AnchoviesTopping(X) , ia_PrawnsTopping(X) ) ) ))
+
+  ,
+
+% axiom_727, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Veneziana(X) ) ) ))
+
+  ,
+
+% axiom_728, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_PolloAdAstra(X) ) ) ))
+
+  ,
+
+% axiom_729, axiom.
+(( all X : ( ~ ( ia_Cajun(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_730, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_CaperTopping(X) ) ) ))
+
+  ,
+
+% axiom_731, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_PrinceCarlo(X) ) ) ))
+
+  ,
+
+% axiom_732, axiom.
+(( all X : ( ~ ( ia_Cajun(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_733, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_SloppyGiuseppe(X) ) ) ))
+
+  ,
+
+% axiom_734, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_735, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_736, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_737, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_738, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_739, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_740, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_741, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_742, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_743, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Veneziana(X) ) ) ))
+
+  ,
+
+% axiom_744, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_745, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_746, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_American(X) ) ) ))
+
+  ,
+
+% axiom_747, axiom.
+(( all X : ( ~ ( ia_MeatTopping(X) , ia_FishTopping(X) ) ) ))
+
+  ,
+
+% axiom_748, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_749, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_750, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_VegetableTopping(X) ) ) ))
+
+  ,
+
+% axiom_751, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_752, axiom.
+(( all X : ( ~ ( ia_ValuePartition(X) , ia_DomainConcept(X) ) ) ))
+
+  ,
+
+% axiom_753, axiom.
+(( all X : ( ~ ( ia_Cajun(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_754, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_755, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_FourSeasons(X) ) ) ))
+
+  ,
+
+% axiom_756, axiom.
+(( all X : ( ~ ( ia_AsparagusTopping(X) , ia_LeekTopping(X) ) ) ))
+
+  ,
+
+% axiom_757, axiom.
+(( all X : ( ~ ( ia_Capricciosa(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_758, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_759, axiom.
+(( all X : ( ~ ( ia_OliveTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_760, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_FourSeasons(X) ) ) ))
+
+  ,
+
+% axiom_761, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_762, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_763, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_764, axiom.
+(( all X : ( ~ ( ia_QuattroFormaggi(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_765, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_766, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_767, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_768, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_769, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_770, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_771, axiom.
+(( all X : ( ~ ( ia_NutTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_772, axiom.
+(( all X : ( ~ ( ia_RocketTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_773, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_774, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_775, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_776, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_777, axiom.
+(( all X : ( ~ ( ia_Napoletana(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_778, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_779, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_780, axiom.
+(( all X : ( ~ ( ia_UnclosedPizza(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_781, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_782, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_Cajun(X) ) ) ))
+
+  ,
+
+% axiom_783, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_784, axiom.
+(( all X : ( ~ ( ia_Parmense(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_785, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_786, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_787, axiom.
+(( all X : ( ~ ( ia_HerbSpiceTopping(X) , ia_CheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_788, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_LaReine(X) ) ) ))
+
+  ,
+
+% axiom_789, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Rosa(X) ) ) ))
+
+  ,
+
+% axiom_790, axiom.
+(( all X : ( ~ ( ia_Veneziana(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_791, axiom.
+(( all X : ( ~ ( ia_Siciliana(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_792, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_793, axiom.
+(( all X : ( ~ ( ia_Napoletana(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_794, axiom.
+(( all X : ( ~ ( ia_Caprina(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_795, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_796, axiom.
+(( all X : ( ~ ( ia_PrinceCarlo(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_797, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_Fiorentina(X) ) ) ))
+
+  ,
+
+% axiom_798, axiom.
+(( all X : ( ~ ( ia_IceCream(X) , ia_PizzaTopping(X) ) ) ))
+
+  ,
+
+% axiom_799, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_800, axiom.
+(( all X : ( ~ ( ia_Cajun(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_801, axiom.
+(( all X : ( ~ ( ia_SpinachTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_802, axiom.
+(( all X : ( ~ ( ia_HamTopping(X) , ia_HotSpicedBeefTopping(X) ) ) ))
+
+  ,
+
+% axiom_803, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_804, axiom.
+(( all X : ( ~ ( ia_CaperTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_805, axiom.
+(( all X : ( ~ ( ia_Giardiniera(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_806, axiom.
+(( all X : ( ~ ( ia_GreenPepperTopping(X) , ia_SweetPepperTopping(X) ) ) ))
+
+  ,
+
+% axiom_807, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_808, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_UnclosedPizza(X) ) ) ))
+
+  ,
+
+% axiom_809, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Caprina(X) ) ) ))
+
+  ,
+
+% axiom_810, axiom.
+(( all X : ( ~ ( ia_Soho(X) , ia_QuattroFormaggi(X) ) ) ))
+
+  ,
+
+% axiom_811, axiom.
+(( all X : ( ~ ( ia_OliveTopping(X) , ia_RocketTopping(X) ) ) ))
+
+  ,
+
+% axiom_812, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_OliveTopping(X) ) ) ))
+
+  ,
+
+% axiom_813, axiom.
+(( all X : ( ~ ( ia_MeatTopping(X) , ia_CheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_814, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_815, axiom.
+(( all X : ( ~ ( ia_FourCheesesTopping(X) , ia_GoatsCheeseTopping(X) ) ) ))
+
+  ,
+
+% axiom_816, axiom.
+(( all X : ( ~ ( ia_VegetableTopping(X) , ia_FruitTopping(X) ) ) ))
+
+  ,
+
+% axiom_817, axiom.
+(( all X : ( ~ ( ia_American(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_818, axiom.
+(( all X : ( ~ ( ia_PepperTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_819, axiom.
+(( all X : ( ~ ( ia_RocketTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_820, axiom.
+(( all X : ( ~ ( ia_OnionTopping(X) , ia_TomatoTopping(X) ) ) ))
+
+  ,
+
+% axiom_821, axiom.
+(( all X : ( ~ ( ia_PolloAdAstra(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_822, axiom.
+(( all X : ( ~ ( ia_Margherita(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_823, axiom.
+(( all X : ( ~ ( ia_Rosa(X) , ia_AmericanHot(X) ) ) ))
+
+  ,
+
+% axiom_824, axiom.
+(( all X : ( ~ ( ia_Fiorentina(X) , ia_Napoletana(X) ) ) ))
+
+  ,
+
+% axiom_825, axiom.
+(( all X : ( ~ ( ia_FourSeasons(X) , ia_FruttiDiMare(X) ) ) ))
+
+  ,
+
+% axiom_826, axiom.
+(( all X : ( ~ ( ia_LeekTopping(X) , ia_MushroomTopping(X) ) ) ))
+
+  ,
+
+% axiom_827, axiom.
+(( all X : ( ~ ( ia_AmericanHot(X) , ia_Capricciosa(X) ) ) ))
+
+  ,
+
+% axiom_828, axiom.
+(( all X : ( ~ ( ia_SloppyGiuseppe(X) , ia_Mushroom(X) ) ) ))
+
+  ,
+
+% axiom_829, axiom.
+(( all X : ( ~ ( ia_PetitPoisTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_830, axiom.
+(( all X : ( ~ ( ia_FruttiDiMare(X) , ia_Margherita(X) ) ) ))
+
+  ,
+
+% axiom_831, axiom.
+(( all X : ( ~ ( ia_ArtichokeTopping(X) , ia_GarlicTopping(X) ) ) ))
+
+  ,
+
+% axiom_832, axiom.
+(( all X : ( ~ ( ia_FruitTopping(X) , ia_SauceTopping(X) ) ) ))
+
+  ,
+
+% axiom_833, axiom.
+(( all X : ( all Y : ( ia_isBaseOf(X, Y) => ia_isIngredientOf(X, Y) ) ) ))
+
+  ,
+
+% axiom_834, axiom.
+(( all X : ( all Y : ( ia_hasBase(X, Y) => ia_hasIngredient(X, Y) ) ) ))
+
+  ,
+
+% axiom_835, axiom.
+(( all X : ( all Y : ( ia_hasTopping(X, Y) => ia_hasIngredient(X, Y) ) ) ))
+
+  ,
+
+% axiom_836, axiom.
+(( all X : ( all Y : ( ia_isToppingOf(X, Y) => ia_isIngredientOf(X, Y) ) ) ))
+
+  ,
+
+% axiom_837_AndLHS, axiom.
+(( ~ equal(ia_Italy , ia_France) ))
+
+  ,
+
+% axiom_837_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_Italy , ia_England) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_Italy , ia_Germany) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_Italy , ia_America) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_France , ia_England) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_France , ia_Germany) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_France , ia_America) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_England , ia_Germany) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndLHS, axiom.
+(( ~ equal(ia_England , ia_America) ))
+
+  ,
+
+% axiom_837_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS_AndRHS, axiom.
+(( ~ equal(ia_Germany , ia_America) ))
+
+)
+)).
+
+%------------------------------------------------------------------------------
