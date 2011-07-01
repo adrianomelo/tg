@@ -2,15 +2,42 @@ package br.ufpe.cin;
 
 import java.util.Vector;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AddAxiom;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+import org.semanticweb.owlapi.model.RemoveAxiom;
 
 public class SubClassOfNormalization {
-	private OWLOntology ontology = null;
+	private Ontology ontology = null;
+	private OWLOntologyManager manager;
 
-	public void setOntology(OWLOntology o) {
+	public SubClassOfNormalization(Ontology o) {
 		this.ontology = o;
+		manager = o.getManager();
+	}
+
+	void normalizeAxiom(OWLSubClassOfAxiom axiom) {
+		//System.out.println("Axiom visited: " + axiom);
+		if (isInNormalForm(axiom))
+			return;
+		
+		System.out.println("Axiom to normalize: " + axiom);
+		
+		OWLClassExpression left = axiom.getSubClass();
+		OWLClassExpression new_left = purify(left);
+			
+		OWLClassExpression right = axiom.getSuperClass();
+		OWLClassExpression new_right = purify(right);
+
+		if (!Normalization.isInNormalForm(new_left, new_right)) {
+			create_assertion (new_left, new_right);
+		}
 	}
 	
 	private boolean isInNormalForm(OWLSubClassOfAxiom axiom) {
@@ -23,128 +50,46 @@ public class SubClassOfNormalization {
 		return false;
 	}
 
-	/* 
-	 * Normalize-Axiom (Axiom A, Ontology O);
-	 *  If A not in normal form then
-	 * 	 If LHS(A) ∉ NC U SC {not a concept or pure conjunction} 
-	 *    Normalize-LHS (A, O);
-	 *   If RHS(A) ∉ NC U SD {not a concept or pure disjunction} 
-	 *    Normalize-RHS (A, O);
-	 */
-	void normalizeAxiom(OWLSubClassOfAxiom axiom) {
-		if (isInNormalForm(axiom))
-			return;
+	private void create_assertion(OWLClassExpression new_left,  OWLClassExpression new_right) {
+		OWLDataFactory factory = ontology.getFactory();
 		
-		OWLClassExpression left = axiom.getSubClass();
-		if (!Normalization.isConcept(left) && !Normalization.isPureConjunction(left))
-			normalizeLHS(axiom);
+		OWLClass N = factory.getOWLClass(IRI.create("Added" + (int) (Math.random() * 1000)));
 		
-		OWLClassExpression right = axiom.getSuperClass();
-		if (!Normalization.isConcept(right) && !Normalization.isPureDisjunction(right))
-			normalizeRHS(axiom);
+		OWLSubClassOfAxiom left = factory.getOWLSubClassOfAxiom(new_left, N);
+		OWLSubClassOfAxiom right = factory.getOWLSubClassOfAxiom(N, new_right);
+		
+		AddAxiom left_axiom  = new AddAxiom(ontology.getOntology(), left);
+		AddAxiom right_axiom = new AddAxiom(ontology.getOntology(), right);
+		
+		OWLOntologyManager manager = ontology.getManager();
+		manager.applyChange(left_axiom);
+		manager.applyChange(right_axiom);
 	}
 
-	private void normalizeRHS(OWLSubClassOfAxiom axiom) {
-		// TODO Auto-generated method stub
+	private OWLClassExpression purify(OWLClassExpression expression){
+		AbstractNormalizationVisitor normalization_visitor = null;
 		
+		if (Normalization.isConjunction(expression) && !Normalization.isPureConjunction(expression))
+		{
+			normalization_visitor = new ConjunctionVisitor(ontology);
+			expression.accept(normalization_visitor);
+			
+			return normalization_visitor.getNewExpression();
+		} 
+		else if (Normalization.isDisjunction(expression) && !Normalization.isPureDisjunction(expression))
+		{
+			normalization_visitor = new DisjunctionVisitor(ontology);
+			expression.accept(normalization_visitor);
+			
+			return normalization_visitor.getNewExpression();
+		} else if (Normalization.isConcept(expression)){
+			return expression;
+		} else {
+			normalization_visitor = new DisjunctionVisitor(ontology);
+			expression.accept(normalization_visitor);
+			
+			return normalization_visitor.getNewExpression();
+		}
 	}
 
-	/*
-	 * Normalize-LHS (Axiom A, ontology O);
-	 *  If LHS(A) ∈ SC U SnpC (a conjunction) then 
-	 *  	For each D ⊆ LHS(A) │ D ∈ SD U SnpD (disjunction) 
-	 *   		LHS(A) ← (LHS(A) – D) ⊓ N, N ∈ O 
-	 *   
-	 *   		If D ∈ SnpD (non-pure) then
-	 *   			O ← O U Normalize-LHS({D ⊑ N}, O);
-	 *   		Else 
-	 *   			O ← O U {D ⊑ N};
-	 *   
-	 *   	For each nC ⊆ LHS(A) │ nC ∈ SnpC (non-pure conjunction) 
-	 *   		Find the first impurity I ⊆ nC │ I ∈ SI
-	 *   		nc∘ ← nC{I/N}, N ∈ O
-	 *   		LHS(A) ← (LHS(A) – nC) ⊓ nc∘
-	 *   		O ← O U Normalize-LHS({I ⊑ N}, O} 
-	 *   
-	 *   Else {LHS(A) ∈ SD U SnpD (disjunction)}
-	 *   	O ← O – A; 
-	 *   	For each X ⊆ LHS(A) | X ∈ NC U SC (atomic concept or pure conjunction)
-	 *   		If RHS(A) ∈ NC U SC (not a concept or pure conjunction) then
-	 *   			O ← O U Normalize-RHS({X ⊑ RHS(A)}, O}; 
-	 * 			Else
-	 * 				O ← O U {X ⊑ RHS(A)};
-	 * 
-	 * 		For each expression E ⊆ LHS(A) | E ∉ SC (not a pure conjunction) ???????
-	 * 			If E ⊑ RHS(A) is not in normal form then 
-	 * 				O ← O U Normalize-Axiom({E ⊑ RHS(A)}, O};
-	 * 			Else
-	 * 				O ← O U E ⊑ RHS(A);
-	 */
-	private void normalizeLHS(OWLSubClassOfAxiom axiom) 
-	{
-		OWLClassExpression left  = axiom.getSubClass();
-		OWLClassExpression right = axiom.getSuperClass();
-		
-		// If LHS(A) ∈ SC U SnpC (a conjunction) then 
-		if (Normalization.isConjunction(left) || Normalization.isPureConjunction(left)){
-			// For each D ⊆ LHS(A) │ D ∈ SD U SnpD (disjunction) 
-			// LHS(A) ← (LHS(A) – D) ⊓ N, N ∈ O
-			
-			/* modifica left para deixa-lo apenas com conjunções. 
-			 * cria disjunction ⊑ Atomic, para cada disjunção */
-			ConjunctionVisitor new_left = new ConjunctionVisitor(ontology, left);
-			
-			/* retorna as disjunções que foram removidas da conjunção */
-			Vector<OWLSubClassOfAxiom> disjunctions = new_left.getDisjunctions();
-			
-			//	If D ∈ SnpD (non-pure) then
-			// 		O ← O U Normalize-LHS({D ⊑ N}, O);
-			//	Else 
-			//		O ← O U {D ⊑ N};
-			
-			for (OWLSubClassOfAxiom subaxiom : disjunctions){
-				if (!Normalization.isPureDisjunction(subaxiom.getSubClass())){
-					normalizeLHS(subaxiom);
-				}
-			}
-			
-			//	For each nC ⊆ LHS(A) │ nC ∈ SnpC (non-pure conjunction) 
-			//		Find the first impurity I ⊆ nC │ I ∈ SI
-			//			nc∘ ← nC{I/N}, N ∈ O
-			//			LHS(A) ← (LHS(A) – nC) ⊓ nc∘
-			//			O ← O U Normalize-LHS({I ⊑ N}, O}
-			
-			/* precisa implementar mais alguma coisa? */
-		}
-		// Else {LHS(A) ∈ SD U SnpD (disjunction)}
-		else if (Normalization.isDisjunction(left) || Normalization.isPureDisjunction(left)){
-			//	For each X ⊆ LHS(A) | X ∈ NC U SC (atomic concept or ??pure?? conjunction)
-			//		If RHS(A) ∈ NC U SC (not a concept or pure conjunction) then
-			//			O ← O U Normalize-RHS({X ⊑ RHS(A)}, O}; 
-			//		Else
-			//			O ← O U {X ⊑ RHS(A)};
-			
-			/* modifica left para deixa-lo apenas com disjunções. 
-			 * cria conjunction ⊑ RHS, para cada conjunção */
-			DisjunctionVisitor new_left = new DisjunctionVisitor(ontology, left, right);
-			
-			/* retorna as conjunções que foram removidas da disjunção */
-			Vector<OWLSubClassOfAxiom> conjunctions = new_left.getConjunctions();
-			
-			for (OWLSubClassOfAxiom subaxiom : conjunctions){
-				OWLClassExpression X = subaxiom.getSubClass();
-				if (!Normalization.isConcept(X) || Normalization.isPureConjunction(X)){
-					normalizeRHS(subaxiom);		
-				}
-			}
-			
-			// 	For each expression E ⊆ LHS(A) | E ∉ SC (not a pure conjunction) ???????
-			//		If E ⊑ RHS(A) is not in normal form then 
-			//			O ← O U Normalize-Axiom({E ⊑ RHS(A)}, O};
-			//		Else
-			//			O ← O U E ⊑ RHS(A);
-			
-			/* precisa implementar? */
-		}
-	}
 }

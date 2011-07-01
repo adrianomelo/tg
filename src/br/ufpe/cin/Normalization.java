@@ -28,25 +28,24 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
 
 public class Normalization {
-	OWLOntology ontology = null;
-	Ontology normalized_ontology = null;
+	Ontology ontology = null;
 	SubClassOfNormalization subclass_normalization = null;
+	EquivalentClassesNormalization equivalent_normalization = null;
 	
-	public Normalization(OWLOntology o)
+	public Normalization(Ontology o)
 	{
 		this.ontology = o;
-		subclass_normalization.setOntology(o);
+		subclass_normalization = new SubClassOfNormalization(o);
+		equivalent_normalization = new EquivalentClassesNormalization(o);
 	}
 
-	/* 
-	 * For each axiom A ∈ O Normalize-Axiom (A,O);
-	 */
 	public void normalizeOntology() throws OWLOntologyCreationException
-	{		
-		Set<OWLClass> classes = this.ontology.getClassesInSignature();
+	{
+		OWLOntology onto = ontology.getOntology();
+		Set<OWLClass> classes = onto.getClassesInSignature();
 		for (OWLClass cls : classes){
-			Set<OWLEquivalentClassesAxiom> eq = ontology.getEquivalentClassesAxioms(cls);
-			Set<OWLSubClassOfAxiom> sub       = ontology.getSubClassAxiomsForSubClass(cls);
+			Set<OWLEquivalentClassesAxiom> eq = onto.getEquivalentClassesAxioms(cls);
+			Set<OWLSubClassOfAxiom> sub       = onto.getSubClassAxiomsForSubClass(cls);
 			
 			/*System.out.println(cls);
 			for (OWLEquivalentClassesAxiom c : eq){
@@ -65,56 +64,13 @@ public class Normalization {
 			}*/
 			
 			for (OWLEquivalentClassesAxiom axiom : eq)
-				normalizeAxiom(axiom);
+				equivalent_normalization.normalizeAxiom(axiom);
 			
 			for (OWLSubClassOfAxiom axiom : sub)
 				subclass_normalization.normalizeAxiom(axiom);
 			
 		}
 	}
-	
-	
-
-	/* 
-	 * Normalize-Axiom (Axiom A, Ontology O);
-	 *  If A not in normal form then
-	 * 	 If LHS(A) ∉ NC U SC {not a concept or pure conjunction} 
-	 *    Normalize-LHS (A, O);
-	 *   If RHS(A) ∉ NC U SD {not a concept or pure disjunction} 
-	 *    Normalize-RHS (A, O);
-	 */
-	private void normalizeAxiom(OWLEquivalentClassesAxiom axiom) {
-		if (isInNormalForm(axiom))
-			return;
-		
-		Set<OWLClassExpression> expressions = axiom.getClassExpressions();
-		
-		for (OWLClassExpression left_exp : expressions){
-			for (OWLClassExpression right_exp : expressions){
-				if (left_exp == right_exp)
-					continue;
-				
-				if(!isInNormalForm(left_exp, right_exp) || !isInNormalForm(right_exp, left_exp))
-					System.out.println("E AI?");
-			}
-		}
-	}
-
-	private boolean isInNormalForm(OWLEquivalentClassesAxiom axiom) {
-		Set<OWLClassExpression> expressions = axiom.getClassExpressions();
-		Set<OWLClass> classz = axiom.getNamedClasses();
-		
-		for (OWLClass cls : classz){
-			for (OWLClassExpression exp : expressions){
-				if(!isInNormalForm(cls, exp) || !isInNormalForm(exp, cls))
-					return false;
-			}
-		}
-		
-		return true;
-	}
-	
-
 	
 	// i)    C [ ^C
 	// ii)  vD [  C

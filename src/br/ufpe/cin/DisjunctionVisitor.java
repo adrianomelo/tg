@@ -13,56 +13,19 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 
 public class DisjunctionVisitor extends AbstractNormalizationVisitor {
-
-	public DisjunctionVisitor(OWLOntology o) {
+	
+	public DisjunctionVisitor(Ontology o) {
 		super(o);
 	}
 
-	public DisjunctionVisitor(OWLOntology ontology, OWLClassExpression left,
-			OWLClassExpression right) {
-		// TODO Auto-generated constructor stub
-	}
-
-	// disjunctions
-	@Override
-	public void visit(OWLObjectUnionOf union) {
-		Set<OWLClassExpression> operands = union.getOperands();
-		for (OWLClassExpression exp : operands){
-			exp.accept(this);
-		}
-	}
-
-	@Override
-	public void visit(OWLObjectAllValuesFrom all) {
-		Set<OWLClassExpression> expressions = all.getNestedClassExpressions();
-		for (OWLClassExpression exp : expressions)
-			exp.accept(this);
-	}
-
 	// conjunctions
-	@Override
 	public void visit(OWLObjectIntersectionOf intersection) {
-		System.out.println("Extracting intersection: " + intersection);
+		System.out.println("Impurity Detected.. extracting intersection!");
 		extractOWLClassExpression(intersection);
-		removed_axioms.add(intersection);
 	}
 
-	@Override
 	public void visit(OWLObjectSomeValuesFrom some) {
-		System.out.println("Extracting some values from: " + some);
+		System.out.println("Impurity Detected.. extracting Some Values!");
 		extractOWLClassExpression(some);
-		removed_axioms.add(some);
 	}
-
-	@Override
-	public void visit(OWLObjectComplementOf complement) {
-		OWLClassExpression cls = complement.getObjectComplementOf();
-		cls.accept(this);
-	}
-
-	public Vector<OWLSubClassOfAxiom> getConjunctions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

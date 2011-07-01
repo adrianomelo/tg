@@ -35,72 +35,19 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 public class ConjunctionVisitor extends AbstractNormalizationVisitor {
 	OWLClassExpression left;
 	
-	public ConjunctionVisitor(OWLOntology o) {
+	public ConjunctionVisitor(Ontology o) {
 		super(o);
 	}
 
-	public ConjunctionVisitor(OWLOntology ontology, OWLClassExpression left) {
-		super(ontology);
-		
-		this.left = left;
-		
-		left.accept(this);
-		
-		accept(left, this);
-	}
-	
-	OWLClassExpression accept (OWLClassExpression classz, ConjunctionVisitor visitor){
-		if (classz instanceof OWLObjectUnionOf)
-			OWLObjectUnionOf exp = (OWLObjectUnionOf) classz;
-			return visitor.visit();
-	}
-
-	// DISJUNCTIONS
 	public void visit(OWLObjectUnionOf union)
 	{
-		System.out.println("N‹o ser‡ visitado!");
+		System.out.println("Impurity Detected.. extracting Union!");
+		extractOWLClassExpression(union);
 	}
 	
 	public void visit(OWLObjectAllValuesFrom all)
 	{
-		System.out.println("N‹o ser‡ visitado!");
+		System.out.println("Impurity Detected.. extracting All values!");
+		extractOWLClassExpression(all);
 	}
-
-	// CONJUNCTIONS
-	public void visit(OWLObjectIntersectionOf intersection)
-	{
-		Set<OWLClassExpression> operands = intersection.getOperands();
-		Vector<OWLClassExpression> new_operands = new Vector<OWLClassExpression>();
-		
-		for (OWLClassExpression exp : operands){
-			if (!Normalization.isConjunction(exp)) { // is a disjunction
-				OWLClass N = factory.getOWLClass(IRI.create("Extracted" + (int) (Math.random() * 1000)));
-				OWLSubClassOfAxiom N_axiom = factory.getOWLSubClassOfAxiom(exp, N);
-				extrated_expressions.add(N_axiom);
-				
-				new_operands.add(N);
-			}else{
-				new_operands.add(exp);
-			}
-		}
-	}
-	
-	public void visit(OWLObjectSomeValuesFrom some)
-	{
-		Set<OWLClassExpression> expressions = some.getNestedClassExpressions();
-		for (OWLClassExpression exp : expressions)
-			exp.accept(this);
-	}
-	
-	public void visit(OWLObjectComplementOf complement)
-	{	
-		OWLClassExpression cls = complement.getObjectComplementOf();
-		cls.accept(this);
-	}
-
-	public Vector<OWLSubClassOfAxiom> getDisjunctions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 }

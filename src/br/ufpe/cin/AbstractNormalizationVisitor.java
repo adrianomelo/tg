@@ -1,7 +1,9 @@
 package br.ufpe.cin;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 import java.util.Vector;
 
 import org.semanticweb.owlapi.model.AddAxiom;
@@ -11,56 +13,139 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
+import org.semanticweb.owlapi.model.OWLObjectCardinalityRestriction;
 import org.semanticweb.owlapi.model.OWLObjectComplementOf;
+import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
+import org.semanticweb.owlapi.model.OWLObjectMinCardinality;
+import org.semanticweb.owlapi.model.OWLObjectOneOf;
+import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLProperty;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.util.OWLClassExpressionVisitorAdapter;
 import org.semanticweb.owlapi.util.OWLEntityRemover;
 
-public abstract class AbstractNormalizationVisitor {
+public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVisitorAdapter{
 	
-	protected OWLOntology ontology;
+	protected Ontology ontology;
 	protected OWLOntologyManager manager;
 	protected OWLDataFactory factory;
-	protected Vector<OWLSubClassOfAxiom> extrated_expressions;
+	protected Stack<OWLClassExpression> stack;
 
-	public AbstractNormalizationVisitor(OWLOntology o)
+	public AbstractNormalizationVisitor(Ontology o)
 	{
-		this.ontology = o;
-		this.manager  = o.getOWLOntologyManager();
-		this.factory  = manager.getOWLDataFactory();
-		this.extrated_expressions = new Vector<OWLSubClassOfAxiom>();
+		this.manager  = o.getManager();
+		this.factory  = o.getFactory();
+		ontology = o;
+		this.stack = new Stack<OWLClassExpression>();
 	}
 	
 	protected void extractOWLClassExpression(OWLClassExpression axiom) {
-		OWLEntityRemover visitor = new OWLEntityRemover(manager, Collections.singleton(ontology));
-		Set<OWLClass> cls = axiom.getClassesInSignature();
-		for (OWLClass classz : cls){
-			System.out.println("Removed: " + classz);
-			classz.accept(visitor);
-		}
-		manager.applyChanges(visitor.getChanges());
+		OWLClass N = factory.getOWLClass(IRI.create("Extracted" + (int) (Math.random() * 1000)));
 		
-		manager.removeAxiom(ontology, (OWLAxiom) axiom);
-		
-		/*OWLClass N = factory.getOWLClass(IRI.create("Extracted" + (int) (Math.random() * 1000)));
 		OWLAxiom inclusion = factory.getOWLSubClassOfAxiom(N, axiom);
-		AddAxiom addAxiom  = new AddAxiom(ontology, inclusion);
-		manager.applyChange(addAxiom);*/
+		AddAxiom addAxiom  = new AddAxiom(ontology.getOntology(), inclusion);
+		manager.applyChange(addAxiom);
+		
+		stack.add(N);
+	}
+	private void removeExpression(OWLClassExpression exp)
+	{
+		OWLClass N = factory.getOWLClass(IRI.create("Hidden" + (int) (Math.random() * 1000)));
+		stack.add(N);
 	}
 	
-	abstract public OWLClassExpression visit(OWLObjectUnionOf union);
-	abstract public OWLClassExpression visit(OWLObjectAllValuesFrom all);
-	abstract public OWLClassExpression visit(OWLObjectIntersectionOf intersection);
-	abstract public OWLClassExpression visit(OWLObjectSomeValuesFrom some);
-	abstract public OWLClassExpression visit(OWLObjectComplementOf complement);
-	
-	public Vector<OWLClassExpression> getRemovedAxioms ()
+	public void visit(OWLObjectUnionOf union)
 	{
-		return extrated_expressions;
+		Set<OWLClassExpression> expressions = union.getOperands();
+		
+		int expression_counter = 0;
+		for (OWLClassExpression exp : expressions)
+		{
+			exp.accept(this);	
+			expression_counter = expression_counter + 1;
+		}
+		
+		Set<OWLClassExpression> operands = new HashSet<OWLClassExpression>();
+		while (expression_counter-- > 0){
+			operands.add(stack.pop());
+		}
+		
+		OWLObjectUnionOf new_union = factory.getOWLObjectUnionOf(operands);
+		stack.add(new_union);
+	}
+	public void visit(OWLObjectIntersectionOf intersection)
+	{
+		Set<OWLClassExpression> expressions = intersection.getOperands();
+		
+		int expression_counter = 0;
+		for (OWLClassExpression exp : expressions)
+		{
+			exp.accept(this);	
+			expression_counter = expression_counter + 1;
+		}
+		
+		Set<OWLClassExpression> operands = new HashSet<OWLClassExpression>();
+		while (expression_counter-- > 0){
+			operands.add(stack.pop());
+		}
+		
+		OWLObjectUnionOf new_intersection = factory.getOWLObjectUnionOf(operands);
+		stack.add(new_intersection);
+	}
+	public void visit(OWLObjectAllValuesFrom all)
+	{
+		OWLClassExpression expression = all.getNNF();
+		OWLObjectPropertyExpression property = all.getProperty();
+		expression.accept(this);
+		
+		OWLClassExpression new_expression = stack.pop();
+		OWLObjectAllValuesFrom new_all = factory.getOWLObjectAllValuesFrom(property, new_expression);
+		
+		stack.add(new_all);
+	}
+	public void visit(OWLObjectSomeValuesFrom some)
+	{
+		OWLClassExpression expression = some.getNNF();
+		OWLObjectPropertyExpression property = some.getProperty();
+		
+		expression.accept(this);
+		
+		OWLClassExpression new_expression = stack.pop();
+		OWLObjectSomeValuesFrom new_some = factory.getOWLObjectSomeValuesFrom(property, new_expression);
+		
+		stack.add(new_some);
+	}
+	public void visit(OWLObjectComplementOf complement)
+	{
+		OWLClassExpression exp = complement.getNNF();
+		
+		if (!(exp instanceof OWLClass))
+			System.err.println("This complement of object is invalid: " + complement);
+		
+		stack.add(exp);
+	}
+	public void visit(OWLClass cls)
+	{
+		stack.add(cls);
+	}
+	public void visit(OWLObjectMinCardinality card)
+	{
+		removeExpression(card);
+	}
+	public void visit(OWLObjectHasValue value)
+	{
+		removeExpression(value);
+	}
+	public void visit(OWLObjectOneOf one){
+		removeExpression(one);
+	}
+	public OWLClassExpression getNewExpression()
+	{
+		return stack.pop();
 	}
 }

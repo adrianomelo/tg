@@ -68,4 +68,16 @@ public class Ontology {
 	public void save() throws OWLOntologyStorageException {
 		manager.saveOntology(ontology);
 	}
+
+	public OWLOntologyManager getManager() {
+		return manager;
+	}
+
+	public OWLDataFactory getFactory() {
+		return factory;
+	}
+
+	public OWLOntology getOntology() {
+		return ontology;
+	}
 }

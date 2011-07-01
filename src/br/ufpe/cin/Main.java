@@ -23,7 +23,7 @@ public class Main {
 			Ontology ontology = new Ontology();
 			ontology.loadFromFile(file);
 		
-			Normalization n = new Normalization(ontology.ontology);
+			Normalization n = new Normalization(ontology);
 			n.normalizeOntology();
 			
 			ontology.save();
