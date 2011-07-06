@@ -1,8 +1,66 @@
 % !TEX encoding = ISO-8859-1
-\chapter{LeanCop}
+\chapter{leanCoP}
 \label{ch:translation}
 
-In order to describe the connection method as a formal inference system (in section 4), and the positive matricial normal form used in it, we will briefly describe the notation we use for first order logic, before examining the method. We are presuming readers to be acquainted to first order logic.
+O leanCoP é um provador automático de teoremas para lógica de primeira ordem escrito em Prolog \cite{Otten:2003}. Em testes realizados com a biblioteca TPTP \cite{SS98}, o leanCoP mostrou boa performance, mesmo comparado a provadores de teoremas que são estado da arte. Dentre os 2200 problemas inclusos na biblioteca TPTP, o leanCoP foi capaz de resolver 667 (30.3\%), 532 problemas a mais que o leanTAP \cite{leantap:1994} e 932 a menos que o Otter \cite{otter:1995}. 
 
-\section{Definition 1 (First-order logic syntax).}
-The alphabets given by table 1 compose the FOL syntax notation.	? Table 1. First order logic syntax notation.
+O objetivo do uso do leanCoP neste trabalho é validar o algoritmo de normalização descrito em 3.1.1, caso o leanCoP consiga ser usado com a base de conhecimento descrita em $ALC$, significa que os axioms da base estão na forma normal positiva.
+
+É importânte notar que a ontologia OWL, documento que contém os axiomas da base de conhecimento, é descrita em lógica de descrição. Algumas ferramentas se mostraram necessárias para que essa base em OWL fosse usada com o leanCoP. Primeiro, a ontologia é convertida para o formato TPTP a partir da biblioteca owlapi 1.0 \footnote{download: http://sourceforge.net/projects/owlapi/files/OWL\%20API\%20\%28OWL\%201.0\%29/}, o arquivo gerado passa então por uma transformação para que use a linguagem de lógica de primeira ordem do TPTP. Após essa transformação, os axiomas da base podem ser utilizadas pelo leanCoP. 
+
+Os códigos abaixo mostram exemplos da linguagem usada pelo leanCoP:
+
+\begin{verbatim}
+fof(axiom_13,axiom,(
+    ! [X] : 
+      ( iAB(X)
+    <=> ( iA(X)
+        | iB(X) ) ) )). 
+\end{verbatim}
+
+O exemplo acima é um axioma expresso em lógica de primeira ordem que é equivalente a: 
+
+\begin{center}
+$\forall x (AB(x) \iff A(x) \lor B(x))$ 
+\end{center}
+
+A owlapi, biblioteca que transforma de OWL para TPTP, define em lógica de primeira ordem alguns conceitos básicos que são necessários para que os teoremas separem o domínio das intâncias de classes do domínio dos tipos pre-definidos em OWL. o exemplo de código abaixo mostra três dos onze axiomas que são gerados pela biblioteca com esse objetivo:
+
+\begin{verbatim}
+fof(axiom_0,axiom,(
+    ! [X] :
+      ( abstractDomain(X)
+      | dataDomain(X) ) )).
+
+fof(axiom_1,axiom,(
+    ? [X] : abstractDomain(X) )).
+
+fof(axiom_2,axiom,(
+    ? [X] : dataDomain(X) )).
+\end{verbatim}
+
+O primeiro axioma é igual a $\forall x (abstractDomain(x) \lor dataDomain(x))$, ou seja, todos os elementos do domínio ou são $abstractDomain$ ou $dataDomain$. O segundo axioma é igual a $\exists x (abstractDomain(x))$, ou seja, o domínio $abstractDomain$ não é vazio. E o terceiro axioma do exemplo é igual a $\exists x (dataDomain(x))$, ou seja, o domínio $dataDomain$ também não é vazio. Abaixo estão todos os axiomas que são básicos para todas as bases:
+
+\[	\forall x (abstractDomain(x) \lor dataDomain(x))	\]
+\[	\exists x (abstractDomain(x))	\]
+\[	\exists x (dataDomain(x))	\]
+\[	\forall x \neg (abstractDomain(x) \land dataDomain(x))	\]
+\[	\forall x (owlThing(x) \implies abstractDomain(x))	\]
+\[	\forall x (owlNothing(x) \implies abstractDomain(x))	\]
+\[	\forall x (abstractDomain(x) \implies owlThing(x))	\]
+\[	\forall x \neg (owlNothing(x))	\]
+\[	\forall x (xsd\_string(x) \implies dataDomain(x))	\]
+\[	\forall x (xsd\_integer(x) \implies dataDomain(x))	\]
+\[	\forall x (dataDomain(x) \implies \neg (xsd\_string(x) \land xsd\_integer(x))	\]
+
+Para fazer alguma atividade de raciocínio a partir dessa base, um número exponencial de consultas deveria ser gerado. Subsunsão, por exemplo, consistirá em perguntar se cada conceito pode ser sub-classe de outro conceito.
+
+Devido a essa solução ser muito ineficiente, devido à quantidade transformações de arquivos que cada consulta deveria gerar, essa atividade de consulta acaba fugindo do escopo desse projeto, que é a implementação do algoritmo de normalização para o Método das Conexões com ontologias $\mathcal{ALC}$.
+
+
+%\section{Definition 1 (First-order logic syntax).}
+
+
+
+
+

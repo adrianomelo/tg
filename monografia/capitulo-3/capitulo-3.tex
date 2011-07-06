@@ -2,7 +2,7 @@
 \chapter{Normalização para o método das conexões}
 \label{ch:normalizacaoparaometododeconexoes}
 
-O método das conexões proposto por W. Bibel \cite{bibel:1982} é um método para prova automática de teoremas descritos em lógica d primeira ordem ou em lógica proposicional \cite{bibel:1993}. Um dos trabalhos recentes de Freitas et al \cite{Freitas:2010} foi a estenção desse método para lógica de descrição ALC.
+O método das conexões proposto por W. Bibel \cite{bibel:1982} é um método para prova automática de teoremas descritos em lógica d primeira ordem ou em lógica proposicional \cite{bibel:1993}. Um dos trabalhos recentes de Freitas et al \cite{Freitas:2010} foi a extenção desse método para lógica de descrição $ALC$.
 
 O artigo intitulado \textit{A Connection Method for Reasoning with the Description Logic ALC} \cite{Freitas:2010} propõe algoritmos tanto para o método, quanto para a normalização que precisa ser feita na base de conhecimento para que seja possível a representação necessária para o método das conexões usando apenas uma matriz. 
 
@@ -10,7 +10,7 @@ O objetivo deste trabalho é implementar algum algoritmo de normalização para o m
 
 No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, o orientando propôs um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, mas com o efeito colateral de precisar adicionar um símbolo a mais na base de conhecimento no pior caso. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
 
-\section{Tradução de ontologias ALC para forma normal disjuntiva}
+\section{Tradução de ontologias $ALC$ para forma normal disjuntiva}
 
 Para que o leitor consiga entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
 
@@ -43,7 +43,7 @@ $\{\{ (L_{1, 1}, ..., L_{1, m}\}, ..., \{L_{n, 1}, ..., L_{n, m} \}\}$
 
 \end{definicao}
 
-A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser estendido.
+A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser extendido.
 
 \begin{definicao}[Conjunção ALC]
 Uma conjunção ALC é um literal $L$, uma conjunção $(E_0 \land , ..., \land E_n)$, ou uma restrição existencial $\exists x.E$, onde $E$ é uma expressão qualquer em lógica de descrição.
@@ -77,5 +77,80 @@ iii) $\hat{C} \sqsubseteq \check{D}$ \\
 onde A é um conceito atômico,  $\hat{C}$ é uma conjunção ALC pura, $\check{D}$ é uma disjunção ALC pura.
 
 \end{definicao}
+
+O método das conexões utiliza matrizes para realizar provas de teoremas. No início deste trabalho, ainda não era possível de fazer as provas com matrizes aninhadas, ou seja, havia sempre a necessidade de normalizar a base de conhecimento na forma normal positiva (definição 7). No entanto, Jens Otten em um trabalho entitulado \textit{A Non-clausal Connection Calculus} \cite{Otten:2011} mostrou como aplicar o método das conexões sem o passo da normalização. Apesar da recente evolucão do método, para o objetivo deste trabalho, ainda é necessário fazer a normalização, já que para lógica de descrição, o método ainda não foi modificado para usar matrizes aninhadas.
+
+A próxima seção desta monografia descreve o algoritmo proposto pelo autor para a normalização para a forma normal positiva.
+
+
+\subsection{Algoritmo Proposto}
+
+Esta seção da monografia descreve a implementação realizada neste trabalho.
+
+O método das conexões é um método direto, ou seja, uma consulta à base de conhecimento toma verifica se uma fórmla é uma tautologia e toma a forma $KB \rightarrow \alpha$, onde $\alpha$ é um axioma e $KB$ (\textit{Knowledge base}) é da forma $\bigcap \limits_{i=1}^{n} A_i$, onde $A_i$ também é um axioma. Expandindo a fórmula $\neg KB \lor \alpha$, temos:
+
+$\neg \bigcap \limits_{i=1}^{n} A_i \lor \alpha$ [ou, $\neg (A_1 \land ... \land A_n) \lor \alpha$], que pode ser transformada para:
+
+$\bigcup \limits_{i=1}^{n} \neg A_i \lor \alpha$ [ou, $\neg A_1 \lor ... \lor \neg A_n \lor \alpha$]
+
+%, e $\alpha$ ainda é transformada para $\neg \neg\alpha$ para que as regras de normalização também se apliquem a ela, ficando:
+
+%$\bigcup \limits_{i=1}^{n} \neg A_i \lor \neg \neg \alpha$ [ou, em uma forma por extenso, $\neg A_1 \lor ... \lor \neg A_n \lor \neg \neg \alpha$]
+
+Cada $\neg A_i$ ou $\alpha$ precisam estar na forma normal positiva, ou seja, precisam estar em uma das formas: i) $A \sqsubseteq \hat{C}$, ii) $\check{D} \sqsubseteq A$, ou, iii) $\hat{C} \sqsubseteq \check{D}$, onde $A$ é um conceito, $\hat{C}$ é uma conjunção pura e $\check{D}$ é uma disjunção pura.
+
+O primeiro passo do algoritmo é a separação de axiomas de equivalência de expressões e inclusões. Os axiomas de equivalência serão substituídos por dois axiomas de inclusão, e.g., $(A \equiv B \rightarrow A \sqsubseteq B \land B \sqsubseteq A)$.
+
+\begin{algorithm}
+\caption{Início do processo de normalização para toda a base de conhecimento}
+\begin{algorithmic}
+\FORALL [A, B são expressões, $S_{EQ}$ é o conjunto dos axiomas de equivalência]{$A \equiv B \in S_{EQ}$}
+\STATE Normalize-Axiom ($A \sqsubseteq B$)
+\STATE Normalize-Axiom ($B \sqsubseteq A$)
+\ENDFOR
+\FORALL [A, B são expressões, $S_I$ é o conjunto dos axiomas de inclusão]{$A \sqsubseteq B \in S_I$}
+\STATE Normalize-Axiom ($A \sqsubseteq B$)
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+A chamada ao método \textit{Normalize-Axiom()} remove as impuresas do lado esquerdo e do lado direito de cada axioma.
+
+\begin{algorithm}
+\caption{Normalize-Axiom ($A \sqsubseteq B)$)}
+\begin{algorithmic}
+\STATE $O = \{O - (A \sqsubseteq B) \} $
+\STATE $pure\_left = $ purify $(A)$
+\STATE $pure\_right = $ purify $(B)$
+\IF [$S_{PNF}$ é o conjunto das fórmulas na forma normal positiva]{$(pure\_left \sqsubseteq pure\_right) \in S_{PNF}$}
+\STATE $O = \{O \sqcup (pure\_left \sqsubseteq pure\_right)\} $
+\ELSE
+\STATE $O = \{O \sqcup (pure\_left \sqsubseteq N)\} $
+\STATE $O = \{O \sqcup (N \sqsubseteq pure\_right)\} $
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+O método $purify (A)$ indentifica se $A$ (expressão em DL) é uma conjunção, disjunção ou conceito. Caso $A$ seja uma conjunção não pura, as impuresas são removidas, caso contrário, $A$ permanece com a estrutura original. De forma análoga, caso $A$ seja uma disjunção não pura, as impuresas serão removidas e $A$ passará a ser pura. E o último caso, caso $A$ seja um conceito, ele não será modificado.
+
+O $if$ do método \textit{Normalize-Axiom ()} verifica se o axioma $A \sqsubseteq B$ está na forma normal positiva, caso não esteja, as expressões são separadas em dois axiomas para respeitar a tabela 3.1.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ | c | c | } \hline
+expressão & regra \\ \hline
+$\hat{C_1} \sqsubseteq \hat{C_2}$ & $(\hat{C_1} \sqsubseteq A' ) \land (A' \sqsubseteq \hat{C_2})$  \\ \hline
+$\check{D_1} \sqsubseteq \check{D_2}$ & $(\check{D_1} \sqsubseteq A' ) \land (A' \sqsubseteq \check{D_2})$ \\ \hline
+$\check{D} \sqsubseteq \hat{C}$ & $(\check{D} \sqsubseteq A' ) \land (A' \sqsubseteq \hat{C})$ \\ \hline
+
+\end{tabular}
+\caption{Tabela de regras a serem aplicadas após o método purify}
+\end{center}
+\end{table}
+
+
+
+
+
 
 

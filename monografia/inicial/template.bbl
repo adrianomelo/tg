@@ -32,6 +32,18 @@ W.~Bibel.
 Tim Berners-Lee.
 \newblock Information management: A proposal, 1989.
 
+\bibitem[BM11]{DBLP:conf/tableaux/2011}
+Kai Br{\"u}nnler and George Metcalfe, editors.
+\newblock {\em Automated Reasoning with Analytic Tableaux and Related Methods -
+  20th International Conference, TABLEAUX 2011, Bern, Switzerland, July 4-8,
+  2011. Proceedings}, volume 6793 of {\em Lecture Notes in Computer Science}.
+  Springer, 2011.
+
+\bibitem[BP94]{leantap:1994}
+B.~Beckert and J.~Posegga.
+\newblock Leantap : Lean tableau-based theorem proving.
+\newblock 1994.
+
 \bibitem[FSS10]{Freitas:2010}
 Fred Freitas, Anne Schlicht, and Heiner Stuckenschmidt.
 \newblock A connection method for reasoning with the description logic alc.
@@ -46,6 +58,22 @@ Jeff Heflin.
 \newblock Owl web ontology language use cases and requirements.
 \newblock 2004.
 
+\bibitem[Mcc95]{otter:1995}
+W.~Mccune.
+\newblock The otter theorem prover.
+\newblock 1995.
+
+\bibitem[OB03]{Otten:2003}
+Jens Otten and Wolfgang Bibel.
+\newblock leancop: lean connection-based theorem proving.
+\newblock {\em J. Symb. Comput.}, 36(1-2):139--161, 2003.
+
+\bibitem[Ott11]{Otten:2011}
+Jens Otten.
+\newblock A non-clausal connection calculus.
+\newblock In Br{\"u}nnler and Metcalfe \cite{DBLP:conf/tableaux/2011}, pages
+  226--241.
+
 \bibitem[RBML99]{buscape.com.br}
 Romero Rodrigues, Rodrigo Borges, Ronaldo Morita, and Mario Letelier.
 \newblock buscape.com.br, 06 1999.
@@ -59,5 +87,11 @@ Stuart Russell and Peter Norvig.
 \bibitem[Sic]{americanas.com}
 Carlos~Alberto Sicupira.
 \newblock americanas.com.
+
+\bibitem[Sut09]{SS98}
+G.~Sutcliffe.
+\newblock {The TPTP Problem Library and Associated Infrastructure: The FOF and
+  CNF Parts, v3.5.0}.
+\newblock {\em Journal of Automated Reasoning}, 43(4):337--362, 2009.
 
 \end{thebibliography}
