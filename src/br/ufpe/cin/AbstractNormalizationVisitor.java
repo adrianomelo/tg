@@ -35,6 +35,7 @@ public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVis
 	protected OWLOntologyManager manager;
 	protected OWLDataFactory factory;
 	protected Stack<OWLClassExpression> stack;
+	private static int num = 0;
 
 	public AbstractNormalizationVisitor(Ontology o)
 	{
@@ -45,18 +46,22 @@ public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVis
 	}
 	
 	protected void extractOWLClassExpression(OWLClassExpression axiom) {
-		OWLClass N = factory.getOWLClass(IRI.create("Extracted" + (int) (Math.random() * 1000)));
+		OWLClass N = factory.getOWLClass(IRI.create("Extracted" + AbstractNormalizationVisitor.nextNumber()));
 		
 		OWLAxiom inclusion = factory.getOWLSubClassOfAxiom(N, axiom);
 		AddAxiom addAxiom  = new AddAxiom(ontology.getOntology(), inclusion);
 		manager.applyChange(addAxiom);
 		
 		stack.add(N);
+		
+		System.out.println("Impurity " + axiom + " replaced by " + N);
 	}
 	private void removeExpression(OWLClassExpression exp)
 	{
-		OWLClass N = factory.getOWLClass(IRI.create("Hidden" + (int) (Math.random() * 1000)));
+		OWLClass N = factory.getOWLClass(IRI.create("Removed" + AbstractNormalizationVisitor.nextNumber()));
 		stack.add(N);
+
+		System.out.println("This expression is not allowed in ALC: " + exp + " will be replaced by: " + N);
 	}
 	
 	public void visit(OWLObjectUnionOf union)
@@ -85,7 +90,9 @@ public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVis
 		int expression_counter = 0;
 		for (OWLClassExpression exp : expressions)
 		{
-			exp.accept(this);	
+			//OWLClassExpression exp_nnf = exp.getNNF();
+			//exp_nnf.accept(this);
+			exp.accept(this);
 			expression_counter = expression_counter + 1;
 		}
 		
@@ -94,7 +101,7 @@ public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVis
 			operands.add(stack.pop());
 		}
 		
-		OWLObjectUnionOf new_intersection = factory.getOWLObjectUnionOf(operands);
+		OWLObjectIntersectionOf new_intersection = factory.getOWLObjectIntersectionOf(operands);
 		stack.add(new_intersection);
 	}
 	public void visit(OWLObjectAllValuesFrom all)
@@ -125,7 +132,7 @@ public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVis
 		OWLClassExpression exp = complement.getNNF();
 		
 		if (!(exp instanceof OWLClass))
-			System.err.println("This complement of object is invalid: " + complement);
+			System.out.println("This complement of object is invalid: " + complement);
 		
 		stack.add(exp);
 	}
@@ -147,5 +154,8 @@ public abstract class AbstractNormalizationVisitor extends OWLClassExpressionVis
 	public OWLClassExpression getNewExpression()
 	{
 		return stack.pop();
+	}
+	public static int nextNumber(){
+		return num++;
 	}
 }

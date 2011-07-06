@@ -41,13 +41,11 @@ public class ConjunctionVisitor extends AbstractNormalizationVisitor {
 
 	public void visit(OWLObjectUnionOf union)
 	{
-		System.out.println("Impurity Detected.. extracting Union!");
 		extractOWLClassExpression(union);
 	}
 	
 	public void visit(OWLObjectAllValuesFrom all)
 	{
-		System.out.println("Impurity Detected.. extracting All values!");
 		extractOWLClassExpression(all);
 	}
 }

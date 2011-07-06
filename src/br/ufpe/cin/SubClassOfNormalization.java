@@ -16,10 +16,12 @@ import org.semanticweb.owlapi.model.RemoveAxiom;
 public class SubClassOfNormalization {
 	private Ontology ontology = null;
 	private OWLOntologyManager manager;
+	private OWLDataFactory factory;
 
 	public SubClassOfNormalization(Ontology o) {
 		this.ontology = o;
 		manager = o.getManager();
+		factory = o.getFactory();
 	}
 
 	void normalizeAxiom(OWLSubClassOfAxiom axiom) {
@@ -27,13 +29,20 @@ public class SubClassOfNormalization {
 		if (isInNormalForm(axiom))
 			return;
 		
-		System.out.println("Axiom to normalize: " + axiom);
+		System.out.println("\nAxiom to normalize: " + axiom);
 		
 		OWLClassExpression left = axiom.getSubClass();
 		OWLClassExpression new_left = purify(left);
 			
 		OWLClassExpression right = axiom.getSuperClass();
 		OWLClassExpression new_right = purify(right);
+		
+		RemoveAxiom remove = new RemoveAxiom(ontology.getOntology(), axiom);
+		manager.applyChange(remove);
+		
+		OWLSubClassOfAxiom new_axiom = factory.getOWLSubClassOfAxiom(new_left, new_right);
+		AddAxiom add = new AddAxiom(ontology.getOntology(), new_axiom);
+		manager.applyChange(add);
 
 		if (!Normalization.isInNormalForm(new_left, new_right)) {
 			create_assertion (new_left, new_right);
@@ -69,27 +78,23 @@ public class SubClassOfNormalization {
 	private OWLClassExpression purify(OWLClassExpression expression){
 		AbstractNormalizationVisitor normalization_visitor = null;
 		
-		if (Normalization.isConjunction(expression) && !Normalization.isPureConjunction(expression))
-		{
+		if (Normalization.isConjunction(expression) && !Normalization.isPureConjunction(expression)){
 			normalization_visitor = new ConjunctionVisitor(ontology);
 			expression.accept(normalization_visitor);
 			
-			return normalization_visitor.getNewExpression();
-		} 
-		else if (Normalization.isDisjunction(expression) && !Normalization.isPureDisjunction(expression))
-		{
+		} else if (Normalization.isDisjunction(expression) && !Normalization.isPureDisjunction(expression)){
 			normalization_visitor = new DisjunctionVisitor(ontology);
 			expression.accept(normalization_visitor);
 			
-			return normalization_visitor.getNewExpression();
 		} else if (Normalization.isConcept(expression)){
 			return expression;
+			
 		} else {
 			normalization_visitor = new DisjunctionVisitor(ontology);
-			expression.accept(normalization_visitor);
-			
-			return normalization_visitor.getNewExpression();
+			expression.accept(normalization_visitor);	
 		}
+
+		return normalization_visitor.getNewExpression();
 	}
 
 }

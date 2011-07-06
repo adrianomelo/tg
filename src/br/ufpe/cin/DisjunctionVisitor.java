@@ -20,12 +20,10 @@ public class DisjunctionVisitor extends AbstractNormalizationVisitor {
 
 	// conjunctions
 	public void visit(OWLObjectIntersectionOf intersection) {
-		System.out.println("Impurity Detected.. extracting intersection!");
 		extractOWLClassExpression(intersection);
 	}
 
 	public void visit(OWLObjectSomeValuesFrom some) {
-		System.out.println("Impurity Detected.. extracting Some Values!");
 		extractOWLClassExpression(some);
 	}
 }
