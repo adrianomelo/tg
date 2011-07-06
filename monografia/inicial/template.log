@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  5 JUL 2011 22:07
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  6 JUL 2011 01:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -600,7 +600,7 @@ pdf ufpelogo.eps>
 (epstopdf)             \includegraphics on input line 1.
 Package epstopdf Info: Output file is already uptodate.
 
-<ufpelogo-eps-converted-to.pdf, id=100, 57.21375pt x 86.3225pt>
+<ufpelogo-eps-converted-to.pdf, id=96, 57.21375pt x 86.3225pt>
 File: ufpelogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ufpelogo-eps-converted-to.pdf>
@@ -681,7 +681,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--50
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 56.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 58.
  [11] [12
 
 ] [13] [14
@@ -729,7 +729,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
  [2]
-<../imagens/americanas.png, id=255, 643.40375pt x 289.08pt>
+<../imagens/americanas.png, id=250, 643.40375pt x 289.08pt>
 File: ../imagens/americanas.png Graphic file (type png)
 
 <use ../imagens/americanas.png>
@@ -738,7 +738,7 @@ Package pdftex.def Info: ../imagens/americanas.png used on input line 67.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 68.
 
-<../imagens/americanas-xml.png, id=257, 455.7025pt x 158.5925pt>
+<../imagens/americanas-xml.png, id=252, 455.7025pt x 158.5925pt>
 File: ../imagens/americanas-xml.png Graphic file (type png)
 
 <use ../imagens/americanas-xml.png>
@@ -834,7 +834,7 @@ le.3.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.75 \include{capitulo-3/capitulo-3}
+l.81 \include{capitulo-3/capitulo-3}
                                     ]
 \openout2 = `capitulo-4/capitulo-4.aux'.
 
@@ -861,24 +861,24 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ] (./template.bbl [19
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
  [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
 
 (./template.aux (./introducao/introducao.aux) (./capitulo-2/capitulo-2.aux)
 (./capitulo-3/capitulo-3.aux) (./capitulo-4/capitulo-4.aux)
 (./conclusao/conclusao.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 103.
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: CF0F4DBBAEDBD6FCFDC80B9BEA7E0EFF;1830.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 97.
+(rerunfilecheck)             Checksum: E94DEF8312B8A373E26278286DFBAD52;1741.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 103.
  ) 
 Here is how much of TeX's memory you used:
- 8406 strings out of 493763
- 120155 string characters out of 3144954
- 209491 words of memory out of 3000000
- 11323 multiletter control sequences out of 15000+200000
+ 8405 strings out of 493763
+ 120142 string characters out of 3144954
+ 208491 words of memory out of 3000000
+ 11322 multiletter control sequences out of 15000+200000
  98134 words of font info for 157 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  34i,11n,33p,1148b,516s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -887,18 +887,17 @@ exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
 live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
 ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2010/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2010/t
-exmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2010/texmf-dis
-t/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2010/texmf-dist/fonts/typ
-e1/urw/symbol/usyr.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/time
-s/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmbi8a.
-pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
-ive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (40 pages, 255845 bytes).
+e/2010/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2010/t
+exmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2010/texmf-dist/f
+onts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/
+urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/
+utmbi8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on template.pdf (40 pages, 252579 bytes).
 PDF statistics:
- 485 PDF objects out of 1000 (max. 8388607)
- 419 compressed objects within 5 object streams
+ 478 PDF objects out of 1000 (max. 8388607)
+ 413 compressed objects within 5 object streams
  126 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 200 words of extra memory for PDF output out of 10000 (max. 10000000)
 

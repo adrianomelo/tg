@@ -22,4 +22,3 @@
 \contentsline {subsection}{\numberline {3.1.1}Algoritmo Proposto}{13}{subsection.3.1.1}
 \contentsline {chapter}{\numberline {4}leanCoP}{15}{chapter.4}
 \contentsline {chapter}{\numberline {5}Conclus\~ao}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}Definition 1 (First-order logic syntax).}{17}{section.5.1}
