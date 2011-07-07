@@ -43,7 +43,7 @@ $\{\{ (L_{1, 1}, ..., L_{1, m}\}, ..., \{L_{n, 1}, ..., L_{n, m} \}\}$
 
 \end{definicao}
 
-A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser extendido.
+A definição acima é a definição herdada da lógica de primeira ordem, para ser válida também para a lógica de descrição o conceito de conjunções e disjunções deve ser estendido.
 
 \begin{definicao}[Conjunção ALC]
 Uma conjunção ALC é um literal $L$, uma conjunção $(E_0 \land , ..., \land E_n)$, ou uma restrição existencial $\exists x.E$, onde $E$ é uma expressão qualquer em lógica de descrição.
@@ -131,7 +131,7 @@ A chamada ao método \textit{Normalize-Axiom()} remove as impuresas do lado esque
 \end{algorithmic}
 \end{algorithm}
 
-O método $purify (A)$ indentifica se $A$ (expressão em DL) é uma conjunção, disjunção ou conceito. Caso $A$ seja uma conjunção não pura, as impuresas são removidas, caso contrário, $A$ permanece com a estrutura original. De forma análoga, caso $A$ seja uma disjunção não pura, as impuresas serão removidas e $A$ passará a ser pura. E o último caso, caso $A$ seja um conceito, ele não será modificado.
+O método $purify (A)$ indentifica se $A$ (expressão em DL) é uma conjunção, disjunção ou conceito. Caso $A$ seja uma conjunção não pura, as impuresas são removidas, caso contrário, $A$ permanece com a estrutura original. De forma análoga, caso $A$ seja uma disjunção não pura, as impuresas serão removidas e $A$ passará a ser pura. E o último caso, caso $A$ seja um conceito, ele não será modificado. Ao remover uma impuresa, um axioma é adicionado à base com a expressão impura. O método \textit{Normalize-Axiom()} é então chamado com esse novo axioma adicionado.
 
 O $if$ do método \textit{Normalize-Axiom ()} verifica se o axioma $A \sqsubseteq B$ está na forma normal positiva, caso não esteja, as expressões são separadas em dois axiomas para respeitar a tabela 3.1.
 
@@ -148,9 +148,30 @@ $\check{D} \sqsubseteq \hat{C}$ & $(\check{D} \sqsubseteq A' ) \land (A' \sqsubs
 \end{center}
 \end{table}
 
+\subsection{Algoritmo Original}
 
+Esta seção contém o algoritmo escrito por Freitas et al \cite{Freitas:2010} para a normalização de bases de conhecimento em lógica de descrição $ALC$. A figura 3.1 descreve o método \textit{Normalize-Ontology ()}, que chama os métodos \textit{Normaize-LHS ()} e \textit{Normalize-RHS ()} caso o lado esquerdo e direito, respectivamente,  não estejam normalizados para cada axioma da ontologia.
 
+\begin{figure}
+\includegraphics[scale=0.7]{../imagens/normalize.png}
+\caption{Método \textit{Normalize-Ontology ()}}
+\label{fig:normalizeontology}
+\end{figure}
 
+Os métodos \textit{Normalize-LHS ()} e \textit{Normalize-RHS} são duais, ou seja, possuem a mesma lógica mas com o sentido invertido. A figura 3.2 mostra o pseudocódigo do método \textit{Normalize-LHS()} e a figura 3.3 mostra o pseudocódigo do método \textit{Normalize-RHS}.
 
+ \begin{figure}
+\includegraphics[scale=0.52]{../imagens/normalizelhs.png}
+\caption{Método \textit{Normalize-LHS ()}}
+\label{fig:normalizelhs}
+\end{figure}
 
+ \begin{figure}
+\includegraphics[scale=0.52]{../imagens/normalizerhs.png}
+\caption{Método \textit{Normalize-RHS ()}}
+\label{fig:normalizerhs}
+\end{figure}
 
+Note que o primeiro algoritmo da seção 3.1.1 e a figura 3.1 são praticamente o mesmo, porém, o primeiro diferencia dentro do método os axiomas de equivalência e inclusão. No artigo de Freitas et al \cite{Freitas:2010} é citado que isso deve ser feito, mas não explicita no algoritmo.
+
+Ao comparar o segundo algoritmo da seção 3.1.1 com as figuras 3.2 e 3.3 pode ser visto de forma clara que o algoritmo de normalização proposto ficou muito mais simples que o original.

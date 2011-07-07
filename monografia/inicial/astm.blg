@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: astm.aux
+A level-1 auxiliary file: introducao/introducao.aux
+A level-1 auxiliary file: capitulo-2/capitulo-2.aux
+A level-1 auxiliary file: capitulo-3/capitulo-3.aux
+A level-1 auxiliary file: capitulo-4/capitulo-4.aux
+A level-1 auxiliary file: conclusao/conclusao.aux
+The style file: alpha.bst
+Database file #1: ../referencias/referencias.bib
+Warning--entry type for "buscape.com.br" isn't style-file defined
+--line 153 of file ../referencias/referencias.bib
+Warning--entry type for "americanas.com" isn't style-file defined
+--line 165 of file ../referencias/referencias.bib
+Warning--entry type for "mercadolivre.com.br" isn't style-file defined
+--line 175 of file ../referencias/referencias.bib
+Warning--entry type for "amazon.com" isn't style-file defined
+--line 186 of file ../referencias/referencias.bib
+Warning--entry type for "BernersLee:1989" isn't style-file defined
+--line 197 of file ../referencias/referencias.bib
+Warning--empty journal in leantap:1994
+Warning--empty journal in Heflin:2004
+Warning--empty journal in otter:1995
+You've used 18 entries,
+            2543 wiz_defined-function locations,
+            657 strings with 6571 characters,
+and the built_in function-call counts, 5896 in all, are:
+= -- 554
+> -- 280
+< -- 12
++ -- 93
+- -- 88
+* -- 369
+:= -- 990
+add.period$ -- 50
+call.type$ -- 18
+change.case$ -- 102
+chr.to.int$ -- 18
+cite$ -- 21
+duplicate$ -- 249
+empty$ -- 447
+format.name$ -- 116
+if$ -- 1195
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 15
+newline$ -- 88
+num.names$ -- 57
+pop$ -- 135
+preamble$ -- 1
+purify$ -- 123
+quote$ -- 0
+skip$ -- 222
+stack$ -- 0
+substring$ -- 201
+swap$ -- 25
+text.length$ -- 11
+text.prefix$ -- 8
+top$ -- 0
+type$ -- 122
+warning$ -- 3
+while$ -- 49
+width$ -- 21
+write$ -- 212
+(There were 8 warnings)

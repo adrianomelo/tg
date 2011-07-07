@@ -1,0 +1,100 @@
+% !TEX encoding = ISO-8859-1
+\documentclass[bsc]{ufpethesis}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+\usepackage{amsthm}
+\newtheorem{definicao}{Definição}
+
+%\university{<NOME DA UNIVERSIDADE>}
+%\address{<CIDADE DA IES>}
+\institute{Centro de Informática}
+%\department{Centro de Informática}
+\program{Graduação em Ciência da Computação}
+\majorfield{Ciência da Computação}
+\title{Normalização de ontologias em lógica de descrições para o raciocínio com o provador de teoremas leanCoP}
+\date{11 de julho de 2011}
+\author{Adriano Silva Tavares de Melo}
+\adviser{Fred Freitas}
+%\coadviser{NOME DO(DA) CO-ORIENTADOR(A)}
+
+\begin{document}
+
+%% Parte pré-textual
+\frontmatter
+% Folha de rosto
+\frontpage
+% Portada (apresentação)
+\presentationpage
+% Dedicatória
+\begin{dedicatory}
+Eu dedico este trabalho a Alcimary Silva, tia querida que não está mais entre nós.
+\end{dedicatory}
+% Agradecimentos
+\acknowledgements
+\input{../agradecimentos/agradecimentos}
+
+
+\begin{epigraph}{Mohandas Karamchand Gandhi}
+Uma vida de sacrifício é o cume supremo da arte; é cheia de alegria verdadeira.
+\end{epigraph}
+
+\resumo
+A Web Semântica promete revolucionar o jeito de como as pessoas interagem na Web. Os conceitos de agentes inteligentes, serviços baseados em semântica de documentos e empresas se comunicando com empresas através de agentes baseados em regras deverão ser abundantes nesse novo cenário.
+
+Várias tecnologias estão sendo estudadas e construídas para formar uma nova infra-estrutura para a Web. Entre elas estão os elementos que formarão a camada de lógica e prova, contexto que está inserido este trabalho.
+
+Este trabalho propôe implementar parte do algoritmo do método das conexões para lógica de descrição, usado para fazer atividades de raciocínio em uma base de conhecimento.  O módulo a ser implementado é a conversão dos axiomas da base de conhecimento para a forma normal positiva.
+\begin{keywords}
+método das conexões, lógica de descrição, lógica, inteligencia artificial
+\end{keywords}
+
+\abstract
+The Semantic Web promises to revolutionize the way people interact on the Web. Concepts like intelligent agents, semantic-based services, business-to-business communication between companies through rule-based agents should be plentiful in this new scenario.
+
+Several technologies are being studied and constructed to form a new infrastructure for the Web. These are the elements that form the layer of logic and proof, context that this project is inserted.
+
+This project proposes to implement part of the algorithm of the connection method for description logic, used to do activities of reasoning in a knowledge base. The module to be implemented is the conversion of the axioms of the knowledge base for the positive normal form.
+
+\begin{keywords}
+connection method, description logic, artificial intelligence
+\end{keywords}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+\include{introducao/introducao}
+%\include{capitulo-1/capitulo-1}
+\include{capitulo-2/capitulo-2}
+\include{capitulo-3/capitulo-3}
+\include{capitulo-4/capitulo-4}
+\include{conclusao/conclusao}
+
+%% Parte pós-textual
+\backmatter
+
+\appendix
+% \include{apendice1}
+
+% Bibliografia
+% É aconselhável utilizar o BibTeX a partir de um arquivo, digamos "biblio.bib".
+% Para ajuda na criaç?o do arquivo .bib e utilizaç?o do BibTeX, recorra ao
+% BibTeXpress em www.cin.ufpe.br/~paguso/bibtexpress
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{../referencias/referencias}
+
+% Inclui uma pequena nota com referência à UFPEThesis
+% \colophon
+
+%% Fim do documento
+\end{document}
