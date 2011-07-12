@@ -312,27 +312,26 @@ Quando o método \textit{visit (stack, $\neg e$, side, kind)} for chamado com a e
 
 \begin{center}
 $PizzaMargherita \sqsubseteq Pizza \sqcap \exists hasTopping. Tomate \sqcap \exists hasTopping.Muzzarella \sqcap  Extracted1$
-\end{center}
-\begin{center}
+
 $Extracted1 \sqsubseteq \forall hasTopping.(Tomate \sqcup Muzzarella)$
-\end{center}
-\begin{center}
+
 $Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap 
 Extracted2 \sqsubseteq PizzaMargherita$
-\end{center}
-\begin{center}
+
 $\forall hasTopping.(Tomate \sqcup Muzzarella) \sqsubseteq Extracted2$
 \end{center}
 
 Em formato matricial, temos (axiomas 1 e 2):
 
 \[
+\small{
 \begin{bmatrix}
-PM & PM & PM & PM & PM & PM & Extract1\\
-\neg Pizza & \neg hasTopp & \neg Tomate & \neg hasTopp & \neg Muzz & \neg Extract1 & \neg hasTopp\\
+PM & PM & PM & PM & PM & PM & Extracted1\\
+\neg Pizza & \neg hasTopping & \neg Tomate & \neg hasTopping & \neg Muzzarella & \neg Extracted1 & \neg hasTopping\\
  & & & & & & \neg Tomate\\
- & & & & & & \neg Muzz\\
+ & & & & & & \neg Muzzarella\\
 \end{bmatrix}
+}
 \]
 
 e (axiomas 3 e 4):
@@ -353,11 +352,42 @@ O algoritmo de Freitas et al \cite{Freitas:2010} chegou às mesmas matrizes. O qu
 
 \end{exemplo}
 
+\begin{exemplo}
+No exemplo dado por Freitas et al \cite{Freitas:2010}, o seu algoritmo se comportava de forma linear (em espaço) em relação às impurezas nas expressões. Porém, com o caso $\hat{C} \sqsubseteq \hat{D}$, onde $\hat{C}$ e $\hat{D}$ são conjunções puras, o algoritmo se comporta de forma quadrática em relação a memória.
+
+O algoritmo proposto irá dividir o axioma em dois, ficando $\hat{C} \sqsubseteq A$, e $A \sqsubseteq \hat{D}$. Já o algoritmo de Freitas et al, irá construir vários axiomas, um para cada expressão do lado direito, e.g., \{$\hat{C} \sqsubseteq D_1, \hat{C} \sqsubseteq D_2, ..., \hat{C} \sqsubseteq D_{m-1}, \hat{C} \sqsubseteq D_m$\}. O que irá resultar em uma matriz do tipo:
+
+\[
+\begin{bmatrix}
+C_1 & C_1 & \hdots & C_1 & C_1 \\
+C_2 & C_2 & \hdots & C_2 & C_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+C_{n-1} & C_{n-1} & \hdots & C_{n-1} & C_{n-1} \\
+C_n & C_n & \hdots & C_n & C_n  \\
+\neg D_1 & \neg D_2 & \hdots & \neg D_{m-1} & \neg D_m
+\end{bmatrix}
+\]
+
+enquanto que o algoritmo proposto irá produzir uma matriz do tipo:
+
+\[
+\begin{bmatrix}
+C_1 & A \\
+C_2 & \neg D_1 \\
+\vdots & \neg D_2 \\
+C_{n-1} & \vdots \\
+C_n & \neg D_{m-1} \\
+\neg A & \neg D_m \\
+\end{bmatrix}
+\]
+
+\end{exemplo}
+
 \subsection{Algoritmo Original}
 
 Esta seção contém o algoritmo escrito por Freitas et al \cite{Freitas:2010} para a normalização de bases de conhecimento em lógica de descrição $ALC$. A figura 3.1 descreve o método \textit{Normalize-Ontology ()}, que chama os métodos \textit{Normaize-LHS ()} e \textit{Normalize-RHS ()} caso o lado esquerdo e direito, respectivamente,  não estejam normalizados para cada axioma da ontologia.
 
-Quanto o método 
+Os métodos \textit{Normalize-LHS ()} e \textit{Normalize-RHS} são duais, ou seja, possuem a mesma lógica mas com o sentido invertido. A figura 3.2 mostra o pseudocódigo do método \textit{Normalize-LHS()} e a figura 3.3 mostra o pseudocódigo do método \textit{Normalize-RHS}.
 
 \begin{figure}
 \includegraphics[scale=0.7]{../imagens/normalize.png}
@@ -365,45 +395,11 @@ Quanto o método
 \label{fig:normalizeontology}
 \end{figure}
 
-Os métodos \textit{Normalize-LHS ()} e \textit{Normalize-RHS} são duais, ou seja, possuem a mesma lógica mas com o sentido invertido. A figura 3.2 mostra o pseudocódigo do método \textit{Normalize-LHS()} e a figura 3.3 mostra o pseudocódigo do método \textit{Normalize-RHS}.
-
  \begin{figure}
 \includegraphics[scale=0.52]{../imagens/normalizelhs.png}
 \caption{Método \textit{Normalize-LHS ()}}
 \label{fig:normalizelhs}
 \end{figure}
-
-\begin{verbatim}
-	 * Normalize-LHS (Axiom A, ontology O);
-	 *  If LHS(A) ? SC U SnpC (a conjunction) then 
-	 *  	For each D ? LHS(A) ? D ? SD U SnpD (disjunction) 
-	 *   		LHS(A) ? (LHS(A) ? D) ? N, N ? O 
-	 *   
-	 *   		If D ? SnpD (non-pure) then
-	 *   			O ? O U Normalize-LHS({D ? N}, O);
-	 *   		Else 
-	 *   			O ? O U {D ? N}; 
-	 *   
-	 *   	For each nC ? LHS(A) ? nC ? SnpC (non-pure conjunction) 
-	 *   		Find the first impurity I ? nC ? I ? SI
-	 *   		nc? ? nC{I/N}, N ? O
-	 *   		LHS(A) ? (LHS(A) ? nC) ? nc?
-	 *   		O ? O U Normalize-LHS({I ? N}, O} 
-	 *   
-	 *   Else {LHS(A) ? SD U SnpD (disjunction)}
-	 *   	O ? O ? A; 
-	 *   	For each X ? LHS(A) | X ? NC U SC (atomic concept or pure conjunction)
-	 *   		If RHS(A) ? NC U SC (not a concept or pure conjunction) then
-	 *   			O ? O U Normalize-RHS({X ? RHS(A)}, O}; 
-	 * 			Else
-	 * 				O ? O U {X ? RHS(A)};
-	 * 
-	 * 		For each expression E ? LHS(A) | E ? SC (not a pure conjunction) ???????
-	 * 			If E ? RHS(A) is not in normal form then 
-	 * 				O ? O U Normalize-Axiom({E ? RHS(A)}, O};
-	 * 			Else
-	 * 				O ? O U E ? RHS(A);
-\end{verbatim}
 
  \begin{figure}
 \includegraphics[scale=0.52]{../imagens/normalizerhs.png}
@@ -412,5 +408,3 @@ Os métodos \textit{Normalize-LHS ()} e \textit{Normalize-RHS} são duais, ou seja
 \end{figure}
 
 Note que o primeiro algoritmo da seção 3.1.1 e a figura 3.1 são praticamente o mesmo, porém, o primeiro diferencia dentro do método os axiomas de equivalência e inclusão. No artigo de Freitas et al \cite{Freitas:2010} é citado que isso deve ser feito, mas não explicita no algoritmo.
-
-Ao comparar o segundo algoritmo da seção 3.1.1 com as figuras 3.2 e 3.3 pode ser visto de forma clara que o algoritmo de normalização proposto ficou muito mais simples que o original.
