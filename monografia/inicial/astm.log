@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  7 JUL 2011 12:31
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  12 JUL 2011 00:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -499,51 +499,58 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \ALC@tlm=\skip54
 \algorithmicindent=\skip55
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 10.
+Package hyperref Info: Option `colorlinks' set `true' on input line 12.
 \c@definicao=\count129
+\c@exemplo=\count130
 
 (./astm.aux (./introducao/introducao.aux) (./capitulo-2/capitulo-2.aux)
-(./capitulo-3/capitulo-3.aux) (./capitulo-4/capitulo-4.aux)
-(./conclusao/conclusao.aux))
+(./capitulo-3/capitulo-3.aux
+
+LaTeX Warning: Label `visitexists' multiply defined.
+
+
+LaTeX Warning: Label `visitexists' multiply defined.
+
+) (./capitulo-4/capitulo-4.aux) (./conclusao/conclusao.aux))
 \openout1 = `astm.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 31.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 27.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 31.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/local/texlive/2010/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
+\scratchcounter=\count131
 \scratchdimen=\dimen123
 \scratchbox=\box30
-\nofMPsegments=\count131
-\nofMParguments=\count132
+\nofMPsegments=\count132
+\nofMParguments=\count133
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count133
+\MPscratchCnt=\count134
 \MPscratchDim=\dimen124
-\MPnumerator=\count134
+\MPnumerator=\count135
 \everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -570,7 +577,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 27.
+Package hyperref Info: Link coloring ON on input line 31.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -578,11 +585,11 @@ Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count135
+\c@section@level=\count136
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \nameref on input line 31.
 
 (./astm.out) (./astm.out)
 \@outlinefile=\write3
@@ -608,117 +615,116 @@ Package pdftex.def Info: ufpelogo-eps-converted-to.pdf used on input line 1.
 (pdftex.def)             Requested size: 57.2136pt x 86.32227pt.
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 32.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 32
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 36.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 36
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 32
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 36
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 32
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 36
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 32
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 36
 .
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 36.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
  [1
 
 
 
 {/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ufpel
-ogo-eps-converted-to.pdf>] [2
-
-]
+ogo-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
- [3] [4
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+ [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 36--36
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
 
  []
 
-[5] [6
+[3
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 40.
- (../agradecimentos/agradecimentos.tex) [7] [8
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
+ (../agradecimentos/agradecimentos.tex) [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
+Underfull \hbox (badness 10000) in paragraph at lines 48--48
 
  []
 
-[9] [10
+[5
 
 ]
-Overfull \hbox (0.46852pt too wide) in paragraph at lines 51--52
+Overfull \hbox (0.46852pt too wide) in paragraph at lines 55--56
 []\T1/ptm/m/n/12 Várias tec-no-lo-gias es-tão sendo es-tu-da-das e cons-truí-da
 s para for-mar uma nova infra-estrutura
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 54.
-[11] [12
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 58.
+[6
 
-] [13] [14
+] [7
 
 ] (./astm.toc)
 \tf@toc=\write4
 \openout4 = `astm.toc'.
 
- [15] [16
+ [8
 
 ] (./astm.lof)
 \tf@lof=\write5
 \openout5 = `astm.lof'.
 
- [17] [18
+ [9
 
 ] (./astm.lot)
 \tf@lot=\write6
 \openout6 = `astm.lot'.
 
-
-[19] [20
+ [10
 
 ]
 \openout2 = `introducao/introducao.aux'.
 
- (./introducao/introducao.tex
+
+(./introducao/introducao.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 19.
  [1
+
 
 
 ]
@@ -734,7 +740,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
  [2]
-<../imagens/americanas.png, id=271, 643.40375pt x 289.08pt>
+<../imagens/americanas.png, id=227, 643.40375pt x 289.08pt>
 File: ../imagens/americanas.png Graphic file (type png)
 
 <use ../imagens/americanas.png>
@@ -743,7 +749,7 @@ Package pdftex.def Info: ../imagens/americanas.png used on input line 67.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 68.
 
-<../imagens/americanas-xml.png, id=273, 455.7025pt x 158.5925pt>
+<../imagens/americanas-xml.png, id=229, 455.7025pt x 158.5925pt>
 File: ../imagens/americanas-xml.png Graphic file (type png)
 
 <use ../imagens/americanas-xml.png>
@@ -765,11 +771,7 @@ l.101
 \openout2 = `capitulo-2/capitulo-2.aux'.
 
 
-(./capitulo-2/capitulo-2.tex [6
-
-
-
-]
+(./capitulo-2/capitulo-2.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 2.
@@ -780,24 +782,28 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-[7]
+[6
+
+
+
+]
 Overfull \hbox (16.93466pt too wide) in paragraph at lines 70--90
  [] 
  []
 
-[8pdfTeX warning (ext4): destination with the same identifier (name{table.2.1})
+[7pdfTeX warning (ext4): destination with the same identifier (name{table.2.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.98 
-     ] [9pdfTeX warning (ext4): destination with the same identifier (name{tabl
+     ] [8pdfTeX warning (ext4): destination with the same identifier (name{tabl
 e.2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.110 
-      ]) [10]
+      ]) [9]
 \openout2 = `capitulo-3/capitulo-3.aux'.
 
  (./capitulo-3/capitulo-3.tex
@@ -809,7 +815,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 13.
 
-[11
+[10
 
 
 
@@ -831,103 +837,123 @@ tmcm/m/n/12 _\OML/ztmcm/m/it/12 ; :::; \OMS/ztmcm/m/n/12 _\OML/ztmcm/m/it/12 E[
 ]\OT1/ztmcm/m/n/12 )$\T1/ptm/m/sl/12 ,
  []
 
-[12]
+[11]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 105.
- [13] <../imagens/normalize.png, id=369, 497.86pt x 157.58875pt>
+ [12] [13] [14] [15] [16]
+Overfull \hbox (55.03667pt too wide) in paragraph at lines 311--312
+[]\T1/ptm/m/sl/12 Quando o mé-todo \T1/ptm/m/it/12 vi-sit (stack, $\OMS/ztmcm/m
+/n/12 :\OML/ztmcm/m/it/12 e$\T1/ptm/m/it/12 , side, kind) \T1/ptm/m/sl/12 for c
+ha-mado com a ex-pres-são $\OMS/ztmcm/m/n/12 :9\OML/ztmcm/m/it/12 hasTopping:\O
+MS/ztmcm/m/n/12 :\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12 Tomate \OMS/ztmcm/m/n/12
+ t
+ []
+
+[17] <../imagens/normalize.png, id=435, 497.86pt x 157.58875pt>
 File: ../imagens/normalize.png Graphic file (type png)
 
 <use ../imagens/normalize.png>
-Package pdftex.def Info: ../imagens/normalize.png used on input line 156.
+Package pdftex.def Info: ../imagens/normalize.png used on input line 363.
 (pdftex.def)             Requested size: 348.49962pt x 110.31136pt.
 
-<../imagens/normalizelhs.png, id=370, 746.79pt x 781.92125pt>
+<../imagens/normalizelhs.png, id=436, 746.79pt x 781.92125pt>
 File: ../imagens/normalizelhs.png Graphic file (type png)
 
 <use ../imagens/normalizelhs.png>
-Package pdftex.def Info: ../imagens/normalizelhs.png used on input line 164.
+Package pdftex.def Info: ../imagens/normalizelhs.png used on input line 371.
 (pdftex.def)             Requested size: 388.33302pt x 406.6014pt.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 376.
 
-<../imagens/normalizerhs.png, id=371, 734.745pt x 869.2475pt>
+(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [18pdfTeX warning (ext4): destination with the same identifier (name{figure.3
+.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.406 \end{verbatim}
+                     <../imagens/normalize.png (PNG copy)>] [19pdfTeX warning (
+ext4): destination with the same identifier (name{figure.3.2}) has been already
+ used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.406 \end{verbatim}
+                     <../imagens/normalizelhs.png (PNG copy)>]
+Overfull \hbox (94.23189pt too wide) in paragraph at lines 406--406
+[] \T1/pcr/m/n/12 *    For each X ? LHS(A) | X ? NC U SC (atomic concept or pur
+e conjunction)[] 
+ []
+
+
+Overfull \hbox (22.23192pt too wide) in paragraph at lines 406--406
+[] \T1/pcr/m/n/12 *    If RHS(A) ? NC U SC (not a concept or pure conjunction) 
+then[] 
+ []
+
+
+Overfull \hbox (94.23189pt too wide) in paragraph at lines 406--406
+[] \T1/pcr/m/n/12 *  For each expression E ? LHS(A) | E ? SC (not a pure conjun
+ction) ???????[] 
+ []
+
+<../imagens/normalizerhs.png, id=446, 734.745pt x 869.2475pt>
 File: ../imagens/normalizerhs.png Graphic file (type png)
 
 <use ../imagens/normalizerhs.png>
-Package pdftex.def Info: ../imagens/normalizerhs.png used on input line 170.
+Package pdftex.def Info: ../imagens/normalizerhs.png used on input line 409.
 (pdftex.def)             Requested size: 382.0696pt x 452.0113pt.
-) [14pdfTeX warning (ext4): destination with the same identifier (name{table.3.
-1}) has been already used, duplicate ignored
+) [20] [21pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.3.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.78 \include{capitulo-3/capitulo-3}
-                                    ] [15pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.3.1}) has been already used, duplicate ignor
-ed
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.78 \include{capitulo-3/capitulo-3}
-                                    pdfTeX warning (ext4): destination with the
- same identifier (name{figure.3.2}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.78 \include{capitulo-3/capitulo-3}
-                                     <../imagens/normalize.png (PNG copy)> <../
-imagens/normalizelhs.png (PNG copy)>] [16pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.3.3}) has been already used, duplicate ignor
-ed
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.78 \include{capitulo-3/capitulo-3}
+l.82 \include{capitulo-3/capitulo-3}
                                      <../imagens/normalizerhs.png (PNG copy)>]
 \openout2 = `capitulo-4/capitulo-4.aux'.
 
 
-(./capitulo-4/capitulo-4.tex
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 13.
-
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [17
+(./capitulo-4/capitulo-4.tex [22
 
 
 
-]) [18]
+]) [23]
 \openout2 = `conclusao/conclusao.aux'.
 
-
-(./conclusao/conclusao.tex [19
-
-
-
-]) [20] (./astm.bbl [21
+ (./conclusao/conclusao.tex [24
 
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 100.
- [22]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
- (./astm.aux
-(./introducao/introducao.aux) (./capitulo-2/capitulo-2.aux)
-(./capitulo-3/capitulo-3.aux) (./capitulo-4/capitulo-4.aux)
-(./conclusao/conclusao.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 100.
+[25] (./astm.bbl [26
+
+
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
+ [27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
+ (./astm.aux (./introducao/introducao.aux)
+(./capitulo-2/capitulo-2.aux) (./capitulo-3/capitulo-3.aux)
+(./capitulo-4/capitulo-4.aux) (./conclusao/conclusao.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 104.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
 Package rerunfilecheck Info: File `astm.out' has not changed.
 (rerunfilecheck)             Checksum: 7334AE5B93DED1FCE462205F0624622E;1956.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
  ) 
 Here is how much of TeX's memory you used:
- 8436 strings out of 493763
- 120698 string characters out of 3144954
- 208726 words of memory out of 3000000
- 11341 multiletter control sequences out of 15000+200000
+ 8522 strings out of 493763
+ 121829 string characters out of 3144954
+ 217292 words of memory out of 3000000
+ 11361 multiletter control sequences out of 15000+200000
  100982 words of font info for 159 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 34i,11n,33p,1144b,516s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,10n,33p,1144b,614s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -940,10 +966,10 @@ urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/
 utmbi8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/lo
 cal/texlive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on astm.pdf (42 pages, 503575 bytes).
+Output written on astm.pdf (37 pages, 522986 bytes).
 PDF statistics:
- 516 PDF objects out of 1000 (max. 8388607)
- 446 compressed objects within 5 object streams
- 134 named destinations out of 1000 (max. 500000)
+ 590 PDF objects out of 1000 (max. 8388607)
+ 524 compressed objects within 6 object streams
+ 200 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

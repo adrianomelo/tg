@@ -53,6 +53,12 @@ Fred Freitas, Anne Schlicht, and Heiner Stuckenschmidt.
 Marcos Galperin.
 \newblock mercadolivre.com.br, 1999.
 
+\bibitem[GHJV95]{Gamma:1995}
+Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
+\newblock {\em {Design patterns: elements of reusable object-oriented
+  software}}.
+\newblock Addison-Wesley Professional, 1995.
+
 \bibitem[Hef04]{Heflin:2004}
 Jeff Heflin.
 \newblock Owl web ontology language use cases and requirements.
