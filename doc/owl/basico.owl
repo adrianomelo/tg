@@ -1,34 +1,25 @@
 <?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY basico "http://www.cin.ufpe.br/~astm/basico.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
 <rdf:RDF xmlns="http://www.cin.ufpe.br/~astm/basico.owl#"
      xml:base="http://www.cin.ufpe.br/~astm/basico.owl"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:basico="http://www.cin.ufpe.br/~astm/basico.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://www.cin.ufpe.br/~astm/basico.owl"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
+    <owl:Ontology rdf:about=""/>
     
 
 
@@ -45,7 +36,7 @@
 
     <!-- http://www.cin.ufpe.br/~astm/basico.owl#temCobertura -->
 
-    <owl:ObjectProperty rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#temCobertura">
+    <owl:ObjectProperty rdf:about="#temCobertura">
         <rdfs:label>temCobertura</rdfs:label>
     </owl:ObjectProperty>
     
@@ -62,63 +53,9 @@
     
 
 
-    <!-- Extracted0 -->
-
-    <owl:Class rdf:about="Extracted0">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#temCobertura"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:complementOf rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#Muzzarella"/>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- Extracted1 -->
-
-    <owl:Class rdf:about="Extracted1">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#temCobertura"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:complementOf rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#Tomate"/>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- Extracted2 -->
-
-    <owl:Class rdf:about="Extracted2">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#temCobertura"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#Muzzarella"/>
-                            <rdf:Description rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#Tomate"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
     <!-- http://www.cin.ufpe.br/~astm/basico.owl#CoberturaPizza -->
 
-    <owl:Class rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#CoberturaPizza">
+    <owl:Class rdf:about="#CoberturaPizza">
         <rdfs:label>CoberturaPizza</rdfs:label>
     </owl:Class>
     
@@ -126,16 +63,16 @@
 
     <!-- http://www.cin.ufpe.br/~astm/basico.owl#Muzzarella -->
 
-    <owl:Class rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#Muzzarella">
+    <owl:Class rdf:about="#Muzzarella">
         <rdfs:label>Muzzarella</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#CoberturaPizza"/>
+        <rdfs:subClassOf rdf:resource="#CoberturaPizza"/>
     </owl:Class>
     
 
 
     <!-- http://www.cin.ufpe.br/~astm/basico.owl#Pizza -->
 
-    <owl:Class rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#Pizza">
+    <owl:Class rdf:about="#Pizza">
         <rdfs:label>Pizza</rdfs:label>
     </owl:Class>
     
@@ -143,20 +80,30 @@
 
     <!-- http://www.cin.ufpe.br/~astm/basico.owl#PizzaMargherita -->
 
-    <owl:Class rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#PizzaMargherita">
+    <owl:Class rdf:about="#PizzaMargherita">
         <rdfs:label>PizzaMargherita</rdfs:label>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="Extracted2"/>
-                    <rdf:Description rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#Pizza"/>
+                    <rdf:Description rdf:about="#Pizza"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#temCobertura"/>
-                        <owl:someValuesFrom rdf:resource="Extracted0"/>
+                        <owl:onProperty rdf:resource="#temCobertura"/>
+                        <owl:someValuesFrom rdf:resource="#Muzzarella"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#temCobertura"/>
-                        <owl:someValuesFrom rdf:resource="Extracted1"/>
+                        <owl:onProperty rdf:resource="#temCobertura"/>
+                        <owl:someValuesFrom rdf:resource="#Tomate"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#temCobertura"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Muzzarella"/>
+                                    <rdf:Description rdf:about="#Tomate"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -167,13 +114,13 @@
 
     <!-- http://www.cin.ufpe.br/~astm/basico.owl#Tomate -->
 
-    <owl:Class rdf:about="http://www.cin.ufpe.br/~astm/basico.owl#Tomate">
+    <owl:Class rdf:about="#Tomate">
         <rdfs:label>Tomate</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.cin.ufpe.br/~astm/basico.owl#CoberturaPizza"/>
+        <rdfs:subClassOf rdf:resource="#CoberturaPizza"/>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1502) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
 
