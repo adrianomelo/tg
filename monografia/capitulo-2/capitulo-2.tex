@@ -1,6 +1,6 @@
 % !TEX encoding = ISO-8859-1
-\chapter{Lógica de Descrição $\mathnormal{ALC}$}
-\label{ch:logicadedescricaoalc}
+%\chapter{Lógica de Descrição $\mathnormal{ALC}$}
+%\label{ch:logicadedescricaoalc}
 
 Lógica de Descrição é uma família de linguagens de representação de conhecimento que pode ser usada para representar o conhecimento de domínio de uma aplicação de forma estruturada e formal \cite{dlhandbook:2003}.
 
@@ -72,6 +72,8 @@ Os axiomas são compostos por elementos de $N_O$ e um conjunto finito de GCIs (\t
 Nome & Sintaxe & Semântica & Expressividade \\ \hline
 Verdade & $\top$ & $\Delta^\iota$ & $AL$ \\ \hline
 Absurdo & $\bot$ & $\emptyset$ & $AL$ \\ \hline
+Conceito & $C$ & $C^\iota \subseteq \Delta^\iota$ & $AL$ \\ \hline
+Relação & $R$ & $R^\iota \subseteq \Delta^\iota x \Delta^\iota$ & $AL$ \\ \hline
 Interseção & $C \sqcap D$ & $C^\iota \cap D^\iota$ & $AL$ \\ \hline
 União & $C \sqcup D$ & $C^\iota \cup D^\iota$ & $U$ \\ \hline
 Negação & $\neg C$ & $\Delta^\iota \backslash A^\iota$ & $C$ \\ \hline
@@ -94,7 +96,7 @@ qualificada & $= n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, 
 
 \section{OWL: Web Ontology Language}
 
-A \textit{Web Ontology Language}, OWL, foi escolhida pela w3c \footnote{sitio oficial: http://w3.org}, grupo que regula os padrões na Web, como a linguagem de descrição de ontologias para a Web Semântica \cite{Heflin:2004}. Alguns do requisitos que ela atendeu foram \cite{Antoniou:2008}: i) sintaxe bem definida; Como o objetivo da Web Semântica é tornar os documentos da Web mais fáceis de serem processados por máquinas, este é um requisito básico. ii) semântica formal; Descrever a base de conhecimento de forma logicamente precisa é fundamental para fazer inferências como dedução de conceitos, checagem de consistência na base de conhecimento e instanciação de indivíduos a uma classe. iii) suporte a raciocínio; Uma vez que a linguagem possui uma semântica formal, atividades de raciocínio podem ser realizadas. iv) expressividade; alguns domínios precisam de construtos mais elaborados para que possam ser descritos. Quanto maior a expressividade da linguagem, naturalmente fica mais fácil de descrever um domínio, apesar de aumentar a complexidade e tempo de processamento.
+A \textit{Web Ontology Language}, OWL, foi escolhida pela w3c \footnote{sitio oficial: http://w3.org}, grupo que regula os padrões na Web, como a linguagem de descrição de ontologias para a Web Semântica \cite{Heflin:2004}. Alguns dos requisitos que ela atendeu foram \cite{Antoniou:2008}: i) sintaxe bem definida; Como o objetivo da Web Semântica é tornar os documentos da Web mais fáceis de serem processados por máquinas, este é um requisito básico. ii) semântica formal; Descrever a base de conhecimento de forma logicamente precisa é fundamental para fazer inferências como dedução de conceitos, checagem de consistência na base de conhecimento e instanciação de indivíduos a uma classe. iii) suporte a raciocínio; Uma vez que a linguagem possui uma semântica formal, atividades de raciocínio podem ser realizadas. iv) expressividade; alguns domínios precisam de construtos mais elaborados para que possam ser descritos. Quanto maior a expressividade da linguagem, naturalmente fica mais fácil de descrever um domínio, apesar de aumentar a complexidade e tempo de processamento.
 
 Entre os requisitos citados no parágrafo anterior estão expressividade e suporte a raciocínio. Apesar de ambos poderem estar na linguagem, são antagônicos, quanto maior for a expressividade da linguagem, mais complexas e demoradas serão as atividades de raciocínio sobre a linguagem. Para criar fronteiras nesse conflito entre expressividade e complexidade de raciocínio, a w3c criou três versões de OWL: OWL Full, OWL DL e OWL Lite.
 

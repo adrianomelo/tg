@@ -1,6 +1,6 @@
 % !TEX encoding = ISO-8859-1
-\chapter{Normalização para o método das conexões}
-\label{ch:normalizacaoparaometododeconexoes}
+%\chapter{Normalização para o método das conexões}
+%\label{ch:normalizacaoparaometododeconexoes}
 
 O método das conexões proposto por W. Bibel \cite{bibel:1982} é um método para prova automática de teoremas descritos em lógica de primeira ordem \cite{bibel:1993}. Um dos trabalhos recentes de Freitas et al \cite{Freitas:2010} foi a extenção desse método para lógica de descrição $ALC$.
 
@@ -8,13 +8,13 @@ O artigo intitulado \textit{A Connection Method for Reasoning with the Descripti
 
 O objetivo deste trabalho é implementar algum algoritmo de normalização para o método das conexões como os citados no texto de Freitas et al. Dois algoritmos foram propostos com esse objetivo \cite{Freitas:2010}; o primeiro utiliza-se de uma tabela com nove regras que devem ser aplicadas à base de conhecimento a fim de obter a forma normal positiva. O segundo, intitulado "\textit{A more complex and efficient normalization}" não cria novos símbolos durante a sua execução, fazendo-o mais eficiente que o primeiro em relação ao uso de memória.
 
-No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, o orientando propôs um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, ele é linear em relação à quantidade de impurezas na base, enquanto que o "\textit{A more complex and efficient normalization}" é quadrático. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
+No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, propomos um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, ele é linear em relação à quantidade de impurezas na base, enquanto que o "\textit{A more complex and efficient normalization}" é quadrático. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
 
 \section{Tradução de ontologias $ALC$ para forma normal disjuntiva}
 
 Para que o leitor consiga entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
 
-Métodos diretos com o método das conexões são formulados para provar que uma fórmula ou um conjunto de fórmulas é um teorema, sse cada interpretação gerada é uma tautologia. Tautologias normalmente tomam a forma $L \lor \neg L$, nesse caso, a fórmula precisa estar na Forma Normal Disjuntiva (DNF).
+Métodos diretos como o método das conexões são formulados para provar que uma fórmula ou um conjunto de fórmulas é um teorema, sse cada interpretação gerada é uma tautologia. Tautologias normalmente tomam a forma $L \lor \neg L$, nesse caso, a fórmula precisa estar na Forma Normal Disjuntiva (ou, do inglês, Disjunctive Normal Form - DNF).
 
 \begin{definicao}[Forma Normal Disjuntiva, cláusula]
  Uma fórmula em DNF é uma conjunção de disjunções. Ou seja, tomam a forma:
@@ -78,16 +78,16 @@ onde A é um conceito atômico,  $\hat{C}$ é uma conjunção ALC pura, $\check{D}$ é
 
 \end{definicao}
 
-O método das conexões utiliza matrizes para realizar provas de teoremas. No início deste trabalho, ainda não era possível de fazer as provas com matrizes aninhadas, ou seja, havia sempre a necessidade de normalizar a base de conhecimento na forma normal positiva (definição 7). No entanto, Jens Otten em um trabalho entitulado \textit{A Non-clausal Connection Calculus} \cite{Otten:2011} mostrou como aplicar o método das conexões sem o passo da normalização. Apesar da recente evolucão do método, para o objetivo deste trabalho, ainda é necessário fazer a normalização, já que para lógica de descrição, o método ainda não foi modificado para usar matrizes aninhadas.
+O método das conexões utiliza matrizes para realizar provas de teoremas. No início deste trabalho, ainda não era possível fazer as provas com matrizes aninhadas, ou seja, havia sempre a necessidade de normalizar a base de conhecimento na forma normal positiva (definição 7). No entanto, Jens Otten em um trabalho entitulado \textit{A Non-clausal Connection Calculus} \cite{Otten:2011} mostrou como aplicar o método das conexões sem o passo da normalização. Apesar da recente evolucão do método, para o objetivo deste trabalho, ainda é necessário fazer a normalização, já que para lógica de descrição, o método ainda não foi modificado para usar matrizes aninhadas.
 
-A próxima seção desta monografia descreve o algoritmo proposto pelo orientando para a normalização para a forma normal positiva.
+A próxima seção desta monografia descreve o algoritmo que propomos para a normalização para a forma normal positiva.
 
 
 \subsection{Algoritmo Proposto}
 
 Esta seção da monografia descreve a implementação realizada neste trabalho.
 
-O método das conexões é um método direto, ou seja, uma consulta à base de conhecimento toma verifica se uma fórmla é uma tautologia e toma a forma $KB \rightarrow \alpha$, onde $\alpha$ é um axioma e $KB$ (\textit{Knowledge base}) é da forma $\bigcap \limits_{i=1}^{n} A_i$, onde $A_i$ também é um axioma. Expandindo a fórmula $\neg KB \lor \alpha$, temos:
+O método das conexões é um método direto, ou seja, uma consulta à base de conhecimento verifica se uma fórmla é uma tautologia e toma a forma $KB \rightarrow \alpha$, onde $\alpha$ é um axioma e $KB$ (\textit{Knowledge base}) é da forma $\bigcap \limits_{i=1}^{n} A_i$, onde $A_i$ também é um axioma. Expandindo a fórmula $\neg KB \lor \alpha$, temos:
 
 $\neg \bigcap \limits_{i=1}^{n} A_i \lor \alpha$ [ou, $\neg (A_1 \land ... \land A_n) \lor \alpha$], que pode ser transformada para:
 
@@ -116,7 +116,7 @@ O primeiro passo do algoritmo é a separação de axiomas de equivalência de expres
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Algorithm \ref{normalizeaxiom}}: O método \textit{Normalize-Axiom($A \sqsubseteq B$)} remove o axioma da ontologia (linha 1), remove as impurezas do dado esquedo (linha 2) e do lado direto (linha 3) do axioma. Caso ele já esteja na forma normal positiva (linha 3) apenas pela remoção das impusrezas, ele será adicionado à base novamente (linha 5), caso contrário, dois axiomas serão criados, um com a expressão do lado esquerdo (linha 7) e outro com a expressão do lado direito (linha 8). Caso esses novos axiomas sejam criados, eles já estarão na forma normal positiva, já que uma expressão pura em uma relação de inclusão com um conceito está na forma normal positiva em qualquer combinação.
+\textbf{Algorithm \ref{normalizeaxiom}}: O método \textit{Normalize-Axiom($A \sqsubseteq B$)} remove o axioma da ontologia (linha 1), remove as impurezas do dado esquedo (linha 2) e do lado direto (linha 3) do axioma. Caso ele já esteja na forma normal positiva (linha 3) apenas pela remoção das impurezas, ele será adicionado à base novamente (linha 5), caso contrário, dois axiomas serão criados, um com a expressão do lado esquerdo (linha 7) e outro com a expressão do lado direito (linha 8). Caso esses novos axiomas sejam criados, eles já estarão na forma normal positiva, já que uma expressão pura em uma relação de inclusão com um conceito está na forma normal positiva em qualquer combinação.
 
 \begin{algorithm}
 \caption{Normalize-Axiom ($A \sqsubseteq B$)}
@@ -372,12 +372,12 @@ enquanto que o algoritmo proposto irá produzir uma matriz do tipo:
 
 \[
 \begin{bmatrix}
-C_1 & A \\
-C_2 & \neg D_1 \\
-\vdots & \neg D_2 \\
-C_{n-1} & \vdots \\
-C_n & \neg D_{m-1} \\
-\neg A & \neg D_m \\
+C_1 & A & A & \hdots & A & A\\
+C_2 & \neg D_1 & \neg D_2 & \hdots & \neg D_{m-1} & \neg D_m\\
+\vdots &  & & & & \\
+C_{n-1} & & & & & \\
+C_n & & & & & \\
+\neg A & & & & & \\
 \end{bmatrix}
 \]
 

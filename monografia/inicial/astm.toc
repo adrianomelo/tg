@@ -3,8 +3,8 @@
 \contentsline {section}{\numberline {1.1}Web Sem\^antica}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Aplica\c c\~oes}{2}{subsection.1.1.1}
 \contentsline {subsubsection}{\numberline {1.1.1.1}Gerenciamento de Conhecimento}{2}{subsubsection.1.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1.2}Com\'ercio eletr\^onico Business to Consumer (B2C)}{2}{subsubsection.1.1.1.2}
-\contentsline {subsubsection}{\numberline {1.1.1.3}Com\'ercio eletr\^onico Business to Business (B2B) e agentes pessoais}{3}{subsubsection.1.1.1.3}
+\contentsline {subsubsection}{\numberline {1.1.1.2}Com\'ercio eletr\^onico \textit {Business to Consumer} (B2C)}{2}{subsubsection.1.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.1.3}Com\'ercio eletr\^onico \textit {Business to Business} (B2B) e agentes pessoais}{3}{subsubsection.1.1.1.3}
 \contentsline {subsection}{\numberline {1.1.2}Tecnologias}{3}{subsection.1.1.2}
 \contentsline {subsubsection}{\numberline {1.1.2.1}Metadados Expl\IeC {\'\i }citos}{3}{subsubsection.1.1.2.1}
 \contentsline {subsubsection}{\numberline {1.1.2.2}Ontologias}{4}{subsubsection.1.1.2.2}
@@ -15,7 +15,7 @@
 \contentsline {section}{\numberline {2.1}Sintaxe da L\'ogica de Descri\c c\~ao}{6}{section.2.1}
 \contentsline {section}{\numberline {2.2}OWL: Web Ontology Language}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}OWL Full}{8}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}OWL DL}{8}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}OWL DL}{9}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}OWL Lite}{9}{subsection.2.2.3}
 \contentsline {chapter}{\numberline {3}Normaliza\c c\~ao para o m\'etodo das conex\~oes}{10}{chapter.3}
 \contentsline {section}{\numberline {3.1}Tradu\c c\~ao de ontologias $ALC$ para forma normal disjuntiva}{10}{section.3.1}

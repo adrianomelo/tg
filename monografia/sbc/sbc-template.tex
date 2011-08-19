@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+
+%\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc}  
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\algsetup{linenosize=\small,linenodelimiter=.}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+\usepackage{amsthm}
+
+\newtheorem{definicao}{Definição}
+\newtheorem{exemplo}{Exemplo}
+     
+\sloppy
+
+\title{Normalização de ontologias em lógica de descrições para o raciocínio com o provador de teoremas leanCoP}
+
+\author{Adriano S. T. Melo\inst{1}, Fred Freitas\inst{1}}
+
+
+\address{Centro de Informática - Universidade Federal de Pernambuco\\
+  Caixa Postal 50740-560 -- Cidade Universitária -- Recife -- PE -- Brasil
+  \email{\{astm,fred\}@cin.ufpe.br}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+The Semantic Web promises to revolutionize the way people interact on the Web. Concepts like intelligent agents, semantic-based services, business-to-business communication between companies through rule-based agents should be plentiful in this new scenario. Several technologies are being studied and constructed to form a new infrastructure for the Web. These are the elements that form the layer of logic and proof, context that this project is inserted. This project proposes to implement part of the algorithm of the connection method for description logic, used to do activities of reasoning in a knowledge base. The module to be implemented is the conversion of the axioms of the knowledge base for the positive normal form.
+\end{abstract}
+     
+\begin{resumo} 
+ A Web Semântica promete revolucionar o jeito de como as pessoas interagem na Web. Os conceitos de agentes inteligentes, serviços baseados em semântica de documentos e empresas se comunicando com empresas através de agentes baseados em regras deverão ser abundantes nesse novo cenário. Várias tecnologias estão sendo estudadas e construídas para formar uma nova infra-estrutura para a Web. Entre elas estão os elementos que formarão a camada de lógica e prova, contexto que está inserido este trabalho. Este trabalho propôe implementar parte do algoritmo do método das conexões para lógica de descrição, usado para fazer atividades de raciocínio em uma base de conhecimento.  O módulo a ser implementado é a conversão dos axiomas da base de conhecimento para a forma normal positiva.
+\end{resumo}
+
+\section{Introdução}
+\input{introducao/introducao}
+
+\section{Lógica de Descrição $\mathnormal{ALC}$}
+\input{capitulo-2/capitulo-2}
+
+\section{Normalização para o método das conexões}
+\input{capitulo-3/capitulo-3}
+
+%\section{Conclusão e trabalhos futuros}
+\input{conclusao/conclusao}
+
+\bibliographystyle{sbc}
+\bibliography{../referencias/referencias}
+
+\end{document}

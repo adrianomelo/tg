@@ -1,0 +1,30 @@
+\begin{thebibliography}{}
+
+\bibitem[Antoniou and Harmelen 2008]{Antoniou:2008}
+Antoniou, G. and Harmelen, F.~v. (2008).
+\newblock {\em A Semantic Web Primer, 2nd Edition (Cooperative Information
+  Systems)}.
+\newblock The MIT Press, 2 edition.
+
+\bibitem[Baader et~al. 2003]{dlhandbook:2003}
+Baader, F., Calvanese, D., McGuinness, D., Nardi, D., and Patel-Schneider, P.,
+  editors (2003).
+\newblock {\em The Description Logic Handbook: Theory, Implementation and
+  Applications}.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Berners-Lee 1989]{BernersLee:1989}
+Berners-Lee, T. (1989).
+\newblock Information management: A proposal.
+
+\bibitem[Heflin 2004]{Heflin:2004}
+Heflin, J. (2004).
+\newblock Owl web ontology language use cases and requirements.
+
+\bibitem[Russell and Norvig 2002]{AIMA}
+Russell, S. and Norvig, P. (2002).
+\newblock {\em {Artificial Intelligence: A Modern Approach (2nd Edition)}}.
+\newblock Prentice Hall series in artificial intelligence. Prentice Hall, 2
+  edition.
+
+\end{thebibliography}

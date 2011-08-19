@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: sbc-template.aux
+A level-1 auxiliary file: introducao/introducao.aux
+A level-1 auxiliary file: capitulo-2/capitulo-2.aux
+The style file: sbc.bst
+Database file #1: ../referencias/referencias.bib
+Warning--entry type for "BernersLee:1989" isn't style-file defined
+--line 209 of file ../referencias/referencias.bib
+Warning--empty journal in Heflin:2004
+You've used 5 entries,
+            1935 wiz_defined-function locations,
+            503 strings with 4469 characters,
+and the built_in function-call counts, 1605 in all, are:
+= -- 149
+> -- 69
+< -- 4
++ -- 26
+- -- 22
+* -- 121
+:= -- 300
+add.period$ -- 14
+call.type$ -- 5
+change.case$ -- 35
+chr.to.int$ -- 5
+cite$ -- 6
+duplicate$ -- 67
+empty$ -- 109
+format.name$ -- 31
+if$ -- 305
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 6
+newline$ -- 26
+num.names$ -- 16
+pop$ -- 37
+preamble$ -- 1
+purify$ -- 36
+quote$ -- 0
+skip$ -- 50
+stack$ -- 0
+substring$ -- 64
+swap$ -- 3
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 1
+while$ -- 10
+width$ -- 0
+write$ -- 62
+(There were 2 warnings)
