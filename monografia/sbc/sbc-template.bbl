@@ -17,14 +17,35 @@ Baader, F., Calvanese, D., McGuinness, D., Nardi, D., and Patel-Schneider, P.,
 Berners-Lee, T. (1989).
 \newblock Information management: A proposal.
 
+\bibitem[Bibel 1982]{bibel:1982}
+Bibel, W. (1982).
+\newblock {\em Automated theorem proving}.
+\newblock F. Vieweg.
+
+\bibitem[Bibel and Hölldobler 1993]{bibel:1993}
+Bibel, W. and Hölldobler, S. (1993).
+\newblock {\em Deduction: automated logic}.
+\newblock Academic Press.
+
+\bibitem[Freitas et~al. 2010]{Freitas:2010}
+Freitas, F., Schlicht, A., and Stuckenschmidt, H. (2010).
+\newblock A connection method for reasoning with the description logic alc.
+\newblock Technical report, UFPE and University of Mannheim.
+
+\bibitem[Gamma et~al. 1995]{Gamma:1995}
+Gamma, E., Helm, R., Johnson, R., and Vlissides, J. (1995).
+\newblock {\em {Design patterns: elements of reusable object-oriented
+  software}}.
+\newblock Addison-Wesley Professional.
+
 \bibitem[Heflin 2004]{Heflin:2004}
 Heflin, J. (2004).
 \newblock Owl web ontology language use cases and requirements.
 
-\bibitem[Russell and Norvig 2002]{AIMA}
-Russell, S. and Norvig, P. (2002).
-\newblock {\em {Artificial Intelligence: A Modern Approach (2nd Edition)}}.
-\newblock Prentice Hall series in artificial intelligence. Prentice Hall, 2
-  edition.
+\bibitem[Otten 2011]{Otten:2011}
+Otten, J. (2011).
+\newblock A non-clausal connection calculus.
+\newblock In Br{\"u}nnler, K. and Metcalfe, G., editors, {\em TABLEAUX}, volume
+  6793 of {\em Lecture Notes in Computer Science}, pages 226--241. Springer.
 
 \end{thebibliography}

@@ -8,11 +8,11 @@ O artigo intitulado \textit{A Connection Method for Reasoning with the Descripti
 
 O objetivo deste trabalho é implementar algum algoritmo de normalização para o método das conexões como os citados no texto de Freitas et al. Dois algoritmos foram propostos com esse objetivo \cite{Freitas:2010}; o primeiro utiliza-se de uma tabela com nove regras que devem ser aplicadas à base de conhecimento a fim de obter a forma normal positiva. O segundo, intitulado "\textit{A more complex and efficient normalization}" não cria novos símbolos durante a sua execução, fazendo-o mais eficiente que o primeiro em relação ao uso de memória.
 
-No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, propomos um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, ele é linear em relação à quantidade de impurezas na base, enquanto que o "\textit{A more complex and efficient normalization}" é quadrático. O restante desse capítulo se dedicará a dar definições para o entendimento dos últimos dois algoritmos comentados acima e também descrevá as suas implementações.
+No cronograma deste trabalho estava prevista a implementação desse segundo algoritmo, porém, ao decorrer do desenvolvimento, propomos um terceiro algoritmo que é ainda mais eficiente em relação ao uso de memória, ele é linear em relação à quantidade de impurezas na base, enquanto que o "\textit{A more complex and efficient normalization}" é quadrático. O restante desse capítulo se dedicará a dar definições para o entendimento do último algoritmo citado e também descreverá a sua implementação.
 
-\section{Tradução de ontologias $ALC$ para forma normal disjuntiva}
+\subsection{Tradução de ontologias $ALC$ para forma normal disjuntiva}
 
-Para que o leitor consiga entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
+%Para que o leitor consiga entender melhor os algoritmos de tradução, alguns conceitos precisam ser fixados. 
 
 Métodos diretos como o método das conexões são formulados para provar que uma fórmula ou um conjunto de fórmulas é um teorema, sse cada interpretação gerada é uma tautologia. Tautologias normalmente tomam a forma $L \lor \neg L$, nesse caso, a fórmula precisa estar na Forma Normal Disjuntiva (ou, do inglês, Disjunctive Normal Form - DNF).
 
@@ -80,12 +80,12 @@ onde A é um conceito atômico,  $\hat{C}$ é uma conjunção ALC pura, $\check{D}$ é
 
 O método das conexões utiliza matrizes para realizar provas de teoremas. No início deste trabalho, ainda não era possível fazer as provas com matrizes aninhadas, ou seja, havia sempre a necessidade de normalizar a base de conhecimento na forma normal positiva (definição 7). No entanto, Jens Otten em um trabalho entitulado \textit{A Non-clausal Connection Calculus} \cite{Otten:2011} mostrou como aplicar o método das conexões sem o passo da normalização. Apesar da recente evolucão do método, para o objetivo deste trabalho, ainda é necessário fazer a normalização, já que para lógica de descrição, o método ainda não foi modificado para usar matrizes aninhadas.
 
-A próxima seção desta monografia descreve o algoritmo que propomos para a normalização para a forma normal positiva.
+A próxima seção deste artigo descreve o algoritmo que propomos para a normalização para a forma normal positiva.
 
 
-\subsection{Algoritmo Proposto}
+\subsubsection{Algoritmo Proposto}
 
-Esta seção da monografia descreve a implementação realizada neste trabalho.
+%Esta seção da monografia descreve a implementação realizada neste trabalho.
 
 O método das conexões é um método direto, ou seja, uma consulta à base de conhecimento verifica se uma fórmla é uma tautologia e toma a forma $KB \rightarrow \alpha$, onde $\alpha$ é um axioma e $KB$ (\textit{Knowledge base}) é da forma $\bigcap \limits_{i=1}^{n} A_i$, onde $A_i$ também é um axioma. Expandindo a fórmula $\neg KB \lor \alpha$, temos:
 
@@ -97,24 +97,24 @@ $\bigcup \limits_{i=1}^{n} \neg A_i \lor \alpha$ [ou, $\neg A_1 \lor ... \lor \n
 
 %$\bigcup \limits_{i=1}^{n} \neg A_i \lor \neg \neg \alpha$ [ou, em uma forma por extenso, $\neg A_1 \lor ... \lor \neg A_n \lor \neg \neg \alpha$]
 
-Cada $A_i$ ou $\alpha$ precisam estar na forma normal positiva, ou seja, precisam estar em uma das formas: i) $A \sqsubseteq \hat{C}$, ii) $\check{D} \sqsubseteq A$, ou, iii) $\hat{C} \sqsubseteq \check{D}$, onde $A$ é um conceito, $\hat{C}$ é uma conjunção pura e $\check{D}$ é uma disjunção pura.
+Cada $A_i$ ou $\alpha$ precisa estar na forma normal positiva, ou seja, precisa estar em uma das formas: i) $A \sqsubseteq \hat{C}$, ii) $\check{D} \sqsubseteq A$, ou, iii) $\hat{C} \sqsubseteq \check{D}$, onde $A$ é um conceito, $\hat{C}$ é uma conjunção pura e $\check{D}$ é uma disjunção pura.
 
-O primeiro passo do algoritmo é a separação de axiomas de equivalência de expressões e inclusões. Os axiomas de equivalência serão substituídos por dois axiomas de inclusão, e.g., $(A \equiv B \rightarrow A \sqsubseteq B \land B \sqsubseteq A)$.
-
-\begin{algorithm}
-\caption{Normalize-Ontology(O)}
-\label{alg:normalizeontology}
-\begin{algorithmic}[1]
-\REQUIRE O: ontologia em lógica de descrições $ALC$
-\FORALL [A, B são expressões, $S_I$ é o conjunto dos axiomas de inclusão pertencentes a O]{$A \sqsubseteq B \in S_I$}
-\STATE Normalize-Axiom ($A \sqsubseteq B$)
-\ENDFOR
-\FORALL [A, B são expressões, $S_{EQ}$ é o conjunto dos axiomas de equivalência pertencentes a O]{$A \equiv B \in S_{EQ}$}
-\STATE Normalize-Axiom ($A \sqsubseteq B$)
-\STATE Normalize-Axiom ($B \sqsubseteq A$)
-\ENDFOR
-\end{algorithmic}
-\end{algorithm}
+O primeiro passo do algoritmo é a separação de axiomas de equivalência. Os axiomas de equivalência serão substituídos por dois axiomas de inclusão, e.g., $(A \equiv B \rightarrow A \sqsubseteq B \land B \sqsubseteq A)$.
+%
+%\begin{algorithm}
+%\caption{Normalize-Ontology(O)}
+%\label{alg:normalizeontology}
+%\begin{algorithmic}[1]
+%\REQUIRE O: ontologia em lógica de descrições $ALC$
+%\FORALL [A, B são expressões, $S_I$ é o conjunto dos axiomas de inclusão pertencentes a O]{$A \sqsubseteq B \in S_I$}
+%\STATE Normalize-Axiom ($A \sqsubseteq B$)
+%\ENDFOR
+%\FORALL [A, B são expressões, $S_{EQ}$ é o conjunto dos axiomas de equivalência pertencentes a O]{$A \equiv B \in S_{EQ}$}
+%\STATE Normalize-Axiom ($A \sqsubseteq B$)
+%\STATE Normalize-Axiom ($B \sqsubseteq A$)
+%\ENDFOR
+%\end{algorithmic}
+%\end{algorithm}
 
 \textbf{Algorithm \ref{normalizeaxiom}}: O método \textit{Normalize-Axiom($A \sqsubseteq B$)} remove o axioma da ontologia (linha 1), remove as impurezas do dado esquedo (linha 2) e do lado direto (linha 3) do axioma. Caso ele já esteja na forma normal positiva (linha 3) apenas pela remoção das impurezas, ele será adicionado à base novamente (linha 5), caso contrário, dois axiomas serão criados, um com a expressão do lado esquerdo (linha 7) e outro com a expressão do lado direito (linha 8). Caso esses novos axiomas sejam criados, eles já estarão na forma normal positiva, já que uma expressão pura em uma relação de inclusão com um conceito está na forma normal positiva em qualquer combinação.
 
@@ -137,7 +137,7 @@ O primeiro passo do algoritmo é a separação de axiomas de equivalência de expres
 
 \textbf{Algorithm \ref{purify}}: O método \textit{purify ($e$, side)} recebe uma expressão em DL $ALC$ e a retorna sem impurezas. O parâmetro \textit{side} é necessário para remoção de uma impureza, caso a impureza esteja no lado esquerdo, e.g., $C \sqcap Impurity \sqcap C \sqcap C \sqsubseteq A$, um axioma será criado com a impureza do lado esquerdo, e.g., $(C \sqcap NewConcept \sqcap C \sqcap C \sqsubseteq A) \land (Impurity \sqsubseteq NewConcept)$, caso a impureza esteja no lado direito, o comportamento será o mesmo mas de forma simétrica, o seja, um axima do tipo $NewConcept \sqsubseteq Impurity$ será criado e a impureza será substituída por um novo conceito ($NewConcept$).
 
-As impurezas são identificadas através dos métodos \textit{visit}. A primeira chamada para esse conjunto de métodos é na linha 3 do método \textit{purity}, caso a expressão de entrada seja uma conjunção não pura, ou na linha 5 do método \textit{purify} caso a expressão seja uma disjunção não pura. O método \textit{visit} em sua implementação em Java \footnote{código disponível em: http://github.com/adrianomelo/tg} utiliza o padrão de projetos visitor, que permite criar novas operações sem mudar a definição das estruturas de dados \cite{Gamma:1995}.
+As impurezas são identificadas através dos métodos \textit{visit}. O método \textit{visit} em sua implementação em Java \footnote{código disponível em: http://github.com/adrianomelo/tg} utiliza o padrão de projetos visitor, que permite criar novas operações sem mudar a definição das estruturas de dados \cite{Gamma:1995}.
 
 Uma pilha chamada \textit{expressions\_stack} é usada no método pois em uma implementação em Java os métodos que visitam cada nó da ontologia não podem retornar objetos por uma limitação da biblioteca OWLAPI 3.0 \footnote{documentação do método visit: 
 http://owlapi.sourceforge.net/javadoc/org/semanticweb/owlapi/model/ OWLClassExpressionVisitor.html} \footnote{javadoc da documentação da OWLAPI 3.0: http://owlapi.sourceforge.net/javadoc/}.
@@ -178,12 +178,35 @@ http://owlapi.sourceforge.net/javadoc/org/semanticweb/owlapi/model/ OWLClassExpr
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Algorithm 5, 6, 7, 8, 9, 10}: O conjunto de métodos chamados de \textit{visit} diferem em qual expressão em lógica de descrições cada um suporta. O método \textit{visit (stack, $\bigcup \limits^n e_i$, side, kind)}, por exemplo, dá suporte às uniões entre expressões.
+%\textbf{Algorithm 5, 6, 7, 8, 9, 10}: O conjunto de métodos chamados de \textit{visit} diferem em qual expressão em lógica de descrições cada um suporta. O método \textit{visit (stack, $\bigcup \limits^n e_i$, side, kind)}, por exemplo, dá suporte às uniões entre expressões.
 
-Quatro parâmetros são passadados para os métodos, uma pilha \textit{stack} que é usada para auxiliar a construção de uma nova expressão normalizada (os métodos não podem retornar objetos por uma limitação da OWLAPI 3.0, biblioteca usada na implementação em Java). Uma expressão em lógica de descrições, que pode ser uma união $\bigcup \limits^n e_i$, interseção $\bigcap \limits^n e_i$, restrição  de valor $\forall r E$, restrição existencial $\exists r E$, complemento $\neg e$ ou conceito $C$. O lado \textit{side} em que a expressão original estava (\textit{left} ou \textit{right}). E o tipo \textit{kind} de expressão que o método estava esperando.
+\textbf{Algorithm \ref{alg:visitgeneral}}: O método \textit{visit} é utilizado para visitar cada nó da estrutura de árvore, que é a representação em memória da ontologia. O símbolo $\bigcup$ será usado na escrita do pseudo-código mas o algoritmo é o mesmo para os constructos $\forall, \bigcup, \bigcap$ e $\exists$, sendo que para $\exists$ e $\forall$ so haverá uma expressão filha.
+
+Quatro parâmetros são passadados para os métodos, uma pilha \textit{stack} que é usada para auxiliar a construção de uma nova expressão normalizada. Uma expressão em lógica de descrições, que pode ser uma união $\bigcup \limits^n e_i$, interseção $\bigcap \limits^n e_i$, restrição  de valor $\forall r E$, restrição existencial $\exists r E$, complemento $\neg e$ ou conceito $C$. O lado \textit{side} em que a expressão original estava (\textit{left} ou \textit{right}). E o tipo \textit{kind} de expressão que o método estava esperando (\textit{conjunction} ou \textit{disjunction}).
 
 Quando uma conjunção é passada para o método \textit{visit} e o tipo (\textit{kind}) é igual a \textit{disjunction}, significa que uma impureza foi encontrada e ela deve ser removida pelo método \textit{Extract-Impurity()}. De forma análoga, quando uma disjunção é visitada por um dos métodos \textit{visit} e o tipo esperado é \textit{conjunction}, significa que uma impureza foi encontrada e ela deve ser removida pelo método \textit{Extract-Impurity()}.
 
+\begin{algorithm}
+\caption{visit (stack, $\bigcup \limits^n e_i$, side, kind)}
+\label{alg:visitgeneral}
+\begin{algorithmic}[1]
+\REQUIRE {stack: uma pilha}
+\REQUIRE {side: é $left$ ou $right$}
+\REQUIRE {$\bigcup \limits^n e_i$: constructo em $ALC$}
+\IF{KIND\(\bigcup\) != kind}
+\STATE N = Extract-Impurity($\bigcup \limits^n e_i$, side)
+\STATE PUSH (stack, N)
+\ELSE
+\FORALL {$e_i \in \bigcup \limits^n e_i$}
+\STATE visit  (stack, $e_i$, side, kind)
+\ENDFOR
+\STATE PUSH (stack, $\bigcup \limits^n$ POP(stack))
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+% ----------------------------- 
+\begin{comment}
 \begin{algorithm}
 \caption{visit (stack, $\bigcup \limits^n e_i$, side, kind)}
 \label{visitunion}
@@ -286,77 +309,82 @@ Quando uma conjunção é passada para o método \textit{visit} e o tipo (\textit{ki
 \STATE PUSH (stack, C)
 \end{algorithmic}
 \end{algorithm}
+\end{comment}
+%--------------
 
-Para uma melhor comparação da matrizes que são geradas com o algoritmo proposto, o exemplo que Freitas et al \cite{Freitas:2010} também será o exemplo deste agoritmo. O axioma de equivalencia no Exemplo 1 é a base de conhecimento usada.
+%Para uma melhor comparação da matrizes que são geradas com o algoritmo proposto, o exemplo que Freitas et al \cite{Freitas:2010} também será o exemplo deste agoritmo. O axioma de equivalencia no Exemplo 1 é a base de conhecimento usada.
 
 
-\begin{exemplo}
-Deseja-se normalizar o axioma:
+%\begin{exemplo}
+%Deseja-se normalizar o axioma:
+%
+%\begin{center}
+%$PizzaMargherita \equiv Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap \neg \exists hasTopping.\neg (Tomate \sqcup Muzzarella)$
+%\end{center}
+%
+%O primeiro passo do algoritmo (método \textit{Normalize-Ontology()}, página \pageref{alg:normalizeontology}) separa o axioma de equivalência em dois axiomas de inclusão. Obtendo-se então:
+%
+%\begin{center}
+%$PizzaMargherita \sqsubseteq Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap  \neg \exists hasTopping.\neg (Tomate \sqcup Muzzarella)$
+%
+%$Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap 
+%\neg \exists hasTopping.\neg (Tomate \sqcup Muzzarella) \sqsubseteq PizzaMargherita$
+%\end{center}
+%
+%O método \textit{Normalize-Axiom()} será chamado então com cada um dos axiomas obtidos. O lado direito no primeiro axioma e o lado esquerdo do segundo são conjunções, então o método \textit{visit} de interseções será chamado com o kind sendo \textit{conjunction} tanto para a primeira expressão quanto para a segunda.  
+%
+%Quando o método \textit{visit (stack, $\neg e$, side, kind)} for chamado com a expressão $\neg \exists hasTopping. \neg (Tomate \sqcup Muzzarella)$, tanto para o lado esquerdo, quanto para o lado direito ele a transformará na expressão $\forall hasTopping.(Tomate \sqcap Muzzarella)$, que é uma disjunção. Os axiomas que serão obtidos são:
+%
+%\begin{center}
+%$PizzaMargherita \sqsubseteq Pizza \sqcap \exists hasTopping. Tomate \sqcap \exists hasTopping.Muzzarella \sqcap  Extracted1$
+%
+%$Extracted1 \sqsubseteq \forall hasTopping.(Tomate \sqcup Muzzarella)$
+%
+%$Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap 
+%Extracted2 \sqsubseteq PizzaMargherita$
+%
+%$\forall hasTopping.(Tomate \sqcup Muzzarella) \sqsubseteq Extracted2$
+%\end{center}
+%
+%Em formato matricial, temos (axiomas 1 e 2):
+%
+%\[
+%\small{
+%\begin{bmatrix}
+%PM & PM & PM & PM & PM & PM & Extracted1\\
+%\neg Pizza & \neg hasTopping & \neg Tomate & \neg hasTopping & \neg Muzzarella & \neg Extracted1 & \neg hasTopping\\
+% & & & & & & \neg Tomate\\
+% & & & & & & \neg Muzzarella\\
+%\end{bmatrix}
+%}
+%\]
+%
+%e (axiomas 3 e 4):
+%
+%\[
+%\begin{bmatrix}
+%Pizza & \neg hasTopping & Tomate & Muzzarella \\
+%hasTopping & \neg Extracted2 & \neg Extracted2 & \neg Extracted2 \\
+%Tomate & & & \\
+%hasTopping & & & \\
+%Muzzarella & & & \\
+%Extracted2 & & & \\
+%\neg PizzaMargherita & & & \\
+%\end{bmatrix}
+%\]
+%
+%O algoritmo de Freitas et al \cite{Freitas:2010} chegou às mesmas matrizes. O que indica que ambos são lineares em relação às impurezas deste exemplo.
+%
+%\end{exemplo}
 
-\begin{center}
-$PizzaMargherita \equiv Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap \neg \exists hasTopping.\neg (Tomate \sqcup Muzzarella)$
-\end{center}
-
-O primeiro passo do algoritmo (método \textit{Normalize-Ontology()}, página \pageref{alg:normalizeontology}) separa o axioma de equivalência em dois axiomas de inclusão. Obtendo-se então:
-
-\begin{center}
-$PizzaMargherita \sqsubseteq Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap  \neg \exists hasTopping.\neg (Tomate \sqcup Muzzarella)$
-
-$Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap 
-\neg \exists hasTopping.\neg (Tomate \sqcup Muzzarella) \sqsubseteq PizzaMargherita$
-\end{center}
-
-O método \textit{Normalize-Axiom()} será chamado então com cada um dos axiomas obtidos. O lado direito no primeiro axioma e o lado esquerdo do segundo são conjunções, então o método \textit{visit} de interseções será chamado com o kind sendo \textit{conjunction} tanto para a primeira expressão quanto para a segunda.  
-
-Quando o método \textit{visit (stack, $\neg e$, side, kind)} for chamado com a expressão $\neg \exists hasTopping. \neg (Tomate \sqcup Muzzarella)$, tanto para o lado esquerdo, quanto para o lado direito ele a transformará na expressão $\forall hasTopping.(Tomate \sqcap Muzzarella)$, que é uma disjunção. Os axiomas que serão obtidos são:
-
-\begin{center}
-$PizzaMargherita \sqsubseteq Pizza \sqcap \exists hasTopping. Tomate \sqcap \exists hasTopping.Muzzarella \sqcap  Extracted1$
-
-$Extracted1 \sqsubseteq \forall hasTopping.(Tomate \sqcup Muzzarella)$
-
-$Pizza \sqcap \exists hasTopping.Tomate \sqcap \exists hasTopping.Muzzarella \sqcap 
-Extracted2 \sqsubseteq PizzaMargherita$
-
-$\forall hasTopping.(Tomate \sqcup Muzzarella) \sqsubseteq Extracted2$
-\end{center}
-
-Em formato matricial, temos (axiomas 1 e 2):
-
-\[
-\small{
-\begin{bmatrix}
-PM & PM & PM & PM & PM & PM & Extracted1\\
-\neg Pizza & \neg hasTopping & \neg Tomate & \neg hasTopping & \neg Muzzarella & \neg Extracted1 & \neg hasTopping\\
- & & & & & & \neg Tomate\\
- & & & & & & \neg Muzzarella\\
-\end{bmatrix}
-}
-\]
-
-e (axiomas 3 e 4):
-
-\[
-\begin{bmatrix}
-Pizza & \neg hasTopping & Tomate & Muzzarella \\
-hasTopping & \neg Extracted2 & \neg Extracted2 & \neg Extracted2 \\
-Tomate & & & \\
-hasTopping & & & \\
-Muzzarella & & & \\
-Extracted2 & & & \\
-\neg PizzaMargherita & & & \\
-\end{bmatrix}
-\]
-
-O algoritmo de Freitas et al \cite{Freitas:2010} chegou às mesmas matrizes. O que indica que ambos são lineares em relação às impurezas deste exemplo.
-
-\end{exemplo}
+O Exemplo 1 mostra o caso em que o algoritmo original usa mais memória que o algoritmo proposto. O original é quadrático em relação à alocação memória em quanto que o proposto é linear.
 
 \begin{exemplo}
 No exemplo dado por Freitas et al \cite{Freitas:2010}, o seu algoritmo se comportava de forma linear (em espaço) em relação às impurezas nas expressões. Porém, com o caso $\hat{C} \sqsubseteq \hat{D}$, onde $\hat{C}$ e $\hat{D}$ são conjunções puras, o algoritmo se comporta de forma quadrática em relação a memória.
 
 O algoritmo proposto irá dividir o axioma em dois, ficando $\hat{C} \sqsubseteq A$, e $A \sqsubseteq \hat{D}$. Já o algoritmo de Freitas et al, irá construir vários axiomas, um para cada expressão do lado direito, e.g., \{$\hat{C} \sqsubseteq D_1, \hat{C} \sqsubseteq D_2, ..., \hat{C} \sqsubseteq D_{m-1}, \hat{C} \sqsubseteq D_m$\}. O que irá resultar em uma matriz do tipo:
 
+\begin{small}
 \[
 \begin{bmatrix}
 C_1 & C_1 & \hdots & C_1 & C_1 \\
@@ -367,9 +395,10 @@ C_n & C_n & \hdots & C_n & C_n  \\
 \neg D_1 & \neg D_2 & \hdots & \neg D_{m-1} & \neg D_m
 \end{bmatrix}
 \]
+\end{small}
 
 enquanto que o algoritmo proposto irá produzir uma matriz do tipo:
-
+\begin{small}
 \[
 \begin{bmatrix}
 C_1 & A & A & \hdots & A & A\\
@@ -380,10 +409,11 @@ C_n & & & & & \\
 \neg A & & & & & \\
 \end{bmatrix}
 \]
-
+\end{small}
 \end{exemplo}
 
-\subsection{Algoritmo Original}
+\begin{comment}
+\subsubsection{Algoritmo Original}
 
 Esta seção contém o algoritmo escrito por Freitas et al \cite{Freitas:2010} para a normalização de bases de conhecimento em lógica de descrição $ALC$. A figura 3.1 descreve o método \textit{Normalize-Ontology ()}, que chama os métodos \textit{Normaize-LHS ()} e \textit{Normalize-RHS ()} caso o lado esquerdo e direito, respectivamente,  não estejam normalizados para cada axioma da ontologia.
 
@@ -408,3 +438,5 @@ Os métodos \textit{Normalize-LHS ()} e \textit{Normalize-RHS} são duais, ou seja
 \end{figure}
 
 Note que o primeiro algoritmo da seção 3.1.1 e a figura 3.1 são praticamente o mesmo, porém, o primeiro diferencia dentro do método os axiomas de equivalência e inclusão. No artigo de Freitas et al \cite{Freitas:2010} é citado que isso deve ser feito, mas não explicita no algoritmo.
+
+\end{comment}

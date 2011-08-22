@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  19 AUG 2011 10:28
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2011.6.11)  21 AUG 2011 23:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -349,49 +349,49 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \ALC@tlm=\skip53
 \algorithmicindent=\skip54
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+(/usr/local/texlive/2010/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks28
+\verbatim@line=\toks29
+\verbatim@in@stream=\read1
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2009/07/02 v2.20.1
-\thm@style=\toks28
-\thm@bodyfont=\toks29
-\thm@headfont=\toks30
-\thm@notefont=\toks31
-\thm@headpunct=\toks32
+\thm@style=\toks30
+\thm@bodyfont=\toks31
+\thm@headfont=\toks32
+\thm@notefont=\toks33
+\thm@headpunct=\toks34
 \thm@preskip=\skip55
 \thm@postskip=\skip56
 \thm@headsep=\skip57
-\dth@everypar=\toks33
+\dth@everypar=\toks35
 )
 \c@definicao=\count124
 \c@exemplo=\count125
 
-(./sbc-template.aux
-
-LaTeX Warning: Label `visitexists' multiply defined.
-
-
-LaTeX Warning: Label `visitexists' multiply defined.
-
-)
+(./sbc-template.aux)
 \openout1 = `sbc-template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 37.
- (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 38.
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -435,11 +435,11 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \scratchbox=\box31
 \nofMPsegments=\count127
 \nofMParguments=\count128
-\everyMPshowfont=\toks34
+\everyMPshowfont=\toks36
 \MPscratchCnt=\count129
 \MPscratchDim=\dimen140
 \MPnumerator=\count130
-\everyMPtoPDFconversion=\toks35
+\everyMPtoPDFconversion=\toks37
 ) (/usr/local/texlive/2010/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -465,7 +465,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 37.
+Package hyperref Info: Link coloring ON on input line 38.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -475,139 +475,102 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 
 (./sbc-template.out) (./sbc-template.out)
 \@outlinefile=\write3
 \openout3 = `sbc-template.out'.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 40.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 41.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Try loading font information for OMS+pcr on input line 40.
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 41.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 41.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 42.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 49.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
 
 (./introducao/introducao.tex [1
 
-{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 36.
+{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 53.
 
-(/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
- [2] [3]
-<../imagens/americanas.png, id=132, 643.40375pt x 289.08pt>
-File: ../imagens/americanas.png Graphic file (type png)
 
-<use ../imagens/americanas.png>
-Package pdftex.def Info: ../imagens/americanas.png used on input line 67.
-(pdftex.def)             Requested size: 353.87315pt x 158.99448pt.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 68.
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
+(Font)              size <12> substituted on input line 53.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 53.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <13> not available
+(Font)              size <12> substituted on input line 53.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available
+(Font)              size <6> substituted on input line 53.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <13> not available
+(Font)              size <12> substituted on input line 53.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 53.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 53.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 53.
+
+(./capitulo-2/capitulo-2.tex
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 31.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 68.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 31.
 
-<../imagens/americanas-xml.png, id=134, 455.7025pt x 158.5925pt>
-File: ../imagens/americanas-xml.png Graphic file (type png)
-
-<use ../imagens/americanas-xml.png>
-Package pdftex.def Info: ../imagens/americanas-xml.png used on input line 79.
-(pdftex.def)             Requested size: 250.63713pt x 87.22612pt.
- [4pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
- has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.88 G
-      rande parte dos trabalhos referentes à Web Semantica estão ligados a o...
- <../imagens/americanas.png>] [5pdfTeX warning (ext4): destination with the sam
-e identifier (name{figure.2}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.113 
-       <../imagens/americanas-xml.png>])
-LaTeX Font Info:    Calculating math sizes for size <13> on input line 52.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
-(Font)              size <12> substituted on input line 52.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 52.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <13> not available
-(Font)              size <12> substituted on input line 52.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 52.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <13> not available
-(Font)              size <12> substituted on input line 52.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 52.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 52.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 52.
-
-(./capitulo-2/capitulo-2.tex [6]
 Underfull \hbox (badness 1189) in paragraph at lines 49--50
 []\OT1/ptm/m/n/12 Uma interpreta[][]ao $\OML/cmm/m/it/12 ^^S$ \OT1/ptm/m/n/12 c
 on-siste em um con-junto n[]ao vazio $\OT1/cmr/m/n/12 ^^A[]$ \OT1/ptm/m/n/12 (d
 om[]^^Pnio da
  []
 
-[7pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
-as been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.67 
-     ]
-Overfull \hbox (60.9527pt too wide) in paragraph at lines 70--92
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+ [2]
+Overfull \hbox (9.74437pt too wide) in paragraph at lines 70--92
  [] 
  []
 
@@ -629,29 +592,19 @@ Underfull \hbox (badness 1715) in paragraph at lines 99--100
 deu foram
  []
 
-[8pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+[3pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.103 \subsection{OWL Full}
-                           ]) (./capitulo-3/capitulo-3.tex
+l.100 
+      ]) (./capitulo-3/capitulo-3.tex [4pdfTeX warning (ext4): destination with
+ the same identifier (name{table.2}) has been already used, duplicate ignored
 
-LaTeX Warning: Citation `bibel:1982' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation `bibel:1993' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 9 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 9 undefined on input line 7.
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 9 undefined on input line 9.
-
-[9]
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.12 
+     ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 13.
@@ -660,130 +613,54 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 13.
 
-[10]
+[5]
+Underfull \hbox (badness 1112) in paragraph at lines 83--84
+[]\OT1/ptm/m/n/12 A pr[]oxima se[][]ao deste ar-tigo de-screve o al-go-ritmo qu
+e propo-mos para a
+ []
 
-LaTeX Warning: Citation `Otten:2011' on page 11 undefined on input line 81.
-
+[6]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 105.
-[11]
+put line 122.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 129.
 
-LaTeX Warning: Citation `Gamma:1995' on page 12 undefined on input line 140.
+ (/usr/local/texlive/2010/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 129.
 
-[12]
 Underfull \hbox (badness 2197) in paragraph at lines 142--144
 []\OT1/ptm/m/n/12 Uma pilha chamada \OT1/ptm/m/it/12 ex-pres-sions[]stack []\OT
 1/ptm/m/n/12 e us-ada no m[]etodo pois em uma
  []
 
-[13]
-
-LaTeX Warning: Citation `Freitas:2010' on page 14 undefined on input line 290.
-
-[14] [15]
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 327.
-
-
-Overfull \hbox (53.28311pt too wide) detected at line 335
-[]
- []
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 16 undefined on input line 351.
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 16 undefined on input line 356.
-
-[16]
+[7]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 358.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 385.
+ [8]) (./conclusao/conclusao.tex [9]) (./sbc-template.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 65.
+ [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 65.
 
-
-LaTeX Warning: Citation `Freitas:2010' on page 17 undefined on input line 388.
-
-<../imagens/normalize.png, id=322, 497.86pt x 157.58875pt>
-File: ../imagens/normalize.png Graphic file (type png)
-
-<use ../imagens/normalize.png>
-Package pdftex.def Info: ../imagens/normalize.png used on input line 393.
-(pdftex.def)             Requested size: 348.49962pt x 110.31136pt.
-LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 394.
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 394.
-
-<../imagens/normalizelhs.png, id=323, 746.79pt x 781.92125pt>
-File: ../imagens/normalizelhs.png Graphic file (type png)
-
-<use ../imagens/normalizelhs.png>
-Package pdftex.def Info: ../imagens/normalizelhs.png used on input line 399.
-(pdftex.def)             Requested size: 388.33302pt x 406.6014pt.
-
-<../imagens/normalizerhs.png, id=324, 734.745pt x 869.2475pt>
-File: ../imagens/normalizerhs.png Graphic file (type png)
-
-<use ../imagens/normalizerhs.png>
-Package pdftex.def Info: ../imagens/normalizerhs.png used on input line 405.
-(pdftex.def)             Requested size: 382.0696pt x 452.0113pt.
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 17 undefined on input line 410.
-
-) (./conclusao/conclusao.tex [17] [18pdfTeX warning (ext4): destination with th
-e same identifier (name{figure.3}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.7 
-    pdfTeX warning (ext4): destination with the same identifier (name{figure.4}
-) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.7 
-     <../imagens/normalize.png (PNG copy)> <../imagens/normalizelhs.png (PNG co
-py)>] [19pdfTeX warning (ext4): destination with the same identifier (name{figu
-re.5}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.7 
-     <../imagens/normalizerhs.png (PNG copy)>]
-
-LaTeX Warning: Citation `Freitas:2010' on page 20 undefined on input line 10.
-
-
-LaTeX Warning: Citation `Freitas:2010' on page 20 undefined on input line 10.
-
-) (./sbc-template.bbl [20])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
- [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 64.
- (./sbc-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 64.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 64.
+(./sbc-template.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 65.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 65.
 Package rerunfilecheck Info: File `sbc-template.out' has not changed.
-(rerunfilecheck)             Checksum: 93AA4380DD42ED5103638F878E6B276C;1713.
+(rerunfilecheck)             Checksum: F53C099EF5DBFF092EB404F13865AB76;653.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 64.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 65.
  ) 
 Here is how much of TeX's memory you used:
- 8076 strings out of 493763
- 116527 string characters out of 3144954
- 222284 words of memory out of 3000000
- 11037 multiletter control sequences out of 15000+200000
- 39513 words of font info for 96 fonts, out of 3000000 for 9000
+ 7973 strings out of 493763
+ 114967 string characters out of 3144954
+ 220594 words of memory out of 3000000
+ 11016 multiletter control sequences out of 15000+200000
+ 39814 words of font info for 98 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  30i,12n,32p,1151b,572s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -792,21 +669,20 @@ xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
 live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texl
 ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texliv
 e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texliv
-e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
-2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/20
-10/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2010/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2010/tex
-mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2010/texmf-dist/
-fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/t
-ype1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/u
-rw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/u
-tmbi8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
-></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (21 pages, 536152 bytes).
+e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/201
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2010/t
+exmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2010/texmf-dis
+t/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts
+/type1/urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw
+/times/utmbi8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/ut
+mr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+
+Output written on sbc-template.pdf (10 pages, 202557 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 393 compressed objects within 4 object streams
- 161 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 226 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

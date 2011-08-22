@@ -1,24 +1,9 @@
-\BOOKMARK [1][-]{section.1}{Introdu\347\343o}{}% 1
-\BOOKMARK [1][-]{section.2}{Web Sem\342ntica}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Aplica\347\365es}{section.2}% 3
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Gerenciamento de Conhecimento}{subsection.2.1}% 4
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Com\351rcio eletr\364nico Business to Consumer \(B2C\)}{subsection.2.1}% 5
-\BOOKMARK [3][-]{subsubsection.2.1.3}{Com\351rcio eletr\364nico Business to Business \(B2B\) e agentes pessoais}{subsection.2.1}% 6
-\BOOKMARK [2][-]{subsection.2.2}{Tecnologias}{section.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.2.1}{Metadados Expl\355citos}{subsection.2.2}% 8
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Ontologias}{subsection.2.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.2.3}{L\363gica}{subsection.2.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.2.4}{Agentes}{subsection.2.2}% 11
-\BOOKMARK [1][-]{section.3}{Organiza\347\343o da Monografia}{}% 12
-\BOOKMARK [1][-]{section.4}{L\363gica de Descri\347\343o ALC}{}% 13
-\BOOKMARK [1][-]{section.5}{Sintaxe da L\363gica de Descri\347\343o}{}% 14
-\BOOKMARK [1][-]{section.6}{OWL: Web Ontology Language}{}% 15
-\BOOKMARK [2][-]{subsection.6.1}{OWL Full}{section.6}% 16
-\BOOKMARK [2][-]{subsection.6.2}{OWL DL}{section.6}% 17
-\BOOKMARK [2][-]{subsection.6.3}{OWL Lite}{section.6}% 18
-\BOOKMARK [1][-]{section.7}{Normaliza\347\343o para o m\351todo das conex\365es}{}% 19
-\BOOKMARK [1][-]{section.8}{Tradu\347\343o de ontologias ALC para forma normal disjuntiva}{}% 20
-\BOOKMARK [2][-]{subsection.8.1}{Algoritmo Proposto}{section.8}% 21
-\BOOKMARK [2][-]{subsection.8.2}{Algoritmo Original}{section.8}% 22
-\BOOKMARK [1][-]{section.9}{Conclus\343o}{}% 23
-\BOOKMARK [1][-]{section.10}{Trabalhos futuros}{}% 24
+\BOOKMARK [1][-]{section.1}{Web Sem\342ntica}{}% 1
+\BOOKMARK [1][-]{section.2}{L\363gica de Descri\347\343o ALC}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Sintaxe da L\363gica de Descri\347\343o}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{OWL: Web Ontology Language}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Normaliza\347\343o para o m\351todo das conex\365es}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Tradu\347\343o de ontologias ALC para forma normal disjuntiva}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Algoritmo Proposto}{subsection.3.1}% 7
+\BOOKMARK [1][-]{section.4}{Conclus\343o}{}% 8
+\BOOKMARK [1][-]{section.5}{Trabalhos futuros}{}% 9

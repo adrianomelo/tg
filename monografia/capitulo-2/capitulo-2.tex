@@ -8,7 +8,7 @@ A motivação para estudar lógica de descrição neste trabalho vem da Web Semântica
 
 %A Web Ontology Language (OWL) é a linguagem de ontologias baseada em lógica de descrição especificada pela W3C que dará esse passo evolutivo à Web em direção à Web Semântica.
 
-\section{Sintaxe da Lógica de Descrição}
+\subsection{Sintaxe da Lógica de Descrição}
 Nessa seção será mostrada a sintaxe básica da lógica de descrição. A tabela 2.1 mostra o alfabeto de símbolos usado pela linguagem.
 
 \begin{table}
@@ -34,17 +34,17 @@ $\equiv$ & equivalência \\ \hline
 
 Os elementos mais básicos são os conceitos atômicos e propriedades atômicas. Descrições de conceitos podem ser construídas indutivamente a partir dos construtores com conceitos e propriedades.
 
-\begin{center}
-\begin{tabular}{ l l l }
-$ C, D \rightarrow$ 	& $A$ | 			& (conceito atômico) \\
- 				& $\top$ |		& (conceito universal) \\
- 				& $\bot$ |		& (conceito vazio) \\
- 				& $\neg A$ |	& (negação de conceito atômico) \\
- 				& $C \sqcap D$ |	& (interseção de conceitos) \\
- 				& $\forall R.C$ |	& (restrição de valor) \\
- 				& $\exists R.\top$	& (restrição existencial) \\
-\end{tabular}
-\end{center}
+%\begin{center}
+%\begin{tabular}{ l l l }
+%$ C, D \rightarrow$ 	& $A$ | 			& (conceito atômico) \\
+%% 				& $\top$ |		& (conceito universal) \\
+% 				& $\bot$ |		& (conceito vazio) \\
+% 				& $\neg A$ |	& (negação de conceito atômico) \\
+% 				& $C \sqcap D$ |	& (interseção de conceitos) \\
+% 				& $\forall R.C$ |	& (restrição de valor) \\
+% 				& $\exists R.\top$	& (restrição existencial) \\
+%\end{tabular}
+%\end{center}
 
 Uma interpretação $\iota$ consiste em um conjunto não vazio $\Delta^\iota$ (domínio da interpretação) e uma função de interpretação, que para conceito atômico $A$ é o conjunto $A^\iota \subseteq \Delta^\iota$ e para cada propriedade atômica $R$ é a relação binária $R^\iota \subseteq \Delta^\iota \times \Delta^\iota$. As funções de interpretação se estendem a descrição de conceitos a partir das definições indutivas \cite{dlhandbook:2003} como as que estão abaixo:
 
@@ -84,9 +84,9 @@ Restrição & $\geq n R$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b
 numérica & $\leq n R$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota \} | \leq n\}$ & $N$ \\ 
 não qualificada & $= n R$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota \} | = n\}$ & \\ \hline
 
-Restrição & $\geq n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota \land b \in C^\iota \} | \geq n\}$ & \\ 
-numérica & $\leq n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota  \land b \in C^\iota \} | \leq n\}$ & $Q$ \\ 
-qualificada & $= n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota  \land b \in C^\iota \} | = n\}$ & \\ \hline
+%Restrição & $\geq n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota \land b \in C^\iota \} | \geq n\}$ & \\ 
+%numérica & $\leq n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota  \land b \in C^\iota \} | \leq n\}$ & $Q$ \\ 
+%qualificada & $= n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, b) \in R^\iota  \land b \in C^\iota \} | = n\}$ & \\ \hline
 
 \end{tabular}
 \end{center}
@@ -94,27 +94,26 @@ qualificada & $= n R.C$ & $\{ a \in \Delta^\iota || \{ b \in \Delta^\iota | (a, 
 \end{table}
 
 
-\section{OWL: Web Ontology Language}
+\subsection{OWL: Web Ontology Language}
 
 A \textit{Web Ontology Language}, OWL, foi escolhida pela w3c \footnote{sitio oficial: http://w3.org}, grupo que regula os padrões na Web, como a linguagem de descrição de ontologias para a Web Semântica \cite{Heflin:2004}. Alguns dos requisitos que ela atendeu foram \cite{Antoniou:2008}: i) sintaxe bem definida; Como o objetivo da Web Semântica é tornar os documentos da Web mais fáceis de serem processados por máquinas, este é um requisito básico. ii) semântica formal; Descrever a base de conhecimento de forma logicamente precisa é fundamental para fazer inferências como dedução de conceitos, checagem de consistência na base de conhecimento e instanciação de indivíduos a uma classe. iii) suporte a raciocínio; Uma vez que a linguagem possui uma semântica formal, atividades de raciocínio podem ser realizadas. iv) expressividade; alguns domínios precisam de construtos mais elaborados para que possam ser descritos. Quanto maior a expressividade da linguagem, naturalmente fica mais fácil de descrever um domínio, apesar de aumentar a complexidade e tempo de processamento.
 
-Entre os requisitos citados no parágrafo anterior estão expressividade e suporte a raciocínio. Apesar de ambos poderem estar na linguagem, são antagônicos, quanto maior for a expressividade da linguagem, mais complexas e demoradas serão as atividades de raciocínio sobre a linguagem. Para criar fronteiras nesse conflito entre expressividade e complexidade de raciocínio, a w3c criou três versões de OWL: OWL Full, OWL DL e OWL Lite.
+%Entre os requisitos citados no parágrafo anterior estão expressividade e suporte a raciocínio. Apesar de ambos poderem estar na linguagem, são antagônicos, quanto maior for a expressividade da linguagem, mais complexas e demoradas serão as atividades de raciocínio sobre a linguagem. Para criar fronteiras nesse conflito entre expressividade e complexidade de raciocínio, a w3c criou três versões de OWL: OWL Full, OWL DL e OWL Lite.
 
-\subsection{OWL Full}
+\begin{comment}
+
+\subsubsection{OWL Full}
 
 A Web Ontology Language em sua versão mais expressiva, usando todas as primitivas da linguagem, é chamada de OWL Full. Essa combinação inclui, por exemplo, aplicar uma restrição de cardinalidade na classe que contém todas as outras classes, limitando a quantidade de classes que a ontologia pode ter.
 
 OWL Full é completamente compatível com RDF, tanto sintaticamente, quanto em sua semântica. A desvantagem de OWL Full é que ela é tão poderosa que é indecidível em relação às atividades de raciocínio.
 
-\subsection{OWL DL}
+\subsubsection{OWL DL}
 
 OWL DL (DL é a sigla para \textit{Description Logic}, Lógica de Descrição em português) é a família de OWL que corresponde à lógica de Descrição. A sua grande vantagem é que ela é decidível, dando a possibilidade de realização de atividades de raciocínio de forma mais eficiente. A desvantagem de OWL DL é que ela perde a compatibilidade com RDF, qualquer documento em OWL DL pode ser descrito como um documento em RDF, mas o contrário não é verdade.
 
-\subsection{OWL Lite}
+\subsubsection{OWL Lite}
 
 OWL Lite é uma família de OWL que é mais limitada do que OWL Full e OWL DL. Ela não dá suporte a, por exemplo, disjunção entre classes, união e complemento. A grande vantagem dessa linguagem é uma maior facilidade para o desenvolvimento de ferramentas, e a sua desvantagem é a perda de expressividade.
 
-\vspace{2 cm}
-
-\noindent
-
+\end{comment}
